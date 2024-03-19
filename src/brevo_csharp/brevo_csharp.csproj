@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>brevo_csharp</AssemblyName>
+    <PackageId>brevo_csharp</PackageId>
+    <OutputType>Library</OutputType>
+    <Authors>Brevo Developers</Authors>
+    <Company>Brevo</Company>
+    <AssemblyTitle>Swagger Library</AssemblyTitle>
+    <Description>Official Brevo provided RESTFul API V3 C# Library</Description>
+    <Copyright>Copyright (c) 2024 Brevo</Copyright>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <RootNamespace>brevo_csharp</RootNamespace>
+    <Version>1.0.0</Version>
+    <PackageLicenseUrl>https://github.com/getbrevo/brevo-csharp/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/getbrevo/brevo-csharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/getbrevo/brevo-csharp</RepositoryUrl>
+    <PackageTags>brevo, sdk, swagger, api, csharp, .net, c#</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FubarCoder.RestSharp.Portable.Core" Version="4.0.8" />
+    <PackageReference Include="FubarCoder.RestSharp.Portable.HttpClient" Version="4.0.8" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="JsonSubTypes" Version="2.0.1" />
+  </ItemGroup>
+
+
+</Project>
