@@ -21,130 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ITransactionalWhatsAppApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Get all your WhatsApp activity (unaggregated events)
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the unaggregated statistics for WhatsApp activity (30 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; or &#x60;days&#x60; is not passed. The date range can not exceed 90 days)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number limitation for the result returned (optional, default to 2500)</param>
-        /// <param name="offset">Beginning point in the list to retrieve from (optional, default to 0)</param>
-        /// <param name="startDate">**Mandatory if endDate is used.** Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate  (optional)</param>
-        /// <param name="endDate">**Mandatory if startDate is used.** Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate  (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). _Not compatible with &#39;startDate&#39; and &#39;endDate&#39;_  (optional)</param>
-        /// <param name="contactNumber">Filter results for specific contact (WhatsApp Number with country code. Example, 85264318721) (optional)</param>
-        /// <param name="_event">Filter the report for a specific event type (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>GetWhatsappEventReport</returns>
-        GetWhatsappEventReport GetWhatsappEventReport (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string contactNumber = null, string _event = null, string sort = null);
-
-        /// <summary>
-        /// Get all your WhatsApp activity (unaggregated events)
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the unaggregated statistics for WhatsApp activity (30 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; or &#x60;days&#x60; is not passed. The date range can not exceed 90 days)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number limitation for the result returned (optional, default to 2500)</param>
-        /// <param name="offset">Beginning point in the list to retrieve from (optional, default to 0)</param>
-        /// <param name="startDate">**Mandatory if endDate is used.** Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate  (optional)</param>
-        /// <param name="endDate">**Mandatory if startDate is used.** Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate  (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). _Not compatible with &#39;startDate&#39; and &#39;endDate&#39;_  (optional)</param>
-        /// <param name="contactNumber">Filter results for specific contact (WhatsApp Number with country code. Example, 85264318721) (optional)</param>
-        /// <param name="_event">Filter the report for a specific event type (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>ApiResponse of GetWhatsappEventReport</returns>
-        ApiResponse<GetWhatsappEventReport> GetWhatsappEventReportWithHttpInfo (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string contactNumber = null, string _event = null, string sort = null);
-        /// <summary>
-        /// Send a WhatsApp message
-        /// </summary>
-        /// <remarks>
-        /// This endpoint is used to send a WhatsApp message. &lt;br/&gt;(**The first message you send using the API must contain a Template ID. You must create a template on WhatsApp on the Brevo platform to fetch the Template ID.**)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendWhatsappMessage">Values to send WhatsApp message</param>
-        /// <returns>InlineResponse2014</returns>
-        InlineResponse2014 SendWhatsappMessage (SendWhatsappMessage sendWhatsappMessage);
-
-        /// <summary>
-        /// Send a WhatsApp message
-        /// </summary>
-        /// <remarks>
-        /// This endpoint is used to send a WhatsApp message. &lt;br/&gt;(**The first message you send using the API must contain a Template ID. You must create a template on WhatsApp on the Brevo platform to fetch the Template ID.**)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendWhatsappMessage">Values to send WhatsApp message</param>
-        /// <returns>ApiResponse of InlineResponse2014</returns>
-        ApiResponse<InlineResponse2014> SendWhatsappMessageWithHttpInfo (SendWhatsappMessage sendWhatsappMessage);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Get all your WhatsApp activity (unaggregated events)
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the unaggregated statistics for WhatsApp activity (30 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; or &#x60;days&#x60; is not passed. The date range can not exceed 90 days)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number limitation for the result returned (optional, default to 2500)</param>
-        /// <param name="offset">Beginning point in the list to retrieve from (optional, default to 0)</param>
-        /// <param name="startDate">**Mandatory if endDate is used.** Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate  (optional)</param>
-        /// <param name="endDate">**Mandatory if startDate is used.** Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate  (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). _Not compatible with &#39;startDate&#39; and &#39;endDate&#39;_  (optional)</param>
-        /// <param name="contactNumber">Filter results for specific contact (WhatsApp Number with country code. Example, 85264318721) (optional)</param>
-        /// <param name="_event">Filter the report for a specific event type (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of GetWhatsappEventReport</returns>
-        System.Threading.Tasks.Task<GetWhatsappEventReport> GetWhatsappEventReportAsync (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string contactNumber = null, string _event = null, string sort = null);
-
-        /// <summary>
-        /// Get all your WhatsApp activity (unaggregated events)
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the unaggregated statistics for WhatsApp activity (30 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; or &#x60;days&#x60; is not passed. The date range can not exceed 90 days)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number limitation for the result returned (optional, default to 2500)</param>
-        /// <param name="offset">Beginning point in the list to retrieve from (optional, default to 0)</param>
-        /// <param name="startDate">**Mandatory if endDate is used.** Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate  (optional)</param>
-        /// <param name="endDate">**Mandatory if startDate is used.** Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate  (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). _Not compatible with &#39;startDate&#39; and &#39;endDate&#39;_  (optional)</param>
-        /// <param name="contactNumber">Filter results for specific contact (WhatsApp Number with country code. Example, 85264318721) (optional)</param>
-        /// <param name="_event">Filter the report for a specific event type (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (GetWhatsappEventReport)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetWhatsappEventReport>> GetWhatsappEventReportAsyncWithHttpInfo (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string contactNumber = null, string _event = null, string sort = null);
-        /// <summary>
-        /// Send a WhatsApp message
-        /// </summary>
-        /// <remarks>
-        /// This endpoint is used to send a WhatsApp message. &lt;br/&gt;(**The first message you send using the API must contain a Template ID. You must create a template on WhatsApp on the Brevo platform to fetch the Template ID.**)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendWhatsappMessage">Values to send WhatsApp message</param>
-        /// <returns>Task of InlineResponse2014</returns>
-        System.Threading.Tasks.Task<InlineResponse2014> SendWhatsappMessageAsync (SendWhatsappMessage sendWhatsappMessage);
-
-        /// <summary>
-        /// Send a WhatsApp message
-        /// </summary>
-        /// <remarks>
-        /// This endpoint is used to send a WhatsApp message. &lt;br/&gt;(**The first message you send using the API must contain a Template ID. You must create a template on WhatsApp on the Brevo platform to fetch the Template ID.**)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendWhatsappMessage">Values to send WhatsApp message</param>
-        /// <returns>Task of ApiResponse (InlineResponse2014)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2014>> SendWhatsappMessageAsyncWithHttpInfo (SendWhatsappMessage sendWhatsappMessage);
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class TransactionalWhatsAppApi : ITransactionalWhatsAppApi
+    public partial class TransactionalWhatsAppApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -251,9 +128,9 @@ namespace brevo_csharp.Api
         /// <param name="_event">Filter the report for a specific event type (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>GetWhatsappEventReport</returns>
-        public GetWhatsappEventReport GetWhatsappEventReport (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string contactNumber = null, string _event = null, string sort = null)
+        public GetWhatsappEventReport GetWhatsappEventReport (string apiKey, string partnerKey, long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string contactNumber = null, string _event = null, string sort = null)
         {
-             ApiResponse<GetWhatsappEventReport> localVarResponse = GetWhatsappEventReportWithHttpInfo(limit, offset, startDate, endDate, days, contactNumber, _event, sort);
+             ApiResponse<GetWhatsappEventReport> localVarResponse = GetWhatsappEventReportWithHttpInfo(apiKey, partnerKey, limit, offset, startDate, endDate, days, contactNumber, _event, sort);
              return localVarResponse.Data;
         }
 
@@ -270,7 +147,7 @@ namespace brevo_csharp.Api
         /// <param name="_event">Filter the report for a specific event type (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>ApiResponse of GetWhatsappEventReport</returns>
-        public ApiResponse< GetWhatsappEventReport > GetWhatsappEventReportWithHttpInfo (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string contactNumber = null, string _event = null, string sort = null)
+        public ApiResponse< GetWhatsappEventReport > GetWhatsappEventReportWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string contactNumber = null, string _event = null, string sort = null)
         {
 
             var localVarPath = "./whatsapp/statistics/events";
@@ -305,14 +182,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -346,9 +223,9 @@ namespace brevo_csharp.Api
         /// <param name="_event">Filter the report for a specific event type (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of GetWhatsappEventReport</returns>
-        public async System.Threading.Tasks.Task<GetWhatsappEventReport> GetWhatsappEventReportAsync (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string contactNumber = null, string _event = null, string sort = null)
+        public async System.Threading.Tasks.Task<GetWhatsappEventReport> GetWhatsappEventReportAsync (string apiKey, string partnerKey, long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string contactNumber = null, string _event = null, string sort = null)
         {
-             ApiResponse<GetWhatsappEventReport> localVarResponse = await GetWhatsappEventReportAsyncWithHttpInfo(limit, offset, startDate, endDate, days, contactNumber, _event, sort);
+             ApiResponse<GetWhatsappEventReport> localVarResponse = await GetWhatsappEventReportAsyncWithHttpInfo(apiKey, partnerKey, limit, offset, startDate, endDate, days, contactNumber, _event, sort);
              return localVarResponse.Data;
 
         }
@@ -366,7 +243,7 @@ namespace brevo_csharp.Api
         /// <param name="_event">Filter the report for a specific event type (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetWhatsappEventReport)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetWhatsappEventReport>> GetWhatsappEventReportAsyncWithHttpInfo (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string contactNumber = null, string _event = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetWhatsappEventReport>> GetWhatsappEventReportAsyncWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string contactNumber = null, string _event = null, string sort = null)
         {
 
             var localVarPath = "./whatsapp/statistics/events";
@@ -401,14 +278,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -435,9 +312,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendWhatsappMessage">Values to send WhatsApp message</param>
         /// <returns>InlineResponse2014</returns>
-        public InlineResponse2014 SendWhatsappMessage (SendWhatsappMessage sendWhatsappMessage)
+        public InlineResponse2014 SendWhatsappMessage (string apiKey, string partnerKey, SendWhatsappMessage sendWhatsappMessage)
         {
-             ApiResponse<InlineResponse2014> localVarResponse = SendWhatsappMessageWithHttpInfo(sendWhatsappMessage);
+             ApiResponse<InlineResponse2014> localVarResponse = SendWhatsappMessageWithHttpInfo(apiKey, partnerKey, sendWhatsappMessage);
              return localVarResponse.Data;
         }
 
@@ -447,7 +324,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendWhatsappMessage">Values to send WhatsApp message</param>
         /// <returns>ApiResponse of InlineResponse2014</returns>
-        public ApiResponse< InlineResponse2014 > SendWhatsappMessageWithHttpInfo (SendWhatsappMessage sendWhatsappMessage)
+        public ApiResponse< InlineResponse2014 > SendWhatsappMessageWithHttpInfo (string apiKey, string partnerKey, SendWhatsappMessage sendWhatsappMessage)
         {
             // verify the required parameter 'sendWhatsappMessage' is set
             if (sendWhatsappMessage == null)
@@ -485,14 +362,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -519,9 +396,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendWhatsappMessage">Values to send WhatsApp message</param>
         /// <returns>Task of InlineResponse2014</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2014> SendWhatsappMessageAsync (SendWhatsappMessage sendWhatsappMessage)
+        public async System.Threading.Tasks.Task<InlineResponse2014> SendWhatsappMessageAsync (string apiKey, string partnerKey, SendWhatsappMessage sendWhatsappMessage)
         {
-             ApiResponse<InlineResponse2014> localVarResponse = await SendWhatsappMessageAsyncWithHttpInfo(sendWhatsappMessage);
+             ApiResponse<InlineResponse2014> localVarResponse = await SendWhatsappMessageAsyncWithHttpInfo(apiKey, partnerKey, sendWhatsappMessage);
              return localVarResponse.Data;
 
         }
@@ -532,7 +409,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendWhatsappMessage">Values to send WhatsApp message</param>
         /// <returns>Task of ApiResponse (InlineResponse2014)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2014>> SendWhatsappMessageAsyncWithHttpInfo (SendWhatsappMessage sendWhatsappMessage)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2014>> SendWhatsappMessageAsyncWithHttpInfo (string apiKey, string partnerKey, SendWhatsappMessage sendWhatsappMessage)
         {
             // verify the required parameter 'sendWhatsappMessage' is set
             if (sendWhatsappMessage == null)
@@ -570,14 +447,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

@@ -21,164 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IInboundParsingApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Retrieve inbound attachment with download token.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will retrieve inbound attachment with download token.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="downloadToken">Token to fetch a particular attachment</param>
-        /// <returns>System.IO.Stream</returns>
-        System.IO.Stream GetInboundEmailAttachment (string downloadToken);
-
-        /// <summary>
-        /// Retrieve inbound attachment with download token.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will retrieve inbound attachment with download token.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="downloadToken">Token to fetch a particular attachment</param>
-        /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> GetInboundEmailAttachmentWithHttpInfo (string downloadToken);
-        /// <summary>
-        /// Get the list of all the events for the received emails.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the list of all the events for the received emails.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sender">Email address of the sender. (optional)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss.SSSZ) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss.SSSZ) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 100)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation (optional, default to desc)</param>
-        /// <returns>GetInboundEmailEvents</returns>
-        GetInboundEmailEvents GetInboundEmailEvents (string sender = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null);
-
-        /// <summary>
-        /// Get the list of all the events for the received emails.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the list of all the events for the received emails.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sender">Email address of the sender. (optional)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss.SSSZ) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss.SSSZ) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 100)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation (optional, default to desc)</param>
-        /// <returns>ApiResponse of GetInboundEmailEvents</returns>
-        ApiResponse<GetInboundEmailEvents> GetInboundEmailEventsWithHttpInfo (string sender = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null);
-        /// <summary>
-        /// Fetch all events history for one particular received email.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the list of all events history for one particular received email.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">UUID to fetch events specific to recieved email</param>
-        /// <returns>GetInboundEmailEventsByUuid</returns>
-        GetInboundEmailEventsByUuid GetInboundEmailEventsByUuid (string uuid);
-
-        /// <summary>
-        /// Fetch all events history for one particular received email.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the list of all events history for one particular received email.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">UUID to fetch events specific to recieved email</param>
-        /// <returns>ApiResponse of GetInboundEmailEventsByUuid</returns>
-        ApiResponse<GetInboundEmailEventsByUuid> GetInboundEmailEventsByUuidWithHttpInfo (string uuid);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Retrieve inbound attachment with download token.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will retrieve inbound attachment with download token.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="downloadToken">Token to fetch a particular attachment</param>
-        /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> GetInboundEmailAttachmentAsync (string downloadToken);
-
-        /// <summary>
-        /// Retrieve inbound attachment with download token.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will retrieve inbound attachment with download token.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="downloadToken">Token to fetch a particular attachment</param>
-        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetInboundEmailAttachmentAsyncWithHttpInfo (string downloadToken);
-        /// <summary>
-        /// Get the list of all the events for the received emails.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the list of all the events for the received emails.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sender">Email address of the sender. (optional)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss.SSSZ) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss.SSSZ) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 100)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation (optional, default to desc)</param>
-        /// <returns>Task of GetInboundEmailEvents</returns>
-        System.Threading.Tasks.Task<GetInboundEmailEvents> GetInboundEmailEventsAsync (string sender = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null);
-
-        /// <summary>
-        /// Get the list of all the events for the received emails.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the list of all the events for the received emails.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sender">Email address of the sender. (optional)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss.SSSZ) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss.SSSZ) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 100)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (GetInboundEmailEvents)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetInboundEmailEvents>> GetInboundEmailEventsAsyncWithHttpInfo (string sender = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null);
-        /// <summary>
-        /// Fetch all events history for one particular received email.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the list of all events history for one particular received email.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">UUID to fetch events specific to recieved email</param>
-        /// <returns>Task of GetInboundEmailEventsByUuid</returns>
-        System.Threading.Tasks.Task<GetInboundEmailEventsByUuid> GetInboundEmailEventsByUuidAsync (string uuid);
-
-        /// <summary>
-        /// Fetch all events history for one particular received email.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the list of all events history for one particular received email.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">UUID to fetch events specific to recieved email</param>
-        /// <returns>Task of ApiResponse (GetInboundEmailEventsByUuid)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetInboundEmailEventsByUuid>> GetInboundEmailEventsByUuidAsyncWithHttpInfo (string uuid);
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class InboundParsingApi : IInboundParsingApi
+    public partial class InboundParsingApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -278,9 +121,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="downloadToken">Token to fetch a particular attachment</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream GetInboundEmailAttachment (string downloadToken)
+        public System.IO.Stream GetInboundEmailAttachment (string apiKey, string partnerKey, string downloadToken)
         {
-             ApiResponse<System.IO.Stream> localVarResponse = GetInboundEmailAttachmentWithHttpInfo(downloadToken);
+             ApiResponse<System.IO.Stream> localVarResponse = GetInboundEmailAttachmentWithHttpInfo(apiKey, partnerKey, downloadToken);
              return localVarResponse.Data;
         }
 
@@ -290,7 +133,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="downloadToken">Token to fetch a particular attachment</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public ApiResponse< System.IO.Stream > GetInboundEmailAttachmentWithHttpInfo (string downloadToken)
+        public ApiResponse< System.IO.Stream > GetInboundEmailAttachmentWithHttpInfo (string apiKey, string partnerKey, string downloadToken)
         {
             // verify the required parameter 'downloadToken' is set
             if (downloadToken == null)
@@ -321,14 +164,14 @@ namespace brevo_csharp.Api
             if (downloadToken != null) localVarPathParams.Add("downloadToken", this.Configuration.ApiClient.ParameterToString(downloadToken)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -355,9 +198,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="downloadToken">Token to fetch a particular attachment</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> GetInboundEmailAttachmentAsync (string downloadToken)
+        public async System.Threading.Tasks.Task<System.IO.Stream> GetInboundEmailAttachmentAsync (string apiKey, string partnerKey, string downloadToken)
         {
-             ApiResponse<System.IO.Stream> localVarResponse = await GetInboundEmailAttachmentAsyncWithHttpInfo(downloadToken);
+             ApiResponse<System.IO.Stream> localVarResponse = await GetInboundEmailAttachmentAsyncWithHttpInfo(apiKey, partnerKey, downloadToken);
              return localVarResponse.Data;
 
         }
@@ -368,7 +211,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="downloadToken">Token to fetch a particular attachment</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetInboundEmailAttachmentAsyncWithHttpInfo (string downloadToken)
+        public async System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetInboundEmailAttachmentAsyncWithHttpInfo (string apiKey, string partnerKey, string downloadToken)
         {
             // verify the required parameter 'downloadToken' is set
             if (downloadToken == null)
@@ -399,14 +242,14 @@ namespace brevo_csharp.Api
             if (downloadToken != null) localVarPathParams.Add("downloadToken", this.Configuration.ApiClient.ParameterToString(downloadToken)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -438,9 +281,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation (optional, default to desc)</param>
         /// <returns>GetInboundEmailEvents</returns>
-        public GetInboundEmailEvents GetInboundEmailEvents (string sender = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null)
+        public GetInboundEmailEvents GetInboundEmailEvents (string apiKey, string partnerKey, string sender = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null)
         {
-             ApiResponse<GetInboundEmailEvents> localVarResponse = GetInboundEmailEventsWithHttpInfo(sender, startDate, endDate, limit, offset, sort);
+             ApiResponse<GetInboundEmailEvents> localVarResponse = GetInboundEmailEventsWithHttpInfo(apiKey, partnerKey, sender, startDate, endDate, limit, offset, sort);
              return localVarResponse.Data;
         }
 
@@ -455,7 +298,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation (optional, default to desc)</param>
         /// <returns>ApiResponse of GetInboundEmailEvents</returns>
-        public ApiResponse< GetInboundEmailEvents > GetInboundEmailEventsWithHttpInfo (string sender = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null)
+        public ApiResponse< GetInboundEmailEvents > GetInboundEmailEventsWithHttpInfo (string apiKey, string partnerKey, string sender = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null)
         {
 
             var localVarPath = "./inbound/events";
@@ -488,14 +331,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -527,9 +370,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation (optional, default to desc)</param>
         /// <returns>Task of GetInboundEmailEvents</returns>
-        public async System.Threading.Tasks.Task<GetInboundEmailEvents> GetInboundEmailEventsAsync (string sender = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<GetInboundEmailEvents> GetInboundEmailEventsAsync (string apiKey, string partnerKey, string sender = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null)
         {
-             ApiResponse<GetInboundEmailEvents> localVarResponse = await GetInboundEmailEventsAsyncWithHttpInfo(sender, startDate, endDate, limit, offset, sort);
+             ApiResponse<GetInboundEmailEvents> localVarResponse = await GetInboundEmailEventsAsyncWithHttpInfo(apiKey, partnerKey, sender, startDate, endDate, limit, offset, sort);
              return localVarResponse.Data;
 
         }
@@ -545,7 +388,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetInboundEmailEvents)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetInboundEmailEvents>> GetInboundEmailEventsAsyncWithHttpInfo (string sender = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetInboundEmailEvents>> GetInboundEmailEventsAsyncWithHttpInfo (string apiKey, string partnerKey, string sender = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null)
         {
 
             var localVarPath = "./inbound/events";
@@ -578,14 +421,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -612,9 +455,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">UUID to fetch events specific to recieved email</param>
         /// <returns>GetInboundEmailEventsByUuid</returns>
-        public GetInboundEmailEventsByUuid GetInboundEmailEventsByUuid (string uuid)
+        public GetInboundEmailEventsByUuid GetInboundEmailEventsByUuid (string apiKey, string partnerKey, string uuid)
         {
-             ApiResponse<GetInboundEmailEventsByUuid> localVarResponse = GetInboundEmailEventsByUuidWithHttpInfo(uuid);
+             ApiResponse<GetInboundEmailEventsByUuid> localVarResponse = GetInboundEmailEventsByUuidWithHttpInfo(apiKey, partnerKey, uuid);
              return localVarResponse.Data;
         }
 
@@ -624,7 +467,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">UUID to fetch events specific to recieved email</param>
         /// <returns>ApiResponse of GetInboundEmailEventsByUuid</returns>
-        public ApiResponse< GetInboundEmailEventsByUuid > GetInboundEmailEventsByUuidWithHttpInfo (string uuid)
+        public ApiResponse< GetInboundEmailEventsByUuid > GetInboundEmailEventsByUuidWithHttpInfo (string apiKey, string partnerKey, string uuid)
         {
             // verify the required parameter 'uuid' is set
             if (uuid == null)
@@ -655,14 +498,14 @@ namespace brevo_csharp.Api
             if (uuid != null) localVarPathParams.Add("uuid", this.Configuration.ApiClient.ParameterToString(uuid)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -689,9 +532,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">UUID to fetch events specific to recieved email</param>
         /// <returns>Task of GetInboundEmailEventsByUuid</returns>
-        public async System.Threading.Tasks.Task<GetInboundEmailEventsByUuid> GetInboundEmailEventsByUuidAsync (string uuid)
+        public async System.Threading.Tasks.Task<GetInboundEmailEventsByUuid> GetInboundEmailEventsByUuidAsync (string apiKey, string partnerKey, string uuid)
         {
-             ApiResponse<GetInboundEmailEventsByUuid> localVarResponse = await GetInboundEmailEventsByUuidAsyncWithHttpInfo(uuid);
+             ApiResponse<GetInboundEmailEventsByUuid> localVarResponse = await GetInboundEmailEventsByUuidAsyncWithHttpInfo(apiKey, partnerKey, uuid);
              return localVarResponse.Data;
 
         }
@@ -702,7 +545,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">UUID to fetch events specific to recieved email</param>
         /// <returns>Task of ApiResponse (GetInboundEmailEventsByUuid)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetInboundEmailEventsByUuid>> GetInboundEmailEventsByUuidAsyncWithHttpInfo (string uuid)
+        public async System.Threading.Tasks.Task<ApiResponse<GetInboundEmailEventsByUuid>> GetInboundEmailEventsByUuidAsyncWithHttpInfo (string apiKey, string partnerKey, string uuid)
         {
             // verify the required parameter 'uuid' is set
             if (uuid == null)
@@ -733,14 +576,14 @@ namespace brevo_csharp.Api
             if (uuid != null) localVarPathParams.Add("uuid", this.Configuration.ApiClient.ParameterToString(uuid)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

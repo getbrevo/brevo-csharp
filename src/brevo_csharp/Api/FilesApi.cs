@@ -21,264 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IFilesApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Get all files
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entity">Filter by file entity type (optional)</param>
-        /// <param name="entityIds">Filter by file entity IDs (optional)</param>
-        /// <param name="dateFrom">dateFrom to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="dateTo">dateTo to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
-        /// <returns>FileList</returns>
-        FileList CrmFilesGet (string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null);
-
-        /// <summary>
-        /// Get all files
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entity">Filter by file entity type (optional)</param>
-        /// <param name="entityIds">Filter by file entity IDs (optional)</param>
-        /// <param name="dateFrom">dateFrom to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="dateTo">dateTo to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
-        /// <returns>ApiResponse of FileList</returns>
-        ApiResponse<FileList> CrmFilesGetWithHttpInfo (string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null);
-        /// <summary>
-        /// Get file details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">File id to get file data.</param>
-        /// <returns>FileData</returns>
-        FileData CrmFilesIdDataGet (string id);
-
-        /// <summary>
-        /// Get file details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">File id to get file data.</param>
-        /// <returns>ApiResponse of FileData</returns>
-        ApiResponse<FileData> CrmFilesIdDataGetWithHttpInfo (string id);
-        /// <summary>
-        /// Delete a file
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">File id to delete.</param>
-        /// <returns></returns>
-        void CrmFilesIdDelete (string id);
-
-        /// <summary>
-        /// Delete a file
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">File id to delete.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CrmFilesIdDeleteWithHttpInfo (string id);
-        /// <summary>
-        /// Download a file
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">File id to download.</param>
-        /// <returns>FileDownloadableLink</returns>
-        FileDownloadableLink CrmFilesIdGet (string id);
-
-        /// <summary>
-        /// Download a file
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">File id to download.</param>
-        /// <returns>ApiResponse of FileDownloadableLink</returns>
-        ApiResponse<FileDownloadableLink> CrmFilesIdGetWithHttpInfo (string id);
-        /// <summary>
-        /// Upload a file
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="file">File data to create a file.</param>
-        /// <param name="dealId">Deal id linked to a file (optional)</param>
-        /// <param name="contactId">Contact id linked to a file (optional)</param>
-        /// <param name="companyId">Company id linked to a file (optional)</param>
-        /// <returns>FileData</returns>
-        FileData CrmFilesPost (System.IO.Stream file, string dealId = null, long? contactId = null, string companyId = null);
-
-        /// <summary>
-        /// Upload a file
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="file">File data to create a file.</param>
-        /// <param name="dealId">Deal id linked to a file (optional)</param>
-        /// <param name="contactId">Contact id linked to a file (optional)</param>
-        /// <param name="companyId">Company id linked to a file (optional)</param>
-        /// <returns>ApiResponse of FileData</returns>
-        ApiResponse<FileData> CrmFilesPostWithHttpInfo (System.IO.Stream file, string dealId = null, long? contactId = null, string companyId = null);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Get all files
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entity">Filter by file entity type (optional)</param>
-        /// <param name="entityIds">Filter by file entity IDs (optional)</param>
-        /// <param name="dateFrom">dateFrom to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="dateTo">dateTo to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
-        /// <returns>Task of FileList</returns>
-        System.Threading.Tasks.Task<FileList> CrmFilesGetAsync (string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null);
-
-        /// <summary>
-        /// Get all files
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entity">Filter by file entity type (optional)</param>
-        /// <param name="entityIds">Filter by file entity IDs (optional)</param>
-        /// <param name="dateFrom">dateFrom to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="dateTo">dateTo to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
-        /// <returns>Task of ApiResponse (FileList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileList>> CrmFilesGetAsyncWithHttpInfo (string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null);
-        /// <summary>
-        /// Get file details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">File id to get file data.</param>
-        /// <returns>Task of FileData</returns>
-        System.Threading.Tasks.Task<FileData> CrmFilesIdDataGetAsync (string id);
-
-        /// <summary>
-        /// Get file details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">File id to get file data.</param>
-        /// <returns>Task of ApiResponse (FileData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileData>> CrmFilesIdDataGetAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// Delete a file
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">File id to delete.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CrmFilesIdDeleteAsync (string id);
-
-        /// <summary>
-        /// Delete a file
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">File id to delete.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CrmFilesIdDeleteAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// Download a file
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">File id to download.</param>
-        /// <returns>Task of FileDownloadableLink</returns>
-        System.Threading.Tasks.Task<FileDownloadableLink> CrmFilesIdGetAsync (string id);
-
-        /// <summary>
-        /// Download a file
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">File id to download.</param>
-        /// <returns>Task of ApiResponse (FileDownloadableLink)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileDownloadableLink>> CrmFilesIdGetAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// Upload a file
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="file">File data to create a file.</param>
-        /// <param name="dealId">Deal id linked to a file (optional)</param>
-        /// <param name="contactId">Contact id linked to a file (optional)</param>
-        /// <param name="companyId">Company id linked to a file (optional)</param>
-        /// <returns>Task of FileData</returns>
-        System.Threading.Tasks.Task<FileData> CrmFilesPostAsync (System.IO.Stream file, string dealId = null, long? contactId = null, string companyId = null);
-
-        /// <summary>
-        /// Upload a file
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="file">File data to create a file.</param>
-        /// <param name="dealId">Deal id linked to a file (optional)</param>
-        /// <param name="contactId">Contact id linked to a file (optional)</param>
-        /// <param name="companyId">Company id linked to a file (optional)</param>
-        /// <returns>Task of ApiResponse (FileData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileData>> CrmFilesPostAsyncWithHttpInfo (System.IO.Stream file, string dealId = null, long? contactId = null, string companyId = null);
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class FilesApi : IFilesApi
+    public partial class FilesApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -384,9 +127,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <returns>FileList</returns>
-        public FileList CrmFilesGet (string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null)
+        public FileList CrmFilesGet (string apiKey, string partnerKey, string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null)
         {
-             ApiResponse<FileList> localVarResponse = CrmFilesGetWithHttpInfo(entity, entityIds, dateFrom, dateTo, offset, limit, sort);
+             ApiResponse<FileList> localVarResponse = CrmFilesGetWithHttpInfo(apiKey, partnerKey, entity, entityIds, dateFrom, dateTo, offset, limit, sort);
              return localVarResponse.Data;
         }
 
@@ -402,7 +145,7 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <returns>ApiResponse of FileList</returns>
-        public ApiResponse< FileList > CrmFilesGetWithHttpInfo (string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null)
+        public ApiResponse< FileList > CrmFilesGetWithHttpInfo (string apiKey, string partnerKey, string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null)
         {
 
             var localVarPath = "./crm/files";
@@ -436,14 +179,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -476,9 +219,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <returns>Task of FileList</returns>
-        public async System.Threading.Tasks.Task<FileList> CrmFilesGetAsync (string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null)
+        public async System.Threading.Tasks.Task<FileList> CrmFilesGetAsync (string apiKey, string partnerKey, string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null)
         {
-             ApiResponse<FileList> localVarResponse = await CrmFilesGetAsyncWithHttpInfo(entity, entityIds, dateFrom, dateTo, offset, limit, sort);
+             ApiResponse<FileList> localVarResponse = await CrmFilesGetAsyncWithHttpInfo(apiKey, partnerKey, entity, entityIds, dateFrom, dateTo, offset, limit, sort);
              return localVarResponse.Data;
 
         }
@@ -495,7 +238,7 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <returns>Task of ApiResponse (FileList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FileList>> CrmFilesGetAsyncWithHttpInfo (string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<FileList>> CrmFilesGetAsyncWithHttpInfo (string apiKey, string partnerKey, string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null)
         {
 
             var localVarPath = "./crm/files";
@@ -529,14 +272,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -563,9 +306,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">File id to get file data.</param>
         /// <returns>FileData</returns>
-        public FileData CrmFilesIdDataGet (string id)
+        public FileData CrmFilesIdDataGet (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<FileData> localVarResponse = CrmFilesIdDataGetWithHttpInfo(id);
+             ApiResponse<FileData> localVarResponse = CrmFilesIdDataGetWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
         }
 
@@ -575,7 +318,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">File id to get file data.</param>
         /// <returns>ApiResponse of FileData</returns>
-        public ApiResponse< FileData > CrmFilesIdDataGetWithHttpInfo (string id)
+        public ApiResponse< FileData > CrmFilesIdDataGetWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -606,14 +349,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -640,9 +383,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">File id to get file data.</param>
         /// <returns>Task of FileData</returns>
-        public async System.Threading.Tasks.Task<FileData> CrmFilesIdDataGetAsync (string id)
+        public async System.Threading.Tasks.Task<FileData> CrmFilesIdDataGetAsync (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<FileData> localVarResponse = await CrmFilesIdDataGetAsyncWithHttpInfo(id);
+             ApiResponse<FileData> localVarResponse = await CrmFilesIdDataGetAsyncWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
 
         }
@@ -653,7 +396,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">File id to get file data.</param>
         /// <returns>Task of ApiResponse (FileData)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FileData>> CrmFilesIdDataGetAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<FileData>> CrmFilesIdDataGetAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -684,14 +427,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -718,9 +461,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">File id to delete.</param>
         /// <returns></returns>
-        public void CrmFilesIdDelete (string id)
+        public void CrmFilesIdDelete (string apiKey, string partnerKey, string id)
         {
-             CrmFilesIdDeleteWithHttpInfo(id);
+             CrmFilesIdDeleteWithHttpInfo(apiKey, partnerKey, id);
         }
 
         /// <summary>
@@ -729,7 +472,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">File id to delete.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CrmFilesIdDeleteWithHttpInfo (string id)
+        public ApiResponse<Object> CrmFilesIdDeleteWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -760,14 +503,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -794,9 +537,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">File id to delete.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CrmFilesIdDeleteAsync (string id)
+        public async System.Threading.Tasks.Task CrmFilesIdDeleteAsync (string apiKey, string partnerKey, string id)
         {
-             await CrmFilesIdDeleteAsyncWithHttpInfo(id);
+             await CrmFilesIdDeleteAsyncWithHttpInfo(apiKey, partnerKey, id);
 
         }
 
@@ -806,7 +549,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">File id to delete.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmFilesIdDeleteAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmFilesIdDeleteAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -837,14 +580,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -871,9 +614,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">File id to download.</param>
         /// <returns>FileDownloadableLink</returns>
-        public FileDownloadableLink CrmFilesIdGet (string id)
+        public FileDownloadableLink CrmFilesIdGet (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<FileDownloadableLink> localVarResponse = CrmFilesIdGetWithHttpInfo(id);
+             ApiResponse<FileDownloadableLink> localVarResponse = CrmFilesIdGetWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
         }
 
@@ -883,7 +626,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">File id to download.</param>
         /// <returns>ApiResponse of FileDownloadableLink</returns>
-        public ApiResponse< FileDownloadableLink > CrmFilesIdGetWithHttpInfo (string id)
+        public ApiResponse< FileDownloadableLink > CrmFilesIdGetWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -914,14 +657,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -948,9 +691,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">File id to download.</param>
         /// <returns>Task of FileDownloadableLink</returns>
-        public async System.Threading.Tasks.Task<FileDownloadableLink> CrmFilesIdGetAsync (string id)
+        public async System.Threading.Tasks.Task<FileDownloadableLink> CrmFilesIdGetAsync (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<FileDownloadableLink> localVarResponse = await CrmFilesIdGetAsyncWithHttpInfo(id);
+             ApiResponse<FileDownloadableLink> localVarResponse = await CrmFilesIdGetAsyncWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
 
         }
@@ -961,7 +704,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">File id to download.</param>
         /// <returns>Task of ApiResponse (FileDownloadableLink)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FileDownloadableLink>> CrmFilesIdGetAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<FileDownloadableLink>> CrmFilesIdGetAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -992,14 +735,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1029,9 +772,9 @@ namespace brevo_csharp.Api
         /// <param name="contactId">Contact id linked to a file (optional)</param>
         /// <param name="companyId">Company id linked to a file (optional)</param>
         /// <returns>FileData</returns>
-        public FileData CrmFilesPost (System.IO.Stream file, string dealId = null, long? contactId = null, string companyId = null)
+        public FileData CrmFilesPost (string apiKey, string partnerKey, System.IO.Stream file, string dealId = null, long? contactId = null, string companyId = null)
         {
-             ApiResponse<FileData> localVarResponse = CrmFilesPostWithHttpInfo(file, dealId, contactId, companyId);
+             ApiResponse<FileData> localVarResponse = CrmFilesPostWithHttpInfo(apiKey, partnerKey, file, dealId, contactId, companyId);
              return localVarResponse.Data;
         }
 
@@ -1044,7 +787,7 @@ namespace brevo_csharp.Api
         /// <param name="contactId">Contact id linked to a file (optional)</param>
         /// <param name="companyId">Company id linked to a file (optional)</param>
         /// <returns>ApiResponse of FileData</returns>
-        public ApiResponse< FileData > CrmFilesPostWithHttpInfo (System.IO.Stream file, string dealId = null, long? contactId = null, string companyId = null)
+        public ApiResponse< FileData > CrmFilesPostWithHttpInfo (string apiKey, string partnerKey, System.IO.Stream file, string dealId = null, long? contactId = null, string companyId = null)
         {
             // verify the required parameter 'file' is set
             if (file == null)
@@ -1078,14 +821,14 @@ namespace brevo_csharp.Api
             if (companyId != null) localVarFormParams.Add("companyId", this.Configuration.ApiClient.ParameterToString(companyId)); // form parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1115,9 +858,9 @@ namespace brevo_csharp.Api
         /// <param name="contactId">Contact id linked to a file (optional)</param>
         /// <param name="companyId">Company id linked to a file (optional)</param>
         /// <returns>Task of FileData</returns>
-        public async System.Threading.Tasks.Task<FileData> CrmFilesPostAsync (System.IO.Stream file, string dealId = null, long? contactId = null, string companyId = null)
+        public async System.Threading.Tasks.Task<FileData> CrmFilesPostAsync (string apiKey, string partnerKey, System.IO.Stream file, string dealId = null, long? contactId = null, string companyId = null)
         {
-             ApiResponse<FileData> localVarResponse = await CrmFilesPostAsyncWithHttpInfo(file, dealId, contactId, companyId);
+             ApiResponse<FileData> localVarResponse = await CrmFilesPostAsyncWithHttpInfo(apiKey, partnerKey, file, dealId, contactId, companyId);
              return localVarResponse.Data;
 
         }
@@ -1131,7 +874,7 @@ namespace brevo_csharp.Api
         /// <param name="contactId">Contact id linked to a file (optional)</param>
         /// <param name="companyId">Company id linked to a file (optional)</param>
         /// <returns>Task of ApiResponse (FileData)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FileData>> CrmFilesPostAsyncWithHttpInfo (System.IO.Stream file, string dealId = null, long? contactId = null, string companyId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<FileData>> CrmFilesPostAsyncWithHttpInfo (string apiKey, string partnerKey, System.IO.Stream file, string dealId = null, long? contactId = null, string companyId = null)
         {
             // verify the required parameter 'file' is set
             if (file == null)
@@ -1165,14 +908,14 @@ namespace brevo_csharp.Api
             if (companyId != null) localVarFormParams.Add("companyId", this.Configuration.ApiClient.ParameterToString(companyId)); // form parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

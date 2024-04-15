@@ -21,270 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IUserApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Update permission for a user
-        /// </summary>
-        /// <remarks>
-        /// &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;api_keys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - The privileges array remains the same as in the send invitation; the user simply needs to provide the permissions that need to be updated. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updatePermissions">Values to update permissions for an invited user</param>
-        /// <returns>Inviteuser</returns>
-        Inviteuser EditUserPermission (Inviteuser updatePermissions);
-
-        /// <summary>
-        /// Update permission for a user
-        /// </summary>
-        /// <remarks>
-        /// &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;api_keys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - The privileges array remains the same as in the send invitation; the user simply needs to provide the permissions that need to be updated. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updatePermissions">Values to update permissions for an invited user</param>
-        /// <returns>ApiResponse of Inviteuser</returns>
-        ApiResponse<Inviteuser> EditUserPermissionWithHttpInfo (Inviteuser updatePermissions);
-        /// <summary>
-        /// Get the list of all your users
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>GetInvitedUsersList</returns>
-        GetInvitedUsersList GetInvitedUsersList ();
-
-        /// <summary>
-        /// Get the list of all your users
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of GetInvitedUsersList</returns>
-        ApiResponse<GetInvitedUsersList> GetInvitedUsersListWithHttpInfo ();
-        /// <summary>
-        /// Check user permission
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Email of the invited user.</param>
-        /// <returns>GetUserPermission</returns>
-        GetUserPermission GetUserPermission (string email);
-
-        /// <summary>
-        /// Check user permission
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Email of the invited user.</param>
-        /// <returns>ApiResponse of GetUserPermission</returns>
-        ApiResponse<GetUserPermission> GetUserPermissionWithHttpInfo (string email);
-        /// <summary>
-        /// Send invitation to user
-        /// </summary>
-        /// <remarks>
-        /// &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;api_keys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited user. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendInvitation">Values to create an invitation</param>
-        /// <returns>Inviteuser</returns>
-        Inviteuser Inviteuser (Inviteuser sendInvitation);
-
-        /// <summary>
-        /// Send invitation to user
-        /// </summary>
-        /// <remarks>
-        /// &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;api_keys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited user. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendInvitation">Values to create an invitation</param>
-        /// <returns>ApiResponse of Inviteuser</returns>
-        ApiResponse<Inviteuser> InviteuserWithHttpInfo (Inviteuser sendInvitation);
-        /// <summary>
-        /// Revoke user permission
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Email of the invited user.</param>
-        /// <returns>PutRevokeUserPermission</returns>
-        PutRevokeUserPermission PutRevokeUserPermission (string email);
-
-        /// <summary>
-        /// Revoke user permission
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Email of the invited user.</param>
-        /// <returns>ApiResponse of PutRevokeUserPermission</returns>
-        ApiResponse<PutRevokeUserPermission> PutRevokeUserPermissionWithHttpInfo (string email);
-        /// <summary>
-        /// Resend / Cancel invitation
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="action">action</param>
-        /// <param name="email">Email of the invited user.</param>
-        /// <returns>Putresendcancelinvitation</returns>
-        Putresendcancelinvitation Putresendcancelinvitation (string action, string email);
-
-        /// <summary>
-        /// Resend / Cancel invitation
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="action">action</param>
-        /// <param name="email">Email of the invited user.</param>
-        /// <returns>ApiResponse of Putresendcancelinvitation</returns>
-        ApiResponse<Putresendcancelinvitation> PutresendcancelinvitationWithHttpInfo (string action, string email);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Update permission for a user
-        /// </summary>
-        /// <remarks>
-        /// &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;api_keys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - The privileges array remains the same as in the send invitation; the user simply needs to provide the permissions that need to be updated. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updatePermissions">Values to update permissions for an invited user</param>
-        /// <returns>Task of Inviteuser</returns>
-        System.Threading.Tasks.Task<Inviteuser> EditUserPermissionAsync (Inviteuser updatePermissions);
-
-        /// <summary>
-        /// Update permission for a user
-        /// </summary>
-        /// <remarks>
-        /// &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;api_keys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - The privileges array remains the same as in the send invitation; the user simply needs to provide the permissions that need to be updated. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updatePermissions">Values to update permissions for an invited user</param>
-        /// <returns>Task of ApiResponse (Inviteuser)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Inviteuser>> EditUserPermissionAsyncWithHttpInfo (Inviteuser updatePermissions);
-        /// <summary>
-        /// Get the list of all your users
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of GetInvitedUsersList</returns>
-        System.Threading.Tasks.Task<GetInvitedUsersList> GetInvitedUsersListAsync ();
-
-        /// <summary>
-        /// Get the list of all your users
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (GetInvitedUsersList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetInvitedUsersList>> GetInvitedUsersListAsyncWithHttpInfo ();
-        /// <summary>
-        /// Check user permission
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Email of the invited user.</param>
-        /// <returns>Task of GetUserPermission</returns>
-        System.Threading.Tasks.Task<GetUserPermission> GetUserPermissionAsync (string email);
-
-        /// <summary>
-        /// Check user permission
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Email of the invited user.</param>
-        /// <returns>Task of ApiResponse (GetUserPermission)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetUserPermission>> GetUserPermissionAsyncWithHttpInfo (string email);
-        /// <summary>
-        /// Send invitation to user
-        /// </summary>
-        /// <remarks>
-        /// &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;api_keys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited user. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendInvitation">Values to create an invitation</param>
-        /// <returns>Task of Inviteuser</returns>
-        System.Threading.Tasks.Task<Inviteuser> InviteuserAsync (Inviteuser sendInvitation);
-
-        /// <summary>
-        /// Send invitation to user
-        /// </summary>
-        /// <remarks>
-        /// &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;api_keys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited user. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendInvitation">Values to create an invitation</param>
-        /// <returns>Task of ApiResponse (Inviteuser)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Inviteuser>> InviteuserAsyncWithHttpInfo (Inviteuser sendInvitation);
-        /// <summary>
-        /// Revoke user permission
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Email of the invited user.</param>
-        /// <returns>Task of PutRevokeUserPermission</returns>
-        System.Threading.Tasks.Task<PutRevokeUserPermission> PutRevokeUserPermissionAsync (string email);
-
-        /// <summary>
-        /// Revoke user permission
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Email of the invited user.</param>
-        /// <returns>Task of ApiResponse (PutRevokeUserPermission)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PutRevokeUserPermission>> PutRevokeUserPermissionAsyncWithHttpInfo (string email);
-        /// <summary>
-        /// Resend / Cancel invitation
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="action">action</param>
-        /// <param name="email">Email of the invited user.</param>
-        /// <returns>Task of Putresendcancelinvitation</returns>
-        System.Threading.Tasks.Task<Putresendcancelinvitation> PutresendcancelinvitationAsync (string action, string email);
-
-        /// <summary>
-        /// Resend / Cancel invitation
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="action">action</param>
-        /// <param name="email">Email of the invited user.</param>
-        /// <returns>Task of ApiResponse (Putresendcancelinvitation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Putresendcancelinvitation>> PutresendcancelinvitationAsyncWithHttpInfo (string action, string email);
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class UserApi : IUserApi
+    public partial class UserApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -379,24 +116,24 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Update permission for a user &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;api_keys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - The privileges array remains the same as in the send invitation; the user simply needs to provide the permissions that need to be updated. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
+        /// Update permission for a user &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;apiKeys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - The privileges array remains the same as in the send invitation; the user simply needs to provide the permissions that need to be updated. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updatePermissions">Values to update permissions for an invited user</param>
         /// <returns>Inviteuser</returns>
-        public Inviteuser EditUserPermission (Inviteuser updatePermissions)
+        public Inviteuser EditUserPermission (string apiKey, string partnerKey, Inviteuser updatePermissions)
         {
-             ApiResponse<Inviteuser> localVarResponse = EditUserPermissionWithHttpInfo(updatePermissions);
+             ApiResponse<Inviteuser> localVarResponse = EditUserPermissionWithHttpInfo(apiKey, partnerKey, updatePermissions);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update permission for a user &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;api_keys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - The privileges array remains the same as in the send invitation; the user simply needs to provide the permissions that need to be updated. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
+        /// Update permission for a user &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;apiKeys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - The privileges array remains the same as in the send invitation; the user simply needs to provide the permissions that need to be updated. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updatePermissions">Values to update permissions for an invited user</param>
         /// <returns>ApiResponse of Inviteuser</returns>
-        public ApiResponse< Inviteuser > EditUserPermissionWithHttpInfo (Inviteuser updatePermissions)
+        public ApiResponse< Inviteuser > EditUserPermissionWithHttpInfo (string apiKey, string partnerKey, Inviteuser updatePermissions)
         {
             // verify the required parameter 'updatePermissions' is set
             if (updatePermissions == null)
@@ -434,14 +171,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -463,25 +200,25 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Update permission for a user &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;api_keys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - The privileges array remains the same as in the send invitation; the user simply needs to provide the permissions that need to be updated. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
+        /// Update permission for a user &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;apiKeys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - The privileges array remains the same as in the send invitation; the user simply needs to provide the permissions that need to be updated. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updatePermissions">Values to update permissions for an invited user</param>
         /// <returns>Task of Inviteuser</returns>
-        public async System.Threading.Tasks.Task<Inviteuser> EditUserPermissionAsync (Inviteuser updatePermissions)
+        public async System.Threading.Tasks.Task<Inviteuser> EditUserPermissionAsync (string apiKey, string partnerKey, Inviteuser updatePermissions)
         {
-             ApiResponse<Inviteuser> localVarResponse = await EditUserPermissionAsyncWithHttpInfo(updatePermissions);
+             ApiResponse<Inviteuser> localVarResponse = await EditUserPermissionAsyncWithHttpInfo(apiKey, partnerKey, updatePermissions);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Update permission for a user &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;api_keys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - The privileges array remains the same as in the send invitation; the user simply needs to provide the permissions that need to be updated. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
+        /// Update permission for a user &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;apiKeys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - The privileges array remains the same as in the send invitation; the user simply needs to provide the permissions that need to be updated. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updatePermissions">Values to update permissions for an invited user</param>
         /// <returns>Task of ApiResponse (Inviteuser)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Inviteuser>> EditUserPermissionAsyncWithHttpInfo (Inviteuser updatePermissions)
+        public async System.Threading.Tasks.Task<ApiResponse<Inviteuser>> EditUserPermissionAsyncWithHttpInfo (string apiKey, string partnerKey, Inviteuser updatePermissions)
         {
             // verify the required parameter 'updatePermissions' is set
             if (updatePermissions == null)
@@ -519,14 +256,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -552,9 +289,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>GetInvitedUsersList</returns>
-        public GetInvitedUsersList GetInvitedUsersList ()
+        public GetInvitedUsersList GetInvitedUsersList (string apiKey, string partnerKey)
         {
-             ApiResponse<GetInvitedUsersList> localVarResponse = GetInvitedUsersListWithHttpInfo();
+             ApiResponse<GetInvitedUsersList> localVarResponse = GetInvitedUsersListWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
         }
 
@@ -563,7 +300,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of GetInvitedUsersList</returns>
-        public ApiResponse< GetInvitedUsersList > GetInvitedUsersListWithHttpInfo ()
+        public ApiResponse< GetInvitedUsersList > GetInvitedUsersListWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./organization/invited/users";
@@ -590,14 +327,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -623,9 +360,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of GetInvitedUsersList</returns>
-        public async System.Threading.Tasks.Task<GetInvitedUsersList> GetInvitedUsersListAsync ()
+        public async System.Threading.Tasks.Task<GetInvitedUsersList> GetInvitedUsersListAsync (string apiKey, string partnerKey)
         {
-             ApiResponse<GetInvitedUsersList> localVarResponse = await GetInvitedUsersListAsyncWithHttpInfo();
+             ApiResponse<GetInvitedUsersList> localVarResponse = await GetInvitedUsersListAsyncWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
 
         }
@@ -635,7 +372,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (GetInvitedUsersList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetInvitedUsersList>> GetInvitedUsersListAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<GetInvitedUsersList>> GetInvitedUsersListAsyncWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./organization/invited/users";
@@ -662,14 +399,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -696,9 +433,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email of the invited user.</param>
         /// <returns>GetUserPermission</returns>
-        public GetUserPermission GetUserPermission (string email)
+        public GetUserPermission GetUserPermission (string apiKey, string partnerKey, string email)
         {
-             ApiResponse<GetUserPermission> localVarResponse = GetUserPermissionWithHttpInfo(email);
+             ApiResponse<GetUserPermission> localVarResponse = GetUserPermissionWithHttpInfo(apiKey, partnerKey, email);
              return localVarResponse.Data;
         }
 
@@ -708,7 +445,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email of the invited user.</param>
         /// <returns>ApiResponse of GetUserPermission</returns>
-        public ApiResponse< GetUserPermission > GetUserPermissionWithHttpInfo (string email)
+        public ApiResponse< GetUserPermission > GetUserPermissionWithHttpInfo (string apiKey, string partnerKey, string email)
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -739,14 +476,14 @@ namespace brevo_csharp.Api
             if (email != null) localVarPathParams.Add("email", this.Configuration.ApiClient.ParameterToString(email)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -773,9 +510,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email of the invited user.</param>
         /// <returns>Task of GetUserPermission</returns>
-        public async System.Threading.Tasks.Task<GetUserPermission> GetUserPermissionAsync (string email)
+        public async System.Threading.Tasks.Task<GetUserPermission> GetUserPermissionAsync (string apiKey, string partnerKey, string email)
         {
-             ApiResponse<GetUserPermission> localVarResponse = await GetUserPermissionAsyncWithHttpInfo(email);
+             ApiResponse<GetUserPermission> localVarResponse = await GetUserPermissionAsyncWithHttpInfo(apiKey, partnerKey, email);
              return localVarResponse.Data;
 
         }
@@ -786,7 +523,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email of the invited user.</param>
         /// <returns>Task of ApiResponse (GetUserPermission)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetUserPermission>> GetUserPermissionAsyncWithHttpInfo (string email)
+        public async System.Threading.Tasks.Task<ApiResponse<GetUserPermission>> GetUserPermissionAsyncWithHttpInfo (string apiKey, string partnerKey, string email)
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -817,14 +554,14 @@ namespace brevo_csharp.Api
             if (email != null) localVarPathParams.Add("email", this.Configuration.ApiClient.ParameterToString(email)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -846,24 +583,24 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Send invitation to user &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;api_keys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited user. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
+        /// Send invitation to user &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;apiKeys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited user. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendInvitation">Values to create an invitation</param>
         /// <returns>Inviteuser</returns>
-        public Inviteuser Inviteuser (Inviteuser sendInvitation)
+        public Inviteuser Inviteuser (string apiKey, string partnerKey, Inviteuser sendInvitation)
         {
-             ApiResponse<Inviteuser> localVarResponse = InviteuserWithHttpInfo(sendInvitation);
+             ApiResponse<Inviteuser> localVarResponse = InviteuserWithHttpInfo(apiKey, partnerKey, sendInvitation);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Send invitation to user &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;api_keys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited user. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
+        /// Send invitation to user &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;apiKeys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited user. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendInvitation">Values to create an invitation</param>
         /// <returns>ApiResponse of Inviteuser</returns>
-        public ApiResponse< Inviteuser > InviteuserWithHttpInfo (Inviteuser sendInvitation)
+        public ApiResponse< Inviteuser > InviteuserWithHttpInfo (string apiKey, string partnerKey, Inviteuser sendInvitation)
         {
             // verify the required parameter 'sendInvitation' is set
             if (sendInvitation == null)
@@ -901,14 +638,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -930,25 +667,25 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Send invitation to user &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;api_keys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited user. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
+        /// Send invitation to user &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;apiKeys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited user. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendInvitation">Values to create an invitation</param>
         /// <returns>Task of Inviteuser</returns>
-        public async System.Threading.Tasks.Task<Inviteuser> InviteuserAsync (Inviteuser sendInvitation)
+        public async System.Threading.Tasks.Task<Inviteuser> InviteuserAsync (string apiKey, string partnerKey, Inviteuser sendInvitation)
         {
-             ApiResponse<Inviteuser> localVarResponse = await InviteuserAsyncWithHttpInfo(sendInvitation);
+             ApiResponse<Inviteuser> localVarResponse = await InviteuserAsyncWithHttpInfo(apiKey, partnerKey, sendInvitation);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Send invitation to user &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;api_keys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited user. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
+        /// Send invitation to user &#x60;Feature&#x60; - A Feature represents a specific functionality like Email campaign, Deals, Calls, Automations, etc. on Brevo. While inviting a user, determine which feature you want to manage access to. You must specify the feature accurately to avoid errors.  &#x60;Permission&#x60; - A Permission defines the level of access or control a user has over a specific feature. While inviting user, decide on the permission level required for the selected feature. Make sure the chosen permission is related to the selected feature.  Features and their respective permissions are as below:  - &#x60;email_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;sms_campaigns&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;send_schedule_suspend\&quot; - &#x60;contacts&#x60;:   - \&quot;view\&quot;   - \&quot;send_schedule_suspend\&quot;   - \&quot;import\&quot;   - \&quot;export\&quot;   - \&quot;list_and_attributes\&quot;   - \&quot;forms\&quot; - &#x60;templates&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate\&quot; - &#x60;workflows&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;activate_deactivate_pause\&quot;   - \&quot;settings\&quot; - &#x60;facebook_ads&#x60;:   - \&quot;create_edit_delete\&quot;   - \&quot;schedule_pause\&quot; - &#x60;landing_pages&#x60;:   - \&quot;all\&quot; - &#x60;transactional_emails&#x60;:   - \&quot;settings\&quot;   - \&quot;logs\&quot; - &#x60;smtp_api&#x60;:   - \&quot;smtp\&quot;   - \&quot;apiKeys\&quot;   - \&quot;authorized_ips\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;sales_platform&#x60;:   - \&quot;manage_owned_deals_tasks_companies\&quot;   - \&quot;manage_others_deals_tasks_companies\&quot;   - \&quot;reports\&quot;   - \&quot;settings\&quot; - &#x60;phone&#x60;:   - \&quot;all\&quot; - &#x60;conversations&#x60;:   - \&quot;access\&quot;   - \&quot;assign\&quot;   - \&quot;configure\&quot; - &#x60;senders_domains_dedicated_ips&#x60;:   - \&quot;senders_management\&quot;   - \&quot;domains_management\&quot;   - \&quot;dedicated_ips_management\&quot; - &#x60;push_notifications&#x60;:   - \&quot;view\&quot;   - \&quot;create_edit_delete\&quot;   - \&quot;send\&quot;   - \&quot;settings\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited user. - The availability of feature and its permission depends on your current plan. Please select the features and permissions accordingly. 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendInvitation">Values to create an invitation</param>
         /// <returns>Task of ApiResponse (Inviteuser)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Inviteuser>> InviteuserAsyncWithHttpInfo (Inviteuser sendInvitation)
+        public async System.Threading.Tasks.Task<ApiResponse<Inviteuser>> InviteuserAsyncWithHttpInfo (string apiKey, string partnerKey, Inviteuser sendInvitation)
         {
             // verify the required parameter 'sendInvitation' is set
             if (sendInvitation == null)
@@ -986,14 +723,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1020,9 +757,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email of the invited user.</param>
         /// <returns>PutRevokeUserPermission</returns>
-        public PutRevokeUserPermission PutRevokeUserPermission (string email)
+        public PutRevokeUserPermission PutRevokeUserPermission (string apiKey, string partnerKey, string email)
         {
-             ApiResponse<PutRevokeUserPermission> localVarResponse = PutRevokeUserPermissionWithHttpInfo(email);
+             ApiResponse<PutRevokeUserPermission> localVarResponse = PutRevokeUserPermissionWithHttpInfo(apiKey, partnerKey, email);
              return localVarResponse.Data;
         }
 
@@ -1032,7 +769,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email of the invited user.</param>
         /// <returns>ApiResponse of PutRevokeUserPermission</returns>
-        public ApiResponse< PutRevokeUserPermission > PutRevokeUserPermissionWithHttpInfo (string email)
+        public ApiResponse< PutRevokeUserPermission > PutRevokeUserPermissionWithHttpInfo (string apiKey, string partnerKey, string email)
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -1063,14 +800,14 @@ namespace brevo_csharp.Api
             if (email != null) localVarPathParams.Add("email", this.Configuration.ApiClient.ParameterToString(email)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1097,9 +834,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email of the invited user.</param>
         /// <returns>Task of PutRevokeUserPermission</returns>
-        public async System.Threading.Tasks.Task<PutRevokeUserPermission> PutRevokeUserPermissionAsync (string email)
+        public async System.Threading.Tasks.Task<PutRevokeUserPermission> PutRevokeUserPermissionAsync (string apiKey, string partnerKey, string email)
         {
-             ApiResponse<PutRevokeUserPermission> localVarResponse = await PutRevokeUserPermissionAsyncWithHttpInfo(email);
+             ApiResponse<PutRevokeUserPermission> localVarResponse = await PutRevokeUserPermissionAsyncWithHttpInfo(apiKey, partnerKey, email);
              return localVarResponse.Data;
 
         }
@@ -1110,7 +847,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email of the invited user.</param>
         /// <returns>Task of ApiResponse (PutRevokeUserPermission)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PutRevokeUserPermission>> PutRevokeUserPermissionAsyncWithHttpInfo (string email)
+        public async System.Threading.Tasks.Task<ApiResponse<PutRevokeUserPermission>> PutRevokeUserPermissionAsyncWithHttpInfo (string apiKey, string partnerKey, string email)
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -1141,14 +878,14 @@ namespace brevo_csharp.Api
             if (email != null) localVarPathParams.Add("email", this.Configuration.ApiClient.ParameterToString(email)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1176,9 +913,9 @@ namespace brevo_csharp.Api
         /// <param name="action">action</param>
         /// <param name="email">Email of the invited user.</param>
         /// <returns>Putresendcancelinvitation</returns>
-        public Putresendcancelinvitation Putresendcancelinvitation (string action, string email)
+        public Putresendcancelinvitation Putresendcancelinvitation (string apiKey, string partnerKey, string action, string email)
         {
-             ApiResponse<Putresendcancelinvitation> localVarResponse = PutresendcancelinvitationWithHttpInfo(action, email);
+             ApiResponse<Putresendcancelinvitation> localVarResponse = PutresendcancelinvitationWithHttpInfo(apiKey, partnerKey, action, email);
              return localVarResponse.Data;
         }
 
@@ -1189,7 +926,7 @@ namespace brevo_csharp.Api
         /// <param name="action">action</param>
         /// <param name="email">Email of the invited user.</param>
         /// <returns>ApiResponse of Putresendcancelinvitation</returns>
-        public ApiResponse< Putresendcancelinvitation > PutresendcancelinvitationWithHttpInfo (string action, string email)
+        public ApiResponse< Putresendcancelinvitation > PutresendcancelinvitationWithHttpInfo (string apiKey, string partnerKey, string action, string email)
         {
             // verify the required parameter 'action' is set
             if (action == null)
@@ -1224,14 +961,14 @@ namespace brevo_csharp.Api
             if (email != null) localVarPathParams.Add("email", this.Configuration.ApiClient.ParameterToString(email)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1259,9 +996,9 @@ namespace brevo_csharp.Api
         /// <param name="action">action</param>
         /// <param name="email">Email of the invited user.</param>
         /// <returns>Task of Putresendcancelinvitation</returns>
-        public async System.Threading.Tasks.Task<Putresendcancelinvitation> PutresendcancelinvitationAsync (string action, string email)
+        public async System.Threading.Tasks.Task<Putresendcancelinvitation> PutresendcancelinvitationAsync (string apiKey, string partnerKey, string action, string email)
         {
-             ApiResponse<Putresendcancelinvitation> localVarResponse = await PutresendcancelinvitationAsyncWithHttpInfo(action, email);
+             ApiResponse<Putresendcancelinvitation> localVarResponse = await PutresendcancelinvitationAsyncWithHttpInfo(apiKey, partnerKey, action, email);
              return localVarResponse.Data;
 
         }
@@ -1273,7 +1010,7 @@ namespace brevo_csharp.Api
         /// <param name="action">action</param>
         /// <param name="email">Email of the invited user.</param>
         /// <returns>Task of ApiResponse (Putresendcancelinvitation)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Putresendcancelinvitation>> PutresendcancelinvitationAsyncWithHttpInfo (string action, string email)
+        public async System.Threading.Tasks.Task<ApiResponse<Putresendcancelinvitation>> PutresendcancelinvitationAsyncWithHttpInfo (string apiKey, string partnerKey, string action, string email)
         {
             // verify the required parameter 'action' is set
             if (action == null)
@@ -1308,14 +1045,14 @@ namespace brevo_csharp.Api
             if (email != null) localVarPathParams.Add("email", this.Configuration.ApiClient.ParameterToString(email)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

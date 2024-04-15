@@ -18,613 +18,11 @@ using brevo_csharp.Model;
 
 namespace brevo_csharp.Api
 {
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface IEcommerceApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Create orders in batch
-        /// </summary>
-        /// <remarks>
-        /// Create multiple orders at one time instead of one order at a time
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderBatch"></param>
-        /// <returns></returns>
-        void CreateBatchOrder (OrderBatch orderBatch);
-
-        /// <summary>
-        /// Create orders in batch
-        /// </summary>
-        /// <remarks>
-        /// Create multiple orders at one time instead of one order at a time
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderBatch"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateBatchOrderWithHttpInfo (OrderBatch orderBatch);
-        /// <summary>
-        /// Managing the status of the order
-        /// </summary>
-        /// <remarks>
-        /// Manages the transactional status of the order
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="order"></param>
-        /// <returns></returns>
-        void CreateOrder (Order order);
-
-        /// <summary>
-        /// Managing the status of the order
-        /// </summary>
-        /// <remarks>
-        /// Manages the transactional status of the order
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="order"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateOrderWithHttpInfo (Order order);
-        /// <summary>
-        /// Create categories in batch
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUpdateBatchCategory">Values to create a batch of categories</param>
-        /// <returns>CreateUpdateBatchCategoryModel</returns>
-        CreateUpdateBatchCategoryModel CreateUpdateBatchCategory (CreateUpdateBatchCategory createUpdateBatchCategory);
-
-        /// <summary>
-        /// Create categories in batch
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUpdateBatchCategory">Values to create a batch of categories</param>
-        /// <returns>ApiResponse of CreateUpdateBatchCategoryModel</returns>
-        ApiResponse<CreateUpdateBatchCategoryModel> CreateUpdateBatchCategoryWithHttpInfo (CreateUpdateBatchCategory createUpdateBatchCategory);
-        /// <summary>
-        /// Create products in batch
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUpdateBatchProducts">Values to create a batch of products</param>
-        /// <returns>CreateUpdateBatchProductsModel</returns>
-        CreateUpdateBatchProductsModel CreateUpdateBatchProducts (CreateUpdateBatchProducts createUpdateBatchProducts);
-
-        /// <summary>
-        /// Create products in batch
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUpdateBatchProducts">Values to create a batch of products</param>
-        /// <returns>ApiResponse of CreateUpdateBatchProductsModel</returns>
-        ApiResponse<CreateUpdateBatchProductsModel> CreateUpdateBatchProductsWithHttpInfo (CreateUpdateBatchProducts createUpdateBatchProducts);
-        /// <summary>
-        /// Create/Update a category
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUpdateCategory">Values to create/update a category</param>
-        /// <returns>CreateCategoryModel</returns>
-        CreateCategoryModel CreateUpdateCategory (CreateUpdateCategory createUpdateCategory);
-
-        /// <summary>
-        /// Create/Update a category
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUpdateCategory">Values to create/update a category</param>
-        /// <returns>ApiResponse of CreateCategoryModel</returns>
-        ApiResponse<CreateCategoryModel> CreateUpdateCategoryWithHttpInfo (CreateUpdateCategory createUpdateCategory);
-        /// <summary>
-        /// Create/Update a product
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUpdateProduct">Values to create/update a product</param>
-        /// <returns>CreateProductModel</returns>
-        CreateProductModel CreateUpdateProduct (CreateUpdateProduct createUpdateProduct);
-
-        /// <summary>
-        /// Create/Update a product
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUpdateProduct">Values to create/update a product</param>
-        /// <returns>ApiResponse of CreateProductModel</returns>
-        ApiResponse<CreateProductModel> CreateUpdateProductWithHttpInfo (CreateUpdateProduct createUpdateProduct);
-        /// <summary>
-        /// Activate the eCommerce app
-        /// </summary>
-        /// <remarks>
-        /// Getting access to Brevo eCommerce.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns></returns>
-        void EcommerceActivatePost ();
-
-        /// <summary>
-        /// Activate the eCommerce app
-        /// </summary>
-        /// <remarks>
-        /// Getting access to Brevo eCommerce.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> EcommerceActivatePostWithHttpInfo ();
-        /// <summary>
-        /// Return all your categories
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="ids">Filter by category ids (optional)</param>
-        /// <param name="name">Filter by category name (optional)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
-        /// <returns>GetCategories</returns>
-        GetCategories GetCategories (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null);
-
-        /// <summary>
-        /// Return all your categories
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="ids">Filter by category ids (optional)</param>
-        /// <param name="name">Filter by category name (optional)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
-        /// <returns>ApiResponse of GetCategories</returns>
-        ApiResponse<GetCategories> GetCategoriesWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null);
-        /// <summary>
-        /// Get a category details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Category ID</param>
-        /// <returns>GetCategoryDetails</returns>
-        GetCategoryDetails GetCategoryInfo (string id);
-
-        /// <summary>
-        /// Get a category details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Category ID</param>
-        /// <returns>ApiResponse of GetCategoryDetails</returns>
-        ApiResponse<GetCategoryDetails> GetCategoryInfoWithHttpInfo (string id);
-        /// <summary>
-        /// Get order details
-        /// </summary>
-        /// <remarks>
-        /// Get all the orders
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the orders modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
-        /// <returns>GetOrders</returns>
-        GetOrders GetOrders (long? limit = null, long? offset = null, string sort = null, string modifiedSince = null, string createdSince = null);
-
-        /// <summary>
-        /// Get order details
-        /// </summary>
-        /// <remarks>
-        /// Get all the orders
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the orders modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
-        /// <returns>ApiResponse of GetOrders</returns>
-        ApiResponse<GetOrders> GetOrdersWithHttpInfo (long? limit = null, long? offset = null, string sort = null, string modifiedSince = null, string createdSince = null);
-        /// <summary>
-        /// Get a product&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Product ID</param>
-        /// <returns>GetProductDetails</returns>
-        GetProductDetails GetProductInfo (string id);
-
-        /// <summary>
-        /// Get a product&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Product ID</param>
-        /// <returns>ApiResponse of GetProductDetails</returns>
-        ApiResponse<GetProductDetails> GetProductInfoWithHttpInfo (string id);
-        /// <summary>
-        /// Return all your products
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="ids">Filter by product ids (optional)</param>
-        /// <param name="name">Filter by product name, minimum 3 characters should be present for search (optional)</param>
-        /// <param name="priceLte">Price filter for products less than and equals to particular amount (optional)</param>
-        /// <param name="priceGte">Price filter for products greater than and equals to particular amount (optional)</param>
-        /// <param name="priceLt">Price filter for products less than particular amount (optional)</param>
-        /// <param name="priceGt">Price filter for products greater than particular amount (optional)</param>
-        /// <param name="priceEq">Price filter for products equals to particular amount (optional)</param>
-        /// <param name="priceNe">Price filter for products not equals to particular amount (optional)</param>
-        /// <param name="categories">Filter by category ids (optional)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the orders modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
-        /// <returns>GetProducts</returns>
-        GetProducts GetProducts (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, decimal? priceLte = null, decimal? priceGte = null, decimal? priceLt = null, decimal? priceGt = null, decimal? priceEq = null, decimal? priceNe = null, List<string> categories = null, string modifiedSince = null, string createdSince = null);
-
-        /// <summary>
-        /// Return all your products
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="ids">Filter by product ids (optional)</param>
-        /// <param name="name">Filter by product name, minimum 3 characters should be present for search (optional)</param>
-        /// <param name="priceLte">Price filter for products less than and equals to particular amount (optional)</param>
-        /// <param name="priceGte">Price filter for products greater than and equals to particular amount (optional)</param>
-        /// <param name="priceLt">Price filter for products less than particular amount (optional)</param>
-        /// <param name="priceGt">Price filter for products greater than particular amount (optional)</param>
-        /// <param name="priceEq">Price filter for products equals to particular amount (optional)</param>
-        /// <param name="priceNe">Price filter for products not equals to particular amount (optional)</param>
-        /// <param name="categories">Filter by category ids (optional)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the orders modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
-        /// <returns>ApiResponse of GetProducts</returns>
-        ApiResponse<GetProducts> GetProductsWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, decimal? priceLte = null, decimal? priceGte = null, decimal? priceLt = null, decimal? priceGt = null, decimal? priceEq = null, decimal? priceNe = null, List<string> categories = null, string modifiedSince = null, string createdSince = null);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Create orders in batch
-        /// </summary>
-        /// <remarks>
-        /// Create multiple orders at one time instead of one order at a time
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderBatch"></param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateBatchOrderAsync (OrderBatch orderBatch);
-
-        /// <summary>
-        /// Create orders in batch
-        /// </summary>
-        /// <remarks>
-        /// Create multiple orders at one time instead of one order at a time
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderBatch"></param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateBatchOrderAsyncWithHttpInfo (OrderBatch orderBatch);
-        /// <summary>
-        /// Managing the status of the order
-        /// </summary>
-        /// <remarks>
-        /// Manages the transactional status of the order
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="order"></param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateOrderAsync (Order order);
-
-        /// <summary>
-        /// Managing the status of the order
-        /// </summary>
-        /// <remarks>
-        /// Manages the transactional status of the order
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="order"></param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateOrderAsyncWithHttpInfo (Order order);
-        /// <summary>
-        /// Create categories in batch
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUpdateBatchCategory">Values to create a batch of categories</param>
-        /// <returns>Task of CreateUpdateBatchCategoryModel</returns>
-        System.Threading.Tasks.Task<CreateUpdateBatchCategoryModel> CreateUpdateBatchCategoryAsync (CreateUpdateBatchCategory createUpdateBatchCategory);
-
-        /// <summary>
-        /// Create categories in batch
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUpdateBatchCategory">Values to create a batch of categories</param>
-        /// <returns>Task of ApiResponse (CreateUpdateBatchCategoryModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateUpdateBatchCategoryModel>> CreateUpdateBatchCategoryAsyncWithHttpInfo (CreateUpdateBatchCategory createUpdateBatchCategory);
-        /// <summary>
-        /// Create products in batch
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUpdateBatchProducts">Values to create a batch of products</param>
-        /// <returns>Task of CreateUpdateBatchProductsModel</returns>
-        System.Threading.Tasks.Task<CreateUpdateBatchProductsModel> CreateUpdateBatchProductsAsync (CreateUpdateBatchProducts createUpdateBatchProducts);
-
-        /// <summary>
-        /// Create products in batch
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUpdateBatchProducts">Values to create a batch of products</param>
-        /// <returns>Task of ApiResponse (CreateUpdateBatchProductsModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateUpdateBatchProductsModel>> CreateUpdateBatchProductsAsyncWithHttpInfo (CreateUpdateBatchProducts createUpdateBatchProducts);
-        /// <summary>
-        /// Create/Update a category
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUpdateCategory">Values to create/update a category</param>
-        /// <returns>Task of CreateCategoryModel</returns>
-        System.Threading.Tasks.Task<CreateCategoryModel> CreateUpdateCategoryAsync (CreateUpdateCategory createUpdateCategory);
-
-        /// <summary>
-        /// Create/Update a category
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUpdateCategory">Values to create/update a category</param>
-        /// <returns>Task of ApiResponse (CreateCategoryModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateCategoryModel>> CreateUpdateCategoryAsyncWithHttpInfo (CreateUpdateCategory createUpdateCategory);
-        /// <summary>
-        /// Create/Update a product
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUpdateProduct">Values to create/update a product</param>
-        /// <returns>Task of CreateProductModel</returns>
-        System.Threading.Tasks.Task<CreateProductModel> CreateUpdateProductAsync (CreateUpdateProduct createUpdateProduct);
-
-        /// <summary>
-        /// Create/Update a product
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUpdateProduct">Values to create/update a product</param>
-        /// <returns>Task of ApiResponse (CreateProductModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateProductModel>> CreateUpdateProductAsyncWithHttpInfo (CreateUpdateProduct createUpdateProduct);
-        /// <summary>
-        /// Activate the eCommerce app
-        /// </summary>
-        /// <remarks>
-        /// Getting access to Brevo eCommerce.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task EcommerceActivatePostAsync ();
-
-        /// <summary>
-        /// Activate the eCommerce app
-        /// </summary>
-        /// <remarks>
-        /// Getting access to Brevo eCommerce.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> EcommerceActivatePostAsyncWithHttpInfo ();
-        /// <summary>
-        /// Return all your categories
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="ids">Filter by category ids (optional)</param>
-        /// <param name="name">Filter by category name (optional)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
-        /// <returns>Task of GetCategories</returns>
-        System.Threading.Tasks.Task<GetCategories> GetCategoriesAsync (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null);
-
-        /// <summary>
-        /// Return all your categories
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="ids">Filter by category ids (optional)</param>
-        /// <param name="name">Filter by category name (optional)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
-        /// <returns>Task of ApiResponse (GetCategories)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetCategories>> GetCategoriesAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null);
-        /// <summary>
-        /// Get a category details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Category ID</param>
-        /// <returns>Task of GetCategoryDetails</returns>
-        System.Threading.Tasks.Task<GetCategoryDetails> GetCategoryInfoAsync (string id);
-
-        /// <summary>
-        /// Get a category details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Category ID</param>
-        /// <returns>Task of ApiResponse (GetCategoryDetails)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetCategoryDetails>> GetCategoryInfoAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// Get order details
-        /// </summary>
-        /// <remarks>
-        /// Get all the orders
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the orders modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
-        /// <returns>Task of GetOrders</returns>
-        System.Threading.Tasks.Task<GetOrders> GetOrdersAsync (long? limit = null, long? offset = null, string sort = null, string modifiedSince = null, string createdSince = null);
-
-        /// <summary>
-        /// Get order details
-        /// </summary>
-        /// <remarks>
-        /// Get all the orders
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the orders modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
-        /// <returns>Task of ApiResponse (GetOrders)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetOrders>> GetOrdersAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null, string modifiedSince = null, string createdSince = null);
-        /// <summary>
-        /// Get a product&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Product ID</param>
-        /// <returns>Task of GetProductDetails</returns>
-        System.Threading.Tasks.Task<GetProductDetails> GetProductInfoAsync (string id);
-
-        /// <summary>
-        /// Get a product&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Product ID</param>
-        /// <returns>Task of ApiResponse (GetProductDetails)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetProductDetails>> GetProductInfoAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// Return all your products
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="ids">Filter by product ids (optional)</param>
-        /// <param name="name">Filter by product name, minimum 3 characters should be present for search (optional)</param>
-        /// <param name="priceLte">Price filter for products less than and equals to particular amount (optional)</param>
-        /// <param name="priceGte">Price filter for products greater than and equals to particular amount (optional)</param>
-        /// <param name="priceLt">Price filter for products less than particular amount (optional)</param>
-        /// <param name="priceGt">Price filter for products greater than particular amount (optional)</param>
-        /// <param name="priceEq">Price filter for products equals to particular amount (optional)</param>
-        /// <param name="priceNe">Price filter for products not equals to particular amount (optional)</param>
-        /// <param name="categories">Filter by category ids (optional)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the orders modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
-        /// <returns>Task of GetProducts</returns>
-        System.Threading.Tasks.Task<GetProducts> GetProductsAsync (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, decimal? priceLte = null, decimal? priceGte = null, decimal? priceLt = null, decimal? priceGt = null, decimal? priceEq = null, decimal? priceNe = null, List<string> categories = null, string modifiedSince = null, string createdSince = null);
-
-        /// <summary>
-        /// Return all your products
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="ids">Filter by product ids (optional)</param>
-        /// <param name="name">Filter by product name, minimum 3 characters should be present for search (optional)</param>
-        /// <param name="priceLte">Price filter for products less than and equals to particular amount (optional)</param>
-        /// <param name="priceGte">Price filter for products greater than and equals to particular amount (optional)</param>
-        /// <param name="priceLt">Price filter for products less than particular amount (optional)</param>
-        /// <param name="priceGt">Price filter for products greater than particular amount (optional)</param>
-        /// <param name="priceEq">Price filter for products equals to particular amount (optional)</param>
-        /// <param name="priceNe">Price filter for products not equals to particular amount (optional)</param>
-        /// <param name="categories">Filter by category ids (optional)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the orders modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
-        /// <returns>Task of ApiResponse (GetProducts)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetProducts>> GetProductsAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, decimal? priceLte = null, decimal? priceGte = null, decimal? priceLt = null, decimal? priceGt = null, decimal? priceEq = null, decimal? priceNe = null, List<string> categories = null, string modifiedSince = null, string createdSince = null);
-        #endregion Asynchronous Operations
-    }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class EcommerceApi : IEcommerceApi
+    public partial class EcommerceApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -724,9 +122,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderBatch"></param>
         /// <returns></returns>
-        public void CreateBatchOrder (OrderBatch orderBatch)
+        public void CreateBatchOrder (string apiKey, string partnerKey, OrderBatch orderBatch)
         {
-             CreateBatchOrderWithHttpInfo(orderBatch);
+             CreateBatchOrderWithHttpInfo(apiKey, partnerKey, orderBatch);
         }
 
         /// <summary>
@@ -735,7 +133,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderBatch"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CreateBatchOrderWithHttpInfo (OrderBatch orderBatch)
+        public ApiResponse<Object> CreateBatchOrderWithHttpInfo (string apiKey, string partnerKey, OrderBatch orderBatch)
         {
             // verify the required parameter 'orderBatch' is set
             if (orderBatch == null)
@@ -773,14 +171,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -807,9 +205,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderBatch"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateBatchOrderAsync (OrderBatch orderBatch)
+        public async System.Threading.Tasks.Task CreateBatchOrderAsync (string apiKey, string partnerKey, OrderBatch orderBatch)
         {
-             await CreateBatchOrderAsyncWithHttpInfo(orderBatch);
+             await CreateBatchOrderAsyncWithHttpInfo(apiKey, partnerKey, orderBatch);
 
         }
 
@@ -819,7 +217,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderBatch"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateBatchOrderAsyncWithHttpInfo (OrderBatch orderBatch)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateBatchOrderAsyncWithHttpInfo (string apiKey, string partnerKey, OrderBatch orderBatch)
         {
             // verify the required parameter 'orderBatch' is set
             if (orderBatch == null)
@@ -857,14 +255,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -891,9 +289,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
         /// <returns></returns>
-        public void CreateOrder (Order order)
+        public void CreateOrder (string apiKey, string partnerKey, Order order)
         {
-             CreateOrderWithHttpInfo(order);
+             CreateOrderWithHttpInfo(apiKey, partnerKey, order);
         }
 
         /// <summary>
@@ -902,7 +300,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CreateOrderWithHttpInfo (Order order)
+        public ApiResponse<Object> CreateOrderWithHttpInfo (string apiKey, string partnerKey, Order order)
         {
             // verify the required parameter 'order' is set
             if (order == null)
@@ -940,14 +338,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -974,9 +372,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateOrderAsync (Order order)
+        public async System.Threading.Tasks.Task CreateOrderAsync (string apiKey, string partnerKey, Order order)
         {
-             await CreateOrderAsyncWithHttpInfo(order);
+             await CreateOrderAsyncWithHttpInfo(apiKey, partnerKey, order);
 
         }
 
@@ -986,7 +384,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateOrderAsyncWithHttpInfo (Order order)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateOrderAsyncWithHttpInfo (string apiKey, string partnerKey, Order order)
         {
             // verify the required parameter 'order' is set
             if (order == null)
@@ -1024,14 +422,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1058,9 +456,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUpdateBatchCategory">Values to create a batch of categories</param>
         /// <returns>CreateUpdateBatchCategoryModel</returns>
-        public CreateUpdateBatchCategoryModel CreateUpdateBatchCategory (CreateUpdateBatchCategory createUpdateBatchCategory)
+        public CreateUpdateBatchCategoryModel CreateUpdateBatchCategory (string apiKey, string partnerKey, CreateUpdateBatchCategory createUpdateBatchCategory)
         {
-             ApiResponse<CreateUpdateBatchCategoryModel> localVarResponse = CreateUpdateBatchCategoryWithHttpInfo(createUpdateBatchCategory);
+             ApiResponse<CreateUpdateBatchCategoryModel> localVarResponse = CreateUpdateBatchCategoryWithHttpInfo(apiKey, partnerKey, createUpdateBatchCategory);
              return localVarResponse.Data;
         }
 
@@ -1070,7 +468,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUpdateBatchCategory">Values to create a batch of categories</param>
         /// <returns>ApiResponse of CreateUpdateBatchCategoryModel</returns>
-        public ApiResponse< CreateUpdateBatchCategoryModel > CreateUpdateBatchCategoryWithHttpInfo (CreateUpdateBatchCategory createUpdateBatchCategory)
+        public ApiResponse< CreateUpdateBatchCategoryModel > CreateUpdateBatchCategoryWithHttpInfo (string apiKey, string partnerKey, CreateUpdateBatchCategory createUpdateBatchCategory)
         {
             // verify the required parameter 'createUpdateBatchCategory' is set
             if (createUpdateBatchCategory == null)
@@ -1108,14 +506,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1142,9 +540,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUpdateBatchCategory">Values to create a batch of categories</param>
         /// <returns>Task of CreateUpdateBatchCategoryModel</returns>
-        public async System.Threading.Tasks.Task<CreateUpdateBatchCategoryModel> CreateUpdateBatchCategoryAsync (CreateUpdateBatchCategory createUpdateBatchCategory)
+        public async System.Threading.Tasks.Task<CreateUpdateBatchCategoryModel> CreateUpdateBatchCategoryAsync (string apiKey, string partnerKey, CreateUpdateBatchCategory createUpdateBatchCategory)
         {
-             ApiResponse<CreateUpdateBatchCategoryModel> localVarResponse = await CreateUpdateBatchCategoryAsyncWithHttpInfo(createUpdateBatchCategory);
+             ApiResponse<CreateUpdateBatchCategoryModel> localVarResponse = await CreateUpdateBatchCategoryAsyncWithHttpInfo(apiKey, partnerKey, createUpdateBatchCategory);
              return localVarResponse.Data;
 
         }
@@ -1155,7 +553,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUpdateBatchCategory">Values to create a batch of categories</param>
         /// <returns>Task of ApiResponse (CreateUpdateBatchCategoryModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateUpdateBatchCategoryModel>> CreateUpdateBatchCategoryAsyncWithHttpInfo (CreateUpdateBatchCategory createUpdateBatchCategory)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateUpdateBatchCategoryModel>> CreateUpdateBatchCategoryAsyncWithHttpInfo (string apiKey, string partnerKey, CreateUpdateBatchCategory createUpdateBatchCategory)
         {
             // verify the required parameter 'createUpdateBatchCategory' is set
             if (createUpdateBatchCategory == null)
@@ -1193,14 +591,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1227,9 +625,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUpdateBatchProducts">Values to create a batch of products</param>
         /// <returns>CreateUpdateBatchProductsModel</returns>
-        public CreateUpdateBatchProductsModel CreateUpdateBatchProducts (CreateUpdateBatchProducts createUpdateBatchProducts)
+        public CreateUpdateBatchProductsModel CreateUpdateBatchProducts (string apiKey, string partnerKey, CreateUpdateBatchProducts createUpdateBatchProducts)
         {
-             ApiResponse<CreateUpdateBatchProductsModel> localVarResponse = CreateUpdateBatchProductsWithHttpInfo(createUpdateBatchProducts);
+             ApiResponse<CreateUpdateBatchProductsModel> localVarResponse = CreateUpdateBatchProductsWithHttpInfo(apiKey, partnerKey, createUpdateBatchProducts);
              return localVarResponse.Data;
         }
 
@@ -1239,7 +637,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUpdateBatchProducts">Values to create a batch of products</param>
         /// <returns>ApiResponse of CreateUpdateBatchProductsModel</returns>
-        public ApiResponse< CreateUpdateBatchProductsModel > CreateUpdateBatchProductsWithHttpInfo (CreateUpdateBatchProducts createUpdateBatchProducts)
+        public ApiResponse< CreateUpdateBatchProductsModel > CreateUpdateBatchProductsWithHttpInfo (string apiKey, string partnerKey, CreateUpdateBatchProducts createUpdateBatchProducts)
         {
             // verify the required parameter 'createUpdateBatchProducts' is set
             if (createUpdateBatchProducts == null)
@@ -1277,14 +675,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1311,9 +709,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUpdateBatchProducts">Values to create a batch of products</param>
         /// <returns>Task of CreateUpdateBatchProductsModel</returns>
-        public async System.Threading.Tasks.Task<CreateUpdateBatchProductsModel> CreateUpdateBatchProductsAsync (CreateUpdateBatchProducts createUpdateBatchProducts)
+        public async System.Threading.Tasks.Task<CreateUpdateBatchProductsModel> CreateUpdateBatchProductsAsync (string apiKey, string partnerKey, CreateUpdateBatchProducts createUpdateBatchProducts)
         {
-             ApiResponse<CreateUpdateBatchProductsModel> localVarResponse = await CreateUpdateBatchProductsAsyncWithHttpInfo(createUpdateBatchProducts);
+             ApiResponse<CreateUpdateBatchProductsModel> localVarResponse = await CreateUpdateBatchProductsAsyncWithHttpInfo(apiKey, partnerKey, createUpdateBatchProducts);
              return localVarResponse.Data;
 
         }
@@ -1324,7 +722,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUpdateBatchProducts">Values to create a batch of products</param>
         /// <returns>Task of ApiResponse (CreateUpdateBatchProductsModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateUpdateBatchProductsModel>> CreateUpdateBatchProductsAsyncWithHttpInfo (CreateUpdateBatchProducts createUpdateBatchProducts)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateUpdateBatchProductsModel>> CreateUpdateBatchProductsAsyncWithHttpInfo (string apiKey, string partnerKey, CreateUpdateBatchProducts createUpdateBatchProducts)
         {
             // verify the required parameter 'createUpdateBatchProducts' is set
             if (createUpdateBatchProducts == null)
@@ -1362,14 +760,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1396,9 +794,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUpdateCategory">Values to create/update a category</param>
         /// <returns>CreateCategoryModel</returns>
-        public CreateCategoryModel CreateUpdateCategory (CreateUpdateCategory createUpdateCategory)
+        public CreateCategoryModel CreateUpdateCategory (string apiKey, string partnerKey, CreateUpdateCategory createUpdateCategory)
         {
-             ApiResponse<CreateCategoryModel> localVarResponse = CreateUpdateCategoryWithHttpInfo(createUpdateCategory);
+             ApiResponse<CreateCategoryModel> localVarResponse = CreateUpdateCategoryWithHttpInfo(apiKey, partnerKey, createUpdateCategory);
              return localVarResponse.Data;
         }
 
@@ -1408,7 +806,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUpdateCategory">Values to create/update a category</param>
         /// <returns>ApiResponse of CreateCategoryModel</returns>
-        public ApiResponse< CreateCategoryModel > CreateUpdateCategoryWithHttpInfo (CreateUpdateCategory createUpdateCategory)
+        public ApiResponse< CreateCategoryModel > CreateUpdateCategoryWithHttpInfo (string apiKey, string partnerKey, CreateUpdateCategory createUpdateCategory)
         {
             // verify the required parameter 'createUpdateCategory' is set
             if (createUpdateCategory == null)
@@ -1446,14 +844,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1480,9 +878,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUpdateCategory">Values to create/update a category</param>
         /// <returns>Task of CreateCategoryModel</returns>
-        public async System.Threading.Tasks.Task<CreateCategoryModel> CreateUpdateCategoryAsync (CreateUpdateCategory createUpdateCategory)
+        public async System.Threading.Tasks.Task<CreateCategoryModel> CreateUpdateCategoryAsync (string apiKey, string partnerKey, CreateUpdateCategory createUpdateCategory)
         {
-             ApiResponse<CreateCategoryModel> localVarResponse = await CreateUpdateCategoryAsyncWithHttpInfo(createUpdateCategory);
+             ApiResponse<CreateCategoryModel> localVarResponse = await CreateUpdateCategoryAsyncWithHttpInfo(apiKey, partnerKey, createUpdateCategory);
              return localVarResponse.Data;
 
         }
@@ -1493,7 +891,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUpdateCategory">Values to create/update a category</param>
         /// <returns>Task of ApiResponse (CreateCategoryModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateCategoryModel>> CreateUpdateCategoryAsyncWithHttpInfo (CreateUpdateCategory createUpdateCategory)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateCategoryModel>> CreateUpdateCategoryAsyncWithHttpInfo (string apiKey, string partnerKey, CreateUpdateCategory createUpdateCategory)
         {
             // verify the required parameter 'createUpdateCategory' is set
             if (createUpdateCategory == null)
@@ -1531,14 +929,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1565,9 +963,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUpdateProduct">Values to create/update a product</param>
         /// <returns>CreateProductModel</returns>
-        public CreateProductModel CreateUpdateProduct (CreateUpdateProduct createUpdateProduct)
+        public CreateProductModel CreateUpdateProduct (string apiKey, string partnerKey, CreateUpdateProduct createUpdateProduct)
         {
-             ApiResponse<CreateProductModel> localVarResponse = CreateUpdateProductWithHttpInfo(createUpdateProduct);
+             ApiResponse<CreateProductModel> localVarResponse = CreateUpdateProductWithHttpInfo(apiKey, partnerKey, createUpdateProduct);
              return localVarResponse.Data;
         }
 
@@ -1577,7 +975,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUpdateProduct">Values to create/update a product</param>
         /// <returns>ApiResponse of CreateProductModel</returns>
-        public ApiResponse< CreateProductModel > CreateUpdateProductWithHttpInfo (CreateUpdateProduct createUpdateProduct)
+        public ApiResponse< CreateProductModel > CreateUpdateProductWithHttpInfo (string apiKey, string partnerKey, CreateUpdateProduct createUpdateProduct)
         {
             // verify the required parameter 'createUpdateProduct' is set
             if (createUpdateProduct == null)
@@ -1615,14 +1013,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1649,9 +1047,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUpdateProduct">Values to create/update a product</param>
         /// <returns>Task of CreateProductModel</returns>
-        public async System.Threading.Tasks.Task<CreateProductModel> CreateUpdateProductAsync (CreateUpdateProduct createUpdateProduct)
+        public async System.Threading.Tasks.Task<CreateProductModel> CreateUpdateProductAsync (string apiKey, string partnerKey, CreateUpdateProduct createUpdateProduct)
         {
-             ApiResponse<CreateProductModel> localVarResponse = await CreateUpdateProductAsyncWithHttpInfo(createUpdateProduct);
+             ApiResponse<CreateProductModel> localVarResponse = await CreateUpdateProductAsyncWithHttpInfo(apiKey, partnerKey, createUpdateProduct);
              return localVarResponse.Data;
 
         }
@@ -1662,7 +1060,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUpdateProduct">Values to create/update a product</param>
         /// <returns>Task of ApiResponse (CreateProductModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateProductModel>> CreateUpdateProductAsyncWithHttpInfo (CreateUpdateProduct createUpdateProduct)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateProductModel>> CreateUpdateProductAsyncWithHttpInfo (string apiKey, string partnerKey, CreateUpdateProduct createUpdateProduct)
         {
             // verify the required parameter 'createUpdateProduct' is set
             if (createUpdateProduct == null)
@@ -1700,14 +1098,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1733,9 +1131,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
-        public void EcommerceActivatePost ()
+        public void EcommerceActivatePost (string apiKey, string partnerKey)
         {
-             EcommerceActivatePostWithHttpInfo();
+             EcommerceActivatePostWithHttpInfo(apiKey, partnerKey);
         }
 
         /// <summary>
@@ -1743,7 +1141,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> EcommerceActivatePostWithHttpInfo ()
+        public ApiResponse<Object> EcommerceActivatePostWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./ecommerce/activate";
@@ -1770,14 +1168,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1803,9 +1201,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task EcommerceActivatePostAsync ()
+        public async System.Threading.Tasks.Task EcommerceActivatePostAsync (string apiKey, string partnerKey)
         {
-             await EcommerceActivatePostAsyncWithHttpInfo();
+             await EcommerceActivatePostAsyncWithHttpInfo(apiKey, partnerKey);
 
         }
 
@@ -1814,7 +1212,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> EcommerceActivatePostAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> EcommerceActivatePostAsyncWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./ecommerce/activate";
@@ -1841,14 +1239,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1881,9 +1279,9 @@ namespace brevo_csharp.Api
         /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
         /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
         /// <returns>GetCategories</returns>
-        public GetCategories GetCategories (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null)
+        public GetCategories GetCategories (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null)
         {
-             ApiResponse<GetCategories> localVarResponse = GetCategoriesWithHttpInfo(limit, offset, sort, ids, name, modifiedSince, createdSince);
+             ApiResponse<GetCategories> localVarResponse = GetCategoriesWithHttpInfo(apiKey, partnerKey, limit, offset, sort, ids, name, modifiedSince, createdSince);
              return localVarResponse.Data;
         }
 
@@ -1899,7 +1297,7 @@ namespace brevo_csharp.Api
         /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
         /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
         /// <returns>ApiResponse of GetCategories</returns>
-        public ApiResponse< GetCategories > GetCategoriesWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null)
+        public ApiResponse< GetCategories > GetCategoriesWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null)
         {
 
             var localVarPath = "./categories";
@@ -1933,14 +1331,14 @@ namespace brevo_csharp.Api
             if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1973,9 +1371,9 @@ namespace brevo_csharp.Api
         /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
         /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
         /// <returns>Task of GetCategories</returns>
-        public async System.Threading.Tasks.Task<GetCategories> GetCategoriesAsync (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null)
+        public async System.Threading.Tasks.Task<GetCategories> GetCategoriesAsync (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null)
         {
-             ApiResponse<GetCategories> localVarResponse = await GetCategoriesAsyncWithHttpInfo(limit, offset, sort, ids, name, modifiedSince, createdSince);
+             ApiResponse<GetCategories> localVarResponse = await GetCategoriesAsyncWithHttpInfo(apiKey, partnerKey, limit, offset, sort, ids, name, modifiedSince, createdSince);
              return localVarResponse.Data;
 
         }
@@ -1992,7 +1390,7 @@ namespace brevo_csharp.Api
         /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
         /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
         /// <returns>Task of ApiResponse (GetCategories)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetCategories>> GetCategoriesAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetCategories>> GetCategoriesAsyncWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null)
         {
 
             var localVarPath = "./categories";
@@ -2026,14 +1424,14 @@ namespace brevo_csharp.Api
             if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2060,9 +1458,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Category ID</param>
         /// <returns>GetCategoryDetails</returns>
-        public GetCategoryDetails GetCategoryInfo (string id)
+        public GetCategoryDetails GetCategoryInfo (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<GetCategoryDetails> localVarResponse = GetCategoryInfoWithHttpInfo(id);
+             ApiResponse<GetCategoryDetails> localVarResponse = GetCategoryInfoWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
         }
 
@@ -2072,7 +1470,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Category ID</param>
         /// <returns>ApiResponse of GetCategoryDetails</returns>
-        public ApiResponse< GetCategoryDetails > GetCategoryInfoWithHttpInfo (string id)
+        public ApiResponse< GetCategoryDetails > GetCategoryInfoWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2103,14 +1501,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2137,9 +1535,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Category ID</param>
         /// <returns>Task of GetCategoryDetails</returns>
-        public async System.Threading.Tasks.Task<GetCategoryDetails> GetCategoryInfoAsync (string id)
+        public async System.Threading.Tasks.Task<GetCategoryDetails> GetCategoryInfoAsync (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<GetCategoryDetails> localVarResponse = await GetCategoryInfoAsyncWithHttpInfo(id);
+             ApiResponse<GetCategoryDetails> localVarResponse = await GetCategoryInfoAsyncWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
 
         }
@@ -2150,7 +1548,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Category ID</param>
         /// <returns>Task of ApiResponse (GetCategoryDetails)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetCategoryDetails>> GetCategoryInfoAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<GetCategoryDetails>> GetCategoryInfoAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2181,14 +1579,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2219,9 +1617,9 @@ namespace brevo_csharp.Api
         /// <param name="modifiedSince">Filter (urlencoded) the orders modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>GetOrders</returns>
-        public GetOrders GetOrders (long? limit = null, long? offset = null, string sort = null, string modifiedSince = null, string createdSince = null)
+        public GetOrders GetOrders (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null, string modifiedSince = null, string createdSince = null)
         {
-             ApiResponse<GetOrders> localVarResponse = GetOrdersWithHttpInfo(limit, offset, sort, modifiedSince, createdSince);
+             ApiResponse<GetOrders> localVarResponse = GetOrdersWithHttpInfo(apiKey, partnerKey, limit, offset, sort, modifiedSince, createdSince);
              return localVarResponse.Data;
         }
 
@@ -2235,7 +1633,7 @@ namespace brevo_csharp.Api
         /// <param name="modifiedSince">Filter (urlencoded) the orders modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>ApiResponse of GetOrders</returns>
-        public ApiResponse< GetOrders > GetOrdersWithHttpInfo (long? limit = null, long? offset = null, string sort = null, string modifiedSince = null, string createdSince = null)
+        public ApiResponse< GetOrders > GetOrdersWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null, string modifiedSince = null, string createdSince = null)
         {
 
             var localVarPath = "./orders";
@@ -2267,14 +1665,14 @@ namespace brevo_csharp.Api
             if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2305,9 +1703,9 @@ namespace brevo_csharp.Api
         /// <param name="modifiedSince">Filter (urlencoded) the orders modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>Task of GetOrders</returns>
-        public async System.Threading.Tasks.Task<GetOrders> GetOrdersAsync (long? limit = null, long? offset = null, string sort = null, string modifiedSince = null, string createdSince = null)
+        public async System.Threading.Tasks.Task<GetOrders> GetOrdersAsync (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null, string modifiedSince = null, string createdSince = null)
         {
-             ApiResponse<GetOrders> localVarResponse = await GetOrdersAsyncWithHttpInfo(limit, offset, sort, modifiedSince, createdSince);
+             ApiResponse<GetOrders> localVarResponse = await GetOrdersAsyncWithHttpInfo(apiKey, partnerKey, limit, offset, sort, modifiedSince, createdSince);
              return localVarResponse.Data;
 
         }
@@ -2322,7 +1720,7 @@ namespace brevo_csharp.Api
         /// <param name="modifiedSince">Filter (urlencoded) the orders modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>Task of ApiResponse (GetOrders)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetOrders>> GetOrdersAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null, string modifiedSince = null, string createdSince = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetOrders>> GetOrdersAsyncWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null, string modifiedSince = null, string createdSince = null)
         {
 
             var localVarPath = "./orders";
@@ -2354,14 +1752,14 @@ namespace brevo_csharp.Api
             if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2388,9 +1786,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Product ID</param>
         /// <returns>GetProductDetails</returns>
-        public GetProductDetails GetProductInfo (string id)
+        public GetProductDetails GetProductInfo (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<GetProductDetails> localVarResponse = GetProductInfoWithHttpInfo(id);
+             ApiResponse<GetProductDetails> localVarResponse = GetProductInfoWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
         }
 
@@ -2400,7 +1798,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Product ID</param>
         /// <returns>ApiResponse of GetProductDetails</returns>
-        public ApiResponse< GetProductDetails > GetProductInfoWithHttpInfo (string id)
+        public ApiResponse< GetProductDetails > GetProductInfoWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2431,14 +1829,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2465,9 +1863,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Product ID</param>
         /// <returns>Task of GetProductDetails</returns>
-        public async System.Threading.Tasks.Task<GetProductDetails> GetProductInfoAsync (string id)
+        public async System.Threading.Tasks.Task<GetProductDetails> GetProductInfoAsync (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<GetProductDetails> localVarResponse = await GetProductInfoAsyncWithHttpInfo(id);
+             ApiResponse<GetProductDetails> localVarResponse = await GetProductInfoAsyncWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
 
         }
@@ -2478,7 +1876,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Product ID</param>
         /// <returns>Task of ApiResponse (GetProductDetails)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetProductDetails>> GetProductInfoAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<GetProductDetails>> GetProductInfoAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2509,14 +1907,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2556,9 +1954,9 @@ namespace brevo_csharp.Api
         /// <param name="modifiedSince">Filter (urlencoded) the orders modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>GetProducts</returns>
-        public GetProducts GetProducts (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, decimal? priceLte = null, decimal? priceGte = null, decimal? priceLt = null, decimal? priceGt = null, decimal? priceEq = null, decimal? priceNe = null, List<string> categories = null, string modifiedSince = null, string createdSince = null)
+        public GetProducts GetProducts (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, decimal? priceLte = null, decimal? priceGte = null, decimal? priceLt = null, decimal? priceGt = null, decimal? priceEq = null, decimal? priceNe = null, List<string> categories = null, string modifiedSince = null, string createdSince = null)
         {
-             ApiResponse<GetProducts> localVarResponse = GetProductsWithHttpInfo(limit, offset, sort, ids, name, priceLte, priceGte, priceLt, priceGt, priceEq, priceNe, categories, modifiedSince, createdSince);
+             ApiResponse<GetProducts> localVarResponse = GetProductsWithHttpInfo(apiKey, partnerKey, limit, offset, sort, ids, name, priceLte, priceGte, priceLt, priceGt, priceEq, priceNe, categories, modifiedSince, createdSince);
              return localVarResponse.Data;
         }
 
@@ -2581,7 +1979,7 @@ namespace brevo_csharp.Api
         /// <param name="modifiedSince">Filter (urlencoded) the orders modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>ApiResponse of GetProducts</returns>
-        public ApiResponse< GetProducts > GetProductsWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, decimal? priceLte = null, decimal? priceGte = null, decimal? priceLt = null, decimal? priceGt = null, decimal? priceEq = null, decimal? priceNe = null, List<string> categories = null, string modifiedSince = null, string createdSince = null)
+        public ApiResponse< GetProducts > GetProductsWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, decimal? priceLte = null, decimal? priceGte = null, decimal? priceLt = null, decimal? priceGt = null, decimal? priceEq = null, decimal? priceNe = null, List<string> categories = null, string modifiedSince = null, string createdSince = null)
         {
 
             var localVarPath = "./products";
@@ -2622,14 +2020,14 @@ namespace brevo_csharp.Api
             if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2669,9 +2067,9 @@ namespace brevo_csharp.Api
         /// <param name="modifiedSince">Filter (urlencoded) the orders modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>Task of GetProducts</returns>
-        public async System.Threading.Tasks.Task<GetProducts> GetProductsAsync (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, decimal? priceLte = null, decimal? priceGte = null, decimal? priceLt = null, decimal? priceGt = null, decimal? priceEq = null, decimal? priceNe = null, List<string> categories = null, string modifiedSince = null, string createdSince = null)
+        public async System.Threading.Tasks.Task<GetProducts> GetProductsAsync (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, decimal? priceLte = null, decimal? priceGte = null, decimal? priceLt = null, decimal? priceGt = null, decimal? priceEq = null, decimal? priceNe = null, List<string> categories = null, string modifiedSince = null, string createdSince = null)
         {
-             ApiResponse<GetProducts> localVarResponse = await GetProductsAsyncWithHttpInfo(limit, offset, sort, ids, name, priceLte, priceGte, priceLt, priceGt, priceEq, priceNe, categories, modifiedSince, createdSince);
+             ApiResponse<GetProducts> localVarResponse = await GetProductsAsyncWithHttpInfo(apiKey, partnerKey, limit, offset, sort, ids, name, priceLte, priceGte, priceLt, priceGt, priceEq, priceNe, categories, modifiedSince, createdSince);
              return localVarResponse.Data;
 
         }
@@ -2695,7 +2093,7 @@ namespace brevo_csharp.Api
         /// <param name="modifiedSince">Filter (urlencoded) the orders modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>Task of ApiResponse (GetProducts)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetProducts>> GetProductsAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, decimal? priceLte = null, decimal? priceGte = null, decimal? priceLt = null, decimal? priceGt = null, decimal? priceEq = null, decimal? priceNe = null, List<string> categories = null, string modifiedSince = null, string createdSince = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetProducts>> GetProductsAsyncWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, decimal? priceLte = null, decimal? priceGte = null, decimal? priceLt = null, decimal? priceGt = null, decimal? priceEq = null, decimal? priceNe = null, List<string> categories = null, string modifiedSince = null, string createdSince = null)
         {
 
             var localVarPath = "./products";
@@ -2736,14 +2134,14 @@ namespace brevo_csharp.Api
             if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

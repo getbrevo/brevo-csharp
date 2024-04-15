@@ -18,259 +18,11 @@ using brevo_csharp.Model;
 
 namespace brevo_csharp.Api
 {
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface INotesApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Get all notes
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entity">Filter by note entity type (optional)</param>
-        /// <param name="entityIds">Filter by note entity IDs (optional)</param>
-        /// <param name="dateFrom">dateFrom to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="dateTo">dateTo to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
-        /// <returns>NoteList</returns>
-        NoteList CrmNotesGet (string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null);
-
-        /// <summary>
-        /// Get all notes
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entity">Filter by note entity type (optional)</param>
-        /// <param name="entityIds">Filter by note entity IDs (optional)</param>
-        /// <param name="dateFrom">dateFrom to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="dateTo">dateTo to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
-        /// <returns>ApiResponse of NoteList</returns>
-        ApiResponse<NoteList> CrmNotesGetWithHttpInfo (string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null);
-        /// <summary>
-        /// Delete a note
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Note ID to delete</param>
-        /// <returns></returns>
-        void CrmNotesIdDelete (string id);
-
-        /// <summary>
-        /// Delete a note
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Note ID to delete</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CrmNotesIdDeleteWithHttpInfo (string id);
-        /// <summary>
-        /// Get a note
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Note ID to get</param>
-        /// <returns>Note</returns>
-        Note CrmNotesIdGet (string id);
-
-        /// <summary>
-        /// Get a note
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Note ID to get</param>
-        /// <returns>ApiResponse of Note</returns>
-        ApiResponse<Note> CrmNotesIdGetWithHttpInfo (string id);
-        /// <summary>
-        /// Update a note
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Note ID to update</param>
-        /// <param name="body">Note data to update a note</param>
-        /// <returns></returns>
-        void CrmNotesIdPatch (string id, NoteData body);
-
-        /// <summary>
-        /// Update a note
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Note ID to update</param>
-        /// <param name="body">Note data to update a note</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CrmNotesIdPatchWithHttpInfo (string id, NoteData body);
-        /// <summary>
-        /// Create a note
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Note data to create a note.</param>
-        /// <returns>NoteId</returns>
-        NoteId CrmNotesPost (NoteData body);
-
-        /// <summary>
-        /// Create a note
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Note data to create a note.</param>
-        /// <returns>ApiResponse of NoteId</returns>
-        ApiResponse<NoteId> CrmNotesPostWithHttpInfo (NoteData body);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Get all notes
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entity">Filter by note entity type (optional)</param>
-        /// <param name="entityIds">Filter by note entity IDs (optional)</param>
-        /// <param name="dateFrom">dateFrom to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="dateTo">dateTo to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
-        /// <returns>Task of NoteList</returns>
-        System.Threading.Tasks.Task<NoteList> CrmNotesGetAsync (string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null);
-
-        /// <summary>
-        /// Get all notes
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entity">Filter by note entity type (optional)</param>
-        /// <param name="entityIds">Filter by note entity IDs (optional)</param>
-        /// <param name="dateFrom">dateFrom to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="dateTo">dateTo to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
-        /// <returns>Task of ApiResponse (NoteList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NoteList>> CrmNotesGetAsyncWithHttpInfo (string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null);
-        /// <summary>
-        /// Delete a note
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Note ID to delete</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CrmNotesIdDeleteAsync (string id);
-
-        /// <summary>
-        /// Delete a note
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Note ID to delete</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CrmNotesIdDeleteAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// Get a note
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Note ID to get</param>
-        /// <returns>Task of Note</returns>
-        System.Threading.Tasks.Task<Note> CrmNotesIdGetAsync (string id);
-
-        /// <summary>
-        /// Get a note
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Note ID to get</param>
-        /// <returns>Task of ApiResponse (Note)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Note>> CrmNotesIdGetAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// Update a note
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Note ID to update</param>
-        /// <param name="body">Note data to update a note</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CrmNotesIdPatchAsync (string id, NoteData body);
-
-        /// <summary>
-        /// Update a note
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Note ID to update</param>
-        /// <param name="body">Note data to update a note</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CrmNotesIdPatchAsyncWithHttpInfo (string id, NoteData body);
-        /// <summary>
-        /// Create a note
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Note data to create a note.</param>
-        /// <returns>Task of NoteId</returns>
-        System.Threading.Tasks.Task<NoteId> CrmNotesPostAsync (NoteData body);
-
-        /// <summary>
-        /// Create a note
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Note data to create a note.</param>
-        /// <returns>Task of ApiResponse (NoteId)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NoteId>> CrmNotesPostAsyncWithHttpInfo (NoteData body);
-        #endregion Asynchronous Operations
-    }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class NotesApi : INotesApi
+    public partial class NotesApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -376,9 +128,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <returns>NoteList</returns>
-        public NoteList CrmNotesGet (string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null)
+        public NoteList CrmNotesGet (string apiKey, string partnerKey, string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null)
         {
-             ApiResponse<NoteList> localVarResponse = CrmNotesGetWithHttpInfo(entity, entityIds, dateFrom, dateTo, offset, limit, sort);
+             ApiResponse<NoteList> localVarResponse = CrmNotesGetWithHttpInfo(apiKey, partnerKey, entity, entityIds, dateFrom, dateTo, offset, limit, sort);
              return localVarResponse.Data;
         }
 
@@ -394,7 +146,7 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <returns>ApiResponse of NoteList</returns>
-        public ApiResponse< NoteList > CrmNotesGetWithHttpInfo (string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null)
+        public ApiResponse< NoteList > CrmNotesGetWithHttpInfo (string apiKey, string partnerKey, string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null)
         {
 
             var localVarPath = "./crm/notes";
@@ -428,14 +180,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -468,9 +220,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <returns>Task of NoteList</returns>
-        public async System.Threading.Tasks.Task<NoteList> CrmNotesGetAsync (string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null)
+        public async System.Threading.Tasks.Task<NoteList> CrmNotesGetAsync (string apiKey, string partnerKey, string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null)
         {
-             ApiResponse<NoteList> localVarResponse = await CrmNotesGetAsyncWithHttpInfo(entity, entityIds, dateFrom, dateTo, offset, limit, sort);
+             ApiResponse<NoteList> localVarResponse = await CrmNotesGetAsyncWithHttpInfo(apiKey, partnerKey, entity, entityIds, dateFrom, dateTo, offset, limit, sort);
              return localVarResponse.Data;
 
         }
@@ -487,7 +239,7 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <returns>Task of ApiResponse (NoteList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NoteList>> CrmNotesGetAsyncWithHttpInfo (string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<NoteList>> CrmNotesGetAsyncWithHttpInfo (string apiKey, string partnerKey, string entity = null, string entityIds = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null)
         {
 
             var localVarPath = "./crm/notes";
@@ -521,14 +273,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -555,9 +307,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Note ID to delete</param>
         /// <returns></returns>
-        public void CrmNotesIdDelete (string id)
+        public void CrmNotesIdDelete (string apiKey, string partnerKey, string id)
         {
-             CrmNotesIdDeleteWithHttpInfo(id);
+             CrmNotesIdDeleteWithHttpInfo(apiKey, partnerKey, id);
         }
 
         /// <summary>
@@ -566,7 +318,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Note ID to delete</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CrmNotesIdDeleteWithHttpInfo (string id)
+        public ApiResponse<Object> CrmNotesIdDeleteWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -597,14 +349,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -631,9 +383,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Note ID to delete</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CrmNotesIdDeleteAsync (string id)
+        public async System.Threading.Tasks.Task CrmNotesIdDeleteAsync (string apiKey, string partnerKey, string id)
         {
-             await CrmNotesIdDeleteAsyncWithHttpInfo(id);
+             await CrmNotesIdDeleteAsyncWithHttpInfo(apiKey, partnerKey, id);
 
         }
 
@@ -643,7 +395,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Note ID to delete</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmNotesIdDeleteAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmNotesIdDeleteAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -674,14 +426,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -708,9 +460,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Note ID to get</param>
         /// <returns>Note</returns>
-        public Note CrmNotesIdGet (string id)
+        public Note CrmNotesIdGet (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<Note> localVarResponse = CrmNotesIdGetWithHttpInfo(id);
+             ApiResponse<Note> localVarResponse = CrmNotesIdGetWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
         }
 
@@ -720,7 +472,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Note ID to get</param>
         /// <returns>ApiResponse of Note</returns>
-        public ApiResponse< Note > CrmNotesIdGetWithHttpInfo (string id)
+        public ApiResponse< Note > CrmNotesIdGetWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -751,14 +503,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -785,9 +537,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Note ID to get</param>
         /// <returns>Task of Note</returns>
-        public async System.Threading.Tasks.Task<Note> CrmNotesIdGetAsync (string id)
+        public async System.Threading.Tasks.Task<Note> CrmNotesIdGetAsync (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<Note> localVarResponse = await CrmNotesIdGetAsyncWithHttpInfo(id);
+             ApiResponse<Note> localVarResponse = await CrmNotesIdGetAsyncWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
 
         }
@@ -798,7 +550,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Note ID to get</param>
         /// <returns>Task of ApiResponse (Note)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Note>> CrmNotesIdGetAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<Note>> CrmNotesIdGetAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -829,14 +581,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -864,9 +616,9 @@ namespace brevo_csharp.Api
         /// <param name="id">Note ID to update</param>
         /// <param name="body">Note data to update a note</param>
         /// <returns></returns>
-        public void CrmNotesIdPatch (string id, NoteData body)
+        public void CrmNotesIdPatch (string apiKey, string partnerKey, string id, NoteData body)
         {
-             CrmNotesIdPatchWithHttpInfo(id, body);
+             CrmNotesIdPatchWithHttpInfo(apiKey, partnerKey, id, body);
         }
 
         /// <summary>
@@ -876,7 +628,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Note ID to update</param>
         /// <param name="body">Note data to update a note</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CrmNotesIdPatchWithHttpInfo (string id, NoteData body)
+        public ApiResponse<Object> CrmNotesIdPatchWithHttpInfo (string apiKey, string partnerKey, string id, NoteData body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -918,14 +670,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -953,9 +705,9 @@ namespace brevo_csharp.Api
         /// <param name="id">Note ID to update</param>
         /// <param name="body">Note data to update a note</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CrmNotesIdPatchAsync (string id, NoteData body)
+        public async System.Threading.Tasks.Task CrmNotesIdPatchAsync (string apiKey, string partnerKey, string id, NoteData body)
         {
-             await CrmNotesIdPatchAsyncWithHttpInfo(id, body);
+             await CrmNotesIdPatchAsyncWithHttpInfo(apiKey, partnerKey, id, body);
 
         }
 
@@ -966,7 +718,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Note ID to update</param>
         /// <param name="body">Note data to update a note</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmNotesIdPatchAsyncWithHttpInfo (string id, NoteData body)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmNotesIdPatchAsyncWithHttpInfo (string apiKey, string partnerKey, string id, NoteData body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1008,14 +760,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1042,9 +794,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Note data to create a note.</param>
         /// <returns>NoteId</returns>
-        public NoteId CrmNotesPost (NoteData body)
+        public NoteId CrmNotesPost (string apiKey, string partnerKey, NoteData body)
         {
-             ApiResponse<NoteId> localVarResponse = CrmNotesPostWithHttpInfo(body);
+             ApiResponse<NoteId> localVarResponse = CrmNotesPostWithHttpInfo(apiKey, partnerKey, body);
              return localVarResponse.Data;
         }
 
@@ -1054,7 +806,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Note data to create a note.</param>
         /// <returns>ApiResponse of NoteId</returns>
-        public ApiResponse< NoteId > CrmNotesPostWithHttpInfo (NoteData body)
+        public ApiResponse< NoteId > CrmNotesPostWithHttpInfo (string apiKey, string partnerKey, NoteData body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1092,14 +844,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1126,9 +878,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Note data to create a note.</param>
         /// <returns>Task of NoteId</returns>
-        public async System.Threading.Tasks.Task<NoteId> CrmNotesPostAsync (NoteData body)
+        public async System.Threading.Tasks.Task<NoteId> CrmNotesPostAsync (string apiKey, string partnerKey, NoteData body)
         {
-             ApiResponse<NoteId> localVarResponse = await CrmNotesPostAsyncWithHttpInfo(body);
+             ApiResponse<NoteId> localVarResponse = await CrmNotesPostAsyncWithHttpInfo(apiKey, partnerKey, body);
              return localVarResponse.Data;
 
         }
@@ -1139,7 +891,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Note data to create a note.</param>
         /// <returns>Task of ApiResponse (NoteId)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NoteId>> CrmNotesPostAsyncWithHttpInfo (NoteData body)
+        public async System.Threading.Tasks.Task<ApiResponse<NoteId>> CrmNotesPostAsyncWithHttpInfo (string apiKey, string partnerKey, NoteData body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1177,14 +929,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

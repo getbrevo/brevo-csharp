@@ -21,60 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IEventsApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Create an event
-        /// </summary>
-        /// <remarks>
-        /// Create an event to track a contact&#39;s interaction.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="_event"></param>
-        /// <returns></returns>
-        void CreateUnifiedEvent (ModelEvent _event);
-
-        /// <summary>
-        /// Create an event
-        /// </summary>
-        /// <remarks>
-        /// Create an event to track a contact&#39;s interaction.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="_event"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateUnifiedEventWithHttpInfo (ModelEvent _event);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Create an event
-        /// </summary>
-        /// <remarks>
-        /// Create an event to track a contact&#39;s interaction.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="_event"></param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateUnifiedEventAsync (ModelEvent _event);
-
-        /// <summary>
-        /// Create an event
-        /// </summary>
-        /// <remarks>
-        /// Create an event to track a contact&#39;s interaction.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="_event"></param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateUnifiedEventAsyncWithHttpInfo (ModelEvent _event);
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class EventsApi : IEventsApi
+    public partial class EventsApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -174,9 +121,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_event"></param>
         /// <returns></returns>
-        public void CreateUnifiedEvent (ModelEvent _event)
+        public void CreateUnifiedEvent (string apiKey, string partnerKey, ModelEvent _event)
         {
-             CreateUnifiedEventWithHttpInfo(_event);
+             CreateUnifiedEventWithHttpInfo(apiKey, partnerKey, _event);
         }
 
         /// <summary>
@@ -185,7 +132,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_event"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CreateUnifiedEventWithHttpInfo (ModelEvent _event)
+        public ApiResponse<Object> CreateUnifiedEventWithHttpInfo (string apiKey, string partnerKey, ModelEvent _event)
         {
             // verify the required parameter '_event' is set
             if (_event == null)
@@ -223,14 +170,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -257,9 +204,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_event"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateUnifiedEventAsync (ModelEvent _event)
+        public async System.Threading.Tasks.Task CreateUnifiedEventAsync (string apiKey, string partnerKey, ModelEvent _event)
         {
-             await CreateUnifiedEventAsyncWithHttpInfo(_event);
+             await CreateUnifiedEventAsyncWithHttpInfo(apiKey, partnerKey, _event);
 
         }
 
@@ -269,7 +216,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_event"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateUnifiedEventAsyncWithHttpInfo (ModelEvent _event)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateUnifiedEventAsyncWithHttpInfo (string apiKey, string partnerKey, ModelEvent _event)
         {
             // verify the required parameter '_event' is set
             if (_event == null)
@@ -307,14 +254,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

@@ -21,110 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IAccountApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Get your account information, plan and credits details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>GetAccount</returns>
-        GetAccount GetAccount ();
-
-        /// <summary>
-        /// Get your account information, plan and credits details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of GetAccount</returns>
-        ApiResponse<GetAccount> GetAccountWithHttpInfo ();
-        /// <summary>
-        /// Get user activity logs
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
-        /// <returns>GetAccountActivity</returns>
-        GetAccountActivity GetAccountActivity (string startDate = null, string endDate = null, long? limit = null, long? offset = null);
-
-        /// <summary>
-        /// Get user activity logs
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
-        /// <returns>ApiResponse of GetAccountActivity</returns>
-        ApiResponse<GetAccountActivity> GetAccountActivityWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Get your account information, plan and credits details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of GetAccount</returns>
-        System.Threading.Tasks.Task<GetAccount> GetAccountAsync ();
-
-        /// <summary>
-        /// Get your account information, plan and credits details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (GetAccount)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetAccount>> GetAccountAsyncWithHttpInfo ();
-        /// <summary>
-        /// Get user activity logs
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
-        /// <returns>Task of GetAccountActivity</returns>
-        System.Threading.Tasks.Task<GetAccountActivity> GetAccountActivityAsync (string startDate = null, string endDate = null, long? limit = null, long? offset = null);
-
-        /// <summary>
-        /// Get user activity logs
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
-        /// <returns>Task of ApiResponse (GetAccountActivity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetAccountActivity>> GetAccountActivityAsyncWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null);
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class AccountApi : IAccountApi
+    public partial class AccountApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -223,9 +120,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>GetAccount</returns>
-        public GetAccount GetAccount ()
+        public GetAccount GetAccount (string apiKey, string partnerKey)
         {
-             ApiResponse<GetAccount> localVarResponse = GetAccountWithHttpInfo();
+             ApiResponse<GetAccount> localVarResponse = GetAccountWithHttpInfo( apiKey,  partnerKey );
              return localVarResponse.Data;
         }
 
@@ -234,7 +131,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of GetAccount</returns>
-        public ApiResponse< GetAccount > GetAccountWithHttpInfo ()
+        public ApiResponse< GetAccount > GetAccountWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./account";
@@ -261,14 +158,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey ;
             }
 
             // make the HTTP request
@@ -294,9 +191,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of GetAccount</returns>
-        public async System.Threading.Tasks.Task<GetAccount> GetAccountAsync ()
+        public async System.Threading.Tasks.Task<GetAccount> GetAccountAsync (string apiKey, string partnerKey)
         {
-             ApiResponse<GetAccount> localVarResponse = await GetAccountAsyncWithHttpInfo();
+             ApiResponse<GetAccount> localVarResponse = await GetAccountAsyncWithHttpInfo(apiKey ,partnerKey );
              return localVarResponse.Data;
 
         }
@@ -306,7 +203,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (GetAccount)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetAccount>> GetAccountAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<GetAccount>> GetAccountAsyncWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./account";
@@ -333,14 +230,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -370,9 +267,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>GetAccountActivity</returns>
-        public GetAccountActivity GetAccountActivity (string startDate = null, string endDate = null, long? limit = null, long? offset = null)
+        public GetAccountActivity GetAccountActivity (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null)
         {
-             ApiResponse<GetAccountActivity> localVarResponse = GetAccountActivityWithHttpInfo(startDate, endDate, limit, offset);
+             ApiResponse<GetAccountActivity> localVarResponse = GetAccountActivityWithHttpInfo(apiKey, partnerKey ,startDate, endDate, limit, offset);
              return localVarResponse.Data;
         }
 
@@ -385,7 +282,7 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>ApiResponse of GetAccountActivity</returns>
-        public ApiResponse< GetAccountActivity > GetAccountActivityWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null)
+        public ApiResponse< GetAccountActivity > GetAccountActivityWithHttpInfo (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null)
         {
 
             var localVarPath = "./organization/activities";
@@ -416,14 +313,14 @@ namespace brevo_csharp.Api
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -453,9 +350,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>Task of GetAccountActivity</returns>
-        public async System.Threading.Tasks.Task<GetAccountActivity> GetAccountActivityAsync (string startDate = null, string endDate = null, long? limit = null, long? offset = null)
+        public async System.Threading.Tasks.Task<GetAccountActivity> GetAccountActivityAsync (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null)
         {
-             ApiResponse<GetAccountActivity> localVarResponse = await GetAccountActivityAsyncWithHttpInfo(startDate, endDate, limit, offset);
+             ApiResponse<GetAccountActivity> localVarResponse = await GetAccountActivityAsyncWithHttpInfo(apiKey, partnerKey, startDate, endDate, limit, offset);
              return localVarResponse.Data;
 
         }
@@ -469,7 +366,7 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (GetAccountActivity)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetAccountActivity>> GetAccountActivityAsyncWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetAccountActivity>> GetAccountActivityAsyncWithHttpInfo (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null)
         {
 
             var localVarPath = "./organization/activities";
@@ -500,14 +397,14 @@ namespace brevo_csharp.Api
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

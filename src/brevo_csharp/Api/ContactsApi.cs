@@ -18,1375 +18,12 @@ using brevo_csharp.Model;
 
 namespace brevo_csharp.Api
 {
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface IContactsApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Add existing contacts to a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
-        /// <returns>PostContactInfo</returns>
-        PostContactInfo AddContactToList (long? listId, AddContactToList contactEmails);
 
-        /// <summary>
-        /// Add existing contacts to a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
-        /// <returns>ApiResponse of PostContactInfo</returns>
-        ApiResponse<PostContactInfo> AddContactToListWithHttpInfo (long? listId, AddContactToList contactEmails);
-        /// <summary>
-        /// Create contact attribute
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="attributeCategory">Category of the attribute</param>
-        /// <param name="attributeName">Name of the attribute</param>
-        /// <param name="createAttribute">Values to create an attribute</param>
-        /// <returns></returns>
-        void CreateAttribute (string attributeCategory, string attributeName, CreateAttribute createAttribute);
-
-        /// <summary>
-        /// Create contact attribute
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="attributeCategory">Category of the attribute</param>
-        /// <param name="attributeName">Name of the attribute</param>
-        /// <param name="createAttribute">Values to create an attribute</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateAttributeWithHttpInfo (string attributeCategory, string attributeName, CreateAttribute createAttribute);
-        /// <summary>
-        /// Create a contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createContact">Values to create a contact</param>
-        /// <returns>CreateUpdateContactModel</returns>
-        CreateUpdateContactModel CreateContact (CreateContact createContact);
-
-        /// <summary>
-        /// Create a contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createContact">Values to create a contact</param>
-        /// <returns>ApiResponse of CreateUpdateContactModel</returns>
-        ApiResponse<CreateUpdateContactModel> CreateContactWithHttpInfo (CreateContact createContact);
-        /// <summary>
-        /// Create Contact via DOI (Double-Opt-In) Flow
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createDoiContact">Values to create the Double opt-in (DOI) contact</param>
-        /// <returns></returns>
-        void CreateDoiContact (CreateDoiContact createDoiContact);
-
-        /// <summary>
-        /// Create Contact via DOI (Double-Opt-In) Flow
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createDoiContact">Values to create the Double opt-in (DOI) contact</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateDoiContactWithHttpInfo (CreateDoiContact createDoiContact);
-        /// <summary>
-        /// Create a folder
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createFolder">Name of the folder</param>
-        /// <returns>CreateModel</returns>
-        CreateModel CreateFolder (CreateUpdateFolder createFolder);
-
-        /// <summary>
-        /// Create a folder
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createFolder">Name of the folder</param>
-        /// <returns>ApiResponse of CreateModel</returns>
-        ApiResponse<CreateModel> CreateFolderWithHttpInfo (CreateUpdateFolder createFolder);
-        /// <summary>
-        /// Create a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createList">Values to create a list</param>
-        /// <returns>CreateModel</returns>
-        CreateModel CreateList (CreateList createList);
-
-        /// <summary>
-        /// Create a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createList">Values to create a list</param>
-        /// <returns>ApiResponse of CreateModel</returns>
-        ApiResponse<CreateModel> CreateListWithHttpInfo (CreateList createList);
-        /// <summary>
-        /// Delete an attribute
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="attributeCategory">Category of the attribute</param>
-        /// <param name="attributeName">Name of the existing attribute</param>
-        /// <returns></returns>
-        void DeleteAttribute (string attributeCategory, string attributeName);
-
-        /// <summary>
-        /// Delete an attribute
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="attributeCategory">Category of the attribute</param>
-        /// <param name="attributeName">Name of the existing attribute</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteAttributeWithHttpInfo (string attributeCategory, string attributeName);
-        /// <summary>
-        /// Delete a contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
-        /// <returns></returns>
-        void DeleteContact (string identifier);
-
-        /// <summary>
-        /// Delete a contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteContactWithHttpInfo (string identifier);
-        /// <summary>
-        /// Delete a folder (and all its lists)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">Id of the folder</param>
-        /// <returns></returns>
-        void DeleteFolder (long? folderId);
-
-        /// <summary>
-        /// Delete a folder (and all its lists)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">Id of the folder</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteFolderWithHttpInfo (long? folderId);
-        /// <summary>
-        /// Delete a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <returns></returns>
-        void DeleteList (long? listId);
-
-        /// <summary>
-        /// Delete a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteListWithHttpInfo (long? listId);
-        /// <summary>
-        /// List all attributes
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>GetAttributes</returns>
-        GetAttributes GetAttributes ();
-
-        /// <summary>
-        /// List all attributes
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of GetAttributes</returns>
-        ApiResponse<GetAttributes> GetAttributesWithHttpInfo ();
-        /// <summary>
-        /// Get a contact&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.brevo.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value</param>
-        /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
-        /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
-        /// <returns>GetExtendedContactDetails</returns>
-        GetExtendedContactDetails GetContactInfo (string identifier, string startDate = null, string endDate = null);
-
-        /// <summary>
-        /// Get a contact&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.brevo.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value</param>
-        /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
-        /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
-        /// <returns>ApiResponse of GetExtendedContactDetails</returns>
-        ApiResponse<GetExtendedContactDetails> GetContactInfoWithHttpInfo (string identifier, string startDate = null, string endDate = null);
-        /// <summary>
-        /// Get email campaigns&#39; statistics for a contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days (optional)</param>
-        /// <returns>GetContactCampaignStats</returns>
-        GetContactCampaignStats GetContactStats (string identifier, string startDate = null, string endDate = null);
-
-        /// <summary>
-        /// Get email campaigns&#39; statistics for a contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days (optional)</param>
-        /// <returns>ApiResponse of GetContactCampaignStats</returns>
-        ApiResponse<GetContactCampaignStats> GetContactStatsWithHttpInfo (string identifier, string startDate = null, string endDate = null);
-        /// <summary>
-        /// Get all the contacts
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="segmentId">Id of the segment. **Either listIds or segmentId can be passed.** (optional)</param>
-        /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
-        /// <returns>GetContacts</returns>
-        GetContacts GetContacts (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null);
-
-        /// <summary>
-        /// Get all the contacts
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="segmentId">Id of the segment. **Either listIds or segmentId can be passed.** (optional)</param>
-        /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
-        /// <returns>ApiResponse of GetContacts</returns>
-        ApiResponse<GetContacts> GetContactsWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null);
-        /// <summary>
-        /// Get contacts in a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>GetContacts</returns>
-        GetContacts GetContactsFromList (long? listId, string modifiedSince = null, long? limit = null, long? offset = null, string sort = null);
-
-        /// <summary>
-        /// Get contacts in a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>ApiResponse of GetContacts</returns>
-        ApiResponse<GetContacts> GetContactsFromListWithHttpInfo (long? listId, string modifiedSince = null, long? limit = null, long? offset = null, string sort = null);
-        /// <summary>
-        /// Returns a folder&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">id of the folder</param>
-        /// <returns>GetFolder</returns>
-        GetFolder GetFolder (long? folderId);
-
-        /// <summary>
-        /// Returns a folder&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">id of the folder</param>
-        /// <returns>ApiResponse of GetFolder</returns>
-        ApiResponse<GetFolder> GetFolderWithHttpInfo (long? folderId);
-        /// <summary>
-        /// Get lists in a folder
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">Id of the folder</param>
-        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>GetFolderLists</returns>
-        GetFolderLists GetFolderLists (long? folderId, long? limit = null, long? offset = null, string sort = null);
-
-        /// <summary>
-        /// Get lists in a folder
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">Id of the folder</param>
-        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>ApiResponse of GetFolderLists</returns>
-        ApiResponse<GetFolderLists> GetFolderListsWithHttpInfo (long? folderId, long? limit = null, long? offset = null, string sort = null);
-        /// <summary>
-        /// Get all folders
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page</param>
-        /// <param name="offset">Index of the first document of the page</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>GetFolders</returns>
-        GetFolders GetFolders (long? limit, long? offset, string sort = null);
-
-        /// <summary>
-        /// Get all folders
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page</param>
-        /// <param name="offset">Index of the first document of the page</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>ApiResponse of GetFolders</returns>
-        ApiResponse<GetFolders> GetFoldersWithHttpInfo (long? limit, long? offset, string sort = null);
-        /// <summary>
-        /// Get a list&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="startDate">Mandatory if endDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to aggregate the sent email campaigns for a specific list id.Prefer to pass your timezone in date-time format for accurate result (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to aggregate the sent email campaigns for a specific list id.Prefer to pass your timezone in date-time format for accurate result (optional)</param>
-        /// <returns>GetExtendedList</returns>
-        GetExtendedList GetList (long? listId, string startDate = null, string endDate = null);
-
-        /// <summary>
-        /// Get a list&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="startDate">Mandatory if endDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to aggregate the sent email campaigns for a specific list id.Prefer to pass your timezone in date-time format for accurate result (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to aggregate the sent email campaigns for a specific list id.Prefer to pass your timezone in date-time format for accurate result (optional)</param>
-        /// <returns>ApiResponse of GetExtendedList</returns>
-        ApiResponse<GetExtendedList> GetListWithHttpInfo (long? listId, string startDate = null, string endDate = null);
-        /// <summary>
-        /// Get all the lists
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>GetLists</returns>
-        GetLists GetLists (long? limit = null, long? offset = null, string sort = null);
-
-        /// <summary>
-        /// Get all the lists
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>ApiResponse of GetLists</returns>
-        ApiResponse<GetLists> GetListsWithHttpInfo (long? limit = null, long? offset = null, string sort = null);
-        /// <summary>
-        /// Get all the Segments
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page</param>
-        /// <param name="offset">Index of the first document of the page</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>GetSegments</returns>
-        GetSegments GetSegments (long? limit, long? offset, string sort = null);
-
-        /// <summary>
-        /// Get all the Segments
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page</param>
-        /// <param name="offset">Index of the first document of the page</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>ApiResponse of GetSegments</returns>
-        ApiResponse<GetSegments> GetSegmentsWithHttpInfo (long? limit, long? offset, string sort = null);
-        /// <summary>
-        /// Import contacts
-        /// </summary>
-        /// <remarks>
-        /// It returns the background process ID which on completion calls the notify URL that you have set in the input.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestContactImport">Values to import contacts in Brevo. To know more about the expected format, please have a look at &#x60;&#x60;https://help.brevo.com/hc/en-us/articles/209499265-Build-contacts-lists-for-your-email-marketing-campaigns&#x60;&#x60;</param>
-        /// <returns>CreatedProcessId</returns>
-        CreatedProcessId ImportContacts (RequestContactImport requestContactImport);
-
-        /// <summary>
-        /// Import contacts
-        /// </summary>
-        /// <remarks>
-        /// It returns the background process ID which on completion calls the notify URL that you have set in the input.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestContactImport">Values to import contacts in Brevo. To know more about the expected format, please have a look at &#x60;&#x60;https://help.brevo.com/hc/en-us/articles/209499265-Build-contacts-lists-for-your-email-marketing-campaigns&#x60;&#x60;</param>
-        /// <returns>ApiResponse of CreatedProcessId</returns>
-        ApiResponse<CreatedProcessId> ImportContactsWithHttpInfo (RequestContactImport requestContactImport);
-        /// <summary>
-        /// Delete a contact from a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
-        /// <returns>PostContactInfo</returns>
-        PostContactInfo RemoveContactFromList (long? listId, RemoveContactFromList contactEmails);
-
-        /// <summary>
-        /// Delete a contact from a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
-        /// <returns>ApiResponse of PostContactInfo</returns>
-        ApiResponse<PostContactInfo> RemoveContactFromListWithHttpInfo (long? listId, RemoveContactFromList contactEmails);
-        /// <summary>
-        /// Export contacts
-        /// </summary>
-        /// <remarks>
-        /// It returns the background process ID which on completion calls the notify URL that you have set in the input. File will be available in csv.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestContactExport">Values to request a contact export</param>
-        /// <returns>CreatedProcessId</returns>
-        CreatedProcessId RequestContactExport (RequestContactExport requestContactExport);
-
-        /// <summary>
-        /// Export contacts
-        /// </summary>
-        /// <remarks>
-        /// It returns the background process ID which on completion calls the notify URL that you have set in the input. File will be available in csv.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestContactExport">Values to request a contact export</param>
-        /// <returns>ApiResponse of CreatedProcessId</returns>
-        ApiResponse<CreatedProcessId> RequestContactExportWithHttpInfo (RequestContactExport requestContactExport);
-        /// <summary>
-        /// Update contact attribute
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="attributeCategory">Category of the attribute</param>
-        /// <param name="attributeName">Name of the existing attribute</param>
-        /// <param name="updateAttribute">Values to update an attribute</param>
-        /// <returns></returns>
-        void UpdateAttribute (string attributeCategory, string attributeName, UpdateAttribute updateAttribute);
-
-        /// <summary>
-        /// Update contact attribute
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="attributeCategory">Category of the attribute</param>
-        /// <param name="attributeName">Name of the existing attribute</param>
-        /// <param name="updateAttribute">Values to update an attribute</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateAttributeWithHttpInfo (string attributeCategory, string attributeName, UpdateAttribute updateAttribute);
-        /// <summary>
-        /// Update multiple contacts
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateBatchContacts">Values to update multiple contacts</param>
-        /// <returns></returns>
-        void UpdateBatchContacts (UpdateBatchContacts updateBatchContacts);
-
-        /// <summary>
-        /// Update multiple contacts
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateBatchContacts">Values to update multiple contacts</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateBatchContactsWithHttpInfo (UpdateBatchContacts updateBatchContacts);
-        /// <summary>
-        /// Update a contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
-        /// <param name="updateContact">Values to update a contact</param>
-        /// <returns></returns>
-        void UpdateContact (string identifier, UpdateContact updateContact);
-
-        /// <summary>
-        /// Update a contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
-        /// <param name="updateContact">Values to update a contact</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateContactWithHttpInfo (string identifier, UpdateContact updateContact);
-        /// <summary>
-        /// Update a folder
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">Id of the folder</param>
-        /// <param name="updateFolder">Name of the folder</param>
-        /// <returns></returns>
-        void UpdateFolder (long? folderId, CreateUpdateFolder updateFolder);
-
-        /// <summary>
-        /// Update a folder
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">Id of the folder</param>
-        /// <param name="updateFolder">Name of the folder</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateFolderWithHttpInfo (long? folderId, CreateUpdateFolder updateFolder);
-        /// <summary>
-        /// Update a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="updateList">Values to update a list</param>
-        /// <returns></returns>
-        void UpdateList (long? listId, UpdateList updateList);
-
-        /// <summary>
-        /// Update a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="updateList">Values to update a list</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateListWithHttpInfo (long? listId, UpdateList updateList);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Add existing contacts to a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
-        /// <returns>Task of PostContactInfo</returns>
-        System.Threading.Tasks.Task<PostContactInfo> AddContactToListAsync (long? listId, AddContactToList contactEmails);
-
-        /// <summary>
-        /// Add existing contacts to a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
-        /// <returns>Task of ApiResponse (PostContactInfo)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostContactInfo>> AddContactToListAsyncWithHttpInfo (long? listId, AddContactToList contactEmails);
-        /// <summary>
-        /// Create contact attribute
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="attributeCategory">Category of the attribute</param>
-        /// <param name="attributeName">Name of the attribute</param>
-        /// <param name="createAttribute">Values to create an attribute</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateAttributeAsync (string attributeCategory, string attributeName, CreateAttribute createAttribute);
-
-        /// <summary>
-        /// Create contact attribute
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="attributeCategory">Category of the attribute</param>
-        /// <param name="attributeName">Name of the attribute</param>
-        /// <param name="createAttribute">Values to create an attribute</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateAttributeAsyncWithHttpInfo (string attributeCategory, string attributeName, CreateAttribute createAttribute);
-        /// <summary>
-        /// Create a contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createContact">Values to create a contact</param>
-        /// <returns>Task of CreateUpdateContactModel</returns>
-        System.Threading.Tasks.Task<CreateUpdateContactModel> CreateContactAsync (CreateContact createContact);
-
-        /// <summary>
-        /// Create a contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createContact">Values to create a contact</param>
-        /// <returns>Task of ApiResponse (CreateUpdateContactModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateUpdateContactModel>> CreateContactAsyncWithHttpInfo (CreateContact createContact);
-        /// <summary>
-        /// Create Contact via DOI (Double-Opt-In) Flow
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createDoiContact">Values to create the Double opt-in (DOI) contact</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateDoiContactAsync (CreateDoiContact createDoiContact);
-
-        /// <summary>
-        /// Create Contact via DOI (Double-Opt-In) Flow
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createDoiContact">Values to create the Double opt-in (DOI) contact</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateDoiContactAsyncWithHttpInfo (CreateDoiContact createDoiContact);
-        /// <summary>
-        /// Create a folder
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createFolder">Name of the folder</param>
-        /// <returns>Task of CreateModel</returns>
-        System.Threading.Tasks.Task<CreateModel> CreateFolderAsync (CreateUpdateFolder createFolder);
-
-        /// <summary>
-        /// Create a folder
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createFolder">Name of the folder</param>
-        /// <returns>Task of ApiResponse (CreateModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateFolderAsyncWithHttpInfo (CreateUpdateFolder createFolder);
-        /// <summary>
-        /// Create a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createList">Values to create a list</param>
-        /// <returns>Task of CreateModel</returns>
-        System.Threading.Tasks.Task<CreateModel> CreateListAsync (CreateList createList);
-
-        /// <summary>
-        /// Create a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createList">Values to create a list</param>
-        /// <returns>Task of ApiResponse (CreateModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateListAsyncWithHttpInfo (CreateList createList);
-        /// <summary>
-        /// Delete an attribute
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="attributeCategory">Category of the attribute</param>
-        /// <param name="attributeName">Name of the existing attribute</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteAttributeAsync (string attributeCategory, string attributeName);
-
-        /// <summary>
-        /// Delete an attribute
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="attributeCategory">Category of the attribute</param>
-        /// <param name="attributeName">Name of the existing attribute</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAttributeAsyncWithHttpInfo (string attributeCategory, string attributeName);
-        /// <summary>
-        /// Delete a contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteContactAsync (string identifier);
-
-        /// <summary>
-        /// Delete a contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteContactAsyncWithHttpInfo (string identifier);
-        /// <summary>
-        /// Delete a folder (and all its lists)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">Id of the folder</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteFolderAsync (long? folderId);
-
-        /// <summary>
-        /// Delete a folder (and all its lists)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">Id of the folder</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteFolderAsyncWithHttpInfo (long? folderId);
-        /// <summary>
-        /// Delete a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteListAsync (long? listId);
-
-        /// <summary>
-        /// Delete a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteListAsyncWithHttpInfo (long? listId);
-        /// <summary>
-        /// List all attributes
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of GetAttributes</returns>
-        System.Threading.Tasks.Task<GetAttributes> GetAttributesAsync ();
-
-        /// <summary>
-        /// List all attributes
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (GetAttributes)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetAttributes>> GetAttributesAsyncWithHttpInfo ();
-        /// <summary>
-        /// Get a contact&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.brevo.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value</param>
-        /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
-        /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
-        /// <returns>Task of GetExtendedContactDetails</returns>
-        System.Threading.Tasks.Task<GetExtendedContactDetails> GetContactInfoAsync (string identifier, string startDate = null, string endDate = null);
-
-        /// <summary>
-        /// Get a contact&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.brevo.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value</param>
-        /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
-        /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
-        /// <returns>Task of ApiResponse (GetExtendedContactDetails)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetExtendedContactDetails>> GetContactInfoAsyncWithHttpInfo (string identifier, string startDate = null, string endDate = null);
-        /// <summary>
-        /// Get email campaigns&#39; statistics for a contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days (optional)</param>
-        /// <returns>Task of GetContactCampaignStats</returns>
-        System.Threading.Tasks.Task<GetContactCampaignStats> GetContactStatsAsync (string identifier, string startDate = null, string endDate = null);
-
-        /// <summary>
-        /// Get email campaigns&#39; statistics for a contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days (optional)</param>
-        /// <returns>Task of ApiResponse (GetContactCampaignStats)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetContactCampaignStats>> GetContactStatsAsyncWithHttpInfo (string identifier, string startDate = null, string endDate = null);
-        /// <summary>
-        /// Get all the contacts
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="segmentId">Id of the segment. **Either listIds or segmentId can be passed.** (optional)</param>
-        /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
-        /// <returns>Task of GetContacts</returns>
-        System.Threading.Tasks.Task<GetContacts> GetContactsAsync (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null);
-
-        /// <summary>
-        /// Get all the contacts
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="segmentId">Id of the segment. **Either listIds or segmentId can be passed.** (optional)</param>
-        /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
-        /// <returns>Task of ApiResponse (GetContacts)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetContacts>> GetContactsAsyncWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null);
-        /// <summary>
-        /// Get contacts in a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of GetContacts</returns>
-        System.Threading.Tasks.Task<GetContacts> GetContactsFromListAsync (long? listId, string modifiedSince = null, long? limit = null, long? offset = null, string sort = null);
-
-        /// <summary>
-        /// Get contacts in a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (GetContacts)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetContacts>> GetContactsFromListAsyncWithHttpInfo (long? listId, string modifiedSince = null, long? limit = null, long? offset = null, string sort = null);
-        /// <summary>
-        /// Returns a folder&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">id of the folder</param>
-        /// <returns>Task of GetFolder</returns>
-        System.Threading.Tasks.Task<GetFolder> GetFolderAsync (long? folderId);
-
-        /// <summary>
-        /// Returns a folder&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">id of the folder</param>
-        /// <returns>Task of ApiResponse (GetFolder)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetFolder>> GetFolderAsyncWithHttpInfo (long? folderId);
-        /// <summary>
-        /// Get lists in a folder
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">Id of the folder</param>
-        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of GetFolderLists</returns>
-        System.Threading.Tasks.Task<GetFolderLists> GetFolderListsAsync (long? folderId, long? limit = null, long? offset = null, string sort = null);
-
-        /// <summary>
-        /// Get lists in a folder
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">Id of the folder</param>
-        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (GetFolderLists)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetFolderLists>> GetFolderListsAsyncWithHttpInfo (long? folderId, long? limit = null, long? offset = null, string sort = null);
-        /// <summary>
-        /// Get all folders
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page</param>
-        /// <param name="offset">Index of the first document of the page</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of GetFolders</returns>
-        System.Threading.Tasks.Task<GetFolders> GetFoldersAsync (long? limit, long? offset, string sort = null);
-
-        /// <summary>
-        /// Get all folders
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page</param>
-        /// <param name="offset">Index of the first document of the page</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (GetFolders)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetFolders>> GetFoldersAsyncWithHttpInfo (long? limit, long? offset, string sort = null);
-        /// <summary>
-        /// Get a list&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="startDate">Mandatory if endDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to aggregate the sent email campaigns for a specific list id.Prefer to pass your timezone in date-time format for accurate result (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to aggregate the sent email campaigns for a specific list id.Prefer to pass your timezone in date-time format for accurate result (optional)</param>
-        /// <returns>Task of GetExtendedList</returns>
-        System.Threading.Tasks.Task<GetExtendedList> GetListAsync (long? listId, string startDate = null, string endDate = null);
-
-        /// <summary>
-        /// Get a list&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="startDate">Mandatory if endDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to aggregate the sent email campaigns for a specific list id.Prefer to pass your timezone in date-time format for accurate result (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to aggregate the sent email campaigns for a specific list id.Prefer to pass your timezone in date-time format for accurate result (optional)</param>
-        /// <returns>Task of ApiResponse (GetExtendedList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetExtendedList>> GetListAsyncWithHttpInfo (long? listId, string startDate = null, string endDate = null);
-        /// <summary>
-        /// Get all the lists
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of GetLists</returns>
-        System.Threading.Tasks.Task<GetLists> GetListsAsync (long? limit = null, long? offset = null, string sort = null);
-
-        /// <summary>
-        /// Get all the lists
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (GetLists)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetLists>> GetListsAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null);
-        /// <summary>
-        /// Get all the Segments
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page</param>
-        /// <param name="offset">Index of the first document of the page</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of GetSegments</returns>
-        System.Threading.Tasks.Task<GetSegments> GetSegmentsAsync (long? limit, long? offset, string sort = null);
-
-        /// <summary>
-        /// Get all the Segments
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page</param>
-        /// <param name="offset">Index of the first document of the page</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (GetSegments)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetSegments>> GetSegmentsAsyncWithHttpInfo (long? limit, long? offset, string sort = null);
-        /// <summary>
-        /// Import contacts
-        /// </summary>
-        /// <remarks>
-        /// It returns the background process ID which on completion calls the notify URL that you have set in the input.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestContactImport">Values to import contacts in Brevo. To know more about the expected format, please have a look at &#x60;&#x60;https://help.brevo.com/hc/en-us/articles/209499265-Build-contacts-lists-for-your-email-marketing-campaigns&#x60;&#x60;</param>
-        /// <returns>Task of CreatedProcessId</returns>
-        System.Threading.Tasks.Task<CreatedProcessId> ImportContactsAsync (RequestContactImport requestContactImport);
-
-        /// <summary>
-        /// Import contacts
-        /// </summary>
-        /// <remarks>
-        /// It returns the background process ID which on completion calls the notify URL that you have set in the input.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestContactImport">Values to import contacts in Brevo. To know more about the expected format, please have a look at &#x60;&#x60;https://help.brevo.com/hc/en-us/articles/209499265-Build-contacts-lists-for-your-email-marketing-campaigns&#x60;&#x60;</param>
-        /// <returns>Task of ApiResponse (CreatedProcessId)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreatedProcessId>> ImportContactsAsyncWithHttpInfo (RequestContactImport requestContactImport);
-        /// <summary>
-        /// Delete a contact from a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
-        /// <returns>Task of PostContactInfo</returns>
-        System.Threading.Tasks.Task<PostContactInfo> RemoveContactFromListAsync (long? listId, RemoveContactFromList contactEmails);
-
-        /// <summary>
-        /// Delete a contact from a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
-        /// <returns>Task of ApiResponse (PostContactInfo)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostContactInfo>> RemoveContactFromListAsyncWithHttpInfo (long? listId, RemoveContactFromList contactEmails);
-        /// <summary>
-        /// Export contacts
-        /// </summary>
-        /// <remarks>
-        /// It returns the background process ID which on completion calls the notify URL that you have set in the input. File will be available in csv.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestContactExport">Values to request a contact export</param>
-        /// <returns>Task of CreatedProcessId</returns>
-        System.Threading.Tasks.Task<CreatedProcessId> RequestContactExportAsync (RequestContactExport requestContactExport);
-
-        /// <summary>
-        /// Export contacts
-        /// </summary>
-        /// <remarks>
-        /// It returns the background process ID which on completion calls the notify URL that you have set in the input. File will be available in csv.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestContactExport">Values to request a contact export</param>
-        /// <returns>Task of ApiResponse (CreatedProcessId)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreatedProcessId>> RequestContactExportAsyncWithHttpInfo (RequestContactExport requestContactExport);
-        /// <summary>
-        /// Update contact attribute
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="attributeCategory">Category of the attribute</param>
-        /// <param name="attributeName">Name of the existing attribute</param>
-        /// <param name="updateAttribute">Values to update an attribute</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateAttributeAsync (string attributeCategory, string attributeName, UpdateAttribute updateAttribute);
-
-        /// <summary>
-        /// Update contact attribute
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="attributeCategory">Category of the attribute</param>
-        /// <param name="attributeName">Name of the existing attribute</param>
-        /// <param name="updateAttribute">Values to update an attribute</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAttributeAsyncWithHttpInfo (string attributeCategory, string attributeName, UpdateAttribute updateAttribute);
-        /// <summary>
-        /// Update multiple contacts
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateBatchContacts">Values to update multiple contacts</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateBatchContactsAsync (UpdateBatchContacts updateBatchContacts);
-
-        /// <summary>
-        /// Update multiple contacts
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateBatchContacts">Values to update multiple contacts</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateBatchContactsAsyncWithHttpInfo (UpdateBatchContacts updateBatchContacts);
-        /// <summary>
-        /// Update a contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
-        /// <param name="updateContact">Values to update a contact</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateContactAsync (string identifier, UpdateContact updateContact);
-
-        /// <summary>
-        /// Update a contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
-        /// <param name="updateContact">Values to update a contact</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateContactAsyncWithHttpInfo (string identifier, UpdateContact updateContact);
-        /// <summary>
-        /// Update a folder
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">Id of the folder</param>
-        /// <param name="updateFolder">Name of the folder</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateFolderAsync (long? folderId, CreateUpdateFolder updateFolder);
-
-        /// <summary>
-        /// Update a folder
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">Id of the folder</param>
-        /// <param name="updateFolder">Name of the folder</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateFolderAsyncWithHttpInfo (long? folderId, CreateUpdateFolder updateFolder);
-        /// <summary>
-        /// Update a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="updateList">Values to update a list</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateListAsync (long? listId, UpdateList updateList);
-
-        /// <summary>
-        /// Update a list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">Id of the list</param>
-        /// <param name="updateList">Values to update a list</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateListAsyncWithHttpInfo (long? listId, UpdateList updateList);
-        #endregion Asynchronous Operations
-    }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class ContactsApi : IContactsApi
+    public partial class ContactsApi 
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -1487,9 +124,9 @@ namespace brevo_csharp.Api
         /// <param name="listId">Id of the list</param>
         /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
         /// <returns>PostContactInfo</returns>
-        public PostContactInfo AddContactToList (long? listId, AddContactToList contactEmails)
+        public PostContactInfo AddContactToList (string apiKey, string partnerKey, long? listId, AddContactToList contactEmails)
         {
-             ApiResponse<PostContactInfo> localVarResponse = AddContactToListWithHttpInfo(listId, contactEmails);
+             ApiResponse<PostContactInfo> localVarResponse = AddContactToListWithHttpInfo(apiKey, partnerKey, listId, contactEmails);
              return localVarResponse.Data;
         }
 
@@ -1500,7 +137,7 @@ namespace brevo_csharp.Api
         /// <param name="listId">Id of the list</param>
         /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
         /// <returns>ApiResponse of PostContactInfo</returns>
-        public ApiResponse< PostContactInfo > AddContactToListWithHttpInfo (long? listId, AddContactToList contactEmails)
+        public ApiResponse< PostContactInfo > AddContactToListWithHttpInfo (string apiKey, string partnerKey, long? listId, AddContactToList contactEmails)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -1542,14 +179,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1577,9 +214,9 @@ namespace brevo_csharp.Api
         /// <param name="listId">Id of the list</param>
         /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
         /// <returns>Task of PostContactInfo</returns>
-        public async System.Threading.Tasks.Task<PostContactInfo> AddContactToListAsync (long? listId, AddContactToList contactEmails)
+        public async System.Threading.Tasks.Task<PostContactInfo> AddContactToListAsync (string apiKey, string partnerKey, long? listId, AddContactToList contactEmails)
         {
-             ApiResponse<PostContactInfo> localVarResponse = await AddContactToListAsyncWithHttpInfo(listId, contactEmails);
+             ApiResponse<PostContactInfo> localVarResponse = await AddContactToListAsyncWithHttpInfo(apiKey, partnerKey, listId, contactEmails);
              return localVarResponse.Data;
 
         }
@@ -1591,7 +228,7 @@ namespace brevo_csharp.Api
         /// <param name="listId">Id of the list</param>
         /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
         /// <returns>Task of ApiResponse (PostContactInfo)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PostContactInfo>> AddContactToListAsyncWithHttpInfo (long? listId, AddContactToList contactEmails)
+        public async System.Threading.Tasks.Task<ApiResponse<PostContactInfo>> AddContactToListAsyncWithHttpInfo (string apiKey, string partnerKey, long? listId, AddContactToList contactEmails)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -1633,14 +270,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1669,9 +306,9 @@ namespace brevo_csharp.Api
         /// <param name="attributeName">Name of the attribute</param>
         /// <param name="createAttribute">Values to create an attribute</param>
         /// <returns></returns>
-        public void CreateAttribute (string attributeCategory, string attributeName, CreateAttribute createAttribute)
+        public void CreateAttribute (string apiKey, string partnerKey, string attributeCategory, string attributeName, CreateAttribute createAttribute)
         {
-             CreateAttributeWithHttpInfo(attributeCategory, attributeName, createAttribute);
+             CreateAttributeWithHttpInfo(apiKey, partnerKey, attributeCategory, attributeName, createAttribute);
         }
 
         /// <summary>
@@ -1682,7 +319,7 @@ namespace brevo_csharp.Api
         /// <param name="attributeName">Name of the attribute</param>
         /// <param name="createAttribute">Values to create an attribute</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CreateAttributeWithHttpInfo (string attributeCategory, string attributeName, CreateAttribute createAttribute)
+        public ApiResponse<Object> CreateAttributeWithHttpInfo (string apiKey, string partnerKey, string attributeCategory, string attributeName, CreateAttribute createAttribute)
         {
             // verify the required parameter 'attributeCategory' is set
             if (attributeCategory == null)
@@ -1728,14 +365,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1764,9 +401,9 @@ namespace brevo_csharp.Api
         /// <param name="attributeName">Name of the attribute</param>
         /// <param name="createAttribute">Values to create an attribute</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateAttributeAsync (string attributeCategory, string attributeName, CreateAttribute createAttribute)
+        public async System.Threading.Tasks.Task CreateAttributeAsync (string apiKey, string partnerKey, string attributeCategory, string attributeName, CreateAttribute createAttribute)
         {
-             await CreateAttributeAsyncWithHttpInfo(attributeCategory, attributeName, createAttribute);
+             await CreateAttributeAsyncWithHttpInfo(apiKey, partnerKey, attributeCategory, attributeName, createAttribute);
 
         }
 
@@ -1778,7 +415,7 @@ namespace brevo_csharp.Api
         /// <param name="attributeName">Name of the attribute</param>
         /// <param name="createAttribute">Values to create an attribute</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateAttributeAsyncWithHttpInfo (string attributeCategory, string attributeName, CreateAttribute createAttribute)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateAttributeAsyncWithHttpInfo (string apiKey, string partnerKey, string attributeCategory, string attributeName, CreateAttribute createAttribute)
         {
             // verify the required parameter 'attributeCategory' is set
             if (attributeCategory == null)
@@ -1824,14 +461,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1858,9 +495,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createContact">Values to create a contact</param>
         /// <returns>CreateUpdateContactModel</returns>
-        public CreateUpdateContactModel CreateContact (CreateContact createContact)
+        public CreateUpdateContactModel CreateContact (string apiKey, string partnerKey, CreateContact createContact)
         {
-             ApiResponse<CreateUpdateContactModel> localVarResponse = CreateContactWithHttpInfo(createContact);
+             ApiResponse<CreateUpdateContactModel> localVarResponse = CreateContactWithHttpInfo(apiKey, partnerKey, createContact);
              return localVarResponse.Data;
         }
 
@@ -1870,7 +507,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createContact">Values to create a contact</param>
         /// <returns>ApiResponse of CreateUpdateContactModel</returns>
-        public ApiResponse< CreateUpdateContactModel > CreateContactWithHttpInfo (CreateContact createContact)
+        public ApiResponse< CreateUpdateContactModel > CreateContactWithHttpInfo (string apiKey, string partnerKey, CreateContact createContact)
         {
             // verify the required parameter 'createContact' is set
             if (createContact == null)
@@ -1908,14 +545,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1942,9 +579,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createContact">Values to create a contact</param>
         /// <returns>Task of CreateUpdateContactModel</returns>
-        public async System.Threading.Tasks.Task<CreateUpdateContactModel> CreateContactAsync (CreateContact createContact)
+        public async System.Threading.Tasks.Task<CreateUpdateContactModel> CreateContactAsync (string apiKey, string partnerKey, CreateContact createContact)
         {
-             ApiResponse<CreateUpdateContactModel> localVarResponse = await CreateContactAsyncWithHttpInfo(createContact);
+             ApiResponse<CreateUpdateContactModel> localVarResponse = await CreateContactAsyncWithHttpInfo(apiKey, partnerKey, createContact);
              return localVarResponse.Data;
 
         }
@@ -1955,7 +592,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createContact">Values to create a contact</param>
         /// <returns>Task of ApiResponse (CreateUpdateContactModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateUpdateContactModel>> CreateContactAsyncWithHttpInfo (CreateContact createContact)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateUpdateContactModel>> CreateContactAsyncWithHttpInfo (string apiKey, string partnerKey, CreateContact createContact)
         {
             // verify the required parameter 'createContact' is set
             if (createContact == null)
@@ -1993,14 +630,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2027,9 +664,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDoiContact">Values to create the Double opt-in (DOI) contact</param>
         /// <returns></returns>
-        public void CreateDoiContact (CreateDoiContact createDoiContact)
+        public void CreateDoiContact (string apiKey, string partnerKey, CreateDoiContact createDoiContact)
         {
-             CreateDoiContactWithHttpInfo(createDoiContact);
+             CreateDoiContactWithHttpInfo(apiKey, partnerKey, createDoiContact);
         }
 
         /// <summary>
@@ -2038,7 +675,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDoiContact">Values to create the Double opt-in (DOI) contact</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CreateDoiContactWithHttpInfo (CreateDoiContact createDoiContact)
+        public ApiResponse<Object> CreateDoiContactWithHttpInfo (string apiKey, string partnerKey, CreateDoiContact createDoiContact)
         {
             // verify the required parameter 'createDoiContact' is set
             if (createDoiContact == null)
@@ -2076,14 +713,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2110,9 +747,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDoiContact">Values to create the Double opt-in (DOI) contact</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateDoiContactAsync (CreateDoiContact createDoiContact)
+        public async System.Threading.Tasks.Task CreateDoiContactAsync (string apiKey, string partnerKey, CreateDoiContact createDoiContact)
         {
-             await CreateDoiContactAsyncWithHttpInfo(createDoiContact);
+             await CreateDoiContactAsyncWithHttpInfo(apiKey, partnerKey, createDoiContact);
 
         }
 
@@ -2122,7 +759,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDoiContact">Values to create the Double opt-in (DOI) contact</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateDoiContactAsyncWithHttpInfo (CreateDoiContact createDoiContact)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateDoiContactAsyncWithHttpInfo (string apiKey, string partnerKey, CreateDoiContact createDoiContact)
         {
             // verify the required parameter 'createDoiContact' is set
             if (createDoiContact == null)
@@ -2160,14 +797,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2194,9 +831,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFolder">Name of the folder</param>
         /// <returns>CreateModel</returns>
-        public CreateModel CreateFolder (CreateUpdateFolder createFolder)
+        public CreateModel CreateFolder (string apiKey, string partnerKey, CreateUpdateFolder createFolder)
         {
-             ApiResponse<CreateModel> localVarResponse = CreateFolderWithHttpInfo(createFolder);
+             ApiResponse<CreateModel> localVarResponse = CreateFolderWithHttpInfo(apiKey, partnerKey, createFolder);
              return localVarResponse.Data;
         }
 
@@ -2206,7 +843,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFolder">Name of the folder</param>
         /// <returns>ApiResponse of CreateModel</returns>
-        public ApiResponse< CreateModel > CreateFolderWithHttpInfo (CreateUpdateFolder createFolder)
+        public ApiResponse< CreateModel > CreateFolderWithHttpInfo (string apiKey, string partnerKey, CreateUpdateFolder createFolder)
         {
             // verify the required parameter 'createFolder' is set
             if (createFolder == null)
@@ -2244,14 +881,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2278,9 +915,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFolder">Name of the folder</param>
         /// <returns>Task of CreateModel</returns>
-        public async System.Threading.Tasks.Task<CreateModel> CreateFolderAsync (CreateUpdateFolder createFolder)
+        public async System.Threading.Tasks.Task<CreateModel> CreateFolderAsync (string apiKey, string partnerKey, CreateUpdateFolder createFolder)
         {
-             ApiResponse<CreateModel> localVarResponse = await CreateFolderAsyncWithHttpInfo(createFolder);
+             ApiResponse<CreateModel> localVarResponse = await CreateFolderAsyncWithHttpInfo(apiKey, partnerKey, createFolder);
              return localVarResponse.Data;
 
         }
@@ -2291,7 +928,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFolder">Name of the folder</param>
         /// <returns>Task of ApiResponse (CreateModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateFolderAsyncWithHttpInfo (CreateUpdateFolder createFolder)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateFolderAsyncWithHttpInfo (string apiKey, string partnerKey, CreateUpdateFolder createFolder)
         {
             // verify the required parameter 'createFolder' is set
             if (createFolder == null)
@@ -2329,14 +966,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2363,9 +1000,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createList">Values to create a list</param>
         /// <returns>CreateModel</returns>
-        public CreateModel CreateList (CreateList createList)
+        public CreateModel CreateList (string apiKey, string partnerKey, CreateList createList)
         {
-             ApiResponse<CreateModel> localVarResponse = CreateListWithHttpInfo(createList);
+             ApiResponse<CreateModel> localVarResponse = CreateListWithHttpInfo(apiKey, partnerKey, createList);
              return localVarResponse.Data;
         }
 
@@ -2375,7 +1012,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createList">Values to create a list</param>
         /// <returns>ApiResponse of CreateModel</returns>
-        public ApiResponse< CreateModel > CreateListWithHttpInfo (CreateList createList)
+        public ApiResponse< CreateModel > CreateListWithHttpInfo (string apiKey, string partnerKey, CreateList createList)
         {
             // verify the required parameter 'createList' is set
             if (createList == null)
@@ -2413,14 +1050,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2447,9 +1084,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createList">Values to create a list</param>
         /// <returns>Task of CreateModel</returns>
-        public async System.Threading.Tasks.Task<CreateModel> CreateListAsync (CreateList createList)
+        public async System.Threading.Tasks.Task<CreateModel> CreateListAsync (string apiKey, string partnerKey, CreateList createList)
         {
-             ApiResponse<CreateModel> localVarResponse = await CreateListAsyncWithHttpInfo(createList);
+             ApiResponse<CreateModel> localVarResponse = await CreateListAsyncWithHttpInfo(apiKey, partnerKey, createList);
              return localVarResponse.Data;
 
         }
@@ -2460,7 +1097,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createList">Values to create a list</param>
         /// <returns>Task of ApiResponse (CreateModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateListAsyncWithHttpInfo (CreateList createList)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateListAsyncWithHttpInfo (string apiKey, string partnerKey, CreateList createList)
         {
             // verify the required parameter 'createList' is set
             if (createList == null)
@@ -2498,14 +1135,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2533,9 +1170,9 @@ namespace brevo_csharp.Api
         /// <param name="attributeCategory">Category of the attribute</param>
         /// <param name="attributeName">Name of the existing attribute</param>
         /// <returns></returns>
-        public void DeleteAttribute (string attributeCategory, string attributeName)
+        public void DeleteAttribute (string apiKey, string partnerKey, string attributeCategory, string attributeName)
         {
-             DeleteAttributeWithHttpInfo(attributeCategory, attributeName);
+             DeleteAttributeWithHttpInfo(apiKey, partnerKey, attributeCategory, attributeName);
         }
 
         /// <summary>
@@ -2545,7 +1182,7 @@ namespace brevo_csharp.Api
         /// <param name="attributeCategory">Category of the attribute</param>
         /// <param name="attributeName">Name of the existing attribute</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteAttributeWithHttpInfo (string attributeCategory, string attributeName)
+        public ApiResponse<Object> DeleteAttributeWithHttpInfo (string apiKey, string partnerKey, string attributeCategory, string attributeName)
         {
             // verify the required parameter 'attributeCategory' is set
             if (attributeCategory == null)
@@ -2580,14 +1217,14 @@ namespace brevo_csharp.Api
             if (attributeName != null) localVarPathParams.Add("attributeName", this.Configuration.ApiClient.ParameterToString(attributeName)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2615,9 +1252,9 @@ namespace brevo_csharp.Api
         /// <param name="attributeCategory">Category of the attribute</param>
         /// <param name="attributeName">Name of the existing attribute</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteAttributeAsync (string attributeCategory, string attributeName)
+        public async System.Threading.Tasks.Task DeleteAttributeAsync (string apiKey, string partnerKey, string attributeCategory, string attributeName)
         {
-             await DeleteAttributeAsyncWithHttpInfo(attributeCategory, attributeName);
+             await DeleteAttributeAsyncWithHttpInfo(apiKey, partnerKey, attributeCategory, attributeName);
 
         }
 
@@ -2628,7 +1265,7 @@ namespace brevo_csharp.Api
         /// <param name="attributeCategory">Category of the attribute</param>
         /// <param name="attributeName">Name of the existing attribute</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAttributeAsyncWithHttpInfo (string attributeCategory, string attributeName)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAttributeAsyncWithHttpInfo (string apiKey, string partnerKey, string attributeCategory, string attributeName)
         {
             // verify the required parameter 'attributeCategory' is set
             if (attributeCategory == null)
@@ -2663,14 +1300,14 @@ namespace brevo_csharp.Api
             if (attributeName != null) localVarPathParams.Add("attributeName", this.Configuration.ApiClient.ParameterToString(attributeName)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2697,9 +1334,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
         /// <returns></returns>
-        public void DeleteContact (string identifier)
+        public void DeleteContact (string apiKey, string partnerKey, string identifier)
         {
-             DeleteContactWithHttpInfo(identifier);
+             DeleteContactWithHttpInfo(apiKey, partnerKey, identifier);
         }
 
         /// <summary>
@@ -2708,7 +1345,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteContactWithHttpInfo (string identifier)
+        public ApiResponse<Object> DeleteContactWithHttpInfo (string apiKey, string partnerKey, string identifier)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -2739,14 +1376,14 @@ namespace brevo_csharp.Api
             if (identifier != null) localVarPathParams.Add("identifier", this.Configuration.ApiClient.ParameterToString(identifier)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2773,9 +1410,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteContactAsync (string identifier)
+        public async System.Threading.Tasks.Task DeleteContactAsync (string apiKey, string partnerKey, string identifier)
         {
-             await DeleteContactAsyncWithHttpInfo(identifier);
+             await DeleteContactAsyncWithHttpInfo(apiKey, partnerKey, identifier);
 
         }
 
@@ -2785,7 +1422,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteContactAsyncWithHttpInfo (string identifier)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteContactAsyncWithHttpInfo (string apiKey, string partnerKey, string identifier)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -2816,14 +1453,14 @@ namespace brevo_csharp.Api
             if (identifier != null) localVarPathParams.Add("identifier", this.Configuration.ApiClient.ParameterToString(identifier)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2850,9 +1487,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">Id of the folder</param>
         /// <returns></returns>
-        public void DeleteFolder (long? folderId)
+        public void DeleteFolder (string apiKey, string partnerKey, long? folderId)
         {
-             DeleteFolderWithHttpInfo(folderId);
+             DeleteFolderWithHttpInfo(apiKey, partnerKey, folderId);
         }
 
         /// <summary>
@@ -2861,7 +1498,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">Id of the folder</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteFolderWithHttpInfo (long? folderId)
+        public ApiResponse<Object> DeleteFolderWithHttpInfo (string apiKey, string partnerKey, long? folderId)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -2892,14 +1529,14 @@ namespace brevo_csharp.Api
             if (folderId != null) localVarPathParams.Add("folderId", this.Configuration.ApiClient.ParameterToString(folderId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2926,9 +1563,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">Id of the folder</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteFolderAsync (long? folderId)
+        public async System.Threading.Tasks.Task DeleteFolderAsync (string apiKey, string partnerKey, long? folderId)
         {
-             await DeleteFolderAsyncWithHttpInfo(folderId);
+             await DeleteFolderAsyncWithHttpInfo(apiKey, partnerKey, folderId);
 
         }
 
@@ -2938,7 +1575,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">Id of the folder</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteFolderAsyncWithHttpInfo (long? folderId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteFolderAsyncWithHttpInfo (string apiKey, string partnerKey, long? folderId)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -2969,14 +1606,14 @@ namespace brevo_csharp.Api
             if (folderId != null) localVarPathParams.Add("folderId", this.Configuration.ApiClient.ParameterToString(folderId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3003,9 +1640,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
         /// <returns></returns>
-        public void DeleteList (long? listId)
+        public void DeleteList (string apiKey, string partnerKey, long? listId)
         {
-             DeleteListWithHttpInfo(listId);
+             DeleteListWithHttpInfo(apiKey, partnerKey, listId);
         }
 
         /// <summary>
@@ -3014,7 +1651,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteListWithHttpInfo (long? listId)
+        public ApiResponse<Object> DeleteListWithHttpInfo (string apiKey, string partnerKey, long? listId)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -3045,14 +1682,14 @@ namespace brevo_csharp.Api
             if (listId != null) localVarPathParams.Add("listId", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3079,9 +1716,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteListAsync (long? listId)
+        public async System.Threading.Tasks.Task DeleteListAsync (string apiKey, string partnerKey, long? listId)
         {
-             await DeleteListAsyncWithHttpInfo(listId);
+             await DeleteListAsyncWithHttpInfo(apiKey, partnerKey, listId);
 
         }
 
@@ -3091,7 +1728,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteListAsyncWithHttpInfo (long? listId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteListAsyncWithHttpInfo (string apiKey, string partnerKey, long? listId)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -3122,14 +1759,14 @@ namespace brevo_csharp.Api
             if (listId != null) localVarPathParams.Add("listId", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3155,9 +1792,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>GetAttributes</returns>
-        public GetAttributes GetAttributes ()
+        public GetAttributes GetAttributes (string apiKey, string partnerKey)
         {
-             ApiResponse<GetAttributes> localVarResponse = GetAttributesWithHttpInfo();
+             ApiResponse<GetAttributes> localVarResponse = GetAttributesWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
         }
 
@@ -3166,7 +1803,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of GetAttributes</returns>
-        public ApiResponse< GetAttributes > GetAttributesWithHttpInfo ()
+        public ApiResponse< GetAttributes > GetAttributesWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./contacts/attributes";
@@ -3193,14 +1830,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3226,9 +1863,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of GetAttributes</returns>
-        public async System.Threading.Tasks.Task<GetAttributes> GetAttributesAsync ()
+        public async System.Threading.Tasks.Task<GetAttributes> GetAttributesAsync (string apiKey, string partnerKey)
         {
-             ApiResponse<GetAttributes> localVarResponse = await GetAttributesAsyncWithHttpInfo();
+             ApiResponse<GetAttributes> localVarResponse = await GetAttributesAsyncWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
 
         }
@@ -3238,7 +1875,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (GetAttributes)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetAttributes>> GetAttributesAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<GetAttributes>> GetAttributesAsyncWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./contacts/attributes";
@@ -3265,14 +1902,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3301,9 +1938,9 @@ namespace brevo_csharp.Api
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>GetExtendedContactDetails</returns>
-        public GetExtendedContactDetails GetContactInfo (string identifier, string startDate = null, string endDate = null)
+        public GetExtendedContactDetails GetContactInfo (string apiKey, string partnerKey, string identifier, string startDate = null, string endDate = null)
         {
-             ApiResponse<GetExtendedContactDetails> localVarResponse = GetContactInfoWithHttpInfo(identifier, startDate, endDate);
+             ApiResponse<GetExtendedContactDetails> localVarResponse = GetContactInfoWithHttpInfo(apiKey, partnerKey, identifier, startDate, endDate);
              return localVarResponse.Data;
         }
 
@@ -3315,7 +1952,7 @@ namespace brevo_csharp.Api
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>ApiResponse of GetExtendedContactDetails</returns>
-        public ApiResponse< GetExtendedContactDetails > GetContactInfoWithHttpInfo (string identifier, string startDate = null, string endDate = null)
+        public ApiResponse< GetExtendedContactDetails > GetContactInfoWithHttpInfo (string apiKey, string partnerKey, string identifier, string startDate = null, string endDate = null)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -3348,14 +1985,14 @@ namespace brevo_csharp.Api
             if (endDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "endDate", endDate)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3384,9 +2021,9 @@ namespace brevo_csharp.Api
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>Task of GetExtendedContactDetails</returns>
-        public async System.Threading.Tasks.Task<GetExtendedContactDetails> GetContactInfoAsync (string identifier, string startDate = null, string endDate = null)
+        public async System.Threading.Tasks.Task<GetExtendedContactDetails> GetContactInfoAsync (string apiKey, string partnerKey, string identifier, string startDate = null, string endDate = null)
         {
-             ApiResponse<GetExtendedContactDetails> localVarResponse = await GetContactInfoAsyncWithHttpInfo(identifier, startDate, endDate);
+             ApiResponse<GetExtendedContactDetails> localVarResponse = await GetContactInfoAsyncWithHttpInfo(apiKey, partnerKey, identifier, startDate, endDate);
              return localVarResponse.Data;
 
         }
@@ -3399,7 +2036,7 @@ namespace brevo_csharp.Api
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>Task of ApiResponse (GetExtendedContactDetails)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetExtendedContactDetails>> GetContactInfoAsyncWithHttpInfo (string identifier, string startDate = null, string endDate = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetExtendedContactDetails>> GetContactInfoAsyncWithHttpInfo (string apiKey, string partnerKey, string identifier, string startDate = null, string endDate = null)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -3432,14 +2069,14 @@ namespace brevo_csharp.Api
             if (endDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "endDate", endDate)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3468,9 +2105,9 @@ namespace brevo_csharp.Api
         /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days (optional)</param>
         /// <returns>GetContactCampaignStats</returns>
-        public GetContactCampaignStats GetContactStats (string identifier, string startDate = null, string endDate = null)
+        public GetContactCampaignStats GetContactStats (string apiKey, string partnerKey, string identifier, string startDate = null, string endDate = null)
         {
-             ApiResponse<GetContactCampaignStats> localVarResponse = GetContactStatsWithHttpInfo(identifier, startDate, endDate);
+             ApiResponse<GetContactCampaignStats> localVarResponse = GetContactStatsWithHttpInfo(apiKey, partnerKey, identifier, startDate, endDate);
              return localVarResponse.Data;
         }
 
@@ -3482,7 +2119,7 @@ namespace brevo_csharp.Api
         /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days (optional)</param>
         /// <returns>ApiResponse of GetContactCampaignStats</returns>
-        public ApiResponse< GetContactCampaignStats > GetContactStatsWithHttpInfo (string identifier, string startDate = null, string endDate = null)
+        public ApiResponse< GetContactCampaignStats > GetContactStatsWithHttpInfo (string apiKey, string partnerKey, string identifier, string startDate = null, string endDate = null)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -3515,14 +2152,14 @@ namespace brevo_csharp.Api
             if (endDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "endDate", endDate)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3551,9 +2188,9 @@ namespace brevo_csharp.Api
         /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days (optional)</param>
         /// <returns>Task of GetContactCampaignStats</returns>
-        public async System.Threading.Tasks.Task<GetContactCampaignStats> GetContactStatsAsync (string identifier, string startDate = null, string endDate = null)
+        public async System.Threading.Tasks.Task<GetContactCampaignStats> GetContactStatsAsync (string apiKey, string partnerKey, string identifier, string startDate = null, string endDate = null)
         {
-             ApiResponse<GetContactCampaignStats> localVarResponse = await GetContactStatsAsyncWithHttpInfo(identifier, startDate, endDate);
+             ApiResponse<GetContactCampaignStats> localVarResponse = await GetContactStatsAsyncWithHttpInfo(apiKey, partnerKey, identifier, startDate, endDate);
              return localVarResponse.Data;
 
         }
@@ -3566,7 +2203,7 @@ namespace brevo_csharp.Api
         /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days (optional)</param>
         /// <returns>Task of ApiResponse (GetContactCampaignStats)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetContactCampaignStats>> GetContactStatsAsyncWithHttpInfo (string identifier, string startDate = null, string endDate = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetContactCampaignStats>> GetContactStatsAsyncWithHttpInfo (string apiKey, string partnerKey, string identifier, string startDate = null, string endDate = null)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -3599,14 +2236,14 @@ namespace brevo_csharp.Api
             if (endDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "endDate", endDate)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3639,9 +2276,9 @@ namespace brevo_csharp.Api
         /// <param name="segmentId">Id of the segment. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <returns>GetContacts</returns>
-        public GetContacts GetContacts (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null)
+        public GetContacts GetContacts (string apiKey, string partnerKey, long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null)
         {
-             ApiResponse<GetContacts> localVarResponse = GetContactsWithHttpInfo(limit, offset, modifiedSince, createdSince, sort, segmentId, listIds);
+             ApiResponse<GetContacts> localVarResponse = GetContactsWithHttpInfo(apiKey, partnerKey, limit, offset, modifiedSince, createdSince, sort, segmentId, listIds);
              return localVarResponse.Data;
         }
 
@@ -3657,7 +2294,7 @@ namespace brevo_csharp.Api
         /// <param name="segmentId">Id of the segment. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <returns>ApiResponse of GetContacts</returns>
-        public ApiResponse< GetContacts > GetContactsWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null)
+        public ApiResponse< GetContacts > GetContactsWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null)
         {
 
             var localVarPath = "./contacts";
@@ -3691,14 +2328,14 @@ namespace brevo_csharp.Api
             if (listIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "listIds", listIds)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3731,9 +2368,9 @@ namespace brevo_csharp.Api
         /// <param name="segmentId">Id of the segment. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <returns>Task of GetContacts</returns>
-        public async System.Threading.Tasks.Task<GetContacts> GetContactsAsync (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null)
+        public async System.Threading.Tasks.Task<GetContacts> GetContactsAsync (string apiKey, string partnerKey, long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null)
         {
-             ApiResponse<GetContacts> localVarResponse = await GetContactsAsyncWithHttpInfo(limit, offset, modifiedSince, createdSince, sort, segmentId, listIds);
+             ApiResponse<GetContacts> localVarResponse = await GetContactsAsyncWithHttpInfo(apiKey, partnerKey, limit, offset, modifiedSince, createdSince, sort, segmentId, listIds);
              return localVarResponse.Data;
 
         }
@@ -3750,7 +2387,7 @@ namespace brevo_csharp.Api
         /// <param name="segmentId">Id of the segment. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <returns>Task of ApiResponse (GetContacts)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetContacts>> GetContactsAsyncWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetContacts>> GetContactsAsyncWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null)
         {
 
             var localVarPath = "./contacts";
@@ -3784,14 +2421,14 @@ namespace brevo_csharp.Api
             if (listIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "listIds", listIds)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3822,9 +2459,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>GetContacts</returns>
-        public GetContacts GetContactsFromList (long? listId, string modifiedSince = null, long? limit = null, long? offset = null, string sort = null)
+        public GetContacts GetContactsFromList (string apiKey, string partnerKey, long? listId, string modifiedSince = null, long? limit = null, long? offset = null, string sort = null)
         {
-             ApiResponse<GetContacts> localVarResponse = GetContactsFromListWithHttpInfo(listId, modifiedSince, limit, offset, sort);
+             ApiResponse<GetContacts> localVarResponse = GetContactsFromListWithHttpInfo(apiKey, partnerKey, listId, modifiedSince, limit, offset, sort);
              return localVarResponse.Data;
         }
 
@@ -3838,7 +2475,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>ApiResponse of GetContacts</returns>
-        public ApiResponse< GetContacts > GetContactsFromListWithHttpInfo (long? listId, string modifiedSince = null, long? limit = null, long? offset = null, string sort = null)
+        public ApiResponse< GetContacts > GetContactsFromListWithHttpInfo (string apiKey, string partnerKey, long? listId, string modifiedSince = null, long? limit = null, long? offset = null, string sort = null)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -3873,14 +2510,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3911,9 +2548,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of GetContacts</returns>
-        public async System.Threading.Tasks.Task<GetContacts> GetContactsFromListAsync (long? listId, string modifiedSince = null, long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<GetContacts> GetContactsFromListAsync (string apiKey, string partnerKey, long? listId, string modifiedSince = null, long? limit = null, long? offset = null, string sort = null)
         {
-             ApiResponse<GetContacts> localVarResponse = await GetContactsFromListAsyncWithHttpInfo(listId, modifiedSince, limit, offset, sort);
+             ApiResponse<GetContacts> localVarResponse = await GetContactsFromListAsyncWithHttpInfo(apiKey, partnerKey, listId, modifiedSince, limit, offset, sort);
              return localVarResponse.Data;
 
         }
@@ -3928,7 +2565,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetContacts)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetContacts>> GetContactsFromListAsyncWithHttpInfo (long? listId, string modifiedSince = null, long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetContacts>> GetContactsFromListAsyncWithHttpInfo (string apiKey, string partnerKey, long? listId, string modifiedSince = null, long? limit = null, long? offset = null, string sort = null)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -3963,14 +2600,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3997,9 +2634,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">id of the folder</param>
         /// <returns>GetFolder</returns>
-        public GetFolder GetFolder (long? folderId)
+        public GetFolder GetFolder (string apiKey, string partnerKey, long? folderId)
         {
-             ApiResponse<GetFolder> localVarResponse = GetFolderWithHttpInfo(folderId);
+             ApiResponse<GetFolder> localVarResponse = GetFolderWithHttpInfo(apiKey, partnerKey, folderId);
              return localVarResponse.Data;
         }
 
@@ -4009,7 +2646,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">id of the folder</param>
         /// <returns>ApiResponse of GetFolder</returns>
-        public ApiResponse< GetFolder > GetFolderWithHttpInfo (long? folderId)
+        public ApiResponse< GetFolder > GetFolderWithHttpInfo (string apiKey, string partnerKey, long? folderId)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -4040,14 +2677,14 @@ namespace brevo_csharp.Api
             if (folderId != null) localVarPathParams.Add("folderId", this.Configuration.ApiClient.ParameterToString(folderId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4074,9 +2711,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">id of the folder</param>
         /// <returns>Task of GetFolder</returns>
-        public async System.Threading.Tasks.Task<GetFolder> GetFolderAsync (long? folderId)
+        public async System.Threading.Tasks.Task<GetFolder> GetFolderAsync (string apiKey, string partnerKey, long? folderId)
         {
-             ApiResponse<GetFolder> localVarResponse = await GetFolderAsyncWithHttpInfo(folderId);
+             ApiResponse<GetFolder> localVarResponse = await GetFolderAsyncWithHttpInfo(apiKey, partnerKey, folderId);
              return localVarResponse.Data;
 
         }
@@ -4087,7 +2724,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">id of the folder</param>
         /// <returns>Task of ApiResponse (GetFolder)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetFolder>> GetFolderAsyncWithHttpInfo (long? folderId)
+        public async System.Threading.Tasks.Task<ApiResponse<GetFolder>> GetFolderAsyncWithHttpInfo (string apiKey, string partnerKey, long? folderId)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -4118,14 +2755,14 @@ namespace brevo_csharp.Api
             if (folderId != null) localVarPathParams.Add("folderId", this.Configuration.ApiClient.ParameterToString(folderId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4155,9 +2792,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>GetFolderLists</returns>
-        public GetFolderLists GetFolderLists (long? folderId, long? limit = null, long? offset = null, string sort = null)
+        public GetFolderLists GetFolderLists (string apiKey, string partnerKey, long? folderId, long? limit = null, long? offset = null, string sort = null)
         {
-             ApiResponse<GetFolderLists> localVarResponse = GetFolderListsWithHttpInfo(folderId, limit, offset, sort);
+             ApiResponse<GetFolderLists> localVarResponse = GetFolderListsWithHttpInfo(apiKey, partnerKey, folderId, limit, offset, sort);
              return localVarResponse.Data;
         }
 
@@ -4170,7 +2807,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>ApiResponse of GetFolderLists</returns>
-        public ApiResponse< GetFolderLists > GetFolderListsWithHttpInfo (long? folderId, long? limit = null, long? offset = null, string sort = null)
+        public ApiResponse< GetFolderLists > GetFolderListsWithHttpInfo (string apiKey, string partnerKey, long? folderId, long? limit = null, long? offset = null, string sort = null)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -4204,14 +2841,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4241,9 +2878,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of GetFolderLists</returns>
-        public async System.Threading.Tasks.Task<GetFolderLists> GetFolderListsAsync (long? folderId, long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<GetFolderLists> GetFolderListsAsync (string apiKey, string partnerKey, long? folderId, long? limit = null, long? offset = null, string sort = null)
         {
-             ApiResponse<GetFolderLists> localVarResponse = await GetFolderListsAsyncWithHttpInfo(folderId, limit, offset, sort);
+             ApiResponse<GetFolderLists> localVarResponse = await GetFolderListsAsyncWithHttpInfo(apiKey, partnerKey, folderId, limit, offset, sort);
              return localVarResponse.Data;
 
         }
@@ -4257,7 +2894,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetFolderLists)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetFolderLists>> GetFolderListsAsyncWithHttpInfo (long? folderId, long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetFolderLists>> GetFolderListsAsyncWithHttpInfo (string apiKey, string partnerKey, long? folderId, long? limit = null, long? offset = null, string sort = null)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -4291,14 +2928,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4327,9 +2964,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>GetFolders</returns>
-        public GetFolders GetFolders (long? limit, long? offset, string sort = null)
+        public GetFolders GetFolders (string apiKey, string partnerKey, long? limit, long? offset, string sort = null)
         {
-             ApiResponse<GetFolders> localVarResponse = GetFoldersWithHttpInfo(limit, offset, sort);
+             ApiResponse<GetFolders> localVarResponse = GetFoldersWithHttpInfo(apiKey, partnerKey, limit, offset, sort);
              return localVarResponse.Data;
         }
 
@@ -4341,7 +2978,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>ApiResponse of GetFolders</returns>
-        public ApiResponse< GetFolders > GetFoldersWithHttpInfo (long? limit, long? offset, string sort = null)
+        public ApiResponse< GetFolders > GetFoldersWithHttpInfo (string apiKey, string partnerKey, long? limit, long? offset, string sort = null)
         {
             // verify the required parameter 'limit' is set
             if (limit == null)
@@ -4377,14 +3014,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4413,9 +3050,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of GetFolders</returns>
-        public async System.Threading.Tasks.Task<GetFolders> GetFoldersAsync (long? limit, long? offset, string sort = null)
+        public async System.Threading.Tasks.Task<GetFolders> GetFoldersAsync (string apiKey, string partnerKey, long? limit, long? offset, string sort = null)
         {
-             ApiResponse<GetFolders> localVarResponse = await GetFoldersAsyncWithHttpInfo(limit, offset, sort);
+             ApiResponse<GetFolders> localVarResponse = await GetFoldersAsyncWithHttpInfo(apiKey, partnerKey, limit, offset, sort);
              return localVarResponse.Data;
 
         }
@@ -4428,7 +3065,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetFolders)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetFolders>> GetFoldersAsyncWithHttpInfo (long? limit, long? offset, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetFolders>> GetFoldersAsyncWithHttpInfo (string apiKey, string partnerKey, long? limit, long? offset, string sort = null)
         {
             // verify the required parameter 'limit' is set
             if (limit == null)
@@ -4464,14 +3101,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4500,9 +3137,9 @@ namespace brevo_csharp.Api
         /// <param name="startDate">Mandatory if endDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to aggregate the sent email campaigns for a specific list id.Prefer to pass your timezone in date-time format for accurate result (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to aggregate the sent email campaigns for a specific list id.Prefer to pass your timezone in date-time format for accurate result (optional)</param>
         /// <returns>GetExtendedList</returns>
-        public GetExtendedList GetList (long? listId, string startDate = null, string endDate = null)
+        public GetExtendedList GetList (string apiKey, string partnerKey, long? listId, string startDate = null, string endDate = null)
         {
-             ApiResponse<GetExtendedList> localVarResponse = GetListWithHttpInfo(listId, startDate, endDate);
+             ApiResponse<GetExtendedList> localVarResponse = GetListWithHttpInfo(apiKey, partnerKey, listId, startDate, endDate);
              return localVarResponse.Data;
         }
 
@@ -4514,7 +3151,7 @@ namespace brevo_csharp.Api
         /// <param name="startDate">Mandatory if endDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to aggregate the sent email campaigns for a specific list id.Prefer to pass your timezone in date-time format for accurate result (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to aggregate the sent email campaigns for a specific list id.Prefer to pass your timezone in date-time format for accurate result (optional)</param>
         /// <returns>ApiResponse of GetExtendedList</returns>
-        public ApiResponse< GetExtendedList > GetListWithHttpInfo (long? listId, string startDate = null, string endDate = null)
+        public ApiResponse< GetExtendedList > GetListWithHttpInfo (string apiKey, string partnerKey, long? listId, string startDate = null, string endDate = null)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -4547,14 +3184,14 @@ namespace brevo_csharp.Api
             if (endDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "endDate", endDate)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4583,9 +3220,9 @@ namespace brevo_csharp.Api
         /// <param name="startDate">Mandatory if endDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to aggregate the sent email campaigns for a specific list id.Prefer to pass your timezone in date-time format for accurate result (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to aggregate the sent email campaigns for a specific list id.Prefer to pass your timezone in date-time format for accurate result (optional)</param>
         /// <returns>Task of GetExtendedList</returns>
-        public async System.Threading.Tasks.Task<GetExtendedList> GetListAsync (long? listId, string startDate = null, string endDate = null)
+        public async System.Threading.Tasks.Task<GetExtendedList> GetListAsync (string apiKey, string partnerKey, long? listId, string startDate = null, string endDate = null)
         {
-             ApiResponse<GetExtendedList> localVarResponse = await GetListAsyncWithHttpInfo(listId, startDate, endDate);
+             ApiResponse<GetExtendedList> localVarResponse = await GetListAsyncWithHttpInfo(apiKey, partnerKey, listId, startDate, endDate);
              return localVarResponse.Data;
 
         }
@@ -4598,7 +3235,7 @@ namespace brevo_csharp.Api
         /// <param name="startDate">Mandatory if endDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to aggregate the sent email campaigns for a specific list id.Prefer to pass your timezone in date-time format for accurate result (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to aggregate the sent email campaigns for a specific list id.Prefer to pass your timezone in date-time format for accurate result (optional)</param>
         /// <returns>Task of ApiResponse (GetExtendedList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetExtendedList>> GetListAsyncWithHttpInfo (long? listId, string startDate = null, string endDate = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetExtendedList>> GetListAsyncWithHttpInfo (string apiKey, string partnerKey, long? listId, string startDate = null, string endDate = null)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -4631,14 +3268,14 @@ namespace brevo_csharp.Api
             if (endDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "endDate", endDate)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4667,9 +3304,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>GetLists</returns>
-        public GetLists GetLists (long? limit = null, long? offset = null, string sort = null)
+        public GetLists GetLists (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null)
         {
-             ApiResponse<GetLists> localVarResponse = GetListsWithHttpInfo(limit, offset, sort);
+             ApiResponse<GetLists> localVarResponse = GetListsWithHttpInfo(apiKey, partnerKey, limit, offset, sort);
              return localVarResponse.Data;
         }
 
@@ -4681,7 +3318,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>ApiResponse of GetLists</returns>
-        public ApiResponse< GetLists > GetListsWithHttpInfo (long? limit = null, long? offset = null, string sort = null)
+        public ApiResponse< GetLists > GetListsWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null)
         {
 
             var localVarPath = "./contacts/lists";
@@ -4711,14 +3348,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4747,9 +3384,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of GetLists</returns>
-        public async System.Threading.Tasks.Task<GetLists> GetListsAsync (long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<GetLists> GetListsAsync (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null)
         {
-             ApiResponse<GetLists> localVarResponse = await GetListsAsyncWithHttpInfo(limit, offset, sort);
+             ApiResponse<GetLists> localVarResponse = await GetListsAsyncWithHttpInfo(apiKey, partnerKey, limit, offset, sort);
              return localVarResponse.Data;
 
         }
@@ -4762,7 +3399,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetLists)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetLists>> GetListsAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetLists>> GetListsAsyncWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null)
         {
 
             var localVarPath = "./contacts/lists";
@@ -4792,14 +3429,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4828,9 +3465,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>GetSegments</returns>
-        public GetSegments GetSegments (long? limit, long? offset, string sort = null)
+        public GetSegments GetSegments (string apiKey, string partnerKey, long? limit, long? offset, string sort = null)
         {
-             ApiResponse<GetSegments> localVarResponse = GetSegmentsWithHttpInfo(limit, offset, sort);
+             ApiResponse<GetSegments> localVarResponse = GetSegmentsWithHttpInfo(apiKey, partnerKey, limit, offset, sort);
              return localVarResponse.Data;
         }
 
@@ -4842,7 +3479,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>ApiResponse of GetSegments</returns>
-        public ApiResponse< GetSegments > GetSegmentsWithHttpInfo (long? limit, long? offset, string sort = null)
+        public ApiResponse< GetSegments > GetSegmentsWithHttpInfo (string apiKey, string partnerKey, long? limit, long? offset, string sort = null)
         {
             // verify the required parameter 'limit' is set
             if (limit == null)
@@ -4878,14 +3515,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4914,9 +3551,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of GetSegments</returns>
-        public async System.Threading.Tasks.Task<GetSegments> GetSegmentsAsync (long? limit, long? offset, string sort = null)
+        public async System.Threading.Tasks.Task<GetSegments> GetSegmentsAsync (string apiKey, string partnerKey, long? limit, long? offset, string sort = null)
         {
-             ApiResponse<GetSegments> localVarResponse = await GetSegmentsAsyncWithHttpInfo(limit, offset, sort);
+             ApiResponse<GetSegments> localVarResponse = await GetSegmentsAsyncWithHttpInfo(apiKey, partnerKey, limit, offset, sort);
              return localVarResponse.Data;
 
         }
@@ -4929,7 +3566,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document of the page</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetSegments)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetSegments>> GetSegmentsAsyncWithHttpInfo (long? limit, long? offset, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetSegments>> GetSegmentsAsyncWithHttpInfo (string apiKey, string partnerKey, long? limit, long? offset, string sort = null)
         {
             // verify the required parameter 'limit' is set
             if (limit == null)
@@ -4965,14 +3602,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4999,9 +3636,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestContactImport">Values to import contacts in Brevo. To know more about the expected format, please have a look at &#x60;&#x60;https://help.brevo.com/hc/en-us/articles/209499265-Build-contacts-lists-for-your-email-marketing-campaigns&#x60;&#x60;</param>
         /// <returns>CreatedProcessId</returns>
-        public CreatedProcessId ImportContacts (RequestContactImport requestContactImport)
+        public CreatedProcessId ImportContacts (string apiKey, string partnerKey, RequestContactImport requestContactImport)
         {
-             ApiResponse<CreatedProcessId> localVarResponse = ImportContactsWithHttpInfo(requestContactImport);
+             ApiResponse<CreatedProcessId> localVarResponse = ImportContactsWithHttpInfo(apiKey, partnerKey, requestContactImport);
              return localVarResponse.Data;
         }
 
@@ -5011,7 +3648,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestContactImport">Values to import contacts in Brevo. To know more about the expected format, please have a look at &#x60;&#x60;https://help.brevo.com/hc/en-us/articles/209499265-Build-contacts-lists-for-your-email-marketing-campaigns&#x60;&#x60;</param>
         /// <returns>ApiResponse of CreatedProcessId</returns>
-        public ApiResponse< CreatedProcessId > ImportContactsWithHttpInfo (RequestContactImport requestContactImport)
+        public ApiResponse< CreatedProcessId > ImportContactsWithHttpInfo (string apiKey, string partnerKey, RequestContactImport requestContactImport)
         {
             // verify the required parameter 'requestContactImport' is set
             if (requestContactImport == null)
@@ -5049,14 +3686,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -5083,9 +3720,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestContactImport">Values to import contacts in Brevo. To know more about the expected format, please have a look at &#x60;&#x60;https://help.brevo.com/hc/en-us/articles/209499265-Build-contacts-lists-for-your-email-marketing-campaigns&#x60;&#x60;</param>
         /// <returns>Task of CreatedProcessId</returns>
-        public async System.Threading.Tasks.Task<CreatedProcessId> ImportContactsAsync (RequestContactImport requestContactImport)
+        public async System.Threading.Tasks.Task<CreatedProcessId> ImportContactsAsync (string apiKey, string partnerKey, RequestContactImport requestContactImport)
         {
-             ApiResponse<CreatedProcessId> localVarResponse = await ImportContactsAsyncWithHttpInfo(requestContactImport);
+             ApiResponse<CreatedProcessId> localVarResponse = await ImportContactsAsyncWithHttpInfo(apiKey, partnerKey, requestContactImport);
              return localVarResponse.Data;
 
         }
@@ -5096,7 +3733,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestContactImport">Values to import contacts in Brevo. To know more about the expected format, please have a look at &#x60;&#x60;https://help.brevo.com/hc/en-us/articles/209499265-Build-contacts-lists-for-your-email-marketing-campaigns&#x60;&#x60;</param>
         /// <returns>Task of ApiResponse (CreatedProcessId)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreatedProcessId>> ImportContactsAsyncWithHttpInfo (RequestContactImport requestContactImport)
+        public async System.Threading.Tasks.Task<ApiResponse<CreatedProcessId>> ImportContactsAsyncWithHttpInfo (string apiKey, string partnerKey, RequestContactImport requestContactImport)
         {
             // verify the required parameter 'requestContactImport' is set
             if (requestContactImport == null)
@@ -5134,14 +3771,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -5169,9 +3806,9 @@ namespace brevo_csharp.Api
         /// <param name="listId">Id of the list</param>
         /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
         /// <returns>PostContactInfo</returns>
-        public PostContactInfo RemoveContactFromList (long? listId, RemoveContactFromList contactEmails)
+        public PostContactInfo RemoveContactFromList (string apiKey, string partnerKey, long? listId, RemoveContactFromList contactEmails)
         {
-             ApiResponse<PostContactInfo> localVarResponse = RemoveContactFromListWithHttpInfo(listId, contactEmails);
+             ApiResponse<PostContactInfo> localVarResponse = RemoveContactFromListWithHttpInfo(apiKey, partnerKey, listId, contactEmails);
              return localVarResponse.Data;
         }
 
@@ -5182,7 +3819,7 @@ namespace brevo_csharp.Api
         /// <param name="listId">Id of the list</param>
         /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
         /// <returns>ApiResponse of PostContactInfo</returns>
-        public ApiResponse< PostContactInfo > RemoveContactFromListWithHttpInfo (long? listId, RemoveContactFromList contactEmails)
+        public ApiResponse< PostContactInfo > RemoveContactFromListWithHttpInfo (string apiKey, string partnerKey, long? listId, RemoveContactFromList contactEmails)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -5224,14 +3861,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -5259,9 +3896,9 @@ namespace brevo_csharp.Api
         /// <param name="listId">Id of the list</param>
         /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
         /// <returns>Task of PostContactInfo</returns>
-        public async System.Threading.Tasks.Task<PostContactInfo> RemoveContactFromListAsync (long? listId, RemoveContactFromList contactEmails)
+        public async System.Threading.Tasks.Task<PostContactInfo> RemoveContactFromListAsync (string apiKey, string partnerKey, long? listId, RemoveContactFromList contactEmails)
         {
-             ApiResponse<PostContactInfo> localVarResponse = await RemoveContactFromListAsyncWithHttpInfo(listId, contactEmails);
+             ApiResponse<PostContactInfo> localVarResponse = await RemoveContactFromListAsyncWithHttpInfo(apiKey, partnerKey, listId, contactEmails);
              return localVarResponse.Data;
 
         }
@@ -5273,7 +3910,7 @@ namespace brevo_csharp.Api
         /// <param name="listId">Id of the list</param>
         /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
         /// <returns>Task of ApiResponse (PostContactInfo)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PostContactInfo>> RemoveContactFromListAsyncWithHttpInfo (long? listId, RemoveContactFromList contactEmails)
+        public async System.Threading.Tasks.Task<ApiResponse<PostContactInfo>> RemoveContactFromListAsyncWithHttpInfo (string apiKey, string partnerKey, long? listId, RemoveContactFromList contactEmails)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -5315,14 +3952,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -5349,9 +3986,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestContactExport">Values to request a contact export</param>
         /// <returns>CreatedProcessId</returns>
-        public CreatedProcessId RequestContactExport (RequestContactExport requestContactExport)
+        public CreatedProcessId RequestContactExport (string apiKey, string partnerKey, RequestContactExport requestContactExport)
         {
-             ApiResponse<CreatedProcessId> localVarResponse = RequestContactExportWithHttpInfo(requestContactExport);
+             ApiResponse<CreatedProcessId> localVarResponse = RequestContactExportWithHttpInfo(apiKey, partnerKey, requestContactExport);
              return localVarResponse.Data;
         }
 
@@ -5361,7 +3998,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestContactExport">Values to request a contact export</param>
         /// <returns>ApiResponse of CreatedProcessId</returns>
-        public ApiResponse< CreatedProcessId > RequestContactExportWithHttpInfo (RequestContactExport requestContactExport)
+        public ApiResponse< CreatedProcessId > RequestContactExportWithHttpInfo (string apiKey, string partnerKey, RequestContactExport requestContactExport)
         {
             // verify the required parameter 'requestContactExport' is set
             if (requestContactExport == null)
@@ -5399,14 +4036,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -5433,9 +4070,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestContactExport">Values to request a contact export</param>
         /// <returns>Task of CreatedProcessId</returns>
-        public async System.Threading.Tasks.Task<CreatedProcessId> RequestContactExportAsync (RequestContactExport requestContactExport)
+        public async System.Threading.Tasks.Task<CreatedProcessId> RequestContactExportAsync (string apiKey, string partnerKey, RequestContactExport requestContactExport)
         {
-             ApiResponse<CreatedProcessId> localVarResponse = await RequestContactExportAsyncWithHttpInfo(requestContactExport);
+             ApiResponse<CreatedProcessId> localVarResponse = await RequestContactExportAsyncWithHttpInfo(apiKey, partnerKey, requestContactExport);
              return localVarResponse.Data;
 
         }
@@ -5446,7 +4083,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestContactExport">Values to request a contact export</param>
         /// <returns>Task of ApiResponse (CreatedProcessId)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreatedProcessId>> RequestContactExportAsyncWithHttpInfo (RequestContactExport requestContactExport)
+        public async System.Threading.Tasks.Task<ApiResponse<CreatedProcessId>> RequestContactExportAsyncWithHttpInfo (string apiKey, string partnerKey, RequestContactExport requestContactExport)
         {
             // verify the required parameter 'requestContactExport' is set
             if (requestContactExport == null)
@@ -5484,14 +4121,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -5520,9 +4157,9 @@ namespace brevo_csharp.Api
         /// <param name="attributeName">Name of the existing attribute</param>
         /// <param name="updateAttribute">Values to update an attribute</param>
         /// <returns></returns>
-        public void UpdateAttribute (string attributeCategory, string attributeName, UpdateAttribute updateAttribute)
+        public void UpdateAttribute (string apiKey, string partnerKey, string attributeCategory, string attributeName, UpdateAttribute updateAttribute)
         {
-             UpdateAttributeWithHttpInfo(attributeCategory, attributeName, updateAttribute);
+             UpdateAttributeWithHttpInfo(apiKey, partnerKey, attributeCategory, attributeName, updateAttribute);
         }
 
         /// <summary>
@@ -5533,7 +4170,7 @@ namespace brevo_csharp.Api
         /// <param name="attributeName">Name of the existing attribute</param>
         /// <param name="updateAttribute">Values to update an attribute</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateAttributeWithHttpInfo (string attributeCategory, string attributeName, UpdateAttribute updateAttribute)
+        public ApiResponse<Object> UpdateAttributeWithHttpInfo (string apiKey, string partnerKey, string attributeCategory, string attributeName, UpdateAttribute updateAttribute)
         {
             // verify the required parameter 'attributeCategory' is set
             if (attributeCategory == null)
@@ -5579,14 +4216,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -5615,9 +4252,9 @@ namespace brevo_csharp.Api
         /// <param name="attributeName">Name of the existing attribute</param>
         /// <param name="updateAttribute">Values to update an attribute</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateAttributeAsync (string attributeCategory, string attributeName, UpdateAttribute updateAttribute)
+        public async System.Threading.Tasks.Task UpdateAttributeAsync (string apiKey, string partnerKey, string attributeCategory, string attributeName, UpdateAttribute updateAttribute)
         {
-             await UpdateAttributeAsyncWithHttpInfo(attributeCategory, attributeName, updateAttribute);
+             await UpdateAttributeAsyncWithHttpInfo(apiKey, partnerKey, attributeCategory, attributeName, updateAttribute);
 
         }
 
@@ -5629,7 +4266,7 @@ namespace brevo_csharp.Api
         /// <param name="attributeName">Name of the existing attribute</param>
         /// <param name="updateAttribute">Values to update an attribute</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAttributeAsyncWithHttpInfo (string attributeCategory, string attributeName, UpdateAttribute updateAttribute)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAttributeAsyncWithHttpInfo (string apiKey, string partnerKey, string attributeCategory, string attributeName, UpdateAttribute updateAttribute)
         {
             // verify the required parameter 'attributeCategory' is set
             if (attributeCategory == null)
@@ -5675,14 +4312,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -5709,9 +4346,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateBatchContacts">Values to update multiple contacts</param>
         /// <returns></returns>
-        public void UpdateBatchContacts (UpdateBatchContacts updateBatchContacts)
+        public void UpdateBatchContacts (string apiKey, string partnerKey, UpdateBatchContacts updateBatchContacts)
         {
-             UpdateBatchContactsWithHttpInfo(updateBatchContacts);
+             UpdateBatchContactsWithHttpInfo(apiKey, partnerKey, updateBatchContacts);
         }
 
         /// <summary>
@@ -5720,7 +4357,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateBatchContacts">Values to update multiple contacts</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateBatchContactsWithHttpInfo (UpdateBatchContacts updateBatchContacts)
+        public ApiResponse<Object> UpdateBatchContactsWithHttpInfo (string apiKey, string partnerKey, UpdateBatchContacts updateBatchContacts)
         {
             // verify the required parameter 'updateBatchContacts' is set
             if (updateBatchContacts == null)
@@ -5758,14 +4395,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -5792,9 +4429,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateBatchContacts">Values to update multiple contacts</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateBatchContactsAsync (UpdateBatchContacts updateBatchContacts)
+        public async System.Threading.Tasks.Task UpdateBatchContactsAsync (string apiKey, string partnerKey, UpdateBatchContacts updateBatchContacts)
         {
-             await UpdateBatchContactsAsyncWithHttpInfo(updateBatchContacts);
+             await UpdateBatchContactsAsyncWithHttpInfo(apiKey, partnerKey, updateBatchContacts);
 
         }
 
@@ -5804,7 +4441,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateBatchContacts">Values to update multiple contacts</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateBatchContactsAsyncWithHttpInfo (UpdateBatchContacts updateBatchContacts)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateBatchContactsAsyncWithHttpInfo (string apiKey, string partnerKey, UpdateBatchContacts updateBatchContacts)
         {
             // verify the required parameter 'updateBatchContacts' is set
             if (updateBatchContacts == null)
@@ -5842,14 +4479,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -5877,9 +4514,9 @@ namespace brevo_csharp.Api
         /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
         /// <param name="updateContact">Values to update a contact</param>
         /// <returns></returns>
-        public void UpdateContact (string identifier, UpdateContact updateContact)
+        public void UpdateContact (string apiKey, string partnerKey, string identifier, UpdateContact updateContact)
         {
-             UpdateContactWithHttpInfo(identifier, updateContact);
+             UpdateContactWithHttpInfo(apiKey, partnerKey, identifier, updateContact);
         }
 
         /// <summary>
@@ -5889,7 +4526,7 @@ namespace brevo_csharp.Api
         /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
         /// <param name="updateContact">Values to update a contact</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateContactWithHttpInfo (string identifier, UpdateContact updateContact)
+        public ApiResponse<Object> UpdateContactWithHttpInfo (string apiKey, string partnerKey, string identifier, UpdateContact updateContact)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -5931,14 +4568,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -5966,9 +4603,9 @@ namespace brevo_csharp.Api
         /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
         /// <param name="updateContact">Values to update a contact</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateContactAsync (string identifier, UpdateContact updateContact)
+        public async System.Threading.Tasks.Task UpdateContactAsync (string apiKey, string partnerKey, string identifier, UpdateContact updateContact)
         {
-             await UpdateContactAsyncWithHttpInfo(identifier, updateContact);
+             await UpdateContactAsyncWithHttpInfo(apiKey, partnerKey, identifier, updateContact);
 
         }
 
@@ -5979,7 +4616,7 @@ namespace brevo_csharp.Api
         /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
         /// <param name="updateContact">Values to update a contact</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateContactAsyncWithHttpInfo (string identifier, UpdateContact updateContact)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateContactAsyncWithHttpInfo (string apiKey, string partnerKey, string identifier, UpdateContact updateContact)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -6021,14 +4658,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -6056,9 +4693,9 @@ namespace brevo_csharp.Api
         /// <param name="folderId">Id of the folder</param>
         /// <param name="updateFolder">Name of the folder</param>
         /// <returns></returns>
-        public void UpdateFolder (long? folderId, CreateUpdateFolder updateFolder)
+        public void UpdateFolder (string apiKey, string partnerKey, long? folderId, CreateUpdateFolder updateFolder)
         {
-             UpdateFolderWithHttpInfo(folderId, updateFolder);
+             UpdateFolderWithHttpInfo(apiKey, partnerKey, folderId, updateFolder);
         }
 
         /// <summary>
@@ -6068,7 +4705,7 @@ namespace brevo_csharp.Api
         /// <param name="folderId">Id of the folder</param>
         /// <param name="updateFolder">Name of the folder</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateFolderWithHttpInfo (long? folderId, CreateUpdateFolder updateFolder)
+        public ApiResponse<Object> UpdateFolderWithHttpInfo (string apiKey, string partnerKey, long? folderId, CreateUpdateFolder updateFolder)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -6110,14 +4747,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -6145,9 +4782,9 @@ namespace brevo_csharp.Api
         /// <param name="folderId">Id of the folder</param>
         /// <param name="updateFolder">Name of the folder</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateFolderAsync (long? folderId, CreateUpdateFolder updateFolder)
+        public async System.Threading.Tasks.Task UpdateFolderAsync (string apiKey, string partnerKey, long? folderId, CreateUpdateFolder updateFolder)
         {
-             await UpdateFolderAsyncWithHttpInfo(folderId, updateFolder);
+             await UpdateFolderAsyncWithHttpInfo(apiKey, partnerKey, folderId, updateFolder);
 
         }
 
@@ -6158,7 +4795,7 @@ namespace brevo_csharp.Api
         /// <param name="folderId">Id of the folder</param>
         /// <param name="updateFolder">Name of the folder</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateFolderAsyncWithHttpInfo (long? folderId, CreateUpdateFolder updateFolder)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateFolderAsyncWithHttpInfo (string apiKey, string partnerKey, long? folderId, CreateUpdateFolder updateFolder)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -6200,14 +4837,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -6235,9 +4872,9 @@ namespace brevo_csharp.Api
         /// <param name="listId">Id of the list</param>
         /// <param name="updateList">Values to update a list</param>
         /// <returns></returns>
-        public void UpdateList (long? listId, UpdateList updateList)
+        public void UpdateList (string apiKey, string partnerKey, long? listId, UpdateList updateList)
         {
-             UpdateListWithHttpInfo(listId, updateList);
+             UpdateListWithHttpInfo(apiKey, partnerKey, listId, updateList);
         }
 
         /// <summary>
@@ -6247,7 +4884,7 @@ namespace brevo_csharp.Api
         /// <param name="listId">Id of the list</param>
         /// <param name="updateList">Values to update a list</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateListWithHttpInfo (long? listId, UpdateList updateList)
+        public ApiResponse<Object> UpdateListWithHttpInfo (string apiKey, string partnerKey, long? listId, UpdateList updateList)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -6289,14 +4926,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -6324,9 +4961,9 @@ namespace brevo_csharp.Api
         /// <param name="listId">Id of the list</param>
         /// <param name="updateList">Values to update a list</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateListAsync (long? listId, UpdateList updateList)
+        public async System.Threading.Tasks.Task UpdateListAsync (string apiKey, string partnerKey, long? listId, UpdateList updateList)
         {
-             await UpdateListAsyncWithHttpInfo(listId, updateList);
+             await UpdateListAsyncWithHttpInfo(apiKey, partnerKey, listId, updateList);
 
         }
 
@@ -6337,7 +4974,7 @@ namespace brevo_csharp.Api
         /// <param name="listId">Id of the list</param>
         /// <param name="updateList">Values to update a list</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateListAsyncWithHttpInfo (long? listId, UpdateList updateList)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateListAsyncWithHttpInfo (string apiKey, string partnerKey, long? listId, UpdateList updateList)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -6379,14 +5016,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

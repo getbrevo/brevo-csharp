@@ -55,21 +55,12 @@ namespace Example
         public void main()
         {
 
-            // Configure API key authorization: api-key
-            Configuration.Default.ApiKey.Add("api-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("api-key", "Bearer");
-            // Configure API key authorization: partner-key
-            Configuration.Default.ApiKey.Add("partner-key", "YOUR_PARTNER_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("partner-key", "Bearer");
-
             var apiInstance = new AccountApi();
 
             try
             {
                 // Get your account information, plan and credits details
-                GetAccount result = apiInstance.GetAccount();
+                GetAccount result = apiInstance.GetAccount("YOUR_API_KEY", "YOUR_PARTNER_KEY");
                 Debug.WriteLine(result);
             }
             catch (Exception e)

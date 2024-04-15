@@ -81,17 +81,6 @@ namespace brevo_csharp.Client
 
         #region Private Members
 
-        /// <summary>
-        /// Gets or sets the API key based on the authentication name.
-        /// </summary>
-        /// <value>The API key.</value>
-        private IDictionary<string, string> _apiKey = null;
-
-        /// <summary>
-        /// Gets or sets the prefix (e.g. Token) of the API key based on the authentication name.
-        /// </summary>
-        /// <value>The prefix of the API key.</value>
-        private IDictionary<string, string> _apiKeyPrefix = null;
 
         private string _dateTimeFormat = ISO8601_DATETIME_FORMAT;
         private string _tempFolderPath = Path.GetTempPath();
@@ -113,8 +102,6 @@ namespace brevo_csharp.Client
             UserAgent = "brevo_clientAPI/v" + Version + "/c#";
             BasePath = "https://api.brevo.com/v3";
             DefaultHeader = new ConcurrentDictionary<string, string>();
-            ApiKey = new ConcurrentDictionary<string, string>();
-            ApiKeyPrefix = new ConcurrentDictionary<string, string>();
 
             // Setting Timeout has side effects (forces ApiClient creation).
             Timeout = 100000;
@@ -145,15 +132,6 @@ namespace brevo_csharp.Client
                 DefaultHeader.Add(keyValuePair);
             }
 
-            foreach (var keyValuePair in apiKey)
-            {
-                ApiKey.Add(keyValuePair);
-            }
-
-            foreach (var keyValuePair in apiKeyPrefix)
-            {
-                ApiKeyPrefix.Add(keyValuePair);
-            }
         }
 
         /// <summary>
@@ -267,22 +245,6 @@ namespace brevo_csharp.Client
         public virtual string Password { get; set; }
 
         /// <summary>
-        /// Gets the API key with prefix.
-        /// </summary>
-        /// <param name="apiKeyIdentifier">API key identifier (authentication scheme).</param>
-        /// <returns>API key with prefix.</returns>
-        public string GetApiKeyWithPrefix(string apiKeyIdentifier)
-        {
-            var apiKeyValue = "";
-            ApiKey.TryGetValue (apiKeyIdentifier, out apiKeyValue);
-            var apiKeyPrefix = "";
-            if (ApiKeyPrefix.TryGetValue (apiKeyIdentifier, out apiKeyPrefix))
-                return apiKeyPrefix + " " + apiKeyValue;
-            else
-                return apiKeyValue;
-        }
-
-        /// <summary>
         /// Gets or sets the access token for OAuth2 authentication.
         /// </summary>
         /// <value>The access token.</value>
@@ -349,40 +311,7 @@ namespace brevo_csharp.Client
             }
         }
 
-        /// <summary>
-        /// Gets or sets the prefix (e.g. Token) of the API key based on the authentication name.
-        /// </summary>
-        /// <value>The prefix of the API key.</value>
-        public virtual IDictionary<string, string> ApiKeyPrefix
-        {
-            get { return _apiKeyPrefix; }
-            set
-            {
-                if (value == null)
-                {
-                    throw new InvalidOperationException("ApiKeyPrefix collection may not be null.");
-                }
-                _apiKeyPrefix = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the API key based on the authentication name.
-        /// </summary>
-        /// <value>The API key.</value>
-        public virtual IDictionary<string, string> ApiKey
-        {
-            get { return _apiKey; }
-            set
-            {
-                if (value == null)
-                {
-                    throw new InvalidOperationException("ApiKey collection may not be null.");
-                }
-                _apiKey = value;
-            }
-        }
-
+       
         #endregion Properties
 
         #region Methods
@@ -421,27 +350,7 @@ namespace brevo_csharp.Client
             return report;
         }
 
-        /// <summary>
-        /// Add Api Key Header.
-        /// </summary>
-        /// <param name="key">Api Key name.</param>
-        /// <param name="value">Api Key value.</param>
-        /// <returns></returns>
-        public void AddApiKey(string key, string value)
-        {
-            ApiKey[key] = value;
-        }
-
-        /// <summary>
-        /// Sets the API key prefix.
-        /// </summary>
-        /// <param name="key">Api Key name.</param>
-        /// <param name="value">Api Key value.</param>
-        public void AddApiKeyPrefix(string key, string value)
-        {
-            ApiKeyPrefix[key] = value;
-        }
-
+      
         #endregion Methods
     }
 }

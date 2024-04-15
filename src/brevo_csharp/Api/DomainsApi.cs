@@ -21,224 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IDomainsApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Authenticate a domain
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainName">Domain name</param>
-        /// <returns>AuthenticateDomainModel</returns>
-        AuthenticateDomainModel AuthenticateDomain (string domainName);
-
-        /// <summary>
-        /// Authenticate a domain
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainName">Domain name</param>
-        /// <returns>ApiResponse of AuthenticateDomainModel</returns>
-        ApiResponse<AuthenticateDomainModel> AuthenticateDomainWithHttpInfo (string domainName);
-        /// <summary>
-        /// Create a new domain
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainName">domain&#39;s name (optional)</param>
-        /// <returns>CreateDomainModel</returns>
-        CreateDomainModel CreateDomain (CreateDomain domainName = null);
-
-        /// <summary>
-        /// Create a new domain
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainName">domain&#39;s name (optional)</param>
-        /// <returns>ApiResponse of CreateDomainModel</returns>
-        ApiResponse<CreateDomainModel> CreateDomainWithHttpInfo (CreateDomain domainName = null);
-        /// <summary>
-        /// Delete a domain
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainName">Domain name</param>
-        /// <returns></returns>
-        void DeleteDomain (string domainName);
-
-        /// <summary>
-        /// Delete a domain
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainName">Domain name</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteDomainWithHttpInfo (string domainName);
-        /// <summary>
-        /// Validate domain configuration
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainName">Domain name</param>
-        /// <returns>GetDomainConfigurationModel</returns>
-        GetDomainConfigurationModel GetDomainConfiguration (string domainName);
-
-        /// <summary>
-        /// Validate domain configuration
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainName">Domain name</param>
-        /// <returns>ApiResponse of GetDomainConfigurationModel</returns>
-        ApiResponse<GetDomainConfigurationModel> GetDomainConfigurationWithHttpInfo (string domainName);
-        /// <summary>
-        /// Get the list of all your domains
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>GetDomainsList</returns>
-        GetDomainsList GetDomains ();
-
-        /// <summary>
-        /// Get the list of all your domains
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of GetDomainsList</returns>
-        ApiResponse<GetDomainsList> GetDomainsWithHttpInfo ();
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Authenticate a domain
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainName">Domain name</param>
-        /// <returns>Task of AuthenticateDomainModel</returns>
-        System.Threading.Tasks.Task<AuthenticateDomainModel> AuthenticateDomainAsync (string domainName);
-
-        /// <summary>
-        /// Authenticate a domain
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainName">Domain name</param>
-        /// <returns>Task of ApiResponse (AuthenticateDomainModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AuthenticateDomainModel>> AuthenticateDomainAsyncWithHttpInfo (string domainName);
-        /// <summary>
-        /// Create a new domain
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainName">domain&#39;s name (optional)</param>
-        /// <returns>Task of CreateDomainModel</returns>
-        System.Threading.Tasks.Task<CreateDomainModel> CreateDomainAsync (CreateDomain domainName = null);
-
-        /// <summary>
-        /// Create a new domain
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainName">domain&#39;s name (optional)</param>
-        /// <returns>Task of ApiResponse (CreateDomainModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateDomainModel>> CreateDomainAsyncWithHttpInfo (CreateDomain domainName = null);
-        /// <summary>
-        /// Delete a domain
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainName">Domain name</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteDomainAsync (string domainName);
-
-        /// <summary>
-        /// Delete a domain
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainName">Domain name</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDomainAsyncWithHttpInfo (string domainName);
-        /// <summary>
-        /// Validate domain configuration
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainName">Domain name</param>
-        /// <returns>Task of GetDomainConfigurationModel</returns>
-        System.Threading.Tasks.Task<GetDomainConfigurationModel> GetDomainConfigurationAsync (string domainName);
-
-        /// <summary>
-        /// Validate domain configuration
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domainName">Domain name</param>
-        /// <returns>Task of ApiResponse (GetDomainConfigurationModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetDomainConfigurationModel>> GetDomainConfigurationAsyncWithHttpInfo (string domainName);
-        /// <summary>
-        /// Get the list of all your domains
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of GetDomainsList</returns>
-        System.Threading.Tasks.Task<GetDomainsList> GetDomainsAsync ();
-
-        /// <summary>
-        /// Get the list of all your domains
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (GetDomainsList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetDomainsList>> GetDomainsAsyncWithHttpInfo ();
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class DomainsApi : IDomainsApi
+    public partial class DomainsApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -338,9 +121,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain name</param>
         /// <returns>AuthenticateDomainModel</returns>
-        public AuthenticateDomainModel AuthenticateDomain (string domainName)
+        public AuthenticateDomainModel AuthenticateDomain (string apiKey, string partnerKey, string domainName)
         {
-             ApiResponse<AuthenticateDomainModel> localVarResponse = AuthenticateDomainWithHttpInfo(domainName);
+             ApiResponse<AuthenticateDomainModel> localVarResponse = AuthenticateDomainWithHttpInfo(apiKey, partnerKey, domainName);
              return localVarResponse.Data;
         }
 
@@ -350,7 +133,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain name</param>
         /// <returns>ApiResponse of AuthenticateDomainModel</returns>
-        public ApiResponse< AuthenticateDomainModel > AuthenticateDomainWithHttpInfo (string domainName)
+        public ApiResponse< AuthenticateDomainModel > AuthenticateDomainWithHttpInfo (string apiKey, string partnerKey, string domainName)
         {
             // verify the required parameter 'domainName' is set
             if (domainName == null)
@@ -381,14 +164,14 @@ namespace brevo_csharp.Api
             if (domainName != null) localVarPathParams.Add("domainName", this.Configuration.ApiClient.ParameterToString(domainName)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -415,9 +198,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain name</param>
         /// <returns>Task of AuthenticateDomainModel</returns>
-        public async System.Threading.Tasks.Task<AuthenticateDomainModel> AuthenticateDomainAsync (string domainName)
+        public async System.Threading.Tasks.Task<AuthenticateDomainModel> AuthenticateDomainAsync (string apiKey, string partnerKey, string domainName)
         {
-             ApiResponse<AuthenticateDomainModel> localVarResponse = await AuthenticateDomainAsyncWithHttpInfo(domainName);
+             ApiResponse<AuthenticateDomainModel> localVarResponse = await AuthenticateDomainAsyncWithHttpInfo(apiKey, partnerKey, domainName);
              return localVarResponse.Data;
 
         }
@@ -428,7 +211,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain name</param>
         /// <returns>Task of ApiResponse (AuthenticateDomainModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AuthenticateDomainModel>> AuthenticateDomainAsyncWithHttpInfo (string domainName)
+        public async System.Threading.Tasks.Task<ApiResponse<AuthenticateDomainModel>> AuthenticateDomainAsyncWithHttpInfo (string apiKey, string partnerKey, string domainName)
         {
             // verify the required parameter 'domainName' is set
             if (domainName == null)
@@ -459,14 +242,14 @@ namespace brevo_csharp.Api
             if (domainName != null) localVarPathParams.Add("domainName", this.Configuration.ApiClient.ParameterToString(domainName)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -493,9 +276,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">domain&#39;s name (optional)</param>
         /// <returns>CreateDomainModel</returns>
-        public CreateDomainModel CreateDomain (CreateDomain domainName = null)
+        public CreateDomainModel CreateDomain (string apiKey, string partnerKey, CreateDomain domainName = null)
         {
-             ApiResponse<CreateDomainModel> localVarResponse = CreateDomainWithHttpInfo(domainName);
+             ApiResponse<CreateDomainModel> localVarResponse = CreateDomainWithHttpInfo(apiKey, partnerKey, domainName);
              return localVarResponse.Data;
         }
 
@@ -505,7 +288,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">domain&#39;s name (optional)</param>
         /// <returns>ApiResponse of CreateDomainModel</returns>
-        public ApiResponse< CreateDomainModel > CreateDomainWithHttpInfo (CreateDomain domainName = null)
+        public ApiResponse< CreateDomainModel > CreateDomainWithHttpInfo (string apiKey, string partnerKey, CreateDomain domainName = null)
         {
 
             var localVarPath = "./senders/domains";
@@ -540,14 +323,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -574,9 +357,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">domain&#39;s name (optional)</param>
         /// <returns>Task of CreateDomainModel</returns>
-        public async System.Threading.Tasks.Task<CreateDomainModel> CreateDomainAsync (CreateDomain domainName = null)
+        public async System.Threading.Tasks.Task<CreateDomainModel> CreateDomainAsync (string apiKey, string partnerKey, CreateDomain domainName = null)
         {
-             ApiResponse<CreateDomainModel> localVarResponse = await CreateDomainAsyncWithHttpInfo(domainName);
+             ApiResponse<CreateDomainModel> localVarResponse = await CreateDomainAsyncWithHttpInfo(apiKey, partnerKey, domainName);
              return localVarResponse.Data;
 
         }
@@ -587,7 +370,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">domain&#39;s name (optional)</param>
         /// <returns>Task of ApiResponse (CreateDomainModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateDomainModel>> CreateDomainAsyncWithHttpInfo (CreateDomain domainName = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateDomainModel>> CreateDomainAsyncWithHttpInfo (string apiKey, string partnerKey, CreateDomain domainName = null)
         {
 
             var localVarPath = "./senders/domains";
@@ -622,14 +405,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -656,9 +439,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain name</param>
         /// <returns></returns>
-        public void DeleteDomain (string domainName)
+        public void DeleteDomain (string apiKey, string partnerKey, string domainName)
         {
-             DeleteDomainWithHttpInfo(domainName);
+             DeleteDomainWithHttpInfo(apiKey, partnerKey, domainName);
         }
 
         /// <summary>
@@ -667,7 +450,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain name</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteDomainWithHttpInfo (string domainName)
+        public ApiResponse<Object> DeleteDomainWithHttpInfo (string apiKey, string partnerKey, string domainName)
         {
             // verify the required parameter 'domainName' is set
             if (domainName == null)
@@ -698,14 +481,14 @@ namespace brevo_csharp.Api
             if (domainName != null) localVarPathParams.Add("domainName", this.Configuration.ApiClient.ParameterToString(domainName)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -732,9 +515,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain name</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteDomainAsync (string domainName)
+        public async System.Threading.Tasks.Task DeleteDomainAsync (string apiKey, string partnerKey, string domainName)
         {
-             await DeleteDomainAsyncWithHttpInfo(domainName);
+             await DeleteDomainAsyncWithHttpInfo(apiKey, partnerKey, domainName);
 
         }
 
@@ -744,7 +527,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain name</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDomainAsyncWithHttpInfo (string domainName)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDomainAsyncWithHttpInfo (string apiKey, string partnerKey, string domainName)
         {
             // verify the required parameter 'domainName' is set
             if (domainName == null)
@@ -775,14 +558,14 @@ namespace brevo_csharp.Api
             if (domainName != null) localVarPathParams.Add("domainName", this.Configuration.ApiClient.ParameterToString(domainName)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -809,9 +592,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain name</param>
         /// <returns>GetDomainConfigurationModel</returns>
-        public GetDomainConfigurationModel GetDomainConfiguration (string domainName)
+        public GetDomainConfigurationModel GetDomainConfiguration (string apiKey, string partnerKey, string domainName)
         {
-             ApiResponse<GetDomainConfigurationModel> localVarResponse = GetDomainConfigurationWithHttpInfo(domainName);
+             ApiResponse<GetDomainConfigurationModel> localVarResponse = GetDomainConfigurationWithHttpInfo(apiKey, partnerKey, domainName);
              return localVarResponse.Data;
         }
 
@@ -821,7 +604,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain name</param>
         /// <returns>ApiResponse of GetDomainConfigurationModel</returns>
-        public ApiResponse< GetDomainConfigurationModel > GetDomainConfigurationWithHttpInfo (string domainName)
+        public ApiResponse< GetDomainConfigurationModel > GetDomainConfigurationWithHttpInfo (string apiKey, string partnerKey, string domainName)
         {
             // verify the required parameter 'domainName' is set
             if (domainName == null)
@@ -852,14 +635,14 @@ namespace brevo_csharp.Api
             if (domainName != null) localVarPathParams.Add("domainName", this.Configuration.ApiClient.ParameterToString(domainName)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -886,9 +669,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain name</param>
         /// <returns>Task of GetDomainConfigurationModel</returns>
-        public async System.Threading.Tasks.Task<GetDomainConfigurationModel> GetDomainConfigurationAsync (string domainName)
+        public async System.Threading.Tasks.Task<GetDomainConfigurationModel> GetDomainConfigurationAsync (string apiKey, string partnerKey, string domainName)
         {
-             ApiResponse<GetDomainConfigurationModel> localVarResponse = await GetDomainConfigurationAsyncWithHttpInfo(domainName);
+             ApiResponse<GetDomainConfigurationModel> localVarResponse = await GetDomainConfigurationAsyncWithHttpInfo(apiKey, partnerKey, domainName);
              return localVarResponse.Data;
 
         }
@@ -899,7 +682,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain name</param>
         /// <returns>Task of ApiResponse (GetDomainConfigurationModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetDomainConfigurationModel>> GetDomainConfigurationAsyncWithHttpInfo (string domainName)
+        public async System.Threading.Tasks.Task<ApiResponse<GetDomainConfigurationModel>> GetDomainConfigurationAsyncWithHttpInfo (string apiKey, string partnerKey, string domainName)
         {
             // verify the required parameter 'domainName' is set
             if (domainName == null)
@@ -930,14 +713,14 @@ namespace brevo_csharp.Api
             if (domainName != null) localVarPathParams.Add("domainName", this.Configuration.ApiClient.ParameterToString(domainName)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -963,9 +746,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>GetDomainsList</returns>
-        public GetDomainsList GetDomains ()
+        public GetDomainsList GetDomains (string apiKey, string partnerKey)
         {
-             ApiResponse<GetDomainsList> localVarResponse = GetDomainsWithHttpInfo();
+             ApiResponse<GetDomainsList> localVarResponse = GetDomainsWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
         }
 
@@ -974,7 +757,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of GetDomainsList</returns>
-        public ApiResponse< GetDomainsList > GetDomainsWithHttpInfo ()
+        public ApiResponse< GetDomainsList > GetDomainsWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./senders/domains";
@@ -1001,14 +784,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1034,9 +817,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of GetDomainsList</returns>
-        public async System.Threading.Tasks.Task<GetDomainsList> GetDomainsAsync ()
+        public async System.Threading.Tasks.Task<GetDomainsList> GetDomainsAsync (string apiKey, string partnerKey)
         {
-             ApiResponse<GetDomainsList> localVarResponse = await GetDomainsAsyncWithHttpInfo();
+             ApiResponse<GetDomainsList> localVarResponse = await GetDomainsAsyncWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
 
         }
@@ -1046,7 +829,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (GetDomainsList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetDomainsList>> GetDomainsAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<GetDomainsList>> GetDomainsAsyncWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./senders/domains";
@@ -1073,14 +856,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

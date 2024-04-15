@@ -18,407 +18,12 @@ using brevo_csharp.Model;
 
 namespace brevo_csharp.Api
 {
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface IConversationsApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Sets agent’s status to online for 2-3 minutes
-        /// </summary>
-        /// <remarks>
-        /// We recommend pinging this endpoint every minute for as long as the agent has to be considered online.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Agent fields.</param>
-        /// <returns></returns>
-        void ConversationsAgentOnlinePingPost (Body15 body);
-
-        /// <summary>
-        /// Sets agent’s status to online for 2-3 minutes
-        /// </summary>
-        /// <remarks>
-        /// We recommend pinging this endpoint every minute for as long as the agent has to be considered online.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Agent fields.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ConversationsAgentOnlinePingPostWithHttpInfo (Body15 body);
-        /// <summary>
-        /// Delete a message sent by an agent
-        /// </summary>
-        /// <remarks>
-        /// Only agents’ messages can be deleted.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <returns></returns>
-        void ConversationsMessagesIdDelete (string id);
-
-        /// <summary>
-        /// Delete a message sent by an agent
-        /// </summary>
-        /// <remarks>
-        /// Only agents’ messages can be deleted.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ConversationsMessagesIdDeleteWithHttpInfo (string id);
-        /// <summary>
-        /// Get a message
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <returns>ConversationsMessage</returns>
-        ConversationsMessage ConversationsMessagesIdGet (string id);
-
-        /// <summary>
-        /// Get a message
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <returns>ApiResponse of ConversationsMessage</returns>
-        ApiResponse<ConversationsMessage> ConversationsMessagesIdGetWithHttpInfo (string id);
-        /// <summary>
-        /// Update a message sent by an agent
-        /// </summary>
-        /// <remarks>
-        /// Only agents’ messages can be edited.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <param name="body"> (optional)</param>
-        /// <returns>ConversationsMessage</returns>
-        ConversationsMessage ConversationsMessagesIdPut (string id, Body12 body = null);
-
-        /// <summary>
-        /// Update a message sent by an agent
-        /// </summary>
-        /// <remarks>
-        /// Only agents’ messages can be edited.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <param name="body"> (optional)</param>
-        /// <returns>ApiResponse of ConversationsMessage</returns>
-        ApiResponse<ConversationsMessage> ConversationsMessagesIdPutWithHttpInfo (string id, Body12 body = null);
-        /// <summary>
-        /// Send a message as an agent
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Message fields.</param>
-        /// <returns>ConversationsMessage</returns>
-        ConversationsMessage ConversationsMessagesPost (Body11 body);
-
-        /// <summary>
-        /// Send a message as an agent
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Message fields.</param>
-        /// <returns>ApiResponse of ConversationsMessage</returns>
-        ApiResponse<ConversationsMessage> ConversationsMessagesPostWithHttpInfo (Body11 body);
-        /// <summary>
-        /// Delete an automated message
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <returns></returns>
-        void ConversationsPushedMessagesIdDelete (string id);
-
-        /// <summary>
-        /// Delete an automated message
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ConversationsPushedMessagesIdDeleteWithHttpInfo (string id);
-        /// <summary>
-        /// Get an automated message
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message sent previously</param>
-        /// <returns>ConversationsMessage</returns>
-        ConversationsMessage ConversationsPushedMessagesIdGet (string id);
-
-        /// <summary>
-        /// Get an automated message
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message sent previously</param>
-        /// <returns>ApiResponse of ConversationsMessage</returns>
-        ApiResponse<ConversationsMessage> ConversationsPushedMessagesIdGetWithHttpInfo (string id);
-        /// <summary>
-        /// Update an automated message
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <param name="body"></param>
-        /// <returns>ConversationsMessage</returns>
-        ConversationsMessage ConversationsPushedMessagesIdPut (string id, Body14 body);
-
-        /// <summary>
-        /// Update an automated message
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <param name="body"></param>
-        /// <returns>ApiResponse of ConversationsMessage</returns>
-        ApiResponse<ConversationsMessage> ConversationsPushedMessagesIdPutWithHttpInfo (string id, Body14 body);
-        /// <summary>
-        /// Send an automated message to a visitor
-        /// </summary>
-        /// <remarks>
-        /// Example of automated messages: order status, announce new features in your web app, etc.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <returns>ConversationsMessage</returns>
-        ConversationsMessage ConversationsPushedMessagesPost (Body13 body);
-
-        /// <summary>
-        /// Send an automated message to a visitor
-        /// </summary>
-        /// <remarks>
-        /// Example of automated messages: order status, announce new features in your web app, etc.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <returns>ApiResponse of ConversationsMessage</returns>
-        ApiResponse<ConversationsMessage> ConversationsPushedMessagesPostWithHttpInfo (Body13 body);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Sets agent’s status to online for 2-3 minutes
-        /// </summary>
-        /// <remarks>
-        /// We recommend pinging this endpoint every minute for as long as the agent has to be considered online.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Agent fields.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ConversationsAgentOnlinePingPostAsync (Body15 body);
-
-        /// <summary>
-        /// Sets agent’s status to online for 2-3 minutes
-        /// </summary>
-        /// <remarks>
-        /// We recommend pinging this endpoint every minute for as long as the agent has to be considered online.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Agent fields.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ConversationsAgentOnlinePingPostAsyncWithHttpInfo (Body15 body);
-        /// <summary>
-        /// Delete a message sent by an agent
-        /// </summary>
-        /// <remarks>
-        /// Only agents’ messages can be deleted.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ConversationsMessagesIdDeleteAsync (string id);
-
-        /// <summary>
-        /// Delete a message sent by an agent
-        /// </summary>
-        /// <remarks>
-        /// Only agents’ messages can be deleted.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ConversationsMessagesIdDeleteAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// Get a message
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <returns>Task of ConversationsMessage</returns>
-        System.Threading.Tasks.Task<ConversationsMessage> ConversationsMessagesIdGetAsync (string id);
-
-        /// <summary>
-        /// Get a message
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsMessagesIdGetAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// Update a message sent by an agent
-        /// </summary>
-        /// <remarks>
-        /// Only agents’ messages can be edited.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <param name="body"> (optional)</param>
-        /// <returns>Task of ConversationsMessage</returns>
-        System.Threading.Tasks.Task<ConversationsMessage> ConversationsMessagesIdPutAsync (string id, Body12 body = null);
-
-        /// <summary>
-        /// Update a message sent by an agent
-        /// </summary>
-        /// <remarks>
-        /// Only agents’ messages can be edited.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <param name="body"> (optional)</param>
-        /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsMessagesIdPutAsyncWithHttpInfo (string id, Body12 body = null);
-        /// <summary>
-        /// Send a message as an agent
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Message fields.</param>
-        /// <returns>Task of ConversationsMessage</returns>
-        System.Threading.Tasks.Task<ConversationsMessage> ConversationsMessagesPostAsync (Body11 body);
-
-        /// <summary>
-        /// Send a message as an agent
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Message fields.</param>
-        /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsMessagesPostAsyncWithHttpInfo (Body11 body);
-        /// <summary>
-        /// Delete an automated message
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ConversationsPushedMessagesIdDeleteAsync (string id);
-
-        /// <summary>
-        /// Delete an automated message
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ConversationsPushedMessagesIdDeleteAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// Get an automated message
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message sent previously</param>
-        /// <returns>Task of ConversationsMessage</returns>
-        System.Threading.Tasks.Task<ConversationsMessage> ConversationsPushedMessagesIdGetAsync (string id);
-
-        /// <summary>
-        /// Get an automated message
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message sent previously</param>
-        /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsPushedMessagesIdGetAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// Update an automated message
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <param name="body"></param>
-        /// <returns>Task of ConversationsMessage</returns>
-        System.Threading.Tasks.Task<ConversationsMessage> ConversationsPushedMessagesIdPutAsync (string id, Body14 body);
-
-        /// <summary>
-        /// Update an automated message
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">ID of the message</param>
-        /// <param name="body"></param>
-        /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsPushedMessagesIdPutAsyncWithHttpInfo (string id, Body14 body);
-        /// <summary>
-        /// Send an automated message to a visitor
-        /// </summary>
-        /// <remarks>
-        /// Example of automated messages: order status, announce new features in your web app, etc.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <returns>Task of ConversationsMessage</returns>
-        System.Threading.Tasks.Task<ConversationsMessage> ConversationsPushedMessagesPostAsync (Body13 body);
-
-        /// <summary>
-        /// Send an automated message to a visitor
-        /// </summary>
-        /// <remarks>
-        /// Example of automated messages: order status, announce new features in your web app, etc.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsPushedMessagesPostAsyncWithHttpInfo (Body13 body);
-        #endregion Asynchronous Operations
-    }
+  
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class ConversationsApi : IConversationsApi
+    public partial class ConversationsApi 
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -518,9 +123,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Agent fields.</param>
         /// <returns></returns>
-        public void ConversationsAgentOnlinePingPost (Body15 body)
+        public void ConversationsAgentOnlinePingPost (string apiKey, string partnerKey, Body15 body)
         {
-             ConversationsAgentOnlinePingPostWithHttpInfo(body);
+             ConversationsAgentOnlinePingPostWithHttpInfo(apiKey, partnerKey, body);
         }
 
         /// <summary>
@@ -529,7 +134,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Agent fields.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> ConversationsAgentOnlinePingPostWithHttpInfo (Body15 body)
+        public ApiResponse<Object> ConversationsAgentOnlinePingPostWithHttpInfo (string apiKey, string partnerKey, Body15 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -567,14 +172,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -601,9 +206,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Agent fields.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ConversationsAgentOnlinePingPostAsync (Body15 body)
+        public async System.Threading.Tasks.Task ConversationsAgentOnlinePingPostAsync (string apiKey, string partnerKey, Body15 body)
         {
-             await ConversationsAgentOnlinePingPostAsyncWithHttpInfo(body);
+             await ConversationsAgentOnlinePingPostAsyncWithHttpInfo(apiKey, partnerKey, body);
 
         }
 
@@ -613,7 +218,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Agent fields.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ConversationsAgentOnlinePingPostAsyncWithHttpInfo (Body15 body)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ConversationsAgentOnlinePingPostAsyncWithHttpInfo (string apiKey, string partnerKey, Body15 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -651,14 +256,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -685,9 +290,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the message</param>
         /// <returns></returns>
-        public void ConversationsMessagesIdDelete (string id)
+        public void ConversationsMessagesIdDelete (string apiKey, string partnerKey, string id)
         {
-             ConversationsMessagesIdDeleteWithHttpInfo(id);
+             ConversationsMessagesIdDeleteWithHttpInfo(apiKey, partnerKey, id);
         }
 
         /// <summary>
@@ -696,7 +301,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the message</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> ConversationsMessagesIdDeleteWithHttpInfo (string id)
+        public ApiResponse<Object> ConversationsMessagesIdDeleteWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -727,14 +332,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -761,9 +366,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the message</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ConversationsMessagesIdDeleteAsync (string id)
+        public async System.Threading.Tasks.Task ConversationsMessagesIdDeleteAsync (string apiKey, string partnerKey, string id)
         {
-             await ConversationsMessagesIdDeleteAsyncWithHttpInfo(id);
+             await ConversationsMessagesIdDeleteAsyncWithHttpInfo(apiKey, partnerKey, id);
 
         }
 
@@ -773,7 +378,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the message</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ConversationsMessagesIdDeleteAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ConversationsMessagesIdDeleteAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -804,14 +409,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -838,9 +443,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the message</param>
         /// <returns>ConversationsMessage</returns>
-        public ConversationsMessage ConversationsMessagesIdGet (string id)
+        public ConversationsMessage ConversationsMessagesIdGet (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<ConversationsMessage> localVarResponse = ConversationsMessagesIdGetWithHttpInfo(id);
+             ApiResponse<ConversationsMessage> localVarResponse = ConversationsMessagesIdGetWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
         }
 
@@ -850,7 +455,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the message</param>
         /// <returns>ApiResponse of ConversationsMessage</returns>
-        public ApiResponse< ConversationsMessage > ConversationsMessagesIdGetWithHttpInfo (string id)
+        public ApiResponse< ConversationsMessage > ConversationsMessagesIdGetWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -881,14 +486,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -915,9 +520,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the message</param>
         /// <returns>Task of ConversationsMessage</returns>
-        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsMessagesIdGetAsync (string id)
+        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsMessagesIdGetAsync (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<ConversationsMessage> localVarResponse = await ConversationsMessagesIdGetAsyncWithHttpInfo(id);
+             ApiResponse<ConversationsMessage> localVarResponse = await ConversationsMessagesIdGetAsyncWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
 
         }
@@ -928,7 +533,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the message</param>
         /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsMessagesIdGetAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsMessagesIdGetAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -959,14 +564,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -994,9 +599,9 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"> (optional)</param>
         /// <returns>ConversationsMessage</returns>
-        public ConversationsMessage ConversationsMessagesIdPut (string id, Body12 body = null)
+        public ConversationsMessage ConversationsMessagesIdPut (string apiKey, string partnerKey, string id, Body12 body = null)
         {
-             ApiResponse<ConversationsMessage> localVarResponse = ConversationsMessagesIdPutWithHttpInfo(id, body);
+             ApiResponse<ConversationsMessage> localVarResponse = ConversationsMessagesIdPutWithHttpInfo(apiKey, partnerKey, id, body);
              return localVarResponse.Data;
         }
 
@@ -1007,7 +612,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of ConversationsMessage</returns>
-        public ApiResponse< ConversationsMessage > ConversationsMessagesIdPutWithHttpInfo (string id, Body12 body = null)
+        public ApiResponse< ConversationsMessage > ConversationsMessagesIdPutWithHttpInfo (string apiKey, string partnerKey, string id, Body12 body = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1046,14 +651,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1081,9 +686,9 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of ConversationsMessage</returns>
-        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsMessagesIdPutAsync (string id, Body12 body = null)
+        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsMessagesIdPutAsync (string apiKey, string partnerKey, string id, Body12 body = null)
         {
-             ApiResponse<ConversationsMessage> localVarResponse = await ConversationsMessagesIdPutAsyncWithHttpInfo(id, body);
+             ApiResponse<ConversationsMessage> localVarResponse = await ConversationsMessagesIdPutAsyncWithHttpInfo(apiKey, partnerKey, id, body);
              return localVarResponse.Data;
 
         }
@@ -1095,7 +700,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsMessagesIdPutAsyncWithHttpInfo (string id, Body12 body = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsMessagesIdPutAsyncWithHttpInfo (string apiKey, string partnerKey, string id, Body12 body = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1134,14 +739,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1168,9 +773,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Message fields.</param>
         /// <returns>ConversationsMessage</returns>
-        public ConversationsMessage ConversationsMessagesPost (Body11 body)
+        public ConversationsMessage ConversationsMessagesPost (string apiKey, string partnerKey, Body11 body)
         {
-             ApiResponse<ConversationsMessage> localVarResponse = ConversationsMessagesPostWithHttpInfo(body);
+             ApiResponse<ConversationsMessage> localVarResponse = ConversationsMessagesPostWithHttpInfo(apiKey, partnerKey, body);
              return localVarResponse.Data;
         }
 
@@ -1180,7 +785,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Message fields.</param>
         /// <returns>ApiResponse of ConversationsMessage</returns>
-        public ApiResponse< ConversationsMessage > ConversationsMessagesPostWithHttpInfo (Body11 body)
+        public ApiResponse< ConversationsMessage > ConversationsMessagesPostWithHttpInfo (string apiKey, string partnerKey, Body11 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1218,14 +823,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1252,9 +857,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Message fields.</param>
         /// <returns>Task of ConversationsMessage</returns>
-        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsMessagesPostAsync (Body11 body)
+        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsMessagesPostAsync (string apiKey, string partnerKey, Body11 body)
         {
-             ApiResponse<ConversationsMessage> localVarResponse = await ConversationsMessagesPostAsyncWithHttpInfo(body);
+             ApiResponse<ConversationsMessage> localVarResponse = await ConversationsMessagesPostAsyncWithHttpInfo(apiKey, partnerKey, body);
              return localVarResponse.Data;
 
         }
@@ -1265,7 +870,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Message fields.</param>
         /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsMessagesPostAsyncWithHttpInfo (Body11 body)
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsMessagesPostAsyncWithHttpInfo (string apiKey, string partnerKey, Body11 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1303,14 +908,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1337,9 +942,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the message</param>
         /// <returns></returns>
-        public void ConversationsPushedMessagesIdDelete (string id)
+        public void ConversationsPushedMessagesIdDelete (string apiKey, string partnerKey, string id)
         {
-             ConversationsPushedMessagesIdDeleteWithHttpInfo(id);
+             ConversationsPushedMessagesIdDeleteWithHttpInfo(apiKey, partnerKey, id);
         }
 
         /// <summary>
@@ -1348,7 +953,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the message</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> ConversationsPushedMessagesIdDeleteWithHttpInfo (string id)
+        public ApiResponse<Object> ConversationsPushedMessagesIdDeleteWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1379,14 +984,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1413,9 +1018,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the message</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ConversationsPushedMessagesIdDeleteAsync (string id)
+        public async System.Threading.Tasks.Task ConversationsPushedMessagesIdDeleteAsync (string apiKey, string partnerKey, string id)
         {
-             await ConversationsPushedMessagesIdDeleteAsyncWithHttpInfo(id);
+             await ConversationsPushedMessagesIdDeleteAsyncWithHttpInfo(apiKey, partnerKey, id);
 
         }
 
@@ -1425,7 +1030,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the message</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ConversationsPushedMessagesIdDeleteAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ConversationsPushedMessagesIdDeleteAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1456,14 +1061,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1490,9 +1095,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the message sent previously</param>
         /// <returns>ConversationsMessage</returns>
-        public ConversationsMessage ConversationsPushedMessagesIdGet (string id)
+        public ConversationsMessage ConversationsPushedMessagesIdGet (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<ConversationsMessage> localVarResponse = ConversationsPushedMessagesIdGetWithHttpInfo(id);
+             ApiResponse<ConversationsMessage> localVarResponse = ConversationsPushedMessagesIdGetWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
         }
 
@@ -1502,7 +1107,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the message sent previously</param>
         /// <returns>ApiResponse of ConversationsMessage</returns>
-        public ApiResponse< ConversationsMessage > ConversationsPushedMessagesIdGetWithHttpInfo (string id)
+        public ApiResponse< ConversationsMessage > ConversationsPushedMessagesIdGetWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1533,14 +1138,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1567,9 +1172,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the message sent previously</param>
         /// <returns>Task of ConversationsMessage</returns>
-        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsPushedMessagesIdGetAsync (string id)
+        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsPushedMessagesIdGetAsync (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<ConversationsMessage> localVarResponse = await ConversationsPushedMessagesIdGetAsyncWithHttpInfo(id);
+             ApiResponse<ConversationsMessage> localVarResponse = await ConversationsPushedMessagesIdGetAsyncWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
 
         }
@@ -1580,7 +1185,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of the message sent previously</param>
         /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsPushedMessagesIdGetAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsPushedMessagesIdGetAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1611,14 +1216,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1646,9 +1251,9 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"></param>
         /// <returns>ConversationsMessage</returns>
-        public ConversationsMessage ConversationsPushedMessagesIdPut (string id, Body14 body)
+        public ConversationsMessage ConversationsPushedMessagesIdPut (string apiKey, string partnerKey, string id, Body14 body)
         {
-             ApiResponse<ConversationsMessage> localVarResponse = ConversationsPushedMessagesIdPutWithHttpInfo(id, body);
+             ApiResponse<ConversationsMessage> localVarResponse = ConversationsPushedMessagesIdPutWithHttpInfo(apiKey, partnerKey, id, body);
              return localVarResponse.Data;
         }
 
@@ -1659,7 +1264,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"></param>
         /// <returns>ApiResponse of ConversationsMessage</returns>
-        public ApiResponse< ConversationsMessage > ConversationsPushedMessagesIdPutWithHttpInfo (string id, Body14 body)
+        public ApiResponse< ConversationsMessage > ConversationsPushedMessagesIdPutWithHttpInfo (string apiKey, string partnerKey, string id, Body14 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1701,14 +1306,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1736,9 +1341,9 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"></param>
         /// <returns>Task of ConversationsMessage</returns>
-        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsPushedMessagesIdPutAsync (string id, Body14 body)
+        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsPushedMessagesIdPutAsync (string apiKey, string partnerKey, string id, Body14 body)
         {
-             ApiResponse<ConversationsMessage> localVarResponse = await ConversationsPushedMessagesIdPutAsyncWithHttpInfo(id, body);
+             ApiResponse<ConversationsMessage> localVarResponse = await ConversationsPushedMessagesIdPutAsyncWithHttpInfo(apiKey, partnerKey, id, body);
              return localVarResponse.Data;
 
         }
@@ -1750,7 +1355,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"></param>
         /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsPushedMessagesIdPutAsyncWithHttpInfo (string id, Body14 body)
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsPushedMessagesIdPutAsyncWithHttpInfo (string apiKey, string partnerKey, string id, Body14 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1792,14 +1397,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1826,9 +1431,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ConversationsMessage</returns>
-        public ConversationsMessage ConversationsPushedMessagesPost (Body13 body)
+        public ConversationsMessage ConversationsPushedMessagesPost (string apiKey, string partnerKey, Body13 body)
         {
-             ApiResponse<ConversationsMessage> localVarResponse = ConversationsPushedMessagesPostWithHttpInfo(body);
+             ApiResponse<ConversationsMessage> localVarResponse = ConversationsPushedMessagesPostWithHttpInfo(apiKey, partnerKey, body);
              return localVarResponse.Data;
         }
 
@@ -1838,7 +1443,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of ConversationsMessage</returns>
-        public ApiResponse< ConversationsMessage > ConversationsPushedMessagesPostWithHttpInfo (Body13 body)
+        public ApiResponse< ConversationsMessage > ConversationsPushedMessagesPostWithHttpInfo (string apiKey, string partnerKey, Body13 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1876,14 +1481,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1910,9 +1515,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>Task of ConversationsMessage</returns>
-        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsPushedMessagesPostAsync (Body13 body)
+        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsPushedMessagesPostAsync (string apiKey, string partnerKey, Body13 body)
         {
-             ApiResponse<ConversationsMessage> localVarResponse = await ConversationsPushedMessagesPostAsyncWithHttpInfo(body);
+             ApiResponse<ConversationsMessage> localVarResponse = await ConversationsPushedMessagesPostAsyncWithHttpInfo(apiKey, partnerKey, body);
              return localVarResponse.Data;
 
         }
@@ -1923,7 +1528,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsPushedMessagesPostAsyncWithHttpInfo (Body13 body)
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsPushedMessagesPostAsyncWithHttpInfo (string apiKey, string partnerKey, Body13 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1961,14 +1566,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
