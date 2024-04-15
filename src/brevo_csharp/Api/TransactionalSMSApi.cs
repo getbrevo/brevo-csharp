@@ -21,246 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ITransactionalSMSApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Get all your SMS activity (unaggregated events)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="phoneNumber">Filter the report for a specific phone number (optional)</param>
-        /// <param name="_event">Filter the report for specific events (optional)</param>
-        /// <param name="tags">Filter the report for specific tags passed as a serialized urlencoded array (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>GetSmsEventReport</returns>
-        GetSmsEventReport GetSmsEvents (long? limit = null, string startDate = null, string endDate = null, long? offset = null, long? days = null, string phoneNumber = null, string _event = null, string tags = null, string sort = null);
-
-        /// <summary>
-        /// Get all your SMS activity (unaggregated events)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="phoneNumber">Filter the report for a specific phone number (optional)</param>
-        /// <param name="_event">Filter the report for specific events (optional)</param>
-        /// <param name="tags">Filter the report for specific tags passed as a serialized urlencoded array (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>ApiResponse of GetSmsEventReport</returns>
-        ApiResponse<GetSmsEventReport> GetSmsEventsWithHttpInfo (long? limit = null, string startDate = null, string endDate = null, long? offset = null, long? days = null, string phoneNumber = null, string _event = null, string tags = null, string sort = null);
-        /// <summary>
-        /// Get your SMS activity aggregated over a period of time
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with startDate and endDate (optional)</param>
-        /// <param name="tag">Filter on a tag (optional)</param>
-        /// <returns>GetTransacAggregatedSmsReport</returns>
-        GetTransacAggregatedSmsReport GetTransacAggregatedSmsReport (string startDate = null, string endDate = null, long? days = null, string tag = null);
-
-        /// <summary>
-        /// Get your SMS activity aggregated over a period of time
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with startDate and endDate (optional)</param>
-        /// <param name="tag">Filter on a tag (optional)</param>
-        /// <returns>ApiResponse of GetTransacAggregatedSmsReport</returns>
-        ApiResponse<GetTransacAggregatedSmsReport> GetTransacAggregatedSmsReportWithHttpInfo (string startDate = null, string endDate = null, long? days = null, string tag = null);
-        /// <summary>
-        /// Get your SMS activity aggregated per day
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="tag">Filter on a tag (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>GetTransacSmsReport</returns>
-        GetTransacSmsReport GetTransacSmsReport (string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null);
-
-        /// <summary>
-        /// Get your SMS activity aggregated per day
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="tag">Filter on a tag (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>ApiResponse of GetTransacSmsReport</returns>
-        ApiResponse<GetTransacSmsReport> GetTransacSmsReportWithHttpInfo (string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null);
-        /// <summary>
-        /// Send SMS message to a mobile number
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendTransacSms">Values to send a transactional SMS</param>
-        /// <returns>SendSms</returns>
-        SendSms SendTransacSms (SendTransacSms sendTransacSms);
-
-        /// <summary>
-        /// Send SMS message to a mobile number
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendTransacSms">Values to send a transactional SMS</param>
-        /// <returns>ApiResponse of SendSms</returns>
-        ApiResponse<SendSms> SendTransacSmsWithHttpInfo (SendTransacSms sendTransacSms);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Get all your SMS activity (unaggregated events)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="phoneNumber">Filter the report for a specific phone number (optional)</param>
-        /// <param name="_event">Filter the report for specific events (optional)</param>
-        /// <param name="tags">Filter the report for specific tags passed as a serialized urlencoded array (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of GetSmsEventReport</returns>
-        System.Threading.Tasks.Task<GetSmsEventReport> GetSmsEventsAsync (long? limit = null, string startDate = null, string endDate = null, long? offset = null, long? days = null, string phoneNumber = null, string _event = null, string tags = null, string sort = null);
-
-        /// <summary>
-        /// Get all your SMS activity (unaggregated events)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="phoneNumber">Filter the report for a specific phone number (optional)</param>
-        /// <param name="_event">Filter the report for specific events (optional)</param>
-        /// <param name="tags">Filter the report for specific tags passed as a serialized urlencoded array (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (GetSmsEventReport)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetSmsEventReport>> GetSmsEventsAsyncWithHttpInfo (long? limit = null, string startDate = null, string endDate = null, long? offset = null, long? days = null, string phoneNumber = null, string _event = null, string tags = null, string sort = null);
-        /// <summary>
-        /// Get your SMS activity aggregated over a period of time
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with startDate and endDate (optional)</param>
-        /// <param name="tag">Filter on a tag (optional)</param>
-        /// <returns>Task of GetTransacAggregatedSmsReport</returns>
-        System.Threading.Tasks.Task<GetTransacAggregatedSmsReport> GetTransacAggregatedSmsReportAsync (string startDate = null, string endDate = null, long? days = null, string tag = null);
-
-        /// <summary>
-        /// Get your SMS activity aggregated over a period of time
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with startDate and endDate (optional)</param>
-        /// <param name="tag">Filter on a tag (optional)</param>
-        /// <returns>Task of ApiResponse (GetTransacAggregatedSmsReport)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetTransacAggregatedSmsReport>> GetTransacAggregatedSmsReportAsyncWithHttpInfo (string startDate = null, string endDate = null, long? days = null, string tag = null);
-        /// <summary>
-        /// Get your SMS activity aggregated per day
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="tag">Filter on a tag (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of GetTransacSmsReport</returns>
-        System.Threading.Tasks.Task<GetTransacSmsReport> GetTransacSmsReportAsync (string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null);
-
-        /// <summary>
-        /// Get your SMS activity aggregated per day
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="tag">Filter on a tag (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (GetTransacSmsReport)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetTransacSmsReport>> GetTransacSmsReportAsyncWithHttpInfo (string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null);
-        /// <summary>
-        /// Send SMS message to a mobile number
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendTransacSms">Values to send a transactional SMS</param>
-        /// <returns>Task of SendSms</returns>
-        System.Threading.Tasks.Task<SendSms> SendTransacSmsAsync (SendTransacSms sendTransacSms);
-
-        /// <summary>
-        /// Send SMS message to a mobile number
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendTransacSms">Values to send a transactional SMS</param>
-        /// <returns>Task of ApiResponse (SendSms)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SendSms>> SendTransacSmsAsyncWithHttpInfo (SendTransacSms sendTransacSms);
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class TransactionalSMSApi : ITransactionalSMSApi
+    public partial class TransactionalSMSApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -368,9 +129,9 @@ namespace brevo_csharp.Api
         /// <param name="tags">Filter the report for specific tags passed as a serialized urlencoded array (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>GetSmsEventReport</returns>
-        public GetSmsEventReport GetSmsEvents (long? limit = null, string startDate = null, string endDate = null, long? offset = null, long? days = null, string phoneNumber = null, string _event = null, string tags = null, string sort = null)
+        public GetSmsEventReport GetSmsEvents (string apiKey, string partnerKey, long? limit = null, string startDate = null, string endDate = null, long? offset = null, long? days = null, string phoneNumber = null, string _event = null, string tags = null, string sort = null)
         {
-             ApiResponse<GetSmsEventReport> localVarResponse = GetSmsEventsWithHttpInfo(limit, startDate, endDate, offset, days, phoneNumber, _event, tags, sort);
+             ApiResponse<GetSmsEventReport> localVarResponse = GetSmsEventsWithHttpInfo(apiKey, partnerKey, limit, startDate, endDate, offset, days, phoneNumber, _event, tags, sort);
              return localVarResponse.Data;
         }
 
@@ -388,7 +149,7 @@ namespace brevo_csharp.Api
         /// <param name="tags">Filter the report for specific tags passed as a serialized urlencoded array (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>ApiResponse of GetSmsEventReport</returns>
-        public ApiResponse< GetSmsEventReport > GetSmsEventsWithHttpInfo (long? limit = null, string startDate = null, string endDate = null, long? offset = null, long? days = null, string phoneNumber = null, string _event = null, string tags = null, string sort = null)
+        public ApiResponse< GetSmsEventReport > GetSmsEventsWithHttpInfo (string apiKey, string partnerKey, long? limit = null, string startDate = null, string endDate = null, long? offset = null, long? days = null, string phoneNumber = null, string _event = null, string tags = null, string sort = null)
         {
 
             var localVarPath = "./transactionalSMS/statistics/events";
@@ -424,14 +185,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -466,9 +227,9 @@ namespace brevo_csharp.Api
         /// <param name="tags">Filter the report for specific tags passed as a serialized urlencoded array (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of GetSmsEventReport</returns>
-        public async System.Threading.Tasks.Task<GetSmsEventReport> GetSmsEventsAsync (long? limit = null, string startDate = null, string endDate = null, long? offset = null, long? days = null, string phoneNumber = null, string _event = null, string tags = null, string sort = null)
+        public async System.Threading.Tasks.Task<GetSmsEventReport> GetSmsEventsAsync (string apiKey, string partnerKey, long? limit = null, string startDate = null, string endDate = null, long? offset = null, long? days = null, string phoneNumber = null, string _event = null, string tags = null, string sort = null)
         {
-             ApiResponse<GetSmsEventReport> localVarResponse = await GetSmsEventsAsyncWithHttpInfo(limit, startDate, endDate, offset, days, phoneNumber, _event, tags, sort);
+             ApiResponse<GetSmsEventReport> localVarResponse = await GetSmsEventsAsyncWithHttpInfo(apiKey, partnerKey, limit, startDate, endDate, offset, days, phoneNumber, _event, tags, sort);
              return localVarResponse.Data;
 
         }
@@ -487,7 +248,7 @@ namespace brevo_csharp.Api
         /// <param name="tags">Filter the report for specific tags passed as a serialized urlencoded array (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetSmsEventReport)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetSmsEventReport>> GetSmsEventsAsyncWithHttpInfo (long? limit = null, string startDate = null, string endDate = null, long? offset = null, long? days = null, string phoneNumber = null, string _event = null, string tags = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetSmsEventReport>> GetSmsEventsAsyncWithHttpInfo (string apiKey, string partnerKey, long? limit = null, string startDate = null, string endDate = null, long? offset = null, long? days = null, string phoneNumber = null, string _event = null, string tags = null, string sort = null)
         {
 
             var localVarPath = "./transactionalSMS/statistics/events";
@@ -523,14 +284,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -560,9 +321,9 @@ namespace brevo_csharp.Api
         /// <param name="days">Number of days in the past including today (positive integer). Not compatible with startDate and endDate (optional)</param>
         /// <param name="tag">Filter on a tag (optional)</param>
         /// <returns>GetTransacAggregatedSmsReport</returns>
-        public GetTransacAggregatedSmsReport GetTransacAggregatedSmsReport (string startDate = null, string endDate = null, long? days = null, string tag = null)
+        public GetTransacAggregatedSmsReport GetTransacAggregatedSmsReport (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? days = null, string tag = null)
         {
-             ApiResponse<GetTransacAggregatedSmsReport> localVarResponse = GetTransacAggregatedSmsReportWithHttpInfo(startDate, endDate, days, tag);
+             ApiResponse<GetTransacAggregatedSmsReport> localVarResponse = GetTransacAggregatedSmsReportWithHttpInfo(apiKey, partnerKey, startDate, endDate, days, tag);
              return localVarResponse.Data;
         }
 
@@ -575,7 +336,7 @@ namespace brevo_csharp.Api
         /// <param name="days">Number of days in the past including today (positive integer). Not compatible with startDate and endDate (optional)</param>
         /// <param name="tag">Filter on a tag (optional)</param>
         /// <returns>ApiResponse of GetTransacAggregatedSmsReport</returns>
-        public ApiResponse< GetTransacAggregatedSmsReport > GetTransacAggregatedSmsReportWithHttpInfo (string startDate = null, string endDate = null, long? days = null, string tag = null)
+        public ApiResponse< GetTransacAggregatedSmsReport > GetTransacAggregatedSmsReportWithHttpInfo (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? days = null, string tag = null)
         {
 
             var localVarPath = "./transactionalSMS/statistics/aggregatedReport";
@@ -606,14 +367,14 @@ namespace brevo_csharp.Api
             if (tag != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "tag", tag)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -643,9 +404,9 @@ namespace brevo_csharp.Api
         /// <param name="days">Number of days in the past including today (positive integer). Not compatible with startDate and endDate (optional)</param>
         /// <param name="tag">Filter on a tag (optional)</param>
         /// <returns>Task of GetTransacAggregatedSmsReport</returns>
-        public async System.Threading.Tasks.Task<GetTransacAggregatedSmsReport> GetTransacAggregatedSmsReportAsync (string startDate = null, string endDate = null, long? days = null, string tag = null)
+        public async System.Threading.Tasks.Task<GetTransacAggregatedSmsReport> GetTransacAggregatedSmsReportAsync (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? days = null, string tag = null)
         {
-             ApiResponse<GetTransacAggregatedSmsReport> localVarResponse = await GetTransacAggregatedSmsReportAsyncWithHttpInfo(startDate, endDate, days, tag);
+             ApiResponse<GetTransacAggregatedSmsReport> localVarResponse = await GetTransacAggregatedSmsReportAsyncWithHttpInfo(apiKey, partnerKey, startDate, endDate, days, tag);
              return localVarResponse.Data;
 
         }
@@ -659,7 +420,7 @@ namespace brevo_csharp.Api
         /// <param name="days">Number of days in the past including today (positive integer). Not compatible with startDate and endDate (optional)</param>
         /// <param name="tag">Filter on a tag (optional)</param>
         /// <returns>Task of ApiResponse (GetTransacAggregatedSmsReport)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetTransacAggregatedSmsReport>> GetTransacAggregatedSmsReportAsyncWithHttpInfo (string startDate = null, string endDate = null, long? days = null, string tag = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetTransacAggregatedSmsReport>> GetTransacAggregatedSmsReportAsyncWithHttpInfo (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? days = null, string tag = null)
         {
 
             var localVarPath = "./transactionalSMS/statistics/aggregatedReport";
@@ -690,14 +451,14 @@ namespace brevo_csharp.Api
             if (tag != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "tag", tag)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -728,9 +489,9 @@ namespace brevo_csharp.Api
         /// <param name="tag">Filter on a tag (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>GetTransacSmsReport</returns>
-        public GetTransacSmsReport GetTransacSmsReport (string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null)
+        public GetTransacSmsReport GetTransacSmsReport (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null)
         {
-             ApiResponse<GetTransacSmsReport> localVarResponse = GetTransacSmsReportWithHttpInfo(startDate, endDate, days, tag, sort);
+             ApiResponse<GetTransacSmsReport> localVarResponse = GetTransacSmsReportWithHttpInfo(apiKey, partnerKey, startDate, endDate, days, tag, sort);
              return localVarResponse.Data;
         }
 
@@ -744,7 +505,7 @@ namespace brevo_csharp.Api
         /// <param name="tag">Filter on a tag (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>ApiResponse of GetTransacSmsReport</returns>
-        public ApiResponse< GetTransacSmsReport > GetTransacSmsReportWithHttpInfo (string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null)
+        public ApiResponse< GetTransacSmsReport > GetTransacSmsReportWithHttpInfo (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null)
         {
 
             var localVarPath = "./transactionalSMS/statistics/reports";
@@ -776,14 +537,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -814,9 +575,9 @@ namespace brevo_csharp.Api
         /// <param name="tag">Filter on a tag (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of GetTransacSmsReport</returns>
-        public async System.Threading.Tasks.Task<GetTransacSmsReport> GetTransacSmsReportAsync (string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null)
+        public async System.Threading.Tasks.Task<GetTransacSmsReport> GetTransacSmsReportAsync (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null)
         {
-             ApiResponse<GetTransacSmsReport> localVarResponse = await GetTransacSmsReportAsyncWithHttpInfo(startDate, endDate, days, tag, sort);
+             ApiResponse<GetTransacSmsReport> localVarResponse = await GetTransacSmsReportAsyncWithHttpInfo(apiKey, partnerKey, startDate, endDate, days, tag, sort);
              return localVarResponse.Data;
 
         }
@@ -831,7 +592,7 @@ namespace brevo_csharp.Api
         /// <param name="tag">Filter on a tag (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetTransacSmsReport)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetTransacSmsReport>> GetTransacSmsReportAsyncWithHttpInfo (string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetTransacSmsReport>> GetTransacSmsReportAsyncWithHttpInfo (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null)
         {
 
             var localVarPath = "./transactionalSMS/statistics/reports";
@@ -863,14 +624,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -897,9 +658,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendTransacSms">Values to send a transactional SMS</param>
         /// <returns>SendSms</returns>
-        public SendSms SendTransacSms (SendTransacSms sendTransacSms)
+        public SendSms SendTransacSms (string apiKey, string partnerKey, SendTransacSms sendTransacSms)
         {
-             ApiResponse<SendSms> localVarResponse = SendTransacSmsWithHttpInfo(sendTransacSms);
+             ApiResponse<SendSms> localVarResponse = SendTransacSmsWithHttpInfo(apiKey, partnerKey, sendTransacSms);
              return localVarResponse.Data;
         }
 
@@ -909,7 +670,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendTransacSms">Values to send a transactional SMS</param>
         /// <returns>ApiResponse of SendSms</returns>
-        public ApiResponse< SendSms > SendTransacSmsWithHttpInfo (SendTransacSms sendTransacSms)
+        public ApiResponse< SendSms > SendTransacSmsWithHttpInfo (string apiKey, string partnerKey, SendTransacSms sendTransacSms)
         {
             // verify the required parameter 'sendTransacSms' is set
             if (sendTransacSms == null)
@@ -947,14 +708,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -981,9 +742,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendTransacSms">Values to send a transactional SMS</param>
         /// <returns>Task of SendSms</returns>
-        public async System.Threading.Tasks.Task<SendSms> SendTransacSmsAsync (SendTransacSms sendTransacSms)
+        public async System.Threading.Tasks.Task<SendSms> SendTransacSmsAsync (string apiKey, string partnerKey, SendTransacSms sendTransacSms)
         {
-             ApiResponse<SendSms> localVarResponse = await SendTransacSmsAsyncWithHttpInfo(sendTransacSms);
+             ApiResponse<SendSms> localVarResponse = await SendTransacSmsAsyncWithHttpInfo(apiKey, partnerKey, sendTransacSms);
              return localVarResponse.Data;
 
         }
@@ -994,7 +755,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendTransacSms">Values to send a transactional SMS</param>
         /// <returns>Task of ApiResponse (SendSms)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SendSms>> SendTransacSmsAsyncWithHttpInfo (SendTransacSms sendTransacSms)
+        public async System.Threading.Tasks.Task<ApiResponse<SendSms>> SendTransacSmsAsyncWithHttpInfo (string apiKey, string partnerKey, SendTransacSms sendTransacSms)
         {
             // verify the required parameter 'sendTransacSms' is set
             if (sendTransacSms == null)
@@ -1032,14 +793,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

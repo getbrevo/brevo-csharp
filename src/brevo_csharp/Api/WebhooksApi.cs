@@ -21,278 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IWebhooksApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Create a webhook
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhook">Values to create a webhook</param>
-        /// <returns>CreateModel</returns>
-        CreateModel CreateWebhook (CreateWebhook createWebhook);
-
-        /// <summary>
-        /// Create a webhook
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhook">Values to create a webhook</param>
-        /// <returns>ApiResponse of CreateModel</returns>
-        ApiResponse<CreateModel> CreateWebhookWithHttpInfo (CreateWebhook createWebhook);
-        /// <summary>
-        /// Delete a webhook
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">Id of the webhook</param>
-        /// <returns></returns>
-        void DeleteWebhook (long? webhookId);
-
-        /// <summary>
-        /// Delete a webhook
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">Id of the webhook</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteWebhookWithHttpInfo (long? webhookId);
-        /// <summary>
-        /// Export all webhook events
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will submit a request to get the history of webhooks in the CSV file. The link to download the CSV file will be sent to the webhook that was provided in the notifyURL.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exportWebhookHistory">Values to submit for webhooks history</param>
-        /// <returns>CreatedProcessId</returns>
-        CreatedProcessId ExportWebhooksHistory (ExportWebhooksHistory exportWebhookHistory);
-
-        /// <summary>
-        /// Export all webhook events
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will submit a request to get the history of webhooks in the CSV file. The link to download the CSV file will be sent to the webhook that was provided in the notifyURL.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exportWebhookHistory">Values to submit for webhooks history</param>
-        /// <returns>ApiResponse of CreatedProcessId</returns>
-        ApiResponse<CreatedProcessId> ExportWebhooksHistoryWithHttpInfo (ExportWebhooksHistory exportWebhookHistory);
-        /// <summary>
-        /// Get a webhook details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">Id of the webhook</param>
-        /// <returns>GetWebhook</returns>
-        GetWebhook GetWebhook (long? webhookId);
-
-        /// <summary>
-        /// Get a webhook details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">Id of the webhook</param>
-        /// <returns>ApiResponse of GetWebhook</returns>
-        ApiResponse<GetWebhook> GetWebhookWithHttpInfo (long? webhookId);
-        /// <summary>
-        /// Get all webhooks
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Filter on webhook type (optional, default to transactional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of webhook creation (optional, default to desc)</param>
-        /// <returns>GetWebhooks</returns>
-        GetWebhooks GetWebhooks (string type = null, string sort = null);
-
-        /// <summary>
-        /// Get all webhooks
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Filter on webhook type (optional, default to transactional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of webhook creation (optional, default to desc)</param>
-        /// <returns>ApiResponse of GetWebhooks</returns>
-        ApiResponse<GetWebhooks> GetWebhooksWithHttpInfo (string type = null, string sort = null);
-        /// <summary>
-        /// Update a webhook
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">Id of the webhook</param>
-        /// <param name="updateWebhook">Values to update a webhook</param>
-        /// <returns></returns>
-        void UpdateWebhook (long? webhookId, UpdateWebhook updateWebhook);
-
-        /// <summary>
-        /// Update a webhook
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">Id of the webhook</param>
-        /// <param name="updateWebhook">Values to update a webhook</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateWebhookWithHttpInfo (long? webhookId, UpdateWebhook updateWebhook);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Create a webhook
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhook">Values to create a webhook</param>
-        /// <returns>Task of CreateModel</returns>
-        System.Threading.Tasks.Task<CreateModel> CreateWebhookAsync (CreateWebhook createWebhook);
-
-        /// <summary>
-        /// Create a webhook
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhook">Values to create a webhook</param>
-        /// <returns>Task of ApiResponse (CreateModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateWebhookAsyncWithHttpInfo (CreateWebhook createWebhook);
-        /// <summary>
-        /// Delete a webhook
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">Id of the webhook</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteWebhookAsync (long? webhookId);
-
-        /// <summary>
-        /// Delete a webhook
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">Id of the webhook</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWebhookAsyncWithHttpInfo (long? webhookId);
-        /// <summary>
-        /// Export all webhook events
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will submit a request to get the history of webhooks in the CSV file. The link to download the CSV file will be sent to the webhook that was provided in the notifyURL.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exportWebhookHistory">Values to submit for webhooks history</param>
-        /// <returns>Task of CreatedProcessId</returns>
-        System.Threading.Tasks.Task<CreatedProcessId> ExportWebhooksHistoryAsync (ExportWebhooksHistory exportWebhookHistory);
-
-        /// <summary>
-        /// Export all webhook events
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will submit a request to get the history of webhooks in the CSV file. The link to download the CSV file will be sent to the webhook that was provided in the notifyURL.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exportWebhookHistory">Values to submit for webhooks history</param>
-        /// <returns>Task of ApiResponse (CreatedProcessId)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreatedProcessId>> ExportWebhooksHistoryAsyncWithHttpInfo (ExportWebhooksHistory exportWebhookHistory);
-        /// <summary>
-        /// Get a webhook details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">Id of the webhook</param>
-        /// <returns>Task of GetWebhook</returns>
-        System.Threading.Tasks.Task<GetWebhook> GetWebhookAsync (long? webhookId);
-
-        /// <summary>
-        /// Get a webhook details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">Id of the webhook</param>
-        /// <returns>Task of ApiResponse (GetWebhook)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetWebhook>> GetWebhookAsyncWithHttpInfo (long? webhookId);
-        /// <summary>
-        /// Get all webhooks
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Filter on webhook type (optional, default to transactional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of webhook creation (optional, default to desc)</param>
-        /// <returns>Task of GetWebhooks</returns>
-        System.Threading.Tasks.Task<GetWebhooks> GetWebhooksAsync (string type = null, string sort = null);
-
-        /// <summary>
-        /// Get all webhooks
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Filter on webhook type (optional, default to transactional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of webhook creation (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (GetWebhooks)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetWebhooks>> GetWebhooksAsyncWithHttpInfo (string type = null, string sort = null);
-        /// <summary>
-        /// Update a webhook
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">Id of the webhook</param>
-        /// <param name="updateWebhook">Values to update a webhook</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateWebhookAsync (long? webhookId, UpdateWebhook updateWebhook);
-
-        /// <summary>
-        /// Update a webhook
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">Id of the webhook</param>
-        /// <param name="updateWebhook">Values to update a webhook</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateWebhookAsyncWithHttpInfo (long? webhookId, UpdateWebhook updateWebhook);
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class WebhooksApi : IWebhooksApi
+    public partial class WebhooksApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -392,9 +121,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhook">Values to create a webhook</param>
         /// <returns>CreateModel</returns>
-        public CreateModel CreateWebhook (CreateWebhook createWebhook)
+        public CreateModel CreateWebhook (string apiKey, string partnerKey, CreateWebhook createWebhook)
         {
-             ApiResponse<CreateModel> localVarResponse = CreateWebhookWithHttpInfo(createWebhook);
+             ApiResponse<CreateModel> localVarResponse = CreateWebhookWithHttpInfo(apiKey, partnerKey, createWebhook);
              return localVarResponse.Data;
         }
 
@@ -404,7 +133,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhook">Values to create a webhook</param>
         /// <returns>ApiResponse of CreateModel</returns>
-        public ApiResponse< CreateModel > CreateWebhookWithHttpInfo (CreateWebhook createWebhook)
+        public ApiResponse< CreateModel > CreateWebhookWithHttpInfo (string apiKey, string partnerKey, CreateWebhook createWebhook)
         {
             // verify the required parameter 'createWebhook' is set
             if (createWebhook == null)
@@ -442,14 +171,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -476,9 +205,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhook">Values to create a webhook</param>
         /// <returns>Task of CreateModel</returns>
-        public async System.Threading.Tasks.Task<CreateModel> CreateWebhookAsync (CreateWebhook createWebhook)
+        public async System.Threading.Tasks.Task<CreateModel> CreateWebhookAsync (string apiKey, string partnerKey, CreateWebhook createWebhook)
         {
-             ApiResponse<CreateModel> localVarResponse = await CreateWebhookAsyncWithHttpInfo(createWebhook);
+             ApiResponse<CreateModel> localVarResponse = await CreateWebhookAsyncWithHttpInfo(apiKey, partnerKey, createWebhook);
              return localVarResponse.Data;
 
         }
@@ -489,7 +218,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhook">Values to create a webhook</param>
         /// <returns>Task of ApiResponse (CreateModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateWebhookAsyncWithHttpInfo (CreateWebhook createWebhook)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateWebhookAsyncWithHttpInfo (string apiKey, string partnerKey, CreateWebhook createWebhook)
         {
             // verify the required parameter 'createWebhook' is set
             if (createWebhook == null)
@@ -527,14 +256,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -561,9 +290,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">Id of the webhook</param>
         /// <returns></returns>
-        public void DeleteWebhook (long? webhookId)
+        public void DeleteWebhook (string apiKey, string partnerKey, long? webhookId)
         {
-             DeleteWebhookWithHttpInfo(webhookId);
+             DeleteWebhookWithHttpInfo(apiKey, partnerKey, webhookId);
         }
 
         /// <summary>
@@ -572,7 +301,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">Id of the webhook</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteWebhookWithHttpInfo (long? webhookId)
+        public ApiResponse<Object> DeleteWebhookWithHttpInfo (string apiKey, string partnerKey, long? webhookId)
         {
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
@@ -603,14 +332,14 @@ namespace brevo_csharp.Api
             if (webhookId != null) localVarPathParams.Add("webhookId", this.Configuration.ApiClient.ParameterToString(webhookId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -637,9 +366,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">Id of the webhook</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteWebhookAsync (long? webhookId)
+        public async System.Threading.Tasks.Task DeleteWebhookAsync (string apiKey, string partnerKey, long? webhookId)
         {
-             await DeleteWebhookAsyncWithHttpInfo(webhookId);
+             await DeleteWebhookAsyncWithHttpInfo(apiKey, partnerKey, webhookId);
 
         }
 
@@ -649,7 +378,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">Id of the webhook</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWebhookAsyncWithHttpInfo (long? webhookId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWebhookAsyncWithHttpInfo (string apiKey, string partnerKey, long? webhookId)
         {
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
@@ -680,14 +409,14 @@ namespace brevo_csharp.Api
             if (webhookId != null) localVarPathParams.Add("webhookId", this.Configuration.ApiClient.ParameterToString(webhookId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -714,9 +443,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportWebhookHistory">Values to submit for webhooks history</param>
         /// <returns>CreatedProcessId</returns>
-        public CreatedProcessId ExportWebhooksHistory (ExportWebhooksHistory exportWebhookHistory)
+        public CreatedProcessId ExportWebhooksHistory (string apiKey, string partnerKey, ExportWebhooksHistory exportWebhookHistory)
         {
-             ApiResponse<CreatedProcessId> localVarResponse = ExportWebhooksHistoryWithHttpInfo(exportWebhookHistory);
+             ApiResponse<CreatedProcessId> localVarResponse = ExportWebhooksHistoryWithHttpInfo(apiKey, partnerKey, exportWebhookHistory);
              return localVarResponse.Data;
         }
 
@@ -726,7 +455,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportWebhookHistory">Values to submit for webhooks history</param>
         /// <returns>ApiResponse of CreatedProcessId</returns>
-        public ApiResponse< CreatedProcessId > ExportWebhooksHistoryWithHttpInfo (ExportWebhooksHistory exportWebhookHistory)
+        public ApiResponse< CreatedProcessId > ExportWebhooksHistoryWithHttpInfo (string apiKey, string partnerKey, ExportWebhooksHistory exportWebhookHistory)
         {
             // verify the required parameter 'exportWebhookHistory' is set
             if (exportWebhookHistory == null)
@@ -764,14 +493,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -798,9 +527,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportWebhookHistory">Values to submit for webhooks history</param>
         /// <returns>Task of CreatedProcessId</returns>
-        public async System.Threading.Tasks.Task<CreatedProcessId> ExportWebhooksHistoryAsync (ExportWebhooksHistory exportWebhookHistory)
+        public async System.Threading.Tasks.Task<CreatedProcessId> ExportWebhooksHistoryAsync (string apiKey, string partnerKey, ExportWebhooksHistory exportWebhookHistory)
         {
-             ApiResponse<CreatedProcessId> localVarResponse = await ExportWebhooksHistoryAsyncWithHttpInfo(exportWebhookHistory);
+             ApiResponse<CreatedProcessId> localVarResponse = await ExportWebhooksHistoryAsyncWithHttpInfo(apiKey, partnerKey, exportWebhookHistory);
              return localVarResponse.Data;
 
         }
@@ -811,7 +540,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportWebhookHistory">Values to submit for webhooks history</param>
         /// <returns>Task of ApiResponse (CreatedProcessId)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreatedProcessId>> ExportWebhooksHistoryAsyncWithHttpInfo (ExportWebhooksHistory exportWebhookHistory)
+        public async System.Threading.Tasks.Task<ApiResponse<CreatedProcessId>> ExportWebhooksHistoryAsyncWithHttpInfo (string apiKey, string partnerKey, ExportWebhooksHistory exportWebhookHistory)
         {
             // verify the required parameter 'exportWebhookHistory' is set
             if (exportWebhookHistory == null)
@@ -849,14 +578,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -883,9 +612,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">Id of the webhook</param>
         /// <returns>GetWebhook</returns>
-        public GetWebhook GetWebhook (long? webhookId)
+        public GetWebhook GetWebhook (string apiKey, string partnerKey, long? webhookId)
         {
-             ApiResponse<GetWebhook> localVarResponse = GetWebhookWithHttpInfo(webhookId);
+             ApiResponse<GetWebhook> localVarResponse = GetWebhookWithHttpInfo(apiKey, partnerKey, webhookId);
              return localVarResponse.Data;
         }
 
@@ -895,7 +624,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">Id of the webhook</param>
         /// <returns>ApiResponse of GetWebhook</returns>
-        public ApiResponse< GetWebhook > GetWebhookWithHttpInfo (long? webhookId)
+        public ApiResponse< GetWebhook > GetWebhookWithHttpInfo (string apiKey, string partnerKey, long? webhookId)
         {
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
@@ -926,14 +655,14 @@ namespace brevo_csharp.Api
             if (webhookId != null) localVarPathParams.Add("webhookId", this.Configuration.ApiClient.ParameterToString(webhookId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -960,9 +689,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">Id of the webhook</param>
         /// <returns>Task of GetWebhook</returns>
-        public async System.Threading.Tasks.Task<GetWebhook> GetWebhookAsync (long? webhookId)
+        public async System.Threading.Tasks.Task<GetWebhook> GetWebhookAsync (string apiKey, string partnerKey, long? webhookId)
         {
-             ApiResponse<GetWebhook> localVarResponse = await GetWebhookAsyncWithHttpInfo(webhookId);
+             ApiResponse<GetWebhook> localVarResponse = await GetWebhookAsyncWithHttpInfo(apiKey, partnerKey, webhookId);
              return localVarResponse.Data;
 
         }
@@ -973,7 +702,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">Id of the webhook</param>
         /// <returns>Task of ApiResponse (GetWebhook)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetWebhook>> GetWebhookAsyncWithHttpInfo (long? webhookId)
+        public async System.Threading.Tasks.Task<ApiResponse<GetWebhook>> GetWebhookAsyncWithHttpInfo (string apiKey, string partnerKey, long? webhookId)
         {
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
@@ -1004,14 +733,14 @@ namespace brevo_csharp.Api
             if (webhookId != null) localVarPathParams.Add("webhookId", this.Configuration.ApiClient.ParameterToString(webhookId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1039,9 +768,9 @@ namespace brevo_csharp.Api
         /// <param name="type">Filter on webhook type (optional, default to transactional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of webhook creation (optional, default to desc)</param>
         /// <returns>GetWebhooks</returns>
-        public GetWebhooks GetWebhooks (string type = null, string sort = null)
+        public GetWebhooks GetWebhooks (string apiKey, string partnerKey, string type = null, string sort = null)
         {
-             ApiResponse<GetWebhooks> localVarResponse = GetWebhooksWithHttpInfo(type, sort);
+             ApiResponse<GetWebhooks> localVarResponse = GetWebhooksWithHttpInfo(apiKey, partnerKey, type, sort);
              return localVarResponse.Data;
         }
 
@@ -1052,7 +781,7 @@ namespace brevo_csharp.Api
         /// <param name="type">Filter on webhook type (optional, default to transactional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of webhook creation (optional, default to desc)</param>
         /// <returns>ApiResponse of GetWebhooks</returns>
-        public ApiResponse< GetWebhooks > GetWebhooksWithHttpInfo (string type = null, string sort = null)
+        public ApiResponse< GetWebhooks > GetWebhooksWithHttpInfo (string apiKey, string partnerKey, string type = null, string sort = null)
         {
 
             var localVarPath = "./webhooks";
@@ -1081,14 +810,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1116,9 +845,9 @@ namespace brevo_csharp.Api
         /// <param name="type">Filter on webhook type (optional, default to transactional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of webhook creation (optional, default to desc)</param>
         /// <returns>Task of GetWebhooks</returns>
-        public async System.Threading.Tasks.Task<GetWebhooks> GetWebhooksAsync (string type = null, string sort = null)
+        public async System.Threading.Tasks.Task<GetWebhooks> GetWebhooksAsync (string apiKey, string partnerKey, string type = null, string sort = null)
         {
-             ApiResponse<GetWebhooks> localVarResponse = await GetWebhooksAsyncWithHttpInfo(type, sort);
+             ApiResponse<GetWebhooks> localVarResponse = await GetWebhooksAsyncWithHttpInfo(apiKey, partnerKey, type, sort);
              return localVarResponse.Data;
 
         }
@@ -1130,7 +859,7 @@ namespace brevo_csharp.Api
         /// <param name="type">Filter on webhook type (optional, default to transactional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of webhook creation (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetWebhooks)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetWebhooks>> GetWebhooksAsyncWithHttpInfo (string type = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetWebhooks>> GetWebhooksAsyncWithHttpInfo (string apiKey, string partnerKey, string type = null, string sort = null)
         {
 
             var localVarPath = "./webhooks";
@@ -1159,14 +888,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1194,9 +923,9 @@ namespace brevo_csharp.Api
         /// <param name="webhookId">Id of the webhook</param>
         /// <param name="updateWebhook">Values to update a webhook</param>
         /// <returns></returns>
-        public void UpdateWebhook (long? webhookId, UpdateWebhook updateWebhook)
+        public void UpdateWebhook (string apiKey, string partnerKey, long? webhookId, UpdateWebhook updateWebhook)
         {
-             UpdateWebhookWithHttpInfo(webhookId, updateWebhook);
+             UpdateWebhookWithHttpInfo(apiKey, partnerKey, webhookId, updateWebhook);
         }
 
         /// <summary>
@@ -1206,7 +935,7 @@ namespace brevo_csharp.Api
         /// <param name="webhookId">Id of the webhook</param>
         /// <param name="updateWebhook">Values to update a webhook</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateWebhookWithHttpInfo (long? webhookId, UpdateWebhook updateWebhook)
+        public ApiResponse<Object> UpdateWebhookWithHttpInfo (string apiKey, string partnerKey, long? webhookId, UpdateWebhook updateWebhook)
         {
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
@@ -1248,14 +977,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1283,9 +1012,9 @@ namespace brevo_csharp.Api
         /// <param name="webhookId">Id of the webhook</param>
         /// <param name="updateWebhook">Values to update a webhook</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateWebhookAsync (long? webhookId, UpdateWebhook updateWebhook)
+        public async System.Threading.Tasks.Task UpdateWebhookAsync (string apiKey, string partnerKey, long? webhookId, UpdateWebhook updateWebhook)
         {
-             await UpdateWebhookAsyncWithHttpInfo(webhookId, updateWebhook);
+             await UpdateWebhookAsyncWithHttpInfo(apiKey, partnerKey, webhookId, updateWebhook);
 
         }
 
@@ -1296,7 +1025,7 @@ namespace brevo_csharp.Api
         /// <param name="webhookId">Id of the webhook</param>
         /// <param name="updateWebhook">Values to update a webhook</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateWebhookAsyncWithHttpInfo (long? webhookId, UpdateWebhook updateWebhook)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateWebhookAsyncWithHttpInfo (string apiKey, string partnerKey, long? webhookId, UpdateWebhook updateWebhook)
         {
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
@@ -1338,14 +1067,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

@@ -285,9 +285,9 @@ namespace brevo_csharp.Model
             Smtp = 24,
             
             /// <summary>
-            /// Enum Apikeys for value: api_keys
+            /// Enum Apikeys for value: apiKeys
             /// </summary>
-            [EnumMember(Value = "api_keys")]
+            [EnumMember(Value = "apiKeys")]
             Apikeys = 25,
             
             /// <summary>

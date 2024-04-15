@@ -21,110 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IProcessApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Return the informations for a process
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="processId">Id of the process</param>
-        /// <returns>GetProcess</returns>
-        GetProcess GetProcess (long? processId);
-
-        /// <summary>
-        /// Return the informations for a process
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="processId">Id of the process</param>
-        /// <returns>ApiResponse of GetProcess</returns>
-        ApiResponse<GetProcess> GetProcessWithHttpInfo (long? processId);
-        /// <summary>
-        /// Return all the processes for your account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number limitation for the result returned (optional, default to 10)</param>
-        /// <param name="offset">Beginning point in the list to retrieve from. (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>GetProcesses</returns>
-        GetProcesses GetProcesses (long? limit = null, long? offset = null, string sort = null);
-
-        /// <summary>
-        /// Return all the processes for your account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number limitation for the result returned (optional, default to 10)</param>
-        /// <param name="offset">Beginning point in the list to retrieve from. (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>ApiResponse of GetProcesses</returns>
-        ApiResponse<GetProcesses> GetProcessesWithHttpInfo (long? limit = null, long? offset = null, string sort = null);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Return the informations for a process
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="processId">Id of the process</param>
-        /// <returns>Task of GetProcess</returns>
-        System.Threading.Tasks.Task<GetProcess> GetProcessAsync (long? processId);
-
-        /// <summary>
-        /// Return the informations for a process
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="processId">Id of the process</param>
-        /// <returns>Task of ApiResponse (GetProcess)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetProcess>> GetProcessAsyncWithHttpInfo (long? processId);
-        /// <summary>
-        /// Return all the processes for your account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number limitation for the result returned (optional, default to 10)</param>
-        /// <param name="offset">Beginning point in the list to retrieve from. (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of GetProcesses</returns>
-        System.Threading.Tasks.Task<GetProcesses> GetProcessesAsync (long? limit = null, long? offset = null, string sort = null);
-
-        /// <summary>
-        /// Return all the processes for your account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number limitation for the result returned (optional, default to 10)</param>
-        /// <param name="offset">Beginning point in the list to retrieve from. (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (GetProcesses)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetProcesses>> GetProcessesAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null);
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class ProcessApi : IProcessApi
+    public partial class ProcessApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -224,9 +121,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processId">Id of the process</param>
         /// <returns>GetProcess</returns>
-        public GetProcess GetProcess (long? processId)
+        public GetProcess GetProcess (string apiKey, string partnerKey, long? processId)
         {
-             ApiResponse<GetProcess> localVarResponse = GetProcessWithHttpInfo(processId);
+             ApiResponse<GetProcess> localVarResponse = GetProcessWithHttpInfo(apiKey, partnerKey, processId);
              return localVarResponse.Data;
         }
 
@@ -236,7 +133,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processId">Id of the process</param>
         /// <returns>ApiResponse of GetProcess</returns>
-        public ApiResponse< GetProcess > GetProcessWithHttpInfo (long? processId)
+        public ApiResponse< GetProcess > GetProcessWithHttpInfo (string apiKey, string partnerKey, long? processId)
         {
             // verify the required parameter 'processId' is set
             if (processId == null)
@@ -267,14 +164,14 @@ namespace brevo_csharp.Api
             if (processId != null) localVarPathParams.Add("processId", this.Configuration.ApiClient.ParameterToString(processId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -301,9 +198,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processId">Id of the process</param>
         /// <returns>Task of GetProcess</returns>
-        public async System.Threading.Tasks.Task<GetProcess> GetProcessAsync (long? processId)
+        public async System.Threading.Tasks.Task<GetProcess> GetProcessAsync (string apiKey, string partnerKey, long? processId)
         {
-             ApiResponse<GetProcess> localVarResponse = await GetProcessAsyncWithHttpInfo(processId);
+             ApiResponse<GetProcess> localVarResponse = await GetProcessAsyncWithHttpInfo(apiKey, partnerKey, processId);
              return localVarResponse.Data;
 
         }
@@ -314,7 +211,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processId">Id of the process</param>
         /// <returns>Task of ApiResponse (GetProcess)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetProcess>> GetProcessAsyncWithHttpInfo (long? processId)
+        public async System.Threading.Tasks.Task<ApiResponse<GetProcess>> GetProcessAsyncWithHttpInfo (string apiKey, string partnerKey, long? processId)
         {
             // verify the required parameter 'processId' is set
             if (processId == null)
@@ -345,14 +242,14 @@ namespace brevo_csharp.Api
             if (processId != null) localVarPathParams.Add("processId", this.Configuration.ApiClient.ParameterToString(processId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -381,9 +278,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Beginning point in the list to retrieve from. (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>GetProcesses</returns>
-        public GetProcesses GetProcesses (long? limit = null, long? offset = null, string sort = null)
+        public GetProcesses GetProcesses (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null)
         {
-             ApiResponse<GetProcesses> localVarResponse = GetProcessesWithHttpInfo(limit, offset, sort);
+             ApiResponse<GetProcesses> localVarResponse = GetProcessesWithHttpInfo(apiKey, partnerKey, limit, offset, sort);
              return localVarResponse.Data;
         }
 
@@ -395,7 +292,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Beginning point in the list to retrieve from. (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>ApiResponse of GetProcesses</returns>
-        public ApiResponse< GetProcesses > GetProcessesWithHttpInfo (long? limit = null, long? offset = null, string sort = null)
+        public ApiResponse< GetProcesses > GetProcessesWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null)
         {
 
             var localVarPath = "./processes";
@@ -425,14 +322,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -461,9 +358,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Beginning point in the list to retrieve from. (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of GetProcesses</returns>
-        public async System.Threading.Tasks.Task<GetProcesses> GetProcessesAsync (long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<GetProcesses> GetProcessesAsync (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null)
         {
-             ApiResponse<GetProcesses> localVarResponse = await GetProcessesAsyncWithHttpInfo(limit, offset, sort);
+             ApiResponse<GetProcesses> localVarResponse = await GetProcessesAsyncWithHttpInfo(apiKey, partnerKey, limit, offset, sort);
              return localVarResponse.Data;
 
         }
@@ -476,7 +373,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Beginning point in the list to retrieve from. (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetProcesses)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetProcesses>> GetProcessesAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetProcesses>> GetProcessesAsyncWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null)
         {
 
             var localVarPath = "./processes";
@@ -506,14 +403,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

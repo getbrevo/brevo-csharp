@@ -18,243 +18,11 @@ using brevo_csharp.Model;
 
 namespace brevo_csharp.Api
 {
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface ICouponsApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Create а coupon collection
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createCouponCollection">Values to create a coupon collection</param>
-        /// <returns>InlineResponse2013</returns>
-        InlineResponse2013 CreateCouponCollection (CreateCouponCollection createCouponCollection);
-
-        /// <summary>
-        /// Create а coupon collection
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createCouponCollection">Values to create a coupon collection</param>
-        /// <returns>ApiResponse of InlineResponse2013</returns>
-        ApiResponse<InlineResponse2013> CreateCouponCollectionWithHttpInfo (CreateCouponCollection createCouponCollection);
-        /// <summary>
-        /// Create coupons for a coupon collection
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createCoupons">Values to create coupons</param>
-        /// <returns></returns>
-        void CreateCoupons (CreateCoupons createCoupons);
-
-        /// <summary>
-        /// Create coupons for a coupon collection
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createCoupons">Values to create coupons</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateCouponsWithHttpInfo (CreateCoupons createCoupons);
-        /// <summary>
-        /// Get a coupon collection by id
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the collection to return</param>
-        /// <returns>GetCouponCollection</returns>
-        GetCouponCollection GetCouponCollection (string id);
-
-        /// <summary>
-        /// Get a coupon collection by id
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the collection to return</param>
-        /// <returns>ApiResponse of GetCouponCollection</returns>
-        ApiResponse<GetCouponCollection> GetCouponCollectionWithHttpInfo (string id);
-        /// <summary>
-        /// Get all your coupon collections
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results by creation time in ascending/descending order (optional, default to desc)</param>
-        /// <returns>GetCouponCollection</returns>
-        GetCouponCollection GetCouponCollections (long? limit = null, long? offset = null, string sort = null);
-
-        /// <summary>
-        /// Get all your coupon collections
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results by creation time in ascending/descending order (optional, default to desc)</param>
-        /// <returns>ApiResponse of GetCouponCollection</returns>
-        ApiResponse<GetCouponCollection> GetCouponCollectionsWithHttpInfo (long? limit = null, long? offset = null, string sort = null);
-        /// <summary>
-        /// Update a coupon collection by id
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the collection to update</param>
-        /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>InlineResponse2003</returns>
-        InlineResponse2003 UpdateCouponCollection (string id, UpdateCouponCollection updateCouponCollection);
-
-        /// <summary>
-        /// Update a coupon collection by id
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the collection to update</param>
-        /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        ApiResponse<InlineResponse2003> UpdateCouponCollectionWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Create а coupon collection
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createCouponCollection">Values to create a coupon collection</param>
-        /// <returns>Task of InlineResponse2013</returns>
-        System.Threading.Tasks.Task<InlineResponse2013> CreateCouponCollectionAsync (CreateCouponCollection createCouponCollection);
-
-        /// <summary>
-        /// Create а coupon collection
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createCouponCollection">Values to create a coupon collection</param>
-        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> CreateCouponCollectionAsyncWithHttpInfo (CreateCouponCollection createCouponCollection);
-        /// <summary>
-        /// Create coupons for a coupon collection
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createCoupons">Values to create coupons</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateCouponsAsync (CreateCoupons createCoupons);
-
-        /// <summary>
-        /// Create coupons for a coupon collection
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createCoupons">Values to create coupons</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateCouponsAsyncWithHttpInfo (CreateCoupons createCoupons);
-        /// <summary>
-        /// Get a coupon collection by id
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the collection to return</param>
-        /// <returns>Task of GetCouponCollection</returns>
-        System.Threading.Tasks.Task<GetCouponCollection> GetCouponCollectionAsync (string id);
-
-        /// <summary>
-        /// Get a coupon collection by id
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the collection to return</param>
-        /// <returns>Task of ApiResponse (GetCouponCollection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetCouponCollection>> GetCouponCollectionAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// Get all your coupon collections
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results by creation time in ascending/descending order (optional, default to desc)</param>
-        /// <returns>Task of GetCouponCollection</returns>
-        System.Threading.Tasks.Task<GetCouponCollection> GetCouponCollectionsAsync (long? limit = null, long? offset = null, string sort = null);
-
-        /// <summary>
-        /// Get all your coupon collections
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results by creation time in ascending/descending order (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (GetCouponCollection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetCouponCollection>> GetCouponCollectionsAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null);
-        /// <summary>
-        /// Update a coupon collection by id
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the collection to update</param>
-        /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>Task of InlineResponse2003</returns>
-        System.Threading.Tasks.Task<InlineResponse2003> UpdateCouponCollectionAsync (string id, UpdateCouponCollection updateCouponCollection);
-
-        /// <summary>
-        /// Update a coupon collection by id
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the collection to update</param>
-        /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> UpdateCouponCollectionAsyncWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection);
-        #endregion Asynchronous Operations
-    }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class CouponsApi : ICouponsApi
+    public partial class CouponsApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -354,9 +122,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCouponCollection">Values to create a coupon collection</param>
         /// <returns>InlineResponse2013</returns>
-        public InlineResponse2013 CreateCouponCollection (CreateCouponCollection createCouponCollection)
+        public InlineResponse2013 CreateCouponCollection (string apiKey, string partnerKey, CreateCouponCollection createCouponCollection)
         {
-             ApiResponse<InlineResponse2013> localVarResponse = CreateCouponCollectionWithHttpInfo(createCouponCollection);
+             ApiResponse<InlineResponse2013> localVarResponse = CreateCouponCollectionWithHttpInfo(apiKey, partnerKey, createCouponCollection);
              return localVarResponse.Data;
         }
 
@@ -366,7 +134,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCouponCollection">Values to create a coupon collection</param>
         /// <returns>ApiResponse of InlineResponse2013</returns>
-        public ApiResponse< InlineResponse2013 > CreateCouponCollectionWithHttpInfo (CreateCouponCollection createCouponCollection)
+        public ApiResponse< InlineResponse2013 > CreateCouponCollectionWithHttpInfo (string apiKey, string partnerKey, CreateCouponCollection createCouponCollection)
         {
             // verify the required parameter 'createCouponCollection' is set
             if (createCouponCollection == null)
@@ -404,14 +172,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -438,9 +206,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCouponCollection">Values to create a coupon collection</param>
         /// <returns>Task of InlineResponse2013</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2013> CreateCouponCollectionAsync (CreateCouponCollection createCouponCollection)
+        public async System.Threading.Tasks.Task<InlineResponse2013> CreateCouponCollectionAsync (string apiKey, string partnerKey, CreateCouponCollection createCouponCollection)
         {
-             ApiResponse<InlineResponse2013> localVarResponse = await CreateCouponCollectionAsyncWithHttpInfo(createCouponCollection);
+             ApiResponse<InlineResponse2013> localVarResponse = await CreateCouponCollectionAsyncWithHttpInfo(apiKey, partnerKey, createCouponCollection);
              return localVarResponse.Data;
 
         }
@@ -451,7 +219,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCouponCollection">Values to create a coupon collection</param>
         /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> CreateCouponCollectionAsyncWithHttpInfo (CreateCouponCollection createCouponCollection)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> CreateCouponCollectionAsyncWithHttpInfo (string apiKey, string partnerKey, CreateCouponCollection createCouponCollection)
         {
             // verify the required parameter 'createCouponCollection' is set
             if (createCouponCollection == null)
@@ -489,14 +257,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -523,9 +291,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCoupons">Values to create coupons</param>
         /// <returns></returns>
-        public void CreateCoupons (CreateCoupons createCoupons)
+        public void CreateCoupons (string apiKey, string partnerKey, CreateCoupons createCoupons)
         {
-             CreateCouponsWithHttpInfo(createCoupons);
+             CreateCouponsWithHttpInfo(apiKey, partnerKey, createCoupons);
         }
 
         /// <summary>
@@ -534,7 +302,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCoupons">Values to create coupons</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CreateCouponsWithHttpInfo (CreateCoupons createCoupons)
+        public ApiResponse<Object> CreateCouponsWithHttpInfo (string apiKey, string partnerKey, CreateCoupons createCoupons)
         {
             // verify the required parameter 'createCoupons' is set
             if (createCoupons == null)
@@ -572,14 +340,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -606,9 +374,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCoupons">Values to create coupons</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateCouponsAsync (CreateCoupons createCoupons)
+        public async System.Threading.Tasks.Task CreateCouponsAsync (string apiKey, string partnerKey, CreateCoupons createCoupons)
         {
-             await CreateCouponsAsyncWithHttpInfo(createCoupons);
+             await CreateCouponsAsyncWithHttpInfo(apiKey, partnerKey, createCoupons);
 
         }
 
@@ -618,7 +386,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCoupons">Values to create coupons</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateCouponsAsyncWithHttpInfo (CreateCoupons createCoupons)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateCouponsAsyncWithHttpInfo (string apiKey, string partnerKey, CreateCoupons createCoupons)
         {
             // verify the required parameter 'createCoupons' is set
             if (createCoupons == null)
@@ -656,14 +424,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -690,9 +458,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to return</param>
         /// <returns>GetCouponCollection</returns>
-        public GetCouponCollection GetCouponCollection (string id)
+        public GetCouponCollection GetCouponCollection (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<GetCouponCollection> localVarResponse = GetCouponCollectionWithHttpInfo(id);
+             ApiResponse<GetCouponCollection> localVarResponse = GetCouponCollectionWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
         }
 
@@ -702,7 +470,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to return</param>
         /// <returns>ApiResponse of GetCouponCollection</returns>
-        public ApiResponse< GetCouponCollection > GetCouponCollectionWithHttpInfo (string id)
+        public ApiResponse< GetCouponCollection > GetCouponCollectionWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -733,14 +501,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -767,9 +535,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to return</param>
         /// <returns>Task of GetCouponCollection</returns>
-        public async System.Threading.Tasks.Task<GetCouponCollection> GetCouponCollectionAsync (string id)
+        public async System.Threading.Tasks.Task<GetCouponCollection> GetCouponCollectionAsync (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<GetCouponCollection> localVarResponse = await GetCouponCollectionAsyncWithHttpInfo(id);
+             ApiResponse<GetCouponCollection> localVarResponse = await GetCouponCollectionAsyncWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
 
         }
@@ -780,7 +548,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to return</param>
         /// <returns>Task of ApiResponse (GetCouponCollection)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetCouponCollection>> GetCouponCollectionAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<GetCouponCollection>> GetCouponCollectionAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -811,14 +579,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -847,9 +615,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results by creation time in ascending/descending order (optional, default to desc)</param>
         /// <returns>GetCouponCollection</returns>
-        public GetCouponCollection GetCouponCollections (long? limit = null, long? offset = null, string sort = null)
+        public GetCouponCollection GetCouponCollections (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null)
         {
-             ApiResponse<GetCouponCollection> localVarResponse = GetCouponCollectionsWithHttpInfo(limit, offset, sort);
+             ApiResponse<GetCouponCollection> localVarResponse = GetCouponCollectionsWithHttpInfo(apiKey, partnerKey, limit, offset, sort);
              return localVarResponse.Data;
         }
 
@@ -861,7 +629,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results by creation time in ascending/descending order (optional, default to desc)</param>
         /// <returns>ApiResponse of GetCouponCollection</returns>
-        public ApiResponse< GetCouponCollection > GetCouponCollectionsWithHttpInfo (long? limit = null, long? offset = null, string sort = null)
+        public ApiResponse< GetCouponCollection > GetCouponCollectionsWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null)
         {
 
             var localVarPath = "./couponCollections";
@@ -891,14 +659,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -927,9 +695,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results by creation time in ascending/descending order (optional, default to desc)</param>
         /// <returns>Task of GetCouponCollection</returns>
-        public async System.Threading.Tasks.Task<GetCouponCollection> GetCouponCollectionsAsync (long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<GetCouponCollection> GetCouponCollectionsAsync (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null)
         {
-             ApiResponse<GetCouponCollection> localVarResponse = await GetCouponCollectionsAsyncWithHttpInfo(limit, offset, sort);
+             ApiResponse<GetCouponCollection> localVarResponse = await GetCouponCollectionsAsyncWithHttpInfo(apiKey, partnerKey, limit, offset, sort);
              return localVarResponse.Data;
 
         }
@@ -942,7 +710,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results by creation time in ascending/descending order (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetCouponCollection)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetCouponCollection>> GetCouponCollectionsAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetCouponCollection>> GetCouponCollectionsAsyncWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string sort = null)
         {
 
             var localVarPath = "./couponCollections";
@@ -972,14 +740,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1007,9 +775,9 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the collection to update</param>
         /// <param name="updateCouponCollection">Values to update the coupon collection</param>
         /// <returns>InlineResponse2003</returns>
-        public InlineResponse2003 UpdateCouponCollection (string id, UpdateCouponCollection updateCouponCollection)
+        public InlineResponse2003 UpdateCouponCollection (string apiKey, string partnerKey, string id, UpdateCouponCollection updateCouponCollection)
         {
-             ApiResponse<InlineResponse2003> localVarResponse = UpdateCouponCollectionWithHttpInfo(id, updateCouponCollection);
+             ApiResponse<InlineResponse2003> localVarResponse = UpdateCouponCollectionWithHttpInfo(apiKey, partnerKey, id, updateCouponCollection);
              return localVarResponse.Data;
         }
 
@@ -1020,7 +788,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the collection to update</param>
         /// <param name="updateCouponCollection">Values to update the coupon collection</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        public ApiResponse< InlineResponse2003 > UpdateCouponCollectionWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection)
+        public ApiResponse< InlineResponse2003 > UpdateCouponCollectionWithHttpInfo (string apiKey, string partnerKey, string id, UpdateCouponCollection updateCouponCollection)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1062,14 +830,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1097,9 +865,9 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the collection to update</param>
         /// <param name="updateCouponCollection">Values to update the coupon collection</param>
         /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> UpdateCouponCollectionAsync (string id, UpdateCouponCollection updateCouponCollection)
+        public async System.Threading.Tasks.Task<InlineResponse2003> UpdateCouponCollectionAsync (string apiKey, string partnerKey, string id, UpdateCouponCollection updateCouponCollection)
         {
-             ApiResponse<InlineResponse2003> localVarResponse = await UpdateCouponCollectionAsyncWithHttpInfo(id, updateCouponCollection);
+             ApiResponse<InlineResponse2003> localVarResponse = await UpdateCouponCollectionAsyncWithHttpInfo(apiKey, partnerKey, id, updateCouponCollection);
              return localVarResponse.Data;
 
         }
@@ -1111,7 +879,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the collection to update</param>
         /// <param name="updateCouponCollection">Values to update the coupon collection</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> UpdateCouponCollectionAsyncWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> UpdateCouponCollectionAsyncWithHttpInfo (string apiKey, string partnerKey, string id, UpdateCouponCollection updateCouponCollection)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1153,14 +921,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

@@ -1,0 +1,501 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\client\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\client\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\webhooksapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\webhooksapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\whatsappcampaignsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\whatsappcampaignsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\companiesapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\companiesapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\accountapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\accountapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\userapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\userapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\transactionalwhatsappapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\transactionalwhatsappapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\transactionalemailsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\transactionalemailsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\transactionalsmsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\transactionalsmsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\tasksapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\tasksapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\smscampaignsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\smscampaignsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\sendersapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\sendersapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\resellerapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\resellerapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\processapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\processapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\notesapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\notesapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\masteraccountapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\masteraccountapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\inboundparsingapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\inboundparsingapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\emailcampaignsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\emailcampaignsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\filesapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\filesapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\externalfeedsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\externalfeedsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\eventsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\eventsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\ecommerceapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\ecommerceapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\domainsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\domainsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\dealsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\dealsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\couponsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\couponsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\conversationsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\conversationsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\api\\contactsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\api\\contactsapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|c:\\users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\client\\ireadableconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EB4A144-23A7-4E9C-8358-09FDF18F90DC}|src\\brevo_csharp\\brevo_csharp.csproj|solutionrelative:src\\brevo_csharp\\client\\ireadableconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 30,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WebhooksApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\WebhooksApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\WebhooksApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\WebhooksApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\WebhooksApi.cs",
+              "ViewState": "AQIAAG8AAAAAAAAAAAAgwIIAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T08:16:52.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WhatsAppCampaignsApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\WhatsAppCampaignsApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\WhatsAppCampaignsApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\WhatsAppCampaignsApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\WhatsAppCampaignsApi.cs",
+              "ViewState": "AQIAAHQAAAAAAAAAAAAgwIcAAABwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T08:09:22.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\UserApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\UserApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\UserApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\UserApi.cs",
+              "ViewState": "AQIAAGsAAAAAAAAAAAAuwIcAAABrAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T08:01:48.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TransactionalWhatsAppApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\TransactionalWhatsAppApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\TransactionalWhatsAppApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\TransactionalWhatsAppApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\TransactionalWhatsAppApi.cs",
+              "ViewState": "AQIAAHQAAAAAAAAAAAAAwIIAAABgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T08:00:01.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TransactionalSMSApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\TransactionalSMSApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\TransactionalSMSApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\TransactionalSMSApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\TransactionalSMSApi.cs",
+              "ViewState": "AQIAAH0AAAAAAAAAAAAAwJMAAABZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T07:58:12.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TransactionalEmailsApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\TransactionalEmailsApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\TransactionalEmailsApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\TransactionalEmailsApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\TransactionalEmailsApi.cs",
+              "ViewState": "AQIAAOADAAAAAAAAAAAUwPYDAABrAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T07:45:24.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TasksApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\TasksApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\TasksApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\TasksApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\TasksApi.cs",
+              "ViewState": "AQIAAE8BAAAAAAAAAADwv2MBAABjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T07:34:26.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SMSCampaignsApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\SMSCampaignsApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\SMSCampaignsApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\SMSCampaignsApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\SMSCampaignsApi.cs",
+              "ViewState": "AQIAAGUAAAAAAAAAAAAuwHsAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T07:29:17.092Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "SendersApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\SendersApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\SendersApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\SendersApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\SendersApi.cs",
+              "ViewState": "AQIAAFgAAAAAAAAAAAAiwHsAAABRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T07:21:13.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ResellerApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\ResellerApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\ResellerApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\ResellerApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\ResellerApi.cs",
+              "ViewState": "AQIAAHQAAAAAAAAAAAAAwHwAAABSAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T07:14:29.623Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ProcessApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\ProcessApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\ProcessApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\ProcessApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\ProcessApi.cs",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAmwHsAAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T07:08:24.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "NotesApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\NotesApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\NotesApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\NotesApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\NotesApi.cs",
+              "ViewState": "AQIAAHoAAAAAAAAAAAAAwIIAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T07:06:02.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MasterAccountApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\MasterAccountApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\MasterAccountApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\MasterAccountApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\MasterAccountApi.cs",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAswHsAAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T14:48:44.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "InboundParsingApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\InboundParsingApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\InboundParsingApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\InboundParsingApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\InboundParsingApi.cs",
+              "ViewState": "AQIAAI0AAAAAAAAAAAAkwJYAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T14:43:22.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "FilesApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\FilesApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\FilesApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\FilesApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\FilesApi.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAowIMAAABiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T14:40:04.901Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ExternalFeedsApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\ExternalFeedsApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\ExternalFeedsApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\ExternalFeedsApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\ExternalFeedsApi.cs",
+              "ViewState": "AQIAAEQDAAAAAAAAAAAowG0DAABLAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T14:36:42.823Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "EventsApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\EventsApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\EventsApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\EventsApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\EventsApi.cs",
+              "ViewState": "AQIAAKkAAAAAAAAAAAAwwM4AAABsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T14:35:33.136Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "EmailCampaignsApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\EmailCampaignsApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\EmailCampaignsApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\EmailCampaignsApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\EmailCampaignsApi.cs",
+              "ViewState": "AQIAAGEAAAAAAAAAAAAAAHsAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T14:27:43.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "EcommerceApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\EcommerceApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\EcommerceApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\EcommerceApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\EcommerceApi.cs",
+              "ViewState": "AQIAAAEIAAAAAAAAAAAAABUIAAByAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T14:22:40.595Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "DomainsApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\DomainsApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\DomainsApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\DomainsApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\DomainsApi.cs",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAQwHsAAABdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T14:11:45.317Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "DealsApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\DealsApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\DealsApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\DealsApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\DealsApi.cs",
+              "ViewState": "AQIAAGEGAAAAAAAAAAAIwHEGAACEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T13:36:36.487Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "CouponsApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\CouponsApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\CouponsApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\CouponsApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\CouponsApi.cs",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAmwHwAAABbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T13:33:48.017Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ConversationsApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\ConversationsApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\ConversationsApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\ConversationsApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\ConversationsApi.cs",
+              "ViewState": "AQIAANQFAAAAAAAAAAAowO0FAACPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T13:29:05.258Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ContactsApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\ContactsApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\ContactsApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\ContactsApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\ContactsApi.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T12:42:47.453Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CompaniesApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\CompaniesApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\CompaniesApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\CompaniesApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\CompaniesApi.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T10:40:15.593Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "IReadableConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Client\\IReadableConfiguration.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Client\\IReadableConfiguration.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Client\\IReadableConfiguration.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Client\\IReadableConfiguration.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAEkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T10:31:00.737Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Configuration.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Client\\Configuration.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Client\\Configuration.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Client\\Configuration.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Client\\Configuration.cs",
+              "ViewState": "AQIAACMBAAAAAAAAAAASwCsBAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T10:27:15.031Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AccountApi.cs",
+              "DocumentMoniker": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\AccountApi.cs",
+              "RelativeDocumentMoniker": "src\\brevo_csharp\\Api\\AccountApi.cs",
+              "ToolTip": "C:\\Users\\nicola\\source\\repos\\brevo-csharp\\src\\brevo_csharp\\Api\\AccountApi.cs",
+              "RelativeToolTip": "src\\brevo_csharp\\Api\\AccountApi.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T10:26:44.865Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

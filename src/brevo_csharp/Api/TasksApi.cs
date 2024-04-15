@@ -21,318 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ITasksApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Get all tasks
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterType">Filter by task type (ID) (optional)</param>
-        /// <param name="filterStatus">Filter by task status (optional)</param>
-        /// <param name="filterDate">Filter by date (optional)</param>
-        /// <param name="filterAssignTo">Filter by assignTo id (optional)</param>
-        /// <param name="filterContacts">Filter by contact ids (optional)</param>
-        /// <param name="filterDeals">Filter by deals ids (optional)</param>
-        /// <param name="filterCompanies">Filter by companies ids (optional)</param>
-        /// <param name="dateFrom">dateFrom to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="dateTo">dateTo to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
-        /// <param name="sortBy">The field used to sort field names. (optional)</param>
-        /// <returns>TaskList</returns>
-        TaskList CrmTasksGet (string filterType = null, string filterStatus = null, string filterDate = null, string filterAssignTo = null, string filterContacts = null, string filterDeals = null, string filterCompanies = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null);
-
-        /// <summary>
-        /// Get all tasks
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterType">Filter by task type (ID) (optional)</param>
-        /// <param name="filterStatus">Filter by task status (optional)</param>
-        /// <param name="filterDate">Filter by date (optional)</param>
-        /// <param name="filterAssignTo">Filter by assignTo id (optional)</param>
-        /// <param name="filterContacts">Filter by contact ids (optional)</param>
-        /// <param name="filterDeals">Filter by deals ids (optional)</param>
-        /// <param name="filterCompanies">Filter by companies ids (optional)</param>
-        /// <param name="dateFrom">dateFrom to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="dateTo">dateTo to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
-        /// <param name="sortBy">The field used to sort field names. (optional)</param>
-        /// <returns>ApiResponse of TaskList</returns>
-        ApiResponse<TaskList> CrmTasksGetWithHttpInfo (string filterType = null, string filterStatus = null, string filterDate = null, string filterAssignTo = null, string filterContacts = null, string filterDeals = null, string filterCompanies = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null);
-        /// <summary>
-        /// Delete a task
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        void CrmTasksIdDelete (string id);
-
-        /// <summary>
-        /// Delete a task
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CrmTasksIdDeleteWithHttpInfo (string id);
-        /// <summary>
-        /// Get a task
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>Task</returns>
-        Task CrmTasksIdGet (string id);
-
-        /// <summary>
-        /// Get a task
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>ApiResponse of Task</returns>
-        ApiResponse<Task> CrmTasksIdGetWithHttpInfo (string id);
-        /// <summary>
-        /// Update a task
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="body">Updated task details.</param>
-        /// <returns></returns>
-        void CrmTasksIdPatch (string id, Body10 body);
-
-        /// <summary>
-        /// Update a task
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="body">Updated task details.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CrmTasksIdPatchWithHttpInfo (string id, Body10 body);
-        /// <summary>
-        /// Create a task
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Task name.</param>
-        /// <returns>InlineResponse2012</returns>
-        InlineResponse2012 CrmTasksPost (Body9 body);
-
-        /// <summary>
-        /// Create a task
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Task name.</param>
-        /// <returns>ApiResponse of InlineResponse2012</returns>
-        ApiResponse<InlineResponse2012> CrmTasksPostWithHttpInfo (Body9 body);
-        /// <summary>
-        /// Get all task types
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>TaskTypes</returns>
-        TaskTypes CrmTasktypesGet ();
-
-        /// <summary>
-        /// Get all task types
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of TaskTypes</returns>
-        ApiResponse<TaskTypes> CrmTasktypesGetWithHttpInfo ();
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Get all tasks
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterType">Filter by task type (ID) (optional)</param>
-        /// <param name="filterStatus">Filter by task status (optional)</param>
-        /// <param name="filterDate">Filter by date (optional)</param>
-        /// <param name="filterAssignTo">Filter by assignTo id (optional)</param>
-        /// <param name="filterContacts">Filter by contact ids (optional)</param>
-        /// <param name="filterDeals">Filter by deals ids (optional)</param>
-        /// <param name="filterCompanies">Filter by companies ids (optional)</param>
-        /// <param name="dateFrom">dateFrom to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="dateTo">dateTo to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
-        /// <param name="sortBy">The field used to sort field names. (optional)</param>
-        /// <returns>Task of TaskList</returns>
-        System.Threading.Tasks.Task<TaskList> CrmTasksGetAsync (string filterType = null, string filterStatus = null, string filterDate = null, string filterAssignTo = null, string filterContacts = null, string filterDeals = null, string filterCompanies = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null);
-
-        /// <summary>
-        /// Get all tasks
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterType">Filter by task type (ID) (optional)</param>
-        /// <param name="filterStatus">Filter by task status (optional)</param>
-        /// <param name="filterDate">Filter by date (optional)</param>
-        /// <param name="filterAssignTo">Filter by assignTo id (optional)</param>
-        /// <param name="filterContacts">Filter by contact ids (optional)</param>
-        /// <param name="filterDeals">Filter by deals ids (optional)</param>
-        /// <param name="filterCompanies">Filter by companies ids (optional)</param>
-        /// <param name="dateFrom">dateFrom to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="dateTo">dateTo to date range filter type (timestamp in milliseconds) (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
-        /// <param name="sortBy">The field used to sort field names. (optional)</param>
-        /// <returns>Task of ApiResponse (TaskList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TaskList>> CrmTasksGetAsyncWithHttpInfo (string filterType = null, string filterStatus = null, string filterDate = null, string filterAssignTo = null, string filterContacts = null, string filterDeals = null, string filterCompanies = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null);
-        /// <summary>
-        /// Delete a task
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CrmTasksIdDeleteAsync (string id);
-
-        /// <summary>
-        /// Delete a task
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CrmTasksIdDeleteAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// Get a task
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>Task of Task</returns>
-        System.Threading.Tasks.Task<Task> CrmTasksIdGetAsync (string id);
-
-        /// <summary>
-        /// Get a task
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>Task of ApiResponse (Task)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Task>> CrmTasksIdGetAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// Update a task
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="body">Updated task details.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CrmTasksIdPatchAsync (string id, Body10 body);
-
-        /// <summary>
-        /// Update a task
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="body">Updated task details.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CrmTasksIdPatchAsyncWithHttpInfo (string id, Body10 body);
-        /// <summary>
-        /// Create a task
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Task name.</param>
-        /// <returns>Task of InlineResponse2012</returns>
-        System.Threading.Tasks.Task<InlineResponse2012> CrmTasksPostAsync (Body9 body);
-
-        /// <summary>
-        /// Create a task
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Task name.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2012)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2012>> CrmTasksPostAsyncWithHttpInfo (Body9 body);
-        /// <summary>
-        /// Get all task types
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of TaskTypes</returns>
-        System.Threading.Tasks.Task<TaskTypes> CrmTasktypesGetAsync ();
-
-        /// <summary>
-        /// Get all task types
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (TaskTypes)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TaskTypes>> CrmTasktypesGetAsyncWithHttpInfo ();
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class TasksApi : ITasksApi
+    public partial class TasksApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -444,9 +133,9 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>TaskList</returns>
-        public TaskList CrmTasksGet (string filterType = null, string filterStatus = null, string filterDate = null, string filterAssignTo = null, string filterContacts = null, string filterDeals = null, string filterCompanies = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
+        public TaskList CrmTasksGet (string apiKey, string partnerKey, string filterType = null, string filterStatus = null, string filterDate = null, string filterAssignTo = null, string filterContacts = null, string filterDeals = null, string filterCompanies = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
         {
-             ApiResponse<TaskList> localVarResponse = CrmTasksGetWithHttpInfo(filterType, filterStatus, filterDate, filterAssignTo, filterContacts, filterDeals, filterCompanies, dateFrom, dateTo, offset, limit, sort, sortBy);
+             ApiResponse<TaskList> localVarResponse = CrmTasksGetWithHttpInfo(apiKey, partnerKey, filterType, filterStatus, filterDate, filterAssignTo, filterContacts, filterDeals, filterCompanies, dateFrom, dateTo, offset, limit, sort, sortBy);
              return localVarResponse.Data;
         }
 
@@ -468,7 +157,7 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>ApiResponse of TaskList</returns>
-        public ApiResponse< TaskList > CrmTasksGetWithHttpInfo (string filterType = null, string filterStatus = null, string filterDate = null, string filterAssignTo = null, string filterContacts = null, string filterDeals = null, string filterCompanies = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
+        public ApiResponse< TaskList > CrmTasksGetWithHttpInfo (string apiKey, string partnerKey, string filterType = null, string filterStatus = null, string filterDate = null, string filterAssignTo = null, string filterContacts = null, string filterDeals = null, string filterCompanies = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
         {
 
             var localVarPath = "./crm/tasks";
@@ -508,14 +197,14 @@ namespace brevo_csharp.Api
             if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sortBy", sortBy)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -554,9 +243,9 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>Task of TaskList</returns>
-        public async System.Threading.Tasks.Task<TaskList> CrmTasksGetAsync (string filterType = null, string filterStatus = null, string filterDate = null, string filterAssignTo = null, string filterContacts = null, string filterDeals = null, string filterCompanies = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
+        public async System.Threading.Tasks.Task<TaskList> CrmTasksGetAsync (string apiKey, string partnerKey, string filterType = null, string filterStatus = null, string filterDate = null, string filterAssignTo = null, string filterContacts = null, string filterDeals = null, string filterCompanies = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
         {
-             ApiResponse<TaskList> localVarResponse = await CrmTasksGetAsyncWithHttpInfo(filterType, filterStatus, filterDate, filterAssignTo, filterContacts, filterDeals, filterCompanies, dateFrom, dateTo, offset, limit, sort, sortBy);
+             ApiResponse<TaskList> localVarResponse = await CrmTasksGetAsyncWithHttpInfo(apiKey, partnerKey, filterType, filterStatus, filterDate, filterAssignTo, filterContacts, filterDeals, filterCompanies, dateFrom, dateTo, offset, limit, sort, sortBy);
              return localVarResponse.Data;
 
         }
@@ -579,7 +268,7 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>Task of ApiResponse (TaskList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TaskList>> CrmTasksGetAsyncWithHttpInfo (string filterType = null, string filterStatus = null, string filterDate = null, string filterAssignTo = null, string filterContacts = null, string filterDeals = null, string filterCompanies = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TaskList>> CrmTasksGetAsyncWithHttpInfo (string apiKey, string partnerKey, string filterType = null, string filterStatus = null, string filterDate = null, string filterAssignTo = null, string filterContacts = null, string filterDeals = null, string filterCompanies = null, int? dateFrom = null, int? dateTo = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
         {
 
             var localVarPath = "./crm/tasks";
@@ -619,14 +308,14 @@ namespace brevo_csharp.Api
             if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sortBy", sortBy)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -653,9 +342,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns></returns>
-        public void CrmTasksIdDelete (string id)
+        public void CrmTasksIdDelete (string apiKey, string partnerKey, string id)
         {
-             CrmTasksIdDeleteWithHttpInfo(id);
+             CrmTasksIdDeleteWithHttpInfo(apiKey, partnerKey, id);
         }
 
         /// <summary>
@@ -664,7 +353,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CrmTasksIdDeleteWithHttpInfo (string id)
+        public ApiResponse<Object> CrmTasksIdDeleteWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -695,14 +384,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -729,9 +418,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CrmTasksIdDeleteAsync (string id)
+        public async System.Threading.Tasks.Task CrmTasksIdDeleteAsync (string apiKey, string partnerKey, string id)
         {
-             await CrmTasksIdDeleteAsyncWithHttpInfo(id);
+             await CrmTasksIdDeleteAsyncWithHttpInfo(apiKey, partnerKey, id);
 
         }
 
@@ -741,7 +430,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmTasksIdDeleteAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmTasksIdDeleteAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -772,14 +461,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -806,9 +495,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Task</returns>
-        public Task CrmTasksIdGet (string id)
+        public Task CrmTasksIdGet (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<Task> localVarResponse = CrmTasksIdGetWithHttpInfo(id);
+             ApiResponse<Task> localVarResponse = CrmTasksIdGetWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
         }
 
@@ -818,7 +507,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>ApiResponse of Task</returns>
-        public ApiResponse< Task > CrmTasksIdGetWithHttpInfo (string id)
+        public ApiResponse< Task > CrmTasksIdGetWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -849,14 +538,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -883,9 +572,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Task of Task</returns>
-        public async System.Threading.Tasks.Task<Task> CrmTasksIdGetAsync (string id)
+        public async System.Threading.Tasks.Task<Task> CrmTasksIdGetAsync (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<Task> localVarResponse = await CrmTasksIdGetAsyncWithHttpInfo(id);
+             ApiResponse<Task> localVarResponse = await CrmTasksIdGetAsyncWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
 
         }
@@ -896,7 +585,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Task of ApiResponse (Task)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Task>> CrmTasksIdGetAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<Task>> CrmTasksIdGetAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -927,14 +616,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -962,9 +651,9 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated task details.</param>
         /// <returns></returns>
-        public void CrmTasksIdPatch (string id, Body10 body)
+        public void CrmTasksIdPatch (string apiKey, string partnerKey, string id, Body10 body)
         {
-             CrmTasksIdPatchWithHttpInfo(id, body);
+             CrmTasksIdPatchWithHttpInfo(apiKey, partnerKey, id, body);
         }
 
         /// <summary>
@@ -974,7 +663,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated task details.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CrmTasksIdPatchWithHttpInfo (string id, Body10 body)
+        public ApiResponse<Object> CrmTasksIdPatchWithHttpInfo (string apiKey, string partnerKey, string id, Body10 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1016,14 +705,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1051,9 +740,9 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated task details.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CrmTasksIdPatchAsync (string id, Body10 body)
+        public async System.Threading.Tasks.Task CrmTasksIdPatchAsync (string apiKey, string partnerKey, string id, Body10 body)
         {
-             await CrmTasksIdPatchAsyncWithHttpInfo(id, body);
+             await CrmTasksIdPatchAsyncWithHttpInfo(apiKey, partnerKey, id, body);
 
         }
 
@@ -1064,7 +753,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated task details.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmTasksIdPatchAsyncWithHttpInfo (string id, Body10 body)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmTasksIdPatchAsyncWithHttpInfo (string apiKey, string partnerKey, string id, Body10 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1106,14 +795,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1140,9 +829,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Task name.</param>
         /// <returns>InlineResponse2012</returns>
-        public InlineResponse2012 CrmTasksPost (Body9 body)
+        public InlineResponse2012 CrmTasksPost (string apiKey, string partnerKey, Body9 body)
         {
-             ApiResponse<InlineResponse2012> localVarResponse = CrmTasksPostWithHttpInfo(body);
+             ApiResponse<InlineResponse2012> localVarResponse = CrmTasksPostWithHttpInfo(apiKey, partnerKey, body);
              return localVarResponse.Data;
         }
 
@@ -1152,7 +841,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Task name.</param>
         /// <returns>ApiResponse of InlineResponse2012</returns>
-        public ApiResponse< InlineResponse2012 > CrmTasksPostWithHttpInfo (Body9 body)
+        public ApiResponse< InlineResponse2012 > CrmTasksPostWithHttpInfo (string apiKey, string partnerKey, Body9 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1190,14 +879,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1224,9 +913,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Task name.</param>
         /// <returns>Task of InlineResponse2012</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2012> CrmTasksPostAsync (Body9 body)
+        public async System.Threading.Tasks.Task<InlineResponse2012> CrmTasksPostAsync (string apiKey, string partnerKey, Body9 body)
         {
-             ApiResponse<InlineResponse2012> localVarResponse = await CrmTasksPostAsyncWithHttpInfo(body);
+             ApiResponse<InlineResponse2012> localVarResponse = await CrmTasksPostAsyncWithHttpInfo(apiKey, partnerKey, body);
              return localVarResponse.Data;
 
         }
@@ -1237,7 +926,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Task name.</param>
         /// <returns>Task of ApiResponse (InlineResponse2012)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2012>> CrmTasksPostAsyncWithHttpInfo (Body9 body)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2012>> CrmTasksPostAsyncWithHttpInfo (string apiKey, string partnerKey, Body9 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1275,14 +964,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1308,9 +997,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>TaskTypes</returns>
-        public TaskTypes CrmTasktypesGet ()
+        public TaskTypes CrmTasktypesGet (string apiKey, string partnerKey)
         {
-             ApiResponse<TaskTypes> localVarResponse = CrmTasktypesGetWithHttpInfo();
+             ApiResponse<TaskTypes> localVarResponse = CrmTasktypesGetWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
         }
 
@@ -1319,7 +1008,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of TaskTypes</returns>
-        public ApiResponse< TaskTypes > CrmTasktypesGetWithHttpInfo ()
+        public ApiResponse< TaskTypes > CrmTasktypesGetWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./crm/tasktypes";
@@ -1346,14 +1035,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1379,9 +1068,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of TaskTypes</returns>
-        public async System.Threading.Tasks.Task<TaskTypes> CrmTasktypesGetAsync ()
+        public async System.Threading.Tasks.Task<TaskTypes> CrmTasktypesGetAsync (string apiKey, string partnerKey)
         {
-             ApiResponse<TaskTypes> localVarResponse = await CrmTasktypesGetAsyncWithHttpInfo();
+             ApiResponse<TaskTypes> localVarResponse = await CrmTasktypesGetAsyncWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
 
         }
@@ -1391,7 +1080,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (TaskTypes)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TaskTypes>> CrmTasktypesGetAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<TaskTypes>> CrmTasktypesGetAsyncWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./crm/tasktypes";
@@ -1418,14 +1107,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

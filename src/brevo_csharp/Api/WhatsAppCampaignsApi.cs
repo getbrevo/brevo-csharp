@@ -21,432 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IWhatsAppCampaignsApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Create and Send a WhatsApp campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="whatsAppCampaigns">Values to create a campaign</param>
-        /// <returns>CreateModel</returns>
-        CreateModel CreateWhatsAppCampaign (CreateWhatsAppCampaign whatsAppCampaigns);
-
-        /// <summary>
-        /// Create and Send a WhatsApp campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="whatsAppCampaigns">Values to create a campaign</param>
-        /// <returns>ApiResponse of CreateModel</returns>
-        ApiResponse<CreateModel> CreateWhatsAppCampaignWithHttpInfo (CreateWhatsAppCampaign whatsAppCampaigns);
-        /// <summary>
-        /// Create a WhatsApp template
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="whatsAppTemplates">Values to create a template</param>
-        /// <returns>CreateModel</returns>
-        CreateModel CreateWhatsAppTemplate (CreateWhatsAppTemplate whatsAppTemplates);
-
-        /// <summary>
-        /// Create a WhatsApp template
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="whatsAppTemplates">Values to create a template</param>
-        /// <returns>ApiResponse of CreateModel</returns>
-        ApiResponse<CreateModel> CreateWhatsAppTemplateWithHttpInfo (CreateWhatsAppTemplate whatsAppTemplates);
-        /// <summary>
-        /// Delete a WhatsApp campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">id of the campaign</param>
-        /// <returns></returns>
-        void DeleteWhatsAppCampaign (long? campaignId);
-
-        /// <summary>
-        /// Delete a WhatsApp campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">id of the campaign</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteWhatsAppCampaignWithHttpInfo (long? campaignId);
-        /// <summary>
-        /// Get a WhatsApp campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <returns>GetWhatsappCampaignOverview</returns>
-        GetWhatsappCampaignOverview GetWhatsAppCampaign (long? campaignId);
-
-        /// <summary>
-        /// Get a WhatsApp campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <returns>ApiResponse of GetWhatsappCampaignOverview</returns>
-        ApiResponse<GetWhatsappCampaignOverview> GetWhatsAppCampaignWithHttpInfo (long? campaignId);
-        /// <summary>
-        /// Return all your created WhatsApp campaigns
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">**Mandatory if endDate is used**. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the campaigns created. **Prefer to pass your timezone in date-time format for accurate result**  (optional)</param>
-        /// <param name="endDate">**Mandatory if startDate is used**. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the campaigns created. **Prefer to pass your timezone in date-time format for accurate result**  (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record modification. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>GetWhatsappCampaigns</returns>
-        GetWhatsappCampaigns GetWhatsAppCampaigns (string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null);
-
-        /// <summary>
-        /// Return all your created WhatsApp campaigns
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">**Mandatory if endDate is used**. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the campaigns created. **Prefer to pass your timezone in date-time format for accurate result**  (optional)</param>
-        /// <param name="endDate">**Mandatory if startDate is used**. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the campaigns created. **Prefer to pass your timezone in date-time format for accurate result**  (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record modification. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>ApiResponse of GetWhatsappCampaigns</returns>
-        ApiResponse<GetWhatsappCampaigns> GetWhatsAppCampaignsWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null);
-        /// <summary>
-        /// Get your WhatsApp API account information
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>GetWhatsAppConfig</returns>
-        GetWhatsAppConfig GetWhatsAppConfig ();
-
-        /// <summary>
-        /// Get your WhatsApp API account information
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of GetWhatsAppConfig</returns>
-        ApiResponse<GetWhatsAppConfig> GetWhatsAppConfigWithHttpInfo ();
-        /// <summary>
-        /// Return all your created WhatsApp templates
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">**Mandatory if endDate is used**. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the templates created. **Prefer to pass your timezone in date-time format for accurate result**  (optional)</param>
-        /// <param name="endDate">**Mandatory if startDate is used**. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the templates created. **Prefer to pass your timezone in date-time format for accurate result**  (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record modification. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="source">source of the template (optional)</param>
-        /// <returns>GetWATemplates</returns>
-        GetWATemplates GetWhatsAppTemplates (string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, string source = null);
-
-        /// <summary>
-        /// Return all your created WhatsApp templates
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">**Mandatory if endDate is used**. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the templates created. **Prefer to pass your timezone in date-time format for accurate result**  (optional)</param>
-        /// <param name="endDate">**Mandatory if startDate is used**. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the templates created. **Prefer to pass your timezone in date-time format for accurate result**  (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record modification. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="source">source of the template (optional)</param>
-        /// <returns>ApiResponse of GetWATemplates</returns>
-        ApiResponse<GetWATemplates> GetWhatsAppTemplatesWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, string source = null);
-        /// <summary>
-        /// Send your WhatsApp template for approval
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">id of the campaign</param>
-        /// <returns></returns>
-        void SendWhatsAppTemplateApproval (long? templateId);
-
-        /// <summary>
-        /// Send your WhatsApp template for approval
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">id of the campaign</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SendWhatsAppTemplateApprovalWithHttpInfo (long? templateId);
-        /// <summary>
-        /// Update a WhatsApp campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="whatsAppCampaign">values to update WhatsApp Campaign (optional)</param>
-        /// <returns></returns>
-        void UpdateWhatsAppCampaign (long? campaignId, UpdateWhatsAppCampaign whatsAppCampaign = null);
-
-        /// <summary>
-        /// Update a WhatsApp campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="whatsAppCampaign">values to update WhatsApp Campaign (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateWhatsAppCampaignWithHttpInfo (long? campaignId, UpdateWhatsAppCampaign whatsAppCampaign = null);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Create and Send a WhatsApp campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="whatsAppCampaigns">Values to create a campaign</param>
-        /// <returns>Task of CreateModel</returns>
-        System.Threading.Tasks.Task<CreateModel> CreateWhatsAppCampaignAsync (CreateWhatsAppCampaign whatsAppCampaigns);
-
-        /// <summary>
-        /// Create and Send a WhatsApp campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="whatsAppCampaigns">Values to create a campaign</param>
-        /// <returns>Task of ApiResponse (CreateModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateWhatsAppCampaignAsyncWithHttpInfo (CreateWhatsAppCampaign whatsAppCampaigns);
-        /// <summary>
-        /// Create a WhatsApp template
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="whatsAppTemplates">Values to create a template</param>
-        /// <returns>Task of CreateModel</returns>
-        System.Threading.Tasks.Task<CreateModel> CreateWhatsAppTemplateAsync (CreateWhatsAppTemplate whatsAppTemplates);
-
-        /// <summary>
-        /// Create a WhatsApp template
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="whatsAppTemplates">Values to create a template</param>
-        /// <returns>Task of ApiResponse (CreateModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateWhatsAppTemplateAsyncWithHttpInfo (CreateWhatsAppTemplate whatsAppTemplates);
-        /// <summary>
-        /// Delete a WhatsApp campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">id of the campaign</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteWhatsAppCampaignAsync (long? campaignId);
-
-        /// <summary>
-        /// Delete a WhatsApp campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">id of the campaign</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWhatsAppCampaignAsyncWithHttpInfo (long? campaignId);
-        /// <summary>
-        /// Get a WhatsApp campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <returns>Task of GetWhatsappCampaignOverview</returns>
-        System.Threading.Tasks.Task<GetWhatsappCampaignOverview> GetWhatsAppCampaignAsync (long? campaignId);
-
-        /// <summary>
-        /// Get a WhatsApp campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <returns>Task of ApiResponse (GetWhatsappCampaignOverview)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetWhatsappCampaignOverview>> GetWhatsAppCampaignAsyncWithHttpInfo (long? campaignId);
-        /// <summary>
-        /// Return all your created WhatsApp campaigns
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">**Mandatory if endDate is used**. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the campaigns created. **Prefer to pass your timezone in date-time format for accurate result**  (optional)</param>
-        /// <param name="endDate">**Mandatory if startDate is used**. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the campaigns created. **Prefer to pass your timezone in date-time format for accurate result**  (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record modification. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of GetWhatsappCampaigns</returns>
-        System.Threading.Tasks.Task<GetWhatsappCampaigns> GetWhatsAppCampaignsAsync (string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null);
-
-        /// <summary>
-        /// Return all your created WhatsApp campaigns
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">**Mandatory if endDate is used**. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the campaigns created. **Prefer to pass your timezone in date-time format for accurate result**  (optional)</param>
-        /// <param name="endDate">**Mandatory if startDate is used**. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the campaigns created. **Prefer to pass your timezone in date-time format for accurate result**  (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record modification. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (GetWhatsappCampaigns)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetWhatsappCampaigns>> GetWhatsAppCampaignsAsyncWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null);
-        /// <summary>
-        /// Get your WhatsApp API account information
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of GetWhatsAppConfig</returns>
-        System.Threading.Tasks.Task<GetWhatsAppConfig> GetWhatsAppConfigAsync ();
-
-        /// <summary>
-        /// Get your WhatsApp API account information
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (GetWhatsAppConfig)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetWhatsAppConfig>> GetWhatsAppConfigAsyncWithHttpInfo ();
-        /// <summary>
-        /// Return all your created WhatsApp templates
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">**Mandatory if endDate is used**. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the templates created. **Prefer to pass your timezone in date-time format for accurate result**  (optional)</param>
-        /// <param name="endDate">**Mandatory if startDate is used**. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the templates created. **Prefer to pass your timezone in date-time format for accurate result**  (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record modification. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="source">source of the template (optional)</param>
-        /// <returns>Task of GetWATemplates</returns>
-        System.Threading.Tasks.Task<GetWATemplates> GetWhatsAppTemplatesAsync (string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, string source = null);
-
-        /// <summary>
-        /// Return all your created WhatsApp templates
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">**Mandatory if endDate is used**. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the templates created. **Prefer to pass your timezone in date-time format for accurate result**  (optional)</param>
-        /// <param name="endDate">**Mandatory if startDate is used**. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the templates created. **Prefer to pass your timezone in date-time format for accurate result**  (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record modification. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="source">source of the template (optional)</param>
-        /// <returns>Task of ApiResponse (GetWATemplates)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetWATemplates>> GetWhatsAppTemplatesAsyncWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, string source = null);
-        /// <summary>
-        /// Send your WhatsApp template for approval
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">id of the campaign</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SendWhatsAppTemplateApprovalAsync (long? templateId);
-
-        /// <summary>
-        /// Send your WhatsApp template for approval
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">id of the campaign</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SendWhatsAppTemplateApprovalAsyncWithHttpInfo (long? templateId);
-        /// <summary>
-        /// Update a WhatsApp campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="whatsAppCampaign">values to update WhatsApp Campaign (optional)</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateWhatsAppCampaignAsync (long? campaignId, UpdateWhatsAppCampaign whatsAppCampaign = null);
-
-        /// <summary>
-        /// Update a WhatsApp campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="whatsAppCampaign">values to update WhatsApp Campaign (optional)</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateWhatsAppCampaignAsyncWithHttpInfo (long? campaignId, UpdateWhatsAppCampaign whatsAppCampaign = null);
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class WhatsAppCampaignsApi : IWhatsAppCampaignsApi
+    public partial class WhatsAppCampaignsApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -546,9 +121,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="whatsAppCampaigns">Values to create a campaign</param>
         /// <returns>CreateModel</returns>
-        public CreateModel CreateWhatsAppCampaign (CreateWhatsAppCampaign whatsAppCampaigns)
+        public CreateModel CreateWhatsAppCampaign (string apiKey, string partnerKey, CreateWhatsAppCampaign whatsAppCampaigns)
         {
-             ApiResponse<CreateModel> localVarResponse = CreateWhatsAppCampaignWithHttpInfo(whatsAppCampaigns);
+             ApiResponse<CreateModel> localVarResponse = CreateWhatsAppCampaignWithHttpInfo(apiKey, partnerKey, whatsAppCampaigns);
              return localVarResponse.Data;
         }
 
@@ -558,7 +133,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="whatsAppCampaigns">Values to create a campaign</param>
         /// <returns>ApiResponse of CreateModel</returns>
-        public ApiResponse< CreateModel > CreateWhatsAppCampaignWithHttpInfo (CreateWhatsAppCampaign whatsAppCampaigns)
+        public ApiResponse< CreateModel > CreateWhatsAppCampaignWithHttpInfo (string apiKey, string partnerKey, CreateWhatsAppCampaign whatsAppCampaigns)
         {
             // verify the required parameter 'whatsAppCampaigns' is set
             if (whatsAppCampaigns == null)
@@ -596,14 +171,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -630,9 +205,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="whatsAppCampaigns">Values to create a campaign</param>
         /// <returns>Task of CreateModel</returns>
-        public async System.Threading.Tasks.Task<CreateModel> CreateWhatsAppCampaignAsync (CreateWhatsAppCampaign whatsAppCampaigns)
+        public async System.Threading.Tasks.Task<CreateModel> CreateWhatsAppCampaignAsync (string apiKey, string partnerKey, CreateWhatsAppCampaign whatsAppCampaigns)
         {
-             ApiResponse<CreateModel> localVarResponse = await CreateWhatsAppCampaignAsyncWithHttpInfo(whatsAppCampaigns);
+             ApiResponse<CreateModel> localVarResponse = await CreateWhatsAppCampaignAsyncWithHttpInfo(apiKey, partnerKey, whatsAppCampaigns);
              return localVarResponse.Data;
 
         }
@@ -643,7 +218,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="whatsAppCampaigns">Values to create a campaign</param>
         /// <returns>Task of ApiResponse (CreateModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateWhatsAppCampaignAsyncWithHttpInfo (CreateWhatsAppCampaign whatsAppCampaigns)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateWhatsAppCampaignAsyncWithHttpInfo (string apiKey, string partnerKey, CreateWhatsAppCampaign whatsAppCampaigns)
         {
             // verify the required parameter 'whatsAppCampaigns' is set
             if (whatsAppCampaigns == null)
@@ -681,14 +256,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -715,9 +290,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="whatsAppTemplates">Values to create a template</param>
         /// <returns>CreateModel</returns>
-        public CreateModel CreateWhatsAppTemplate (CreateWhatsAppTemplate whatsAppTemplates)
+        public CreateModel CreateWhatsAppTemplate (string apiKey, string partnerKey, CreateWhatsAppTemplate whatsAppTemplates)
         {
-             ApiResponse<CreateModel> localVarResponse = CreateWhatsAppTemplateWithHttpInfo(whatsAppTemplates);
+             ApiResponse<CreateModel> localVarResponse = CreateWhatsAppTemplateWithHttpInfo(apiKey, partnerKey, whatsAppTemplates);
              return localVarResponse.Data;
         }
 
@@ -727,7 +302,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="whatsAppTemplates">Values to create a template</param>
         /// <returns>ApiResponse of CreateModel</returns>
-        public ApiResponse< CreateModel > CreateWhatsAppTemplateWithHttpInfo (CreateWhatsAppTemplate whatsAppTemplates)
+        public ApiResponse< CreateModel > CreateWhatsAppTemplateWithHttpInfo (string apiKey, string partnerKey, CreateWhatsAppTemplate whatsAppTemplates)
         {
             // verify the required parameter 'whatsAppTemplates' is set
             if (whatsAppTemplates == null)
@@ -765,14 +340,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -799,9 +374,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="whatsAppTemplates">Values to create a template</param>
         /// <returns>Task of CreateModel</returns>
-        public async System.Threading.Tasks.Task<CreateModel> CreateWhatsAppTemplateAsync (CreateWhatsAppTemplate whatsAppTemplates)
+        public async System.Threading.Tasks.Task<CreateModel> CreateWhatsAppTemplateAsync (string apiKey, string partnerKey, CreateWhatsAppTemplate whatsAppTemplates)
         {
-             ApiResponse<CreateModel> localVarResponse = await CreateWhatsAppTemplateAsyncWithHttpInfo(whatsAppTemplates);
+             ApiResponse<CreateModel> localVarResponse = await CreateWhatsAppTemplateAsyncWithHttpInfo(apiKey, partnerKey, whatsAppTemplates);
              return localVarResponse.Data;
 
         }
@@ -812,7 +387,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="whatsAppTemplates">Values to create a template</param>
         /// <returns>Task of ApiResponse (CreateModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateWhatsAppTemplateAsyncWithHttpInfo (CreateWhatsAppTemplate whatsAppTemplates)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateWhatsAppTemplateAsyncWithHttpInfo (string apiKey, string partnerKey, CreateWhatsAppTemplate whatsAppTemplates)
         {
             // verify the required parameter 'whatsAppTemplates' is set
             if (whatsAppTemplates == null)
@@ -850,14 +425,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -884,9 +459,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">id of the campaign</param>
         /// <returns></returns>
-        public void DeleteWhatsAppCampaign (long? campaignId)
+        public void DeleteWhatsAppCampaign (string apiKey, string partnerKey, long? campaignId)
         {
-             DeleteWhatsAppCampaignWithHttpInfo(campaignId);
+             DeleteWhatsAppCampaignWithHttpInfo(apiKey, partnerKey, campaignId);
         }
 
         /// <summary>
@@ -895,7 +470,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">id of the campaign</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteWhatsAppCampaignWithHttpInfo (long? campaignId)
+        public ApiResponse<Object> DeleteWhatsAppCampaignWithHttpInfo (string apiKey, string partnerKey, long? campaignId)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -926,14 +501,14 @@ namespace brevo_csharp.Api
             if (campaignId != null) localVarPathParams.Add("campaignId", this.Configuration.ApiClient.ParameterToString(campaignId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -960,9 +535,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">id of the campaign</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteWhatsAppCampaignAsync (long? campaignId)
+        public async System.Threading.Tasks.Task DeleteWhatsAppCampaignAsync (string apiKey, string partnerKey, long? campaignId)
         {
-             await DeleteWhatsAppCampaignAsyncWithHttpInfo(campaignId);
+             await DeleteWhatsAppCampaignAsyncWithHttpInfo(apiKey, partnerKey, campaignId);
 
         }
 
@@ -972,7 +547,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">id of the campaign</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWhatsAppCampaignAsyncWithHttpInfo (long? campaignId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWhatsAppCampaignAsyncWithHttpInfo (string apiKey, string partnerKey, long? campaignId)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -1003,14 +578,14 @@ namespace brevo_csharp.Api
             if (campaignId != null) localVarPathParams.Add("campaignId", this.Configuration.ApiClient.ParameterToString(campaignId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1037,9 +612,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Id of the campaign</param>
         /// <returns>GetWhatsappCampaignOverview</returns>
-        public GetWhatsappCampaignOverview GetWhatsAppCampaign (long? campaignId)
+        public GetWhatsappCampaignOverview GetWhatsAppCampaign (string apiKey, string partnerKey, long? campaignId)
         {
-             ApiResponse<GetWhatsappCampaignOverview> localVarResponse = GetWhatsAppCampaignWithHttpInfo(campaignId);
+             ApiResponse<GetWhatsappCampaignOverview> localVarResponse = GetWhatsAppCampaignWithHttpInfo(apiKey, partnerKey, campaignId);
              return localVarResponse.Data;
         }
 
@@ -1049,7 +624,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Id of the campaign</param>
         /// <returns>ApiResponse of GetWhatsappCampaignOverview</returns>
-        public ApiResponse< GetWhatsappCampaignOverview > GetWhatsAppCampaignWithHttpInfo (long? campaignId)
+        public ApiResponse< GetWhatsappCampaignOverview > GetWhatsAppCampaignWithHttpInfo (string apiKey, string partnerKey, long? campaignId)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -1080,14 +655,14 @@ namespace brevo_csharp.Api
             if (campaignId != null) localVarPathParams.Add("campaignId", this.Configuration.ApiClient.ParameterToString(campaignId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1114,9 +689,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Id of the campaign</param>
         /// <returns>Task of GetWhatsappCampaignOverview</returns>
-        public async System.Threading.Tasks.Task<GetWhatsappCampaignOverview> GetWhatsAppCampaignAsync (long? campaignId)
+        public async System.Threading.Tasks.Task<GetWhatsappCampaignOverview> GetWhatsAppCampaignAsync (string apiKey, string partnerKey, long? campaignId)
         {
-             ApiResponse<GetWhatsappCampaignOverview> localVarResponse = await GetWhatsAppCampaignAsyncWithHttpInfo(campaignId);
+             ApiResponse<GetWhatsappCampaignOverview> localVarResponse = await GetWhatsAppCampaignAsyncWithHttpInfo(apiKey, partnerKey, campaignId);
              return localVarResponse.Data;
 
         }
@@ -1127,7 +702,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Id of the campaign</param>
         /// <returns>Task of ApiResponse (GetWhatsappCampaignOverview)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetWhatsappCampaignOverview>> GetWhatsAppCampaignAsyncWithHttpInfo (long? campaignId)
+        public async System.Threading.Tasks.Task<ApiResponse<GetWhatsappCampaignOverview>> GetWhatsAppCampaignAsyncWithHttpInfo (string apiKey, string partnerKey, long? campaignId)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -1158,14 +733,14 @@ namespace brevo_csharp.Api
             if (campaignId != null) localVarPathParams.Add("campaignId", this.Configuration.ApiClient.ParameterToString(campaignId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1196,9 +771,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record modification. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>GetWhatsappCampaigns</returns>
-        public GetWhatsappCampaigns GetWhatsAppCampaigns (string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null)
+        public GetWhatsappCampaigns GetWhatsAppCampaigns (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null)
         {
-             ApiResponse<GetWhatsappCampaigns> localVarResponse = GetWhatsAppCampaignsWithHttpInfo(startDate, endDate, limit, offset, sort);
+             ApiResponse<GetWhatsappCampaigns> localVarResponse = GetWhatsAppCampaignsWithHttpInfo(apiKey, partnerKey, startDate, endDate, limit, offset, sort);
              return localVarResponse.Data;
         }
 
@@ -1212,7 +787,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record modification. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>ApiResponse of GetWhatsappCampaigns</returns>
-        public ApiResponse< GetWhatsappCampaigns > GetWhatsAppCampaignsWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null)
+        public ApiResponse< GetWhatsappCampaigns > GetWhatsAppCampaignsWithHttpInfo (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null)
         {
 
             var localVarPath = "./whatsappCampaigns";
@@ -1244,14 +819,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1282,9 +857,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record modification. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of GetWhatsappCampaigns</returns>
-        public async System.Threading.Tasks.Task<GetWhatsappCampaigns> GetWhatsAppCampaignsAsync (string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<GetWhatsappCampaigns> GetWhatsAppCampaignsAsync (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null)
         {
-             ApiResponse<GetWhatsappCampaigns> localVarResponse = await GetWhatsAppCampaignsAsyncWithHttpInfo(startDate, endDate, limit, offset, sort);
+             ApiResponse<GetWhatsappCampaigns> localVarResponse = await GetWhatsAppCampaignsAsyncWithHttpInfo(apiKey, partnerKey, startDate, endDate, limit, offset, sort);
              return localVarResponse.Data;
 
         }
@@ -1299,7 +874,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record modification. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetWhatsappCampaigns)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetWhatsappCampaigns>> GetWhatsAppCampaignsAsyncWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetWhatsappCampaigns>> GetWhatsAppCampaignsAsyncWithHttpInfo (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null)
         {
 
             var localVarPath = "./whatsappCampaigns";
@@ -1331,14 +906,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1364,9 +939,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>GetWhatsAppConfig</returns>
-        public GetWhatsAppConfig GetWhatsAppConfig ()
+        public GetWhatsAppConfig GetWhatsAppConfig (string apiKey, string partnerKey)
         {
-             ApiResponse<GetWhatsAppConfig> localVarResponse = GetWhatsAppConfigWithHttpInfo();
+             ApiResponse<GetWhatsAppConfig> localVarResponse = GetWhatsAppConfigWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
         }
 
@@ -1375,7 +950,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of GetWhatsAppConfig</returns>
-        public ApiResponse< GetWhatsAppConfig > GetWhatsAppConfigWithHttpInfo ()
+        public ApiResponse< GetWhatsAppConfig > GetWhatsAppConfigWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./whatsappCampaigns/config";
@@ -1402,14 +977,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1435,9 +1010,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of GetWhatsAppConfig</returns>
-        public async System.Threading.Tasks.Task<GetWhatsAppConfig> GetWhatsAppConfigAsync ()
+        public async System.Threading.Tasks.Task<GetWhatsAppConfig> GetWhatsAppConfigAsync (string apiKey, string partnerKey)
         {
-             ApiResponse<GetWhatsAppConfig> localVarResponse = await GetWhatsAppConfigAsyncWithHttpInfo();
+             ApiResponse<GetWhatsAppConfig> localVarResponse = await GetWhatsAppConfigAsyncWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
 
         }
@@ -1447,7 +1022,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (GetWhatsAppConfig)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetWhatsAppConfig>> GetWhatsAppConfigAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<GetWhatsAppConfig>> GetWhatsAppConfigAsyncWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./whatsappCampaigns/config";
@@ -1474,14 +1049,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1513,9 +1088,9 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record modification. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="source">source of the template (optional)</param>
         /// <returns>GetWATemplates</returns>
-        public GetWATemplates GetWhatsAppTemplates (string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, string source = null)
+        public GetWATemplates GetWhatsAppTemplates (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, string source = null)
         {
-             ApiResponse<GetWATemplates> localVarResponse = GetWhatsAppTemplatesWithHttpInfo(startDate, endDate, limit, offset, sort, source);
+             ApiResponse<GetWATemplates> localVarResponse = GetWhatsAppTemplatesWithHttpInfo(apiKey, partnerKey, startDate, endDate, limit, offset, sort, source);
              return localVarResponse.Data;
         }
 
@@ -1530,7 +1105,7 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record modification. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="source">source of the template (optional)</param>
         /// <returns>ApiResponse of GetWATemplates</returns>
-        public ApiResponse< GetWATemplates > GetWhatsAppTemplatesWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, string source = null)
+        public ApiResponse< GetWATemplates > GetWhatsAppTemplatesWithHttpInfo (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, string source = null)
         {
 
             var localVarPath = "./whatsappCampaigns/template-list";
@@ -1563,14 +1138,14 @@ namespace brevo_csharp.Api
             if (source != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "source", source)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1602,9 +1177,9 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record modification. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="source">source of the template (optional)</param>
         /// <returns>Task of GetWATemplates</returns>
-        public async System.Threading.Tasks.Task<GetWATemplates> GetWhatsAppTemplatesAsync (string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, string source = null)
+        public async System.Threading.Tasks.Task<GetWATemplates> GetWhatsAppTemplatesAsync (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, string source = null)
         {
-             ApiResponse<GetWATemplates> localVarResponse = await GetWhatsAppTemplatesAsyncWithHttpInfo(startDate, endDate, limit, offset, sort, source);
+             ApiResponse<GetWATemplates> localVarResponse = await GetWhatsAppTemplatesAsyncWithHttpInfo(apiKey, partnerKey, startDate, endDate, limit, offset, sort, source);
              return localVarResponse.Data;
 
         }
@@ -1620,7 +1195,7 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record modification. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="source">source of the template (optional)</param>
         /// <returns>Task of ApiResponse (GetWATemplates)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetWATemplates>> GetWhatsAppTemplatesAsyncWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, string source = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetWATemplates>> GetWhatsAppTemplatesAsyncWithHttpInfo (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, string source = null)
         {
 
             var localVarPath = "./whatsappCampaigns/template-list";
@@ -1653,14 +1228,14 @@ namespace brevo_csharp.Api
             if (source != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "source", source)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1687,9 +1262,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">id of the campaign</param>
         /// <returns></returns>
-        public void SendWhatsAppTemplateApproval (long? templateId)
+        public void SendWhatsAppTemplateApproval (string apiKey, string partnerKey, long? templateId)
         {
-             SendWhatsAppTemplateApprovalWithHttpInfo(templateId);
+             SendWhatsAppTemplateApprovalWithHttpInfo(apiKey, partnerKey, templateId);
         }
 
         /// <summary>
@@ -1698,7 +1273,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">id of the campaign</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SendWhatsAppTemplateApprovalWithHttpInfo (long? templateId)
+        public ApiResponse<Object> SendWhatsAppTemplateApprovalWithHttpInfo (string apiKey, string partnerKey, long? templateId)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -1729,14 +1304,14 @@ namespace brevo_csharp.Api
             if (templateId != null) localVarPathParams.Add("templateId", this.Configuration.ApiClient.ParameterToString(templateId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1763,9 +1338,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">id of the campaign</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SendWhatsAppTemplateApprovalAsync (long? templateId)
+        public async System.Threading.Tasks.Task SendWhatsAppTemplateApprovalAsync (string apiKey, string partnerKey, long? templateId)
         {
-             await SendWhatsAppTemplateApprovalAsyncWithHttpInfo(templateId);
+             await SendWhatsAppTemplateApprovalAsyncWithHttpInfo(apiKey, partnerKey, templateId);
 
         }
 
@@ -1775,7 +1350,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">id of the campaign</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> SendWhatsAppTemplateApprovalAsyncWithHttpInfo (long? templateId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SendWhatsAppTemplateApprovalAsyncWithHttpInfo (string apiKey, string partnerKey, long? templateId)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -1806,14 +1381,14 @@ namespace brevo_csharp.Api
             if (templateId != null) localVarPathParams.Add("templateId", this.Configuration.ApiClient.ParameterToString(templateId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1841,9 +1416,9 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="whatsAppCampaign">values to update WhatsApp Campaign (optional)</param>
         /// <returns></returns>
-        public void UpdateWhatsAppCampaign (long? campaignId, UpdateWhatsAppCampaign whatsAppCampaign = null)
+        public void UpdateWhatsAppCampaign (string apiKey, string partnerKey, long? campaignId, UpdateWhatsAppCampaign whatsAppCampaign = null)
         {
-             UpdateWhatsAppCampaignWithHttpInfo(campaignId, whatsAppCampaign);
+             UpdateWhatsAppCampaignWithHttpInfo(apiKey, partnerKey, campaignId, whatsAppCampaign);
         }
 
         /// <summary>
@@ -1853,7 +1428,7 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="whatsAppCampaign">values to update WhatsApp Campaign (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateWhatsAppCampaignWithHttpInfo (long? campaignId, UpdateWhatsAppCampaign whatsAppCampaign = null)
+        public ApiResponse<Object> UpdateWhatsAppCampaignWithHttpInfo (string apiKey, string partnerKey, long? campaignId, UpdateWhatsAppCampaign whatsAppCampaign = null)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -1892,14 +1467,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1927,9 +1502,9 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="whatsAppCampaign">values to update WhatsApp Campaign (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateWhatsAppCampaignAsync (long? campaignId, UpdateWhatsAppCampaign whatsAppCampaign = null)
+        public async System.Threading.Tasks.Task UpdateWhatsAppCampaignAsync (string apiKey, string partnerKey, long? campaignId, UpdateWhatsAppCampaign whatsAppCampaign = null)
         {
-             await UpdateWhatsAppCampaignAsyncWithHttpInfo(campaignId, whatsAppCampaign);
+             await UpdateWhatsAppCampaignAsyncWithHttpInfo(apiKey, partnerKey, campaignId, whatsAppCampaign);
 
         }
 
@@ -1940,7 +1515,7 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="whatsAppCampaign">values to update WhatsApp Campaign (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateWhatsAppCampaignAsyncWithHttpInfo (long? campaignId, UpdateWhatsAppCampaign whatsAppCampaign = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateWhatsAppCampaignAsyncWithHttpInfo (string apiKey, string partnerKey, long? campaignId, UpdateWhatsAppCampaign whatsAppCampaign = null)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -1979,14 +1554,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

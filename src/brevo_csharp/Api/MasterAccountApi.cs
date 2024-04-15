@@ -21,882 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IMasterAccountApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Delete a group
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to delete a group of sub-organizations. When a group is deleted, the sub-organizations are no longer part of this group. The users associated with the group are no longer associated with the group once deleted.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the group</param>
-        /// <returns></returns>
-        void CorporateGroupIdDelete (string id);
-
-        /// <summary>
-        /// Delete a group
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to delete a group of sub-organizations. When a group is deleted, the sub-organizations are no longer part of this group. The users associated with the group are no longer associated with the group once deleted.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the group</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CorporateGroupIdDeleteWithHttpInfo (string id);
-        /// <summary>
-        /// GET a group details
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to retrieve a specific group’s information such as the list of sub-organizations and the user associated with the group.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the group of sub-organization</param>
-        /// <returns>CorporateGroupDetailsResponse</returns>
-        CorporateGroupDetailsResponse CorporateGroupIdGet (string id);
-
-        /// <summary>
-        /// GET a group details
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to retrieve a specific group’s information such as the list of sub-organizations and the user associated with the group.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the group of sub-organization</param>
-        /// <returns>ApiResponse of CorporateGroupDetailsResponse</returns>
-        ApiResponse<CorporateGroupDetailsResponse> CorporateGroupIdGetWithHttpInfo (string id);
-        /// <summary>
-        /// Update a group of sub-accounts
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to update a group of sub-accounts
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the group</param>
-        /// <param name="body">Group details to be updated.</param>
-        /// <returns></returns>
-        void CorporateGroupIdPut (string id, Body1 body);
-
-        /// <summary>
-        /// Update a group of sub-accounts
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to update a group of sub-accounts
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the group</param>
-        /// <param name="body">Group details to be updated.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CorporateGroupIdPutWithHttpInfo (string id, Body1 body);
-        /// <summary>
-        /// Create a new group of sub-accounts
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows to create a group of sub-accounts
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Group details to be created.</param>
-        /// <returns>InlineResponse201</returns>
-        InlineResponse201 CorporateGroupPost (Body body);
-
-        /// <summary>
-        /// Create a new group of sub-accounts
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows to create a group of sub-accounts
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Group details to be created.</param>
-        /// <returns>ApiResponse of InlineResponse201</returns>
-        ApiResponse<InlineResponse201> CorporateGroupPostWithHttpInfo (Body body);
-        /// <summary>
-        /// Delete sub-account from group
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to remove a sub-organization from a group.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">Id of the group</param>
-        /// <param name="body">List of sub-account ids</param>
-        /// <returns></returns>
-        void CorporateGroupUnlinkGroupIdSubAccountsPut (string groupId, Body2 body);
-
-        /// <summary>
-        /// Delete sub-account from group
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to remove a sub-organization from a group.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">Id of the group</param>
-        /// <param name="body">List of sub-account ids</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CorporateGroupUnlinkGroupIdSubAccountsPutWithHttpInfo (string groupId, Body2 body);
-        /// <summary>
-        /// Get the details of requested master account
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will provide the details of the master account.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>MasterDetailsResponse</returns>
-        MasterDetailsResponse CorporateMasterAccountGet ();
-
-        /// <summary>
-        /// Get the details of requested master account
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will provide the details of the master account.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of MasterDetailsResponse</returns>
-        ApiResponse<MasterDetailsResponse> CorporateMasterAccountGetWithHttpInfo ();
-        /// <summary>
-        /// Get the list of all the sub-accounts of the master account.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will provide the list all the sub-accounts of the master account.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="offset">Index of the first sub-account in the page</param>
-        /// <param name="limit">Number of sub-accounts to be displayed on each page</param>
-        /// <returns>SubAccountsResponse</returns>
-        SubAccountsResponse CorporateSubAccountGet (int? offset, int? limit);
-
-        /// <summary>
-        /// Get the list of all the sub-accounts of the master account.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will provide the list all the sub-accounts of the master account.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="offset">Index of the first sub-account in the page</param>
-        /// <param name="limit">Number of sub-accounts to be displayed on each page</param>
-        /// <returns>ApiResponse of SubAccountsResponse</returns>
-        ApiResponse<SubAccountsResponse> CorporateSubAccountGetWithHttpInfo (int? offset, int? limit);
-        /// <summary>
-        /// Enable/disable sub-account application(s)
-        /// </summary>
-        /// <remarks>
-        /// API endpoint for the Corporate owner to enable/disable applications on the sub-account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the sub-account organization (mandatory)</param>
-        /// <param name="toggleApplications">List of applications to activate or deactivate on a sub-account</param>
-        /// <returns></returns>
-        void CorporateSubAccountIdApplicationsTogglePut (long? id, SubAccountAppsToggleRequest toggleApplications);
-
-        /// <summary>
-        /// Enable/disable sub-account application(s)
-        /// </summary>
-        /// <remarks>
-        /// API endpoint for the Corporate owner to enable/disable applications on the sub-account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the sub-account organization (mandatory)</param>
-        /// <param name="toggleApplications">List of applications to activate or deactivate on a sub-account</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CorporateSubAccountIdApplicationsTogglePutWithHttpInfo (long? id, SubAccountAppsToggleRequest toggleApplications);
-        /// <summary>
-        /// Delete a sub-account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the sub-account organization to be deleted</param>
-        /// <returns></returns>
-        void CorporateSubAccountIdDelete (long? id);
-
-        /// <summary>
-        /// Delete a sub-account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the sub-account organization to be deleted</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CorporateSubAccountIdDeleteWithHttpInfo (long? id);
-        /// <summary>
-        /// Get sub-account details
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will provide the details for the specified sub-account company
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the sub-account organization</param>
-        /// <returns>SubAccountDetailsResponse</returns>
-        SubAccountDetailsResponse CorporateSubAccountIdGet (long? id);
-
-        /// <summary>
-        /// Get sub-account details
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will provide the details for the specified sub-account company
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the sub-account organization</param>
-        /// <returns>ApiResponse of SubAccountDetailsResponse</returns>
-        ApiResponse<SubAccountDetailsResponse> CorporateSubAccountIdGetWithHttpInfo (long? id);
-        /// <summary>
-        /// Update sub-account plan
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will update the sub-account plan
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the sub-account organization</param>
-        /// <param name="updatePlanDetails">Values to update a sub-account plan</param>
-        /// <returns></returns>
-        void CorporateSubAccountIdPlanPut (long? id, SubAccountUpdatePlanRequest updatePlanDetails);
-
-        /// <summary>
-        /// Update sub-account plan
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will update the sub-account plan
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the sub-account organization</param>
-        /// <param name="updatePlanDetails">Values to update a sub-account plan</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CorporateSubAccountIdPlanPutWithHttpInfo (long? id, SubAccountUpdatePlanRequest updatePlanDetails);
-        /// <summary>
-        /// Create an API key for a sub-account
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will generate an API v3 key for a sub account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createApiKeyRequest">Values to generate API key for sub-account</param>
-        /// <returns>CreateApiKeyResponse</returns>
-        CreateApiKeyResponse CorporateSubAccountKeyPost (CreateApiKeyRequest createApiKeyRequest);
-
-        /// <summary>
-        /// Create an API key for a sub-account
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will generate an API v3 key for a sub account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createApiKeyRequest">Values to generate API key for sub-account</param>
-        /// <returns>ApiResponse of CreateApiKeyResponse</returns>
-        ApiResponse<CreateApiKeyResponse> CorporateSubAccountKeyPostWithHttpInfo (CreateApiKeyRequest createApiKeyRequest);
-        /// <summary>
-        /// Create a new sub-account under a master account.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will create a new sub-account under a master account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subAccountCreate">values to create new sub-account</param>
-        /// <returns>CreateSubAccountResponse</returns>
-        CreateSubAccountResponse CorporateSubAccountPost (CreateSubAccount subAccountCreate);
-
-        /// <summary>
-        /// Create a new sub-account under a master account.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will create a new sub-account under a master account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subAccountCreate">values to create new sub-account</param>
-        /// <returns>ApiResponse of CreateSubAccountResponse</returns>
-        ApiResponse<CreateSubAccountResponse> CorporateSubAccountPostWithHttpInfo (CreateSubAccount subAccountCreate);
-        /// <summary>
-        /// Generate SSO token to access Brevo
-        /// </summary>
-        /// <remarks>
-        /// This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.brevo.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoTokenRequest">Values to generate SSO token for sub-account</param>
-        /// <returns>GetSsoToken</returns>
-        GetSsoToken CorporateSubAccountSsoTokenPost (SsoTokenRequest ssoTokenRequest);
-
-        /// <summary>
-        /// Generate SSO token to access Brevo
-        /// </summary>
-        /// <remarks>
-        /// This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.brevo.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoTokenRequest">Values to generate SSO token for sub-account</param>
-        /// <returns>ApiResponse of GetSsoToken</returns>
-        ApiResponse<GetSsoToken> CorporateSubAccountSsoTokenPostWithHttpInfo (SsoTokenRequest ssoTokenRequest);
-        /// <summary>
-        /// Resend / cancel admin user invitation
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will allow the user to:  - Resend an admin user invitation - Cancel an admin user invitation 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="action">Action to be performed (cancel / resend)</param>
-        /// <param name="email">Email address of the recipient</param>
-        /// <returns>InlineResponse200</returns>
-        InlineResponse200 CorporateUserInvitationActionEmailPut (string action, string email);
-
-        /// <summary>
-        /// Resend / cancel admin user invitation
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will allow the user to:  - Resend an admin user invitation - Cancel an admin user invitation 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="action">Action to be performed (cancel / resend)</param>
-        /// <param name="email">Email address of the recipient</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> CorporateUserInvitationActionEmailPutWithHttpInfo (string action, string email);
-        /// <summary>
-        /// Revoke an admin user
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows to revoke/remove an invited member of your Admin account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Email of the invited user</param>
-        /// <returns></returns>
-        void CorporateUserRevokeEmailDelete (string email);
-
-        /// <summary>
-        /// Revoke an admin user
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows to revoke/remove an invited member of your Admin account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Email of the invited user</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CorporateUserRevokeEmailDeleteWithHttpInfo (string email);
-        /// <summary>
-        /// Get user activity logs
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
-        /// <returns>GetAccountActivity</returns>
-        GetAccountActivity GetAccountActivity (string startDate = null, string endDate = null, long? limit = null, long? offset = null);
-
-        /// <summary>
-        /// Get user activity logs
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
-        /// <returns>ApiResponse of GetAccountActivity</returns>
-        ApiResponse<GetAccountActivity> GetAccountActivityWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null);
-        /// <summary>
-        /// Get the list of all admin users
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to list all Admin users of your Admin account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>GetCorporateInvitedUsersList</returns>
-        GetCorporateInvitedUsersList GetCorporateInvitedUsersList ();
-
-        /// <summary>
-        /// Get the list of all admin users
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to list all Admin users of your Admin account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of GetCorporateInvitedUsersList</returns>
-        ApiResponse<GetCorporateInvitedUsersList> GetCorporateInvitedUsersListWithHttpInfo ();
-        /// <summary>
-        /// Get the list of groups
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to list all groups created on your Admin account.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;InlineResponse2001&gt;</returns>
-        List<InlineResponse2001> GetSubAccountGroups ();
-
-        /// <summary>
-        /// Get the list of groups
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to list all groups created on your Admin account.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;InlineResponse2001&gt;</returns>
-        ApiResponse<List<InlineResponse2001>> GetSubAccountGroupsWithHttpInfo ();
-        /// <summary>
-        /// Send invitation to an admin user
-        /// </summary>
-        /// <remarks>
-        /// &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendInvitation">Payload to send an invitation</param>
-        /// <returns>InviteAdminUser</returns>
-        InviteAdminUser InviteAdminUser (InviteAdminUser sendInvitation);
-
-        /// <summary>
-        /// Send invitation to an admin user
-        /// </summary>
-        /// <remarks>
-        /// &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendInvitation">Payload to send an invitation</param>
-        /// <returns>ApiResponse of InviteAdminUser</returns>
-        ApiResponse<InviteAdminUser> InviteAdminUserWithHttpInfo (InviteAdminUser sendInvitation);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Delete a group
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to delete a group of sub-organizations. When a group is deleted, the sub-organizations are no longer part of this group. The users associated with the group are no longer associated with the group once deleted.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the group</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CorporateGroupIdDeleteAsync (string id);
-
-        /// <summary>
-        /// Delete a group
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to delete a group of sub-organizations. When a group is deleted, the sub-organizations are no longer part of this group. The users associated with the group are no longer associated with the group once deleted.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the group</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CorporateGroupIdDeleteAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// GET a group details
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to retrieve a specific group’s information such as the list of sub-organizations and the user associated with the group.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the group of sub-organization</param>
-        /// <returns>Task of CorporateGroupDetailsResponse</returns>
-        System.Threading.Tasks.Task<CorporateGroupDetailsResponse> CorporateGroupIdGetAsync (string id);
-
-        /// <summary>
-        /// GET a group details
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to retrieve a specific group’s information such as the list of sub-organizations and the user associated with the group.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the group of sub-organization</param>
-        /// <returns>Task of ApiResponse (CorporateGroupDetailsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CorporateGroupDetailsResponse>> CorporateGroupIdGetAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// Update a group of sub-accounts
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to update a group of sub-accounts
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the group</param>
-        /// <param name="body">Group details to be updated.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CorporateGroupIdPutAsync (string id, Body1 body);
-
-        /// <summary>
-        /// Update a group of sub-accounts
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to update a group of sub-accounts
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the group</param>
-        /// <param name="body">Group details to be updated.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CorporateGroupIdPutAsyncWithHttpInfo (string id, Body1 body);
-        /// <summary>
-        /// Create a new group of sub-accounts
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows to create a group of sub-accounts
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Group details to be created.</param>
-        /// <returns>Task of InlineResponse201</returns>
-        System.Threading.Tasks.Task<InlineResponse201> CorporateGroupPostAsync (Body body);
-
-        /// <summary>
-        /// Create a new group of sub-accounts
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows to create a group of sub-accounts
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Group details to be created.</param>
-        /// <returns>Task of ApiResponse (InlineResponse201)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> CorporateGroupPostAsyncWithHttpInfo (Body body);
-        /// <summary>
-        /// Delete sub-account from group
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to remove a sub-organization from a group.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">Id of the group</param>
-        /// <param name="body">List of sub-account ids</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CorporateGroupUnlinkGroupIdSubAccountsPutAsync (string groupId, Body2 body);
-
-        /// <summary>
-        /// Delete sub-account from group
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to remove a sub-organization from a group.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">Id of the group</param>
-        /// <param name="body">List of sub-account ids</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CorporateGroupUnlinkGroupIdSubAccountsPutAsyncWithHttpInfo (string groupId, Body2 body);
-        /// <summary>
-        /// Get the details of requested master account
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will provide the details of the master account.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of MasterDetailsResponse</returns>
-        System.Threading.Tasks.Task<MasterDetailsResponse> CorporateMasterAccountGetAsync ();
-
-        /// <summary>
-        /// Get the details of requested master account
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will provide the details of the master account.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (MasterDetailsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MasterDetailsResponse>> CorporateMasterAccountGetAsyncWithHttpInfo ();
-        /// <summary>
-        /// Get the list of all the sub-accounts of the master account.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will provide the list all the sub-accounts of the master account.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="offset">Index of the first sub-account in the page</param>
-        /// <param name="limit">Number of sub-accounts to be displayed on each page</param>
-        /// <returns>Task of SubAccountsResponse</returns>
-        System.Threading.Tasks.Task<SubAccountsResponse> CorporateSubAccountGetAsync (int? offset, int? limit);
-
-        /// <summary>
-        /// Get the list of all the sub-accounts of the master account.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will provide the list all the sub-accounts of the master account.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="offset">Index of the first sub-account in the page</param>
-        /// <param name="limit">Number of sub-accounts to be displayed on each page</param>
-        /// <returns>Task of ApiResponse (SubAccountsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SubAccountsResponse>> CorporateSubAccountGetAsyncWithHttpInfo (int? offset, int? limit);
-        /// <summary>
-        /// Enable/disable sub-account application(s)
-        /// </summary>
-        /// <remarks>
-        /// API endpoint for the Corporate owner to enable/disable applications on the sub-account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the sub-account organization (mandatory)</param>
-        /// <param name="toggleApplications">List of applications to activate or deactivate on a sub-account</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CorporateSubAccountIdApplicationsTogglePutAsync (long? id, SubAccountAppsToggleRequest toggleApplications);
-
-        /// <summary>
-        /// Enable/disable sub-account application(s)
-        /// </summary>
-        /// <remarks>
-        /// API endpoint for the Corporate owner to enable/disable applications on the sub-account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the sub-account organization (mandatory)</param>
-        /// <param name="toggleApplications">List of applications to activate or deactivate on a sub-account</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CorporateSubAccountIdApplicationsTogglePutAsyncWithHttpInfo (long? id, SubAccountAppsToggleRequest toggleApplications);
-        /// <summary>
-        /// Delete a sub-account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the sub-account organization to be deleted</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CorporateSubAccountIdDeleteAsync (long? id);
-
-        /// <summary>
-        /// Delete a sub-account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the sub-account organization to be deleted</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CorporateSubAccountIdDeleteAsyncWithHttpInfo (long? id);
-        /// <summary>
-        /// Get sub-account details
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will provide the details for the specified sub-account company
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the sub-account organization</param>
-        /// <returns>Task of SubAccountDetailsResponse</returns>
-        System.Threading.Tasks.Task<SubAccountDetailsResponse> CorporateSubAccountIdGetAsync (long? id);
-
-        /// <summary>
-        /// Get sub-account details
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will provide the details for the specified sub-account company
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the sub-account organization</param>
-        /// <returns>Task of ApiResponse (SubAccountDetailsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SubAccountDetailsResponse>> CorporateSubAccountIdGetAsyncWithHttpInfo (long? id);
-        /// <summary>
-        /// Update sub-account plan
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will update the sub-account plan
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the sub-account organization</param>
-        /// <param name="updatePlanDetails">Values to update a sub-account plan</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CorporateSubAccountIdPlanPutAsync (long? id, SubAccountUpdatePlanRequest updatePlanDetails);
-
-        /// <summary>
-        /// Update sub-account plan
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will update the sub-account plan
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the sub-account organization</param>
-        /// <param name="updatePlanDetails">Values to update a sub-account plan</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CorporateSubAccountIdPlanPutAsyncWithHttpInfo (long? id, SubAccountUpdatePlanRequest updatePlanDetails);
-        /// <summary>
-        /// Create an API key for a sub-account
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will generate an API v3 key for a sub account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createApiKeyRequest">Values to generate API key for sub-account</param>
-        /// <returns>Task of CreateApiKeyResponse</returns>
-        System.Threading.Tasks.Task<CreateApiKeyResponse> CorporateSubAccountKeyPostAsync (CreateApiKeyRequest createApiKeyRequest);
-
-        /// <summary>
-        /// Create an API key for a sub-account
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will generate an API v3 key for a sub account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createApiKeyRequest">Values to generate API key for sub-account</param>
-        /// <returns>Task of ApiResponse (CreateApiKeyResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateApiKeyResponse>> CorporateSubAccountKeyPostAsyncWithHttpInfo (CreateApiKeyRequest createApiKeyRequest);
-        /// <summary>
-        /// Create a new sub-account under a master account.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will create a new sub-account under a master account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subAccountCreate">values to create new sub-account</param>
-        /// <returns>Task of CreateSubAccountResponse</returns>
-        System.Threading.Tasks.Task<CreateSubAccountResponse> CorporateSubAccountPostAsync (CreateSubAccount subAccountCreate);
-
-        /// <summary>
-        /// Create a new sub-account under a master account.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will create a new sub-account under a master account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subAccountCreate">values to create new sub-account</param>
-        /// <returns>Task of ApiResponse (CreateSubAccountResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateSubAccountResponse>> CorporateSubAccountPostAsyncWithHttpInfo (CreateSubAccount subAccountCreate);
-        /// <summary>
-        /// Generate SSO token to access Brevo
-        /// </summary>
-        /// <remarks>
-        /// This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.brevo.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoTokenRequest">Values to generate SSO token for sub-account</param>
-        /// <returns>Task of GetSsoToken</returns>
-        System.Threading.Tasks.Task<GetSsoToken> CorporateSubAccountSsoTokenPostAsync (SsoTokenRequest ssoTokenRequest);
-
-        /// <summary>
-        /// Generate SSO token to access Brevo
-        /// </summary>
-        /// <remarks>
-        /// This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.brevo.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoTokenRequest">Values to generate SSO token for sub-account</param>
-        /// <returns>Task of ApiResponse (GetSsoToken)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetSsoToken>> CorporateSubAccountSsoTokenPostAsyncWithHttpInfo (SsoTokenRequest ssoTokenRequest);
-        /// <summary>
-        /// Resend / cancel admin user invitation
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will allow the user to:  - Resend an admin user invitation - Cancel an admin user invitation 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="action">Action to be performed (cancel / resend)</param>
-        /// <param name="email">Email address of the recipient</param>
-        /// <returns>Task of InlineResponse200</returns>
-        System.Threading.Tasks.Task<InlineResponse200> CorporateUserInvitationActionEmailPutAsync (string action, string email);
-
-        /// <summary>
-        /// Resend / cancel admin user invitation
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will allow the user to:  - Resend an admin user invitation - Cancel an admin user invitation 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="action">Action to be performed (cancel / resend)</param>
-        /// <param name="email">Email address of the recipient</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> CorporateUserInvitationActionEmailPutAsyncWithHttpInfo (string action, string email);
-        /// <summary>
-        /// Revoke an admin user
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows to revoke/remove an invited member of your Admin account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Email of the invited user</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CorporateUserRevokeEmailDeleteAsync (string email);
-
-        /// <summary>
-        /// Revoke an admin user
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows to revoke/remove an invited member of your Admin account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Email of the invited user</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CorporateUserRevokeEmailDeleteAsyncWithHttpInfo (string email);
-        /// <summary>
-        /// Get user activity logs
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
-        /// <returns>Task of GetAccountActivity</returns>
-        System.Threading.Tasks.Task<GetAccountActivity> GetAccountActivityAsync (string startDate = null, string endDate = null, long? limit = null, long? offset = null);
-
-        /// <summary>
-        /// Get user activity logs
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
-        /// <returns>Task of ApiResponse (GetAccountActivity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetAccountActivity>> GetAccountActivityAsyncWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null);
-        /// <summary>
-        /// Get the list of all admin users
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to list all Admin users of your Admin account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of GetCorporateInvitedUsersList</returns>
-        System.Threading.Tasks.Task<GetCorporateInvitedUsersList> GetCorporateInvitedUsersListAsync ();
-
-        /// <summary>
-        /// Get the list of all admin users
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to list all Admin users of your Admin account
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (GetCorporateInvitedUsersList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetCorporateInvitedUsersList>> GetCorporateInvitedUsersListAsyncWithHttpInfo ();
-        /// <summary>
-        /// Get the list of groups
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to list all groups created on your Admin account.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of List&lt;InlineResponse2001&gt;</returns>
-        System.Threading.Tasks.Task<List<InlineResponse2001>> GetSubAccountGroupsAsync ();
-
-        /// <summary>
-        /// Get the list of groups
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows you to list all groups created on your Admin account.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2001&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2001>>> GetSubAccountGroupsAsyncWithHttpInfo ();
-        /// <summary>
-        /// Send invitation to an admin user
-        /// </summary>
-        /// <remarks>
-        /// &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendInvitation">Payload to send an invitation</param>
-        /// <returns>Task of InviteAdminUser</returns>
-        System.Threading.Tasks.Task<InviteAdminUser> InviteAdminUserAsync (InviteAdminUser sendInvitation);
-
-        /// <summary>
-        /// Send invitation to an admin user
-        /// </summary>
-        /// <remarks>
-        /// &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendInvitation">Payload to send an invitation</param>
-        /// <returns>Task of ApiResponse (InviteAdminUser)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InviteAdminUser>> InviteAdminUserAsyncWithHttpInfo (InviteAdminUser sendInvitation);
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class MasterAccountApi : IMasterAccountApi
+    public partial class MasterAccountApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -996,9 +121,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the group</param>
         /// <returns></returns>
-        public void CorporateGroupIdDelete (string id)
+        public void CorporateGroupIdDelete (string apiKey, string partnerKey, string id)
         {
-             CorporateGroupIdDeleteWithHttpInfo(id);
+             CorporateGroupIdDeleteWithHttpInfo(apiKey, partnerKey, id);
         }
 
         /// <summary>
@@ -1007,7 +132,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the group</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CorporateGroupIdDeleteWithHttpInfo (string id)
+        public ApiResponse<Object> CorporateGroupIdDeleteWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1038,14 +163,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1072,9 +197,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the group</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CorporateGroupIdDeleteAsync (string id)
+        public async System.Threading.Tasks.Task CorporateGroupIdDeleteAsync (string apiKey, string partnerKey, string id)
         {
-             await CorporateGroupIdDeleteAsyncWithHttpInfo(id);
+             await CorporateGroupIdDeleteAsyncWithHttpInfo(apiKey, partnerKey, id);
 
         }
 
@@ -1084,7 +209,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the group</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateGroupIdDeleteAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateGroupIdDeleteAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1115,14 +240,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1149,9 +274,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the group of sub-organization</param>
         /// <returns>CorporateGroupDetailsResponse</returns>
-        public CorporateGroupDetailsResponse CorporateGroupIdGet (string id)
+        public CorporateGroupDetailsResponse CorporateGroupIdGet (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<CorporateGroupDetailsResponse> localVarResponse = CorporateGroupIdGetWithHttpInfo(id);
+             ApiResponse<CorporateGroupDetailsResponse> localVarResponse = CorporateGroupIdGetWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
         }
 
@@ -1161,7 +286,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the group of sub-organization</param>
         /// <returns>ApiResponse of CorporateGroupDetailsResponse</returns>
-        public ApiResponse< CorporateGroupDetailsResponse > CorporateGroupIdGetWithHttpInfo (string id)
+        public ApiResponse< CorporateGroupDetailsResponse > CorporateGroupIdGetWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1192,14 +317,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1226,9 +351,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the group of sub-organization</param>
         /// <returns>Task of CorporateGroupDetailsResponse</returns>
-        public async System.Threading.Tasks.Task<CorporateGroupDetailsResponse> CorporateGroupIdGetAsync (string id)
+        public async System.Threading.Tasks.Task<CorporateGroupDetailsResponse> CorporateGroupIdGetAsync (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<CorporateGroupDetailsResponse> localVarResponse = await CorporateGroupIdGetAsyncWithHttpInfo(id);
+             ApiResponse<CorporateGroupDetailsResponse> localVarResponse = await CorporateGroupIdGetAsyncWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
 
         }
@@ -1239,7 +364,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the group of sub-organization</param>
         /// <returns>Task of ApiResponse (CorporateGroupDetailsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CorporateGroupDetailsResponse>> CorporateGroupIdGetAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<CorporateGroupDetailsResponse>> CorporateGroupIdGetAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1270,14 +395,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1305,9 +430,9 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the group</param>
         /// <param name="body">Group details to be updated.</param>
         /// <returns></returns>
-        public void CorporateGroupIdPut (string id, Body1 body)
+        public void CorporateGroupIdPut (string apiKey, string partnerKey, string id, Body1 body)
         {
-             CorporateGroupIdPutWithHttpInfo(id, body);
+             CorporateGroupIdPutWithHttpInfo(apiKey, partnerKey, id, body);
         }
 
         /// <summary>
@@ -1317,7 +442,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the group</param>
         /// <param name="body">Group details to be updated.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CorporateGroupIdPutWithHttpInfo (string id, Body1 body)
+        public ApiResponse<Object> CorporateGroupIdPutWithHttpInfo (string apiKey, string partnerKey, string id, Body1 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1359,14 +484,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1394,9 +519,9 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the group</param>
         /// <param name="body">Group details to be updated.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CorporateGroupIdPutAsync (string id, Body1 body)
+        public async System.Threading.Tasks.Task CorporateGroupIdPutAsync (string apiKey, string partnerKey, string id, Body1 body)
         {
-             await CorporateGroupIdPutAsyncWithHttpInfo(id, body);
+             await CorporateGroupIdPutAsyncWithHttpInfo(apiKey, partnerKey, id, body);
 
         }
 
@@ -1407,7 +532,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the group</param>
         /// <param name="body">Group details to be updated.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateGroupIdPutAsyncWithHttpInfo (string id, Body1 body)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateGroupIdPutAsyncWithHttpInfo (string apiKey, string partnerKey, string id, Body1 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1449,14 +574,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1483,9 +608,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Group details to be created.</param>
         /// <returns>InlineResponse201</returns>
-        public InlineResponse201 CorporateGroupPost (Body body)
+        public InlineResponse201 CorporateGroupPost (string apiKey, string partnerKey, Body body)
         {
-             ApiResponse<InlineResponse201> localVarResponse = CorporateGroupPostWithHttpInfo(body);
+             ApiResponse<InlineResponse201> localVarResponse = CorporateGroupPostWithHttpInfo(apiKey, partnerKey, body);
              return localVarResponse.Data;
         }
 
@@ -1495,7 +620,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Group details to be created.</param>
         /// <returns>ApiResponse of InlineResponse201</returns>
-        public ApiResponse< InlineResponse201 > CorporateGroupPostWithHttpInfo (Body body)
+        public ApiResponse< InlineResponse201 > CorporateGroupPostWithHttpInfo (string apiKey, string partnerKey, Body body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1533,14 +658,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1567,9 +692,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Group details to be created.</param>
         /// <returns>Task of InlineResponse201</returns>
-        public async System.Threading.Tasks.Task<InlineResponse201> CorporateGroupPostAsync (Body body)
+        public async System.Threading.Tasks.Task<InlineResponse201> CorporateGroupPostAsync (string apiKey, string partnerKey, Body body)
         {
-             ApiResponse<InlineResponse201> localVarResponse = await CorporateGroupPostAsyncWithHttpInfo(body);
+             ApiResponse<InlineResponse201> localVarResponse = await CorporateGroupPostAsyncWithHttpInfo(apiKey, partnerKey, body);
              return localVarResponse.Data;
 
         }
@@ -1580,7 +705,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Group details to be created.</param>
         /// <returns>Task of ApiResponse (InlineResponse201)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> CorporateGroupPostAsyncWithHttpInfo (Body body)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> CorporateGroupPostAsyncWithHttpInfo (string apiKey, string partnerKey, Body body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1618,14 +743,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1653,9 +778,9 @@ namespace brevo_csharp.Api
         /// <param name="groupId">Id of the group</param>
         /// <param name="body">List of sub-account ids</param>
         /// <returns></returns>
-        public void CorporateGroupUnlinkGroupIdSubAccountsPut (string groupId, Body2 body)
+        public void CorporateGroupUnlinkGroupIdSubAccountsPut (string apiKey, string partnerKey, string groupId, Body2 body)
         {
-             CorporateGroupUnlinkGroupIdSubAccountsPutWithHttpInfo(groupId, body);
+             CorporateGroupUnlinkGroupIdSubAccountsPutWithHttpInfo(apiKey, partnerKey, groupId, body);
         }
 
         /// <summary>
@@ -1665,7 +790,7 @@ namespace brevo_csharp.Api
         /// <param name="groupId">Id of the group</param>
         /// <param name="body">List of sub-account ids</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CorporateGroupUnlinkGroupIdSubAccountsPutWithHttpInfo (string groupId, Body2 body)
+        public ApiResponse<Object> CorporateGroupUnlinkGroupIdSubAccountsPutWithHttpInfo (string apiKey, string partnerKey, string groupId, Body2 body)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -1707,14 +832,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1742,9 +867,9 @@ namespace brevo_csharp.Api
         /// <param name="groupId">Id of the group</param>
         /// <param name="body">List of sub-account ids</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CorporateGroupUnlinkGroupIdSubAccountsPutAsync (string groupId, Body2 body)
+        public async System.Threading.Tasks.Task CorporateGroupUnlinkGroupIdSubAccountsPutAsync (string apiKey, string partnerKey, string groupId, Body2 body)
         {
-             await CorporateGroupUnlinkGroupIdSubAccountsPutAsyncWithHttpInfo(groupId, body);
+             await CorporateGroupUnlinkGroupIdSubAccountsPutAsyncWithHttpInfo(apiKey, partnerKey, groupId, body);
 
         }
 
@@ -1755,7 +880,7 @@ namespace brevo_csharp.Api
         /// <param name="groupId">Id of the group</param>
         /// <param name="body">List of sub-account ids</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateGroupUnlinkGroupIdSubAccountsPutAsyncWithHttpInfo (string groupId, Body2 body)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateGroupUnlinkGroupIdSubAccountsPutAsyncWithHttpInfo (string apiKey, string partnerKey, string groupId, Body2 body)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -1797,14 +922,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1830,9 +955,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>MasterDetailsResponse</returns>
-        public MasterDetailsResponse CorporateMasterAccountGet ()
+        public MasterDetailsResponse CorporateMasterAccountGet (string apiKey, string partnerKey)
         {
-             ApiResponse<MasterDetailsResponse> localVarResponse = CorporateMasterAccountGetWithHttpInfo();
+             ApiResponse<MasterDetailsResponse> localVarResponse = CorporateMasterAccountGetWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
         }
 
@@ -1841,7 +966,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of MasterDetailsResponse</returns>
-        public ApiResponse< MasterDetailsResponse > CorporateMasterAccountGetWithHttpInfo ()
+        public ApiResponse< MasterDetailsResponse > CorporateMasterAccountGetWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./corporate/masterAccount";
@@ -1868,14 +993,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1901,9 +1026,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of MasterDetailsResponse</returns>
-        public async System.Threading.Tasks.Task<MasterDetailsResponse> CorporateMasterAccountGetAsync ()
+        public async System.Threading.Tasks.Task<MasterDetailsResponse> CorporateMasterAccountGetAsync (string apiKey, string partnerKey)
         {
-             ApiResponse<MasterDetailsResponse> localVarResponse = await CorporateMasterAccountGetAsyncWithHttpInfo();
+             ApiResponse<MasterDetailsResponse> localVarResponse = await CorporateMasterAccountGetAsyncWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
 
         }
@@ -1913,7 +1038,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (MasterDetailsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MasterDetailsResponse>> CorporateMasterAccountGetAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<MasterDetailsResponse>> CorporateMasterAccountGetAsyncWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./corporate/masterAccount";
@@ -1940,14 +1065,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1975,9 +1100,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first sub-account in the page</param>
         /// <param name="limit">Number of sub-accounts to be displayed on each page</param>
         /// <returns>SubAccountsResponse</returns>
-        public SubAccountsResponse CorporateSubAccountGet (int? offset, int? limit)
+        public SubAccountsResponse CorporateSubAccountGet (string apiKey, string partnerKey, int? offset, int? limit)
         {
-             ApiResponse<SubAccountsResponse> localVarResponse = CorporateSubAccountGetWithHttpInfo(offset, limit);
+             ApiResponse<SubAccountsResponse> localVarResponse = CorporateSubAccountGetWithHttpInfo(apiKey, partnerKey, offset, limit);
              return localVarResponse.Data;
         }
 
@@ -1988,7 +1113,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first sub-account in the page</param>
         /// <param name="limit">Number of sub-accounts to be displayed on each page</param>
         /// <returns>ApiResponse of SubAccountsResponse</returns>
-        public ApiResponse< SubAccountsResponse > CorporateSubAccountGetWithHttpInfo (int? offset, int? limit)
+        public ApiResponse< SubAccountsResponse > CorporateSubAccountGetWithHttpInfo (string apiKey, string partnerKey, int? offset, int? limit)
         {
             // verify the required parameter 'offset' is set
             if (offset == null)
@@ -2023,14 +1148,14 @@ namespace brevo_csharp.Api
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2058,9 +1183,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first sub-account in the page</param>
         /// <param name="limit">Number of sub-accounts to be displayed on each page</param>
         /// <returns>Task of SubAccountsResponse</returns>
-        public async System.Threading.Tasks.Task<SubAccountsResponse> CorporateSubAccountGetAsync (int? offset, int? limit)
+        public async System.Threading.Tasks.Task<SubAccountsResponse> CorporateSubAccountGetAsync (string apiKey, string partnerKey, int? offset, int? limit)
         {
-             ApiResponse<SubAccountsResponse> localVarResponse = await CorporateSubAccountGetAsyncWithHttpInfo(offset, limit);
+             ApiResponse<SubAccountsResponse> localVarResponse = await CorporateSubAccountGetAsyncWithHttpInfo(apiKey, partnerKey, offset, limit);
              return localVarResponse.Data;
 
         }
@@ -2072,7 +1197,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first sub-account in the page</param>
         /// <param name="limit">Number of sub-accounts to be displayed on each page</param>
         /// <returns>Task of ApiResponse (SubAccountsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SubAccountsResponse>> CorporateSubAccountGetAsyncWithHttpInfo (int? offset, int? limit)
+        public async System.Threading.Tasks.Task<ApiResponse<SubAccountsResponse>> CorporateSubAccountGetAsyncWithHttpInfo (string apiKey, string partnerKey, int? offset, int? limit)
         {
             // verify the required parameter 'offset' is set
             if (offset == null)
@@ -2107,14 +1232,14 @@ namespace brevo_csharp.Api
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2142,9 +1267,9 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the sub-account organization (mandatory)</param>
         /// <param name="toggleApplications">List of applications to activate or deactivate on a sub-account</param>
         /// <returns></returns>
-        public void CorporateSubAccountIdApplicationsTogglePut (long? id, SubAccountAppsToggleRequest toggleApplications)
+        public void CorporateSubAccountIdApplicationsTogglePut (string apiKey, string partnerKey, long? id, SubAccountAppsToggleRequest toggleApplications)
         {
-             CorporateSubAccountIdApplicationsTogglePutWithHttpInfo(id, toggleApplications);
+             CorporateSubAccountIdApplicationsTogglePutWithHttpInfo(apiKey, partnerKey, id, toggleApplications);
         }
 
         /// <summary>
@@ -2154,7 +1279,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the sub-account organization (mandatory)</param>
         /// <param name="toggleApplications">List of applications to activate or deactivate on a sub-account</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CorporateSubAccountIdApplicationsTogglePutWithHttpInfo (long? id, SubAccountAppsToggleRequest toggleApplications)
+        public ApiResponse<Object> CorporateSubAccountIdApplicationsTogglePutWithHttpInfo (string apiKey, string partnerKey, long? id, SubAccountAppsToggleRequest toggleApplications)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2196,14 +1321,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2231,9 +1356,9 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the sub-account organization (mandatory)</param>
         /// <param name="toggleApplications">List of applications to activate or deactivate on a sub-account</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CorporateSubAccountIdApplicationsTogglePutAsync (long? id, SubAccountAppsToggleRequest toggleApplications)
+        public async System.Threading.Tasks.Task CorporateSubAccountIdApplicationsTogglePutAsync (string apiKey, string partnerKey, long? id, SubAccountAppsToggleRequest toggleApplications)
         {
-             await CorporateSubAccountIdApplicationsTogglePutAsyncWithHttpInfo(id, toggleApplications);
+             await CorporateSubAccountIdApplicationsTogglePutAsyncWithHttpInfo(apiKey, partnerKey, id, toggleApplications);
 
         }
 
@@ -2244,7 +1369,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the sub-account organization (mandatory)</param>
         /// <param name="toggleApplications">List of applications to activate or deactivate on a sub-account</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateSubAccountIdApplicationsTogglePutAsyncWithHttpInfo (long? id, SubAccountAppsToggleRequest toggleApplications)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateSubAccountIdApplicationsTogglePutAsyncWithHttpInfo (string apiKey, string partnerKey, long? id, SubAccountAppsToggleRequest toggleApplications)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2286,14 +1411,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2320,9 +1445,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the sub-account organization to be deleted</param>
         /// <returns></returns>
-        public void CorporateSubAccountIdDelete (long? id)
+        public void CorporateSubAccountIdDelete (string apiKey, string partnerKey, long? id)
         {
-             CorporateSubAccountIdDeleteWithHttpInfo(id);
+             CorporateSubAccountIdDeleteWithHttpInfo(apiKey, partnerKey, id);
         }
 
         /// <summary>
@@ -2331,7 +1456,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the sub-account organization to be deleted</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CorporateSubAccountIdDeleteWithHttpInfo (long? id)
+        public ApiResponse<Object> CorporateSubAccountIdDeleteWithHttpInfo (string apiKey, string partnerKey, long? id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2362,14 +1487,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2396,9 +1521,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the sub-account organization to be deleted</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CorporateSubAccountIdDeleteAsync (long? id)
+        public async System.Threading.Tasks.Task CorporateSubAccountIdDeleteAsync (string apiKey, string partnerKey, long? id)
         {
-             await CorporateSubAccountIdDeleteAsyncWithHttpInfo(id);
+             await CorporateSubAccountIdDeleteAsyncWithHttpInfo(apiKey, partnerKey, id);
 
         }
 
@@ -2408,7 +1533,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the sub-account organization to be deleted</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateSubAccountIdDeleteAsyncWithHttpInfo (long? id)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateSubAccountIdDeleteAsyncWithHttpInfo (string apiKey, string partnerKey, long? id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2439,14 +1564,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2473,9 +1598,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the sub-account organization</param>
         /// <returns>SubAccountDetailsResponse</returns>
-        public SubAccountDetailsResponse CorporateSubAccountIdGet (long? id)
+        public SubAccountDetailsResponse CorporateSubAccountIdGet (string apiKey, string partnerKey, long? id)
         {
-             ApiResponse<SubAccountDetailsResponse> localVarResponse = CorporateSubAccountIdGetWithHttpInfo(id);
+             ApiResponse<SubAccountDetailsResponse> localVarResponse = CorporateSubAccountIdGetWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
         }
 
@@ -2485,7 +1610,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the sub-account organization</param>
         /// <returns>ApiResponse of SubAccountDetailsResponse</returns>
-        public ApiResponse< SubAccountDetailsResponse > CorporateSubAccountIdGetWithHttpInfo (long? id)
+        public ApiResponse< SubAccountDetailsResponse > CorporateSubAccountIdGetWithHttpInfo (string apiKey, string partnerKey, long? id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2516,14 +1641,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2550,9 +1675,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the sub-account organization</param>
         /// <returns>Task of SubAccountDetailsResponse</returns>
-        public async System.Threading.Tasks.Task<SubAccountDetailsResponse> CorporateSubAccountIdGetAsync (long? id)
+        public async System.Threading.Tasks.Task<SubAccountDetailsResponse> CorporateSubAccountIdGetAsync (string apiKey, string partnerKey, long? id)
         {
-             ApiResponse<SubAccountDetailsResponse> localVarResponse = await CorporateSubAccountIdGetAsyncWithHttpInfo(id);
+             ApiResponse<SubAccountDetailsResponse> localVarResponse = await CorporateSubAccountIdGetAsyncWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
 
         }
@@ -2563,7 +1688,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the sub-account organization</param>
         /// <returns>Task of ApiResponse (SubAccountDetailsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SubAccountDetailsResponse>> CorporateSubAccountIdGetAsyncWithHttpInfo (long? id)
+        public async System.Threading.Tasks.Task<ApiResponse<SubAccountDetailsResponse>> CorporateSubAccountIdGetAsyncWithHttpInfo (string apiKey, string partnerKey, long? id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2594,14 +1719,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2629,9 +1754,9 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the sub-account organization</param>
         /// <param name="updatePlanDetails">Values to update a sub-account plan</param>
         /// <returns></returns>
-        public void CorporateSubAccountIdPlanPut (long? id, SubAccountUpdatePlanRequest updatePlanDetails)
+        public void CorporateSubAccountIdPlanPut (string apiKey, string partnerKey, long? id, SubAccountUpdatePlanRequest updatePlanDetails)
         {
-             CorporateSubAccountIdPlanPutWithHttpInfo(id, updatePlanDetails);
+             CorporateSubAccountIdPlanPutWithHttpInfo(apiKey, partnerKey, id, updatePlanDetails);
         }
 
         /// <summary>
@@ -2641,7 +1766,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the sub-account organization</param>
         /// <param name="updatePlanDetails">Values to update a sub-account plan</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CorporateSubAccountIdPlanPutWithHttpInfo (long? id, SubAccountUpdatePlanRequest updatePlanDetails)
+        public ApiResponse<Object> CorporateSubAccountIdPlanPutWithHttpInfo (string apiKey, string partnerKey, long? id, SubAccountUpdatePlanRequest updatePlanDetails)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2683,14 +1808,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2718,9 +1843,9 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the sub-account organization</param>
         /// <param name="updatePlanDetails">Values to update a sub-account plan</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CorporateSubAccountIdPlanPutAsync (long? id, SubAccountUpdatePlanRequest updatePlanDetails)
+        public async System.Threading.Tasks.Task CorporateSubAccountIdPlanPutAsync (string apiKey, string partnerKey, long? id, SubAccountUpdatePlanRequest updatePlanDetails)
         {
-             await CorporateSubAccountIdPlanPutAsyncWithHttpInfo(id, updatePlanDetails);
+             await CorporateSubAccountIdPlanPutAsyncWithHttpInfo(apiKey, partnerKey, id, updatePlanDetails);
 
         }
 
@@ -2731,7 +1856,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the sub-account organization</param>
         /// <param name="updatePlanDetails">Values to update a sub-account plan</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateSubAccountIdPlanPutAsyncWithHttpInfo (long? id, SubAccountUpdatePlanRequest updatePlanDetails)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateSubAccountIdPlanPutAsyncWithHttpInfo (string apiKey, string partnerKey, long? id, SubAccountUpdatePlanRequest updatePlanDetails)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2773,14 +1898,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2807,9 +1932,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createApiKeyRequest">Values to generate API key for sub-account</param>
         /// <returns>CreateApiKeyResponse</returns>
-        public CreateApiKeyResponse CorporateSubAccountKeyPost (CreateApiKeyRequest createApiKeyRequest)
+        public CreateApiKeyResponse CorporateSubAccountKeyPost (string apiKey, string partnerKey, CreateApiKeyRequest createApiKeyRequest)
         {
-             ApiResponse<CreateApiKeyResponse> localVarResponse = CorporateSubAccountKeyPostWithHttpInfo(createApiKeyRequest);
+             ApiResponse<CreateApiKeyResponse> localVarResponse = CorporateSubAccountKeyPostWithHttpInfo(apiKey, partnerKey, createApiKeyRequest);
              return localVarResponse.Data;
         }
 
@@ -2819,7 +1944,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createApiKeyRequest">Values to generate API key for sub-account</param>
         /// <returns>ApiResponse of CreateApiKeyResponse</returns>
-        public ApiResponse< CreateApiKeyResponse > CorporateSubAccountKeyPostWithHttpInfo (CreateApiKeyRequest createApiKeyRequest)
+        public ApiResponse< CreateApiKeyResponse > CorporateSubAccountKeyPostWithHttpInfo (string apiKey, string partnerKey, CreateApiKeyRequest createApiKeyRequest)
         {
             // verify the required parameter 'createApiKeyRequest' is set
             if (createApiKeyRequest == null)
@@ -2857,14 +1982,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2891,9 +2016,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createApiKeyRequest">Values to generate API key for sub-account</param>
         /// <returns>Task of CreateApiKeyResponse</returns>
-        public async System.Threading.Tasks.Task<CreateApiKeyResponse> CorporateSubAccountKeyPostAsync (CreateApiKeyRequest createApiKeyRequest)
+        public async System.Threading.Tasks.Task<CreateApiKeyResponse> CorporateSubAccountKeyPostAsync (string apiKey, string partnerKey, CreateApiKeyRequest createApiKeyRequest)
         {
-             ApiResponse<CreateApiKeyResponse> localVarResponse = await CorporateSubAccountKeyPostAsyncWithHttpInfo(createApiKeyRequest);
+             ApiResponse<CreateApiKeyResponse> localVarResponse = await CorporateSubAccountKeyPostAsyncWithHttpInfo(apiKey, partnerKey, createApiKeyRequest);
              return localVarResponse.Data;
 
         }
@@ -2904,7 +2029,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createApiKeyRequest">Values to generate API key for sub-account</param>
         /// <returns>Task of ApiResponse (CreateApiKeyResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateApiKeyResponse>> CorporateSubAccountKeyPostAsyncWithHttpInfo (CreateApiKeyRequest createApiKeyRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateApiKeyResponse>> CorporateSubAccountKeyPostAsyncWithHttpInfo (string apiKey, string partnerKey, CreateApiKeyRequest createApiKeyRequest)
         {
             // verify the required parameter 'createApiKeyRequest' is set
             if (createApiKeyRequest == null)
@@ -2942,14 +2067,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2976,9 +2101,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountCreate">values to create new sub-account</param>
         /// <returns>CreateSubAccountResponse</returns>
-        public CreateSubAccountResponse CorporateSubAccountPost (CreateSubAccount subAccountCreate)
+        public CreateSubAccountResponse CorporateSubAccountPost (string apiKey, string partnerKey, CreateSubAccount subAccountCreate)
         {
-             ApiResponse<CreateSubAccountResponse> localVarResponse = CorporateSubAccountPostWithHttpInfo(subAccountCreate);
+             ApiResponse<CreateSubAccountResponse> localVarResponse = CorporateSubAccountPostWithHttpInfo(apiKey, partnerKey, subAccountCreate);
              return localVarResponse.Data;
         }
 
@@ -2988,7 +2113,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountCreate">values to create new sub-account</param>
         /// <returns>ApiResponse of CreateSubAccountResponse</returns>
-        public ApiResponse< CreateSubAccountResponse > CorporateSubAccountPostWithHttpInfo (CreateSubAccount subAccountCreate)
+        public ApiResponse< CreateSubAccountResponse > CorporateSubAccountPostWithHttpInfo (string apiKey, string partnerKey, CreateSubAccount subAccountCreate)
         {
             // verify the required parameter 'subAccountCreate' is set
             if (subAccountCreate == null)
@@ -3026,14 +2151,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3060,9 +2185,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountCreate">values to create new sub-account</param>
         /// <returns>Task of CreateSubAccountResponse</returns>
-        public async System.Threading.Tasks.Task<CreateSubAccountResponse> CorporateSubAccountPostAsync (CreateSubAccount subAccountCreate)
+        public async System.Threading.Tasks.Task<CreateSubAccountResponse> CorporateSubAccountPostAsync (string apiKey, string partnerKey, CreateSubAccount subAccountCreate)
         {
-             ApiResponse<CreateSubAccountResponse> localVarResponse = await CorporateSubAccountPostAsyncWithHttpInfo(subAccountCreate);
+             ApiResponse<CreateSubAccountResponse> localVarResponse = await CorporateSubAccountPostAsyncWithHttpInfo(apiKey, partnerKey, subAccountCreate);
              return localVarResponse.Data;
 
         }
@@ -3073,7 +2198,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountCreate">values to create new sub-account</param>
         /// <returns>Task of ApiResponse (CreateSubAccountResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateSubAccountResponse>> CorporateSubAccountPostAsyncWithHttpInfo (CreateSubAccount subAccountCreate)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateSubAccountResponse>> CorporateSubAccountPostAsyncWithHttpInfo (string apiKey, string partnerKey, CreateSubAccount subAccountCreate)
         {
             // verify the required parameter 'subAccountCreate' is set
             if (subAccountCreate == null)
@@ -3111,14 +2236,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3145,9 +2270,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ssoTokenRequest">Values to generate SSO token for sub-account</param>
         /// <returns>GetSsoToken</returns>
-        public GetSsoToken CorporateSubAccountSsoTokenPost (SsoTokenRequest ssoTokenRequest)
+        public GetSsoToken CorporateSubAccountSsoTokenPost (string apiKey, string partnerKey, SsoTokenRequest ssoTokenRequest)
         {
-             ApiResponse<GetSsoToken> localVarResponse = CorporateSubAccountSsoTokenPostWithHttpInfo(ssoTokenRequest);
+             ApiResponse<GetSsoToken> localVarResponse = CorporateSubAccountSsoTokenPostWithHttpInfo(apiKey, partnerKey, ssoTokenRequest);
              return localVarResponse.Data;
         }
 
@@ -3157,7 +2282,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ssoTokenRequest">Values to generate SSO token for sub-account</param>
         /// <returns>ApiResponse of GetSsoToken</returns>
-        public ApiResponse< GetSsoToken > CorporateSubAccountSsoTokenPostWithHttpInfo (SsoTokenRequest ssoTokenRequest)
+        public ApiResponse< GetSsoToken > CorporateSubAccountSsoTokenPostWithHttpInfo (string apiKey, string partnerKey, SsoTokenRequest ssoTokenRequest)
         {
             // verify the required parameter 'ssoTokenRequest' is set
             if (ssoTokenRequest == null)
@@ -3195,14 +2320,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3229,9 +2354,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ssoTokenRequest">Values to generate SSO token for sub-account</param>
         /// <returns>Task of GetSsoToken</returns>
-        public async System.Threading.Tasks.Task<GetSsoToken> CorporateSubAccountSsoTokenPostAsync (SsoTokenRequest ssoTokenRequest)
+        public async System.Threading.Tasks.Task<GetSsoToken> CorporateSubAccountSsoTokenPostAsync (string apiKey, string partnerKey, SsoTokenRequest ssoTokenRequest)
         {
-             ApiResponse<GetSsoToken> localVarResponse = await CorporateSubAccountSsoTokenPostAsyncWithHttpInfo(ssoTokenRequest);
+             ApiResponse<GetSsoToken> localVarResponse = await CorporateSubAccountSsoTokenPostAsyncWithHttpInfo(apiKey, partnerKey, ssoTokenRequest);
              return localVarResponse.Data;
 
         }
@@ -3242,7 +2367,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ssoTokenRequest">Values to generate SSO token for sub-account</param>
         /// <returns>Task of ApiResponse (GetSsoToken)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetSsoToken>> CorporateSubAccountSsoTokenPostAsyncWithHttpInfo (SsoTokenRequest ssoTokenRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<GetSsoToken>> CorporateSubAccountSsoTokenPostAsyncWithHttpInfo (string apiKey, string partnerKey, SsoTokenRequest ssoTokenRequest)
         {
             // verify the required parameter 'ssoTokenRequest' is set
             if (ssoTokenRequest == null)
@@ -3280,14 +2405,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3315,9 +2440,9 @@ namespace brevo_csharp.Api
         /// <param name="action">Action to be performed (cancel / resend)</param>
         /// <param name="email">Email address of the recipient</param>
         /// <returns>InlineResponse200</returns>
-        public InlineResponse200 CorporateUserInvitationActionEmailPut (string action, string email)
+        public InlineResponse200 CorporateUserInvitationActionEmailPut (string apiKey, string partnerKey, string action, string email)
         {
-             ApiResponse<InlineResponse200> localVarResponse = CorporateUserInvitationActionEmailPutWithHttpInfo(action, email);
+             ApiResponse<InlineResponse200> localVarResponse = CorporateUserInvitationActionEmailPutWithHttpInfo(apiKey, partnerKey, action, email);
              return localVarResponse.Data;
         }
 
@@ -3328,7 +2453,7 @@ namespace brevo_csharp.Api
         /// <param name="action">Action to be performed (cancel / resend)</param>
         /// <param name="email">Email address of the recipient</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        public ApiResponse< InlineResponse200 > CorporateUserInvitationActionEmailPutWithHttpInfo (string action, string email)
+        public ApiResponse< InlineResponse200 > CorporateUserInvitationActionEmailPutWithHttpInfo (string apiKey, string partnerKey, string action, string email)
         {
             // verify the required parameter 'action' is set
             if (action == null)
@@ -3363,14 +2488,14 @@ namespace brevo_csharp.Api
             if (email != null) localVarPathParams.Add("email", this.Configuration.ApiClient.ParameterToString(email)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3398,9 +2523,9 @@ namespace brevo_csharp.Api
         /// <param name="action">Action to be performed (cancel / resend)</param>
         /// <param name="email">Email address of the recipient</param>
         /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> CorporateUserInvitationActionEmailPutAsync (string action, string email)
+        public async System.Threading.Tasks.Task<InlineResponse200> CorporateUserInvitationActionEmailPutAsync (string apiKey, string partnerKey, string action, string email)
         {
-             ApiResponse<InlineResponse200> localVarResponse = await CorporateUserInvitationActionEmailPutAsyncWithHttpInfo(action, email);
+             ApiResponse<InlineResponse200> localVarResponse = await CorporateUserInvitationActionEmailPutAsyncWithHttpInfo(apiKey, partnerKey, action, email);
              return localVarResponse.Data;
 
         }
@@ -3412,7 +2537,7 @@ namespace brevo_csharp.Api
         /// <param name="action">Action to be performed (cancel / resend)</param>
         /// <param name="email">Email address of the recipient</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> CorporateUserInvitationActionEmailPutAsyncWithHttpInfo (string action, string email)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> CorporateUserInvitationActionEmailPutAsyncWithHttpInfo (string apiKey, string partnerKey, string action, string email)
         {
             // verify the required parameter 'action' is set
             if (action == null)
@@ -3447,14 +2572,14 @@ namespace brevo_csharp.Api
             if (email != null) localVarPathParams.Add("email", this.Configuration.ApiClient.ParameterToString(email)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3481,9 +2606,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email of the invited user</param>
         /// <returns></returns>
-        public void CorporateUserRevokeEmailDelete (string email)
+        public void CorporateUserRevokeEmailDelete (string apiKey, string partnerKey, string email)
         {
-             CorporateUserRevokeEmailDeleteWithHttpInfo(email);
+             CorporateUserRevokeEmailDeleteWithHttpInfo(apiKey, partnerKey, email);
         }
 
         /// <summary>
@@ -3492,7 +2617,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email of the invited user</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CorporateUserRevokeEmailDeleteWithHttpInfo (string email)
+        public ApiResponse<Object> CorporateUserRevokeEmailDeleteWithHttpInfo (string apiKey, string partnerKey, string email)
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -3523,14 +2648,14 @@ namespace brevo_csharp.Api
             if (email != null) localVarPathParams.Add("email", this.Configuration.ApiClient.ParameterToString(email)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3557,9 +2682,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email of the invited user</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CorporateUserRevokeEmailDeleteAsync (string email)
+        public async System.Threading.Tasks.Task CorporateUserRevokeEmailDeleteAsync (string apiKey, string partnerKey, string email)
         {
-             await CorporateUserRevokeEmailDeleteAsyncWithHttpInfo(email);
+             await CorporateUserRevokeEmailDeleteAsyncWithHttpInfo(apiKey, partnerKey, email);
 
         }
 
@@ -3569,7 +2694,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">Email of the invited user</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateUserRevokeEmailDeleteAsyncWithHttpInfo (string email)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateUserRevokeEmailDeleteAsyncWithHttpInfo (string apiKey, string partnerKey, string email)
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -3600,14 +2725,14 @@ namespace brevo_csharp.Api
             if (email != null) localVarPathParams.Add("email", this.Configuration.ApiClient.ParameterToString(email)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3637,9 +2762,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>GetAccountActivity</returns>
-        public GetAccountActivity GetAccountActivity (string startDate = null, string endDate = null, long? limit = null, long? offset = null)
+        public GetAccountActivity GetAccountActivity (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null)
         {
-             ApiResponse<GetAccountActivity> localVarResponse = GetAccountActivityWithHttpInfo(startDate, endDate, limit, offset);
+             ApiResponse<GetAccountActivity> localVarResponse = GetAccountActivityWithHttpInfo(apiKey, partnerKey, startDate, endDate, limit, offset);
              return localVarResponse.Data;
         }
 
@@ -3652,7 +2777,7 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>ApiResponse of GetAccountActivity</returns>
-        public ApiResponse< GetAccountActivity > GetAccountActivityWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null)
+        public ApiResponse< GetAccountActivity > GetAccountActivityWithHttpInfo (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null)
         {
 
             var localVarPath = "./organization/activities";
@@ -3683,14 +2808,14 @@ namespace brevo_csharp.Api
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3720,9 +2845,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>Task of GetAccountActivity</returns>
-        public async System.Threading.Tasks.Task<GetAccountActivity> GetAccountActivityAsync (string startDate = null, string endDate = null, long? limit = null, long? offset = null)
+        public async System.Threading.Tasks.Task<GetAccountActivity> GetAccountActivityAsync (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null)
         {
-             ApiResponse<GetAccountActivity> localVarResponse = await GetAccountActivityAsyncWithHttpInfo(startDate, endDate, limit, offset);
+             ApiResponse<GetAccountActivity> localVarResponse = await GetAccountActivityAsyncWithHttpInfo(apiKey, partnerKey, startDate, endDate, limit, offset);
              return localVarResponse.Data;
 
         }
@@ -3736,7 +2861,7 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (GetAccountActivity)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetAccountActivity>> GetAccountActivityAsyncWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetAccountActivity>> GetAccountActivityAsyncWithHttpInfo (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null)
         {
 
             var localVarPath = "./organization/activities";
@@ -3767,14 +2892,14 @@ namespace brevo_csharp.Api
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3800,9 +2925,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>GetCorporateInvitedUsersList</returns>
-        public GetCorporateInvitedUsersList GetCorporateInvitedUsersList ()
+        public GetCorporateInvitedUsersList GetCorporateInvitedUsersList (string apiKey, string partnerKey)
         {
-             ApiResponse<GetCorporateInvitedUsersList> localVarResponse = GetCorporateInvitedUsersListWithHttpInfo();
+             ApiResponse<GetCorporateInvitedUsersList> localVarResponse = GetCorporateInvitedUsersListWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
         }
 
@@ -3811,7 +2936,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of GetCorporateInvitedUsersList</returns>
-        public ApiResponse< GetCorporateInvitedUsersList > GetCorporateInvitedUsersListWithHttpInfo ()
+        public ApiResponse< GetCorporateInvitedUsersList > GetCorporateInvitedUsersListWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./corporate/invited/users";
@@ -3838,14 +2963,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3871,9 +2996,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of GetCorporateInvitedUsersList</returns>
-        public async System.Threading.Tasks.Task<GetCorporateInvitedUsersList> GetCorporateInvitedUsersListAsync ()
+        public async System.Threading.Tasks.Task<GetCorporateInvitedUsersList> GetCorporateInvitedUsersListAsync (string apiKey, string partnerKey)
         {
-             ApiResponse<GetCorporateInvitedUsersList> localVarResponse = await GetCorporateInvitedUsersListAsyncWithHttpInfo();
+             ApiResponse<GetCorporateInvitedUsersList> localVarResponse = await GetCorporateInvitedUsersListAsyncWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
 
         }
@@ -3883,7 +3008,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (GetCorporateInvitedUsersList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetCorporateInvitedUsersList>> GetCorporateInvitedUsersListAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<GetCorporateInvitedUsersList>> GetCorporateInvitedUsersListAsyncWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./corporate/invited/users";
@@ -3910,14 +3035,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3943,9 +3068,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;InlineResponse2001&gt;</returns>
-        public List<InlineResponse2001> GetSubAccountGroups ()
+        public List<InlineResponse2001> GetSubAccountGroups (string apiKey, string partnerKey)
         {
-             ApiResponse<List<InlineResponse2001>> localVarResponse = GetSubAccountGroupsWithHttpInfo();
+             ApiResponse<List<InlineResponse2001>> localVarResponse = GetSubAccountGroupsWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
         }
 
@@ -3954,7 +3079,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;InlineResponse2001&gt;</returns>
-        public ApiResponse< List<InlineResponse2001> > GetSubAccountGroupsWithHttpInfo ()
+        public ApiResponse< List<InlineResponse2001> > GetSubAccountGroupsWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./corporate/groups";
@@ -3981,14 +3106,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4014,9 +3139,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;InlineResponse2001&gt;</returns>
-        public async System.Threading.Tasks.Task<List<InlineResponse2001>> GetSubAccountGroupsAsync ()
+        public async System.Threading.Tasks.Task<List<InlineResponse2001>> GetSubAccountGroupsAsync (string apiKey, string partnerKey)
         {
-             ApiResponse<List<InlineResponse2001>> localVarResponse = await GetSubAccountGroupsAsyncWithHttpInfo();
+             ApiResponse<List<InlineResponse2001>> localVarResponse = await GetSubAccountGroupsAsyncWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
 
         }
@@ -4026,7 +3151,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;InlineResponse2001&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2001>>> GetSubAccountGroupsAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2001>>> GetSubAccountGroupsAsyncWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./corporate/groups";
@@ -4053,14 +3178,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4087,9 +3212,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendInvitation">Payload to send an invitation</param>
         /// <returns>InviteAdminUser</returns>
-        public InviteAdminUser InviteAdminUser (InviteAdminUser sendInvitation)
+        public InviteAdminUser InviteAdminUser (string apiKey, string partnerKey, InviteAdminUser sendInvitation)
         {
-             ApiResponse<InviteAdminUser> localVarResponse = InviteAdminUserWithHttpInfo(sendInvitation);
+             ApiResponse<InviteAdminUser> localVarResponse = InviteAdminUserWithHttpInfo(apiKey, partnerKey, sendInvitation);
              return localVarResponse.Data;
         }
 
@@ -4099,7 +3224,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendInvitation">Payload to send an invitation</param>
         /// <returns>ApiResponse of InviteAdminUser</returns>
-        public ApiResponse< InviteAdminUser > InviteAdminUserWithHttpInfo (InviteAdminUser sendInvitation)
+        public ApiResponse< InviteAdminUser > InviteAdminUserWithHttpInfo (string apiKey, string partnerKey, InviteAdminUser sendInvitation)
         {
             // verify the required parameter 'sendInvitation' is set
             if (sendInvitation == null)
@@ -4137,14 +3262,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4171,9 +3296,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendInvitation">Payload to send an invitation</param>
         /// <returns>Task of InviteAdminUser</returns>
-        public async System.Threading.Tasks.Task<InviteAdminUser> InviteAdminUserAsync (InviteAdminUser sendInvitation)
+        public async System.Threading.Tasks.Task<InviteAdminUser> InviteAdminUserAsync (string apiKey, string partnerKey, InviteAdminUser sendInvitation)
         {
-             ApiResponse<InviteAdminUser> localVarResponse = await InviteAdminUserAsyncWithHttpInfo(sendInvitation);
+             ApiResponse<InviteAdminUser> localVarResponse = await InviteAdminUserAsyncWithHttpInfo(apiKey, partnerKey, sendInvitation);
              return localVarResponse.Data;
 
         }
@@ -4184,7 +3309,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendInvitation">Payload to send an invitation</param>
         /// <returns>Task of ApiResponse (InviteAdminUser)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InviteAdminUser>> InviteAdminUserAsyncWithHttpInfo (InviteAdminUser sendInvitation)
+        public async System.Threading.Tasks.Task<ApiResponse<InviteAdminUser>> InviteAdminUserAsyncWithHttpInfo (string apiKey, string partnerKey, InviteAdminUser sendInvitation)
         {
             // verify the required parameter 'sendInvitation' is set
             if (sendInvitation == null)
@@ -4222,14 +3347,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

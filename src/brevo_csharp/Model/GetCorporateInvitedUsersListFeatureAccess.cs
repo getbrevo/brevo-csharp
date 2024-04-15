@@ -54,7 +54,7 @@ namespace brevo_csharp.Model
         /// Api keys accessiblity.
         /// </summary>
         /// <value>Api keys accessiblity.</value>
-        [DataMember(Name="api_keys", EmitDefaultValue=false)]
+        [DataMember(Name="apiKeys", EmitDefaultValue=false)]
         public List<string> ApiKeys { get; set; }
 
         /// <summary>

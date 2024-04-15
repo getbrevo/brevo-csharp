@@ -21,620 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IEmailCampaignsApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Create an email campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailCampaigns">Values to create a campaign</param>
-        /// <returns>CreateModel</returns>
-        CreateModel CreateEmailCampaign (CreateEmailCampaign emailCampaigns);
-
-        /// <summary>
-        /// Create an email campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailCampaigns">Values to create a campaign</param>
-        /// <returns>ApiResponse of CreateModel</returns>
-        ApiResponse<CreateModel> CreateEmailCampaignWithHttpInfo (CreateEmailCampaign emailCampaigns);
-        /// <summary>
-        /// Delete an email campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">id of the campaign</param>
-        /// <returns></returns>
-        void DeleteEmailCampaign (long? campaignId);
-
-        /// <summary>
-        /// Delete an email campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">id of the campaign</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteEmailCampaignWithHttpInfo (long? campaignId);
-        /// <summary>
-        /// Export the recipients of an email campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="recipientExport">Values to send for a recipient export request (optional)</param>
-        /// <returns>CreatedProcessId</returns>
-        CreatedProcessId EmailExportRecipients (long? campaignId, EmailExportRecipients recipientExport = null);
-
-        /// <summary>
-        /// Export the recipients of an email campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="recipientExport">Values to send for a recipient export request (optional)</param>
-        /// <returns>ApiResponse of CreatedProcessId</returns>
-        ApiResponse<CreatedProcessId> EmailExportRecipientsWithHttpInfo (long? campaignId, EmailExportRecipients recipientExport = null);
-        /// <summary>
-        /// Get an A/B test email campaign results
-        /// </summary>
-        /// <remarks>
-        /// Obtain winning version of an A/B test email campaign
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the A/B test campaign</param>
-        /// <returns>AbTestCampaignResult</returns>
-        AbTestCampaignResult GetAbTestCampaignResult (long? campaignId);
-
-        /// <summary>
-        /// Get an A/B test email campaign results
-        /// </summary>
-        /// <remarks>
-        /// Obtain winning version of an A/B test email campaign
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the A/B test campaign</param>
-        /// <returns>ApiResponse of AbTestCampaignResult</returns>
-        ApiResponse<AbTestCampaignResult> GetAbTestCampaignResultWithHttpInfo (long? campaignId);
-        /// <summary>
-        /// Get an email campaign report
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="statistics">Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)</param>
-        /// <returns>GetEmailCampaign</returns>
-        GetEmailCampaign GetEmailCampaign (long? campaignId, string statistics = null);
-
-        /// <summary>
-        /// Get an email campaign report
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="statistics">Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)</param>
-        /// <returns>ApiResponse of GetEmailCampaign</returns>
-        ApiResponse<GetEmailCampaign> GetEmailCampaignWithHttpInfo (long? campaignId, string statistics = null);
-        /// <summary>
-        /// Return all your created email campaigns
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Filter on the type of the campaigns (optional)</param>
-        /// <param name="status">Filter on the status of the campaign (optional)</param>
-        /// <param name="statistics">Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="excludeHtmlContent">Use this flag to exclude htmlContent from the response body. If set to **true**, htmlContent field will be returned as empty string in the response body (optional)</param>
-        /// <returns>GetEmailCampaigns</returns>
-        GetEmailCampaigns GetEmailCampaigns (string type = null, string status = null, string statistics = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, bool? excludeHtmlContent = null);
-
-        /// <summary>
-        /// Return all your created email campaigns
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Filter on the type of the campaigns (optional)</param>
-        /// <param name="status">Filter on the status of the campaign (optional)</param>
-        /// <param name="statistics">Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="excludeHtmlContent">Use this flag to exclude htmlContent from the response body. If set to **true**, htmlContent field will be returned as empty string in the response body (optional)</param>
-        /// <returns>ApiResponse of GetEmailCampaigns</returns>
-        ApiResponse<GetEmailCampaigns> GetEmailCampaignsWithHttpInfo (string type = null, string status = null, string statistics = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, bool? excludeHtmlContent = null);
-        /// <summary>
-        /// Get a shared template url
-        /// </summary>
-        /// <remarks>
-        /// Get a unique URL to share &amp; import an email template from one Brevo account to another.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign or template</param>
-        /// <returns>GetSharedTemplateUrl</returns>
-        GetSharedTemplateUrl GetSharedTemplateUrl (long? campaignId);
-
-        /// <summary>
-        /// Get a shared template url
-        /// </summary>
-        /// <remarks>
-        /// Get a unique URL to share &amp; import an email template from one Brevo account to another.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign or template</param>
-        /// <returns>ApiResponse of GetSharedTemplateUrl</returns>
-        ApiResponse<GetSharedTemplateUrl> GetSharedTemplateUrlWithHttpInfo (long? campaignId);
-        /// <summary>
-        /// Send an email campaign immediately, based on campaignId
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <returns></returns>
-        void SendEmailCampaignNow (long? campaignId);
-
-        /// <summary>
-        /// Send an email campaign immediately, based on campaignId
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SendEmailCampaignNowWithHttpInfo (long? campaignId);
-        /// <summary>
-        /// Send the report of a campaign
-        /// </summary>
-        /// <remarks>
-        /// A PDF will be sent to the specified email addresses
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="sendReport">Values for send a report</param>
-        /// <returns></returns>
-        void SendReport (long? campaignId, SendReport sendReport);
-
-        /// <summary>
-        /// Send the report of a campaign
-        /// </summary>
-        /// <remarks>
-        /// A PDF will be sent to the specified email addresses
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="sendReport">Values for send a report</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SendReportWithHttpInfo (long? campaignId, SendReport sendReport);
-        /// <summary>
-        /// Send an email campaign to your test list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="emailTo"></param>
-        /// <returns></returns>
-        void SendTestEmail (long? campaignId, SendTestEmail emailTo);
-
-        /// <summary>
-        /// Send an email campaign to your test list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="emailTo"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SendTestEmailWithHttpInfo (long? campaignId, SendTestEmail emailTo);
-        /// <summary>
-        /// Update an email campaign status
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="status">Status of the campaign</param>
-        /// <returns></returns>
-        void UpdateCampaignStatus (long? campaignId, UpdateCampaignStatus status);
-
-        /// <summary>
-        /// Update an email campaign status
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="status">Status of the campaign</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateCampaignStatusWithHttpInfo (long? campaignId, UpdateCampaignStatus status);
-        /// <summary>
-        /// Update an email campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="emailCampaign">Values to update a campaign</param>
-        /// <returns></returns>
-        void UpdateEmailCampaign (long? campaignId, UpdateEmailCampaign emailCampaign);
-
-        /// <summary>
-        /// Update an email campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="emailCampaign">Values to update a campaign</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateEmailCampaignWithHttpInfo (long? campaignId, UpdateEmailCampaign emailCampaign);
-        /// <summary>
-        /// Upload an image to your account&#39;s image gallery
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uploadImage">Parameters to upload an image</param>
-        /// <returns>UploadImageModel</returns>
-        UploadImageModel UploadImageToGallery (UploadImageToGallery uploadImage);
-
-        /// <summary>
-        /// Upload an image to your account&#39;s image gallery
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uploadImage">Parameters to upload an image</param>
-        /// <returns>ApiResponse of UploadImageModel</returns>
-        ApiResponse<UploadImageModel> UploadImageToGalleryWithHttpInfo (UploadImageToGallery uploadImage);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Create an email campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailCampaigns">Values to create a campaign</param>
-        /// <returns>Task of CreateModel</returns>
-        System.Threading.Tasks.Task<CreateModel> CreateEmailCampaignAsync (CreateEmailCampaign emailCampaigns);
-
-        /// <summary>
-        /// Create an email campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailCampaigns">Values to create a campaign</param>
-        /// <returns>Task of ApiResponse (CreateModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateEmailCampaignAsyncWithHttpInfo (CreateEmailCampaign emailCampaigns);
-        /// <summary>
-        /// Delete an email campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">id of the campaign</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteEmailCampaignAsync (long? campaignId);
-
-        /// <summary>
-        /// Delete an email campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">id of the campaign</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEmailCampaignAsyncWithHttpInfo (long? campaignId);
-        /// <summary>
-        /// Export the recipients of an email campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="recipientExport">Values to send for a recipient export request (optional)</param>
-        /// <returns>Task of CreatedProcessId</returns>
-        System.Threading.Tasks.Task<CreatedProcessId> EmailExportRecipientsAsync (long? campaignId, EmailExportRecipients recipientExport = null);
-
-        /// <summary>
-        /// Export the recipients of an email campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="recipientExport">Values to send for a recipient export request (optional)</param>
-        /// <returns>Task of ApiResponse (CreatedProcessId)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreatedProcessId>> EmailExportRecipientsAsyncWithHttpInfo (long? campaignId, EmailExportRecipients recipientExport = null);
-        /// <summary>
-        /// Get an A/B test email campaign results
-        /// </summary>
-        /// <remarks>
-        /// Obtain winning version of an A/B test email campaign
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the A/B test campaign</param>
-        /// <returns>Task of AbTestCampaignResult</returns>
-        System.Threading.Tasks.Task<AbTestCampaignResult> GetAbTestCampaignResultAsync (long? campaignId);
-
-        /// <summary>
-        /// Get an A/B test email campaign results
-        /// </summary>
-        /// <remarks>
-        /// Obtain winning version of an A/B test email campaign
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the A/B test campaign</param>
-        /// <returns>Task of ApiResponse (AbTestCampaignResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AbTestCampaignResult>> GetAbTestCampaignResultAsyncWithHttpInfo (long? campaignId);
-        /// <summary>
-        /// Get an email campaign report
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="statistics">Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)</param>
-        /// <returns>Task of GetEmailCampaign</returns>
-        System.Threading.Tasks.Task<GetEmailCampaign> GetEmailCampaignAsync (long? campaignId, string statistics = null);
-
-        /// <summary>
-        /// Get an email campaign report
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="statistics">Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)</param>
-        /// <returns>Task of ApiResponse (GetEmailCampaign)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetEmailCampaign>> GetEmailCampaignAsyncWithHttpInfo (long? campaignId, string statistics = null);
-        /// <summary>
-        /// Return all your created email campaigns
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Filter on the type of the campaigns (optional)</param>
-        /// <param name="status">Filter on the status of the campaign (optional)</param>
-        /// <param name="statistics">Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="excludeHtmlContent">Use this flag to exclude htmlContent from the response body. If set to **true**, htmlContent field will be returned as empty string in the response body (optional)</param>
-        /// <returns>Task of GetEmailCampaigns</returns>
-        System.Threading.Tasks.Task<GetEmailCampaigns> GetEmailCampaignsAsync (string type = null, string status = null, string statistics = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, bool? excludeHtmlContent = null);
-
-        /// <summary>
-        /// Return all your created email campaigns
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Filter on the type of the campaigns (optional)</param>
-        /// <param name="status">Filter on the status of the campaign (optional)</param>
-        /// <param name="statistics">Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="excludeHtmlContent">Use this flag to exclude htmlContent from the response body. If set to **true**, htmlContent field will be returned as empty string in the response body (optional)</param>
-        /// <returns>Task of ApiResponse (GetEmailCampaigns)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetEmailCampaigns>> GetEmailCampaignsAsyncWithHttpInfo (string type = null, string status = null, string statistics = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, bool? excludeHtmlContent = null);
-        /// <summary>
-        /// Get a shared template url
-        /// </summary>
-        /// <remarks>
-        /// Get a unique URL to share &amp; import an email template from one Brevo account to another.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign or template</param>
-        /// <returns>Task of GetSharedTemplateUrl</returns>
-        System.Threading.Tasks.Task<GetSharedTemplateUrl> GetSharedTemplateUrlAsync (long? campaignId);
-
-        /// <summary>
-        /// Get a shared template url
-        /// </summary>
-        /// <remarks>
-        /// Get a unique URL to share &amp; import an email template from one Brevo account to another.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign or template</param>
-        /// <returns>Task of ApiResponse (GetSharedTemplateUrl)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetSharedTemplateUrl>> GetSharedTemplateUrlAsyncWithHttpInfo (long? campaignId);
-        /// <summary>
-        /// Send an email campaign immediately, based on campaignId
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SendEmailCampaignNowAsync (long? campaignId);
-
-        /// <summary>
-        /// Send an email campaign immediately, based on campaignId
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SendEmailCampaignNowAsyncWithHttpInfo (long? campaignId);
-        /// <summary>
-        /// Send the report of a campaign
-        /// </summary>
-        /// <remarks>
-        /// A PDF will be sent to the specified email addresses
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="sendReport">Values for send a report</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SendReportAsync (long? campaignId, SendReport sendReport);
-
-        /// <summary>
-        /// Send the report of a campaign
-        /// </summary>
-        /// <remarks>
-        /// A PDF will be sent to the specified email addresses
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="sendReport">Values for send a report</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SendReportAsyncWithHttpInfo (long? campaignId, SendReport sendReport);
-        /// <summary>
-        /// Send an email campaign to your test list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="emailTo"></param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SendTestEmailAsync (long? campaignId, SendTestEmail emailTo);
-
-        /// <summary>
-        /// Send an email campaign to your test list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="emailTo"></param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SendTestEmailAsyncWithHttpInfo (long? campaignId, SendTestEmail emailTo);
-        /// <summary>
-        /// Update an email campaign status
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="status">Status of the campaign</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateCampaignStatusAsync (long? campaignId, UpdateCampaignStatus status);
-
-        /// <summary>
-        /// Update an email campaign status
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="status">Status of the campaign</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateCampaignStatusAsyncWithHttpInfo (long? campaignId, UpdateCampaignStatus status);
-        /// <summary>
-        /// Update an email campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="emailCampaign">Values to update a campaign</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateEmailCampaignAsync (long? campaignId, UpdateEmailCampaign emailCampaign);
-
-        /// <summary>
-        /// Update an email campaign
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignId">Id of the campaign</param>
-        /// <param name="emailCampaign">Values to update a campaign</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateEmailCampaignAsyncWithHttpInfo (long? campaignId, UpdateEmailCampaign emailCampaign);
-        /// <summary>
-        /// Upload an image to your account&#39;s image gallery
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uploadImage">Parameters to upload an image</param>
-        /// <returns>Task of UploadImageModel</returns>
-        System.Threading.Tasks.Task<UploadImageModel> UploadImageToGalleryAsync (UploadImageToGallery uploadImage);
-
-        /// <summary>
-        /// Upload an image to your account&#39;s image gallery
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uploadImage">Parameters to upload an image</param>
-        /// <returns>Task of ApiResponse (UploadImageModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UploadImageModel>> UploadImageToGalleryAsyncWithHttpInfo (UploadImageToGallery uploadImage);
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class EmailCampaignsApi : IEmailCampaignsApi
+    public partial class EmailCampaignsApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -734,9 +121,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailCampaigns">Values to create a campaign</param>
         /// <returns>CreateModel</returns>
-        public CreateModel CreateEmailCampaign (CreateEmailCampaign emailCampaigns)
+        public CreateModel CreateEmailCampaign (string apiKey, string partnerKey, CreateEmailCampaign emailCampaigns)
         {
-             ApiResponse<CreateModel> localVarResponse = CreateEmailCampaignWithHttpInfo(emailCampaigns);
+             ApiResponse<CreateModel> localVarResponse = CreateEmailCampaignWithHttpInfo(apiKey, partnerKey, emailCampaigns);
              return localVarResponse.Data;
         }
 
@@ -746,7 +133,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailCampaigns">Values to create a campaign</param>
         /// <returns>ApiResponse of CreateModel</returns>
-        public ApiResponse< CreateModel > CreateEmailCampaignWithHttpInfo (CreateEmailCampaign emailCampaigns)
+        public ApiResponse< CreateModel > CreateEmailCampaignWithHttpInfo (string apiKey, string partnerKey, CreateEmailCampaign emailCampaigns)
         {
             // verify the required parameter 'emailCampaigns' is set
             if (emailCampaigns == null)
@@ -784,14 +171,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -818,9 +205,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailCampaigns">Values to create a campaign</param>
         /// <returns>Task of CreateModel</returns>
-        public async System.Threading.Tasks.Task<CreateModel> CreateEmailCampaignAsync (CreateEmailCampaign emailCampaigns)
+        public async System.Threading.Tasks.Task<CreateModel> CreateEmailCampaignAsync (string apiKey, string partnerKey, CreateEmailCampaign emailCampaigns)
         {
-             ApiResponse<CreateModel> localVarResponse = await CreateEmailCampaignAsyncWithHttpInfo(emailCampaigns);
+             ApiResponse<CreateModel> localVarResponse = await CreateEmailCampaignAsyncWithHttpInfo(apiKey, partnerKey, emailCampaigns);
              return localVarResponse.Data;
 
         }
@@ -831,7 +218,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailCampaigns">Values to create a campaign</param>
         /// <returns>Task of ApiResponse (CreateModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateEmailCampaignAsyncWithHttpInfo (CreateEmailCampaign emailCampaigns)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateEmailCampaignAsyncWithHttpInfo (string apiKey, string partnerKey, CreateEmailCampaign emailCampaigns)
         {
             // verify the required parameter 'emailCampaigns' is set
             if (emailCampaigns == null)
@@ -869,14 +256,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -903,9 +290,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">id of the campaign</param>
         /// <returns></returns>
-        public void DeleteEmailCampaign (long? campaignId)
+        public void DeleteEmailCampaign (string apiKey, string partnerKey, long? campaignId)
         {
-             DeleteEmailCampaignWithHttpInfo(campaignId);
+             DeleteEmailCampaignWithHttpInfo(apiKey, partnerKey, campaignId);
         }
 
         /// <summary>
@@ -914,7 +301,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">id of the campaign</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteEmailCampaignWithHttpInfo (long? campaignId)
+        public ApiResponse<Object> DeleteEmailCampaignWithHttpInfo (string apiKey, string partnerKey, long? campaignId)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -945,14 +332,14 @@ namespace brevo_csharp.Api
             if (campaignId != null) localVarPathParams.Add("campaignId", this.Configuration.ApiClient.ParameterToString(campaignId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -979,9 +366,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">id of the campaign</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteEmailCampaignAsync (long? campaignId)
+        public async System.Threading.Tasks.Task DeleteEmailCampaignAsync (string apiKey, string partnerKey, long? campaignId)
         {
-             await DeleteEmailCampaignAsyncWithHttpInfo(campaignId);
+             await DeleteEmailCampaignAsyncWithHttpInfo(apiKey, partnerKey, campaignId);
 
         }
 
@@ -991,7 +378,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">id of the campaign</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEmailCampaignAsyncWithHttpInfo (long? campaignId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEmailCampaignAsyncWithHttpInfo (string apiKey, string partnerKey, long? campaignId)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -1022,14 +409,14 @@ namespace brevo_csharp.Api
             if (campaignId != null) localVarPathParams.Add("campaignId", this.Configuration.ApiClient.ParameterToString(campaignId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1057,9 +444,9 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="recipientExport">Values to send for a recipient export request (optional)</param>
         /// <returns>CreatedProcessId</returns>
-        public CreatedProcessId EmailExportRecipients (long? campaignId, EmailExportRecipients recipientExport = null)
+        public CreatedProcessId EmailExportRecipients (string apiKey, string partnerKey, long? campaignId, EmailExportRecipients recipientExport = null)
         {
-             ApiResponse<CreatedProcessId> localVarResponse = EmailExportRecipientsWithHttpInfo(campaignId, recipientExport);
+             ApiResponse<CreatedProcessId> localVarResponse = EmailExportRecipientsWithHttpInfo(apiKey, partnerKey, campaignId, recipientExport);
              return localVarResponse.Data;
         }
 
@@ -1070,7 +457,7 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="recipientExport">Values to send for a recipient export request (optional)</param>
         /// <returns>ApiResponse of CreatedProcessId</returns>
-        public ApiResponse< CreatedProcessId > EmailExportRecipientsWithHttpInfo (long? campaignId, EmailExportRecipients recipientExport = null)
+        public ApiResponse< CreatedProcessId > EmailExportRecipientsWithHttpInfo (string apiKey, string partnerKey, long? campaignId, EmailExportRecipients recipientExport = null)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -1109,14 +496,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1144,9 +531,9 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="recipientExport">Values to send for a recipient export request (optional)</param>
         /// <returns>Task of CreatedProcessId</returns>
-        public async System.Threading.Tasks.Task<CreatedProcessId> EmailExportRecipientsAsync (long? campaignId, EmailExportRecipients recipientExport = null)
+        public async System.Threading.Tasks.Task<CreatedProcessId> EmailExportRecipientsAsync (string apiKey, string partnerKey, long? campaignId, EmailExportRecipients recipientExport = null)
         {
-             ApiResponse<CreatedProcessId> localVarResponse = await EmailExportRecipientsAsyncWithHttpInfo(campaignId, recipientExport);
+             ApiResponse<CreatedProcessId> localVarResponse = await EmailExportRecipientsAsyncWithHttpInfo(apiKey, partnerKey, campaignId, recipientExport);
              return localVarResponse.Data;
 
         }
@@ -1158,7 +545,7 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="recipientExport">Values to send for a recipient export request (optional)</param>
         /// <returns>Task of ApiResponse (CreatedProcessId)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreatedProcessId>> EmailExportRecipientsAsyncWithHttpInfo (long? campaignId, EmailExportRecipients recipientExport = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CreatedProcessId>> EmailExportRecipientsAsyncWithHttpInfo (string apiKey, string partnerKey, long? campaignId, EmailExportRecipients recipientExport = null)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -1197,14 +584,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1231,9 +618,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Id of the A/B test campaign</param>
         /// <returns>AbTestCampaignResult</returns>
-        public AbTestCampaignResult GetAbTestCampaignResult (long? campaignId)
+        public AbTestCampaignResult GetAbTestCampaignResult (string apiKey, string partnerKey, long? campaignId)
         {
-             ApiResponse<AbTestCampaignResult> localVarResponse = GetAbTestCampaignResultWithHttpInfo(campaignId);
+             ApiResponse<AbTestCampaignResult> localVarResponse = GetAbTestCampaignResultWithHttpInfo(apiKey, partnerKey, campaignId);
              return localVarResponse.Data;
         }
 
@@ -1243,7 +630,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Id of the A/B test campaign</param>
         /// <returns>ApiResponse of AbTestCampaignResult</returns>
-        public ApiResponse< AbTestCampaignResult > GetAbTestCampaignResultWithHttpInfo (long? campaignId)
+        public ApiResponse< AbTestCampaignResult > GetAbTestCampaignResultWithHttpInfo (string apiKey, string partnerKey, long? campaignId)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -1274,14 +661,14 @@ namespace brevo_csharp.Api
             if (campaignId != null) localVarPathParams.Add("campaignId", this.Configuration.ApiClient.ParameterToString(campaignId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1308,9 +695,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Id of the A/B test campaign</param>
         /// <returns>Task of AbTestCampaignResult</returns>
-        public async System.Threading.Tasks.Task<AbTestCampaignResult> GetAbTestCampaignResultAsync (long? campaignId)
+        public async System.Threading.Tasks.Task<AbTestCampaignResult> GetAbTestCampaignResultAsync (string apiKey, string partnerKey, long? campaignId)
         {
-             ApiResponse<AbTestCampaignResult> localVarResponse = await GetAbTestCampaignResultAsyncWithHttpInfo(campaignId);
+             ApiResponse<AbTestCampaignResult> localVarResponse = await GetAbTestCampaignResultAsyncWithHttpInfo(apiKey, partnerKey, campaignId);
              return localVarResponse.Data;
 
         }
@@ -1321,7 +708,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Id of the A/B test campaign</param>
         /// <returns>Task of ApiResponse (AbTestCampaignResult)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AbTestCampaignResult>> GetAbTestCampaignResultAsyncWithHttpInfo (long? campaignId)
+        public async System.Threading.Tasks.Task<ApiResponse<AbTestCampaignResult>> GetAbTestCampaignResultAsyncWithHttpInfo (string apiKey, string partnerKey, long? campaignId)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -1352,14 +739,14 @@ namespace brevo_csharp.Api
             if (campaignId != null) localVarPathParams.Add("campaignId", this.Configuration.ApiClient.ParameterToString(campaignId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1387,9 +774,9 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="statistics">Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)</param>
         /// <returns>GetEmailCampaign</returns>
-        public GetEmailCampaign GetEmailCampaign (long? campaignId, string statistics = null)
+        public GetEmailCampaign GetEmailCampaign (string apiKey, string partnerKey, long? campaignId, string statistics = null)
         {
-             ApiResponse<GetEmailCampaign> localVarResponse = GetEmailCampaignWithHttpInfo(campaignId, statistics);
+             ApiResponse<GetEmailCampaign> localVarResponse = GetEmailCampaignWithHttpInfo(apiKey, partnerKey, campaignId, statistics);
              return localVarResponse.Data;
         }
 
@@ -1400,7 +787,7 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="statistics">Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)</param>
         /// <returns>ApiResponse of GetEmailCampaign</returns>
-        public ApiResponse< GetEmailCampaign > GetEmailCampaignWithHttpInfo (long? campaignId, string statistics = null)
+        public ApiResponse< GetEmailCampaign > GetEmailCampaignWithHttpInfo (string apiKey, string partnerKey, long? campaignId, string statistics = null)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -1432,14 +819,14 @@ namespace brevo_csharp.Api
             if (statistics != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "statistics", statistics)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1467,9 +854,9 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="statistics">Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)</param>
         /// <returns>Task of GetEmailCampaign</returns>
-        public async System.Threading.Tasks.Task<GetEmailCampaign> GetEmailCampaignAsync (long? campaignId, string statistics = null)
+        public async System.Threading.Tasks.Task<GetEmailCampaign> GetEmailCampaignAsync (string apiKey, string partnerKey, long? campaignId, string statistics = null)
         {
-             ApiResponse<GetEmailCampaign> localVarResponse = await GetEmailCampaignAsyncWithHttpInfo(campaignId, statistics);
+             ApiResponse<GetEmailCampaign> localVarResponse = await GetEmailCampaignAsyncWithHttpInfo(apiKey, partnerKey, campaignId, statistics);
              return localVarResponse.Data;
 
         }
@@ -1481,7 +868,7 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="statistics">Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)</param>
         /// <returns>Task of ApiResponse (GetEmailCampaign)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetEmailCampaign>> GetEmailCampaignAsyncWithHttpInfo (long? campaignId, string statistics = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetEmailCampaign>> GetEmailCampaignAsyncWithHttpInfo (string apiKey, string partnerKey, long? campaignId, string statistics = null)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -1513,14 +900,14 @@ namespace brevo_csharp.Api
             if (statistics != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "statistics", statistics)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1555,9 +942,9 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="excludeHtmlContent">Use this flag to exclude htmlContent from the response body. If set to **true**, htmlContent field will be returned as empty string in the response body (optional)</param>
         /// <returns>GetEmailCampaigns</returns>
-        public GetEmailCampaigns GetEmailCampaigns (string type = null, string status = null, string statistics = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, bool? excludeHtmlContent = null)
+        public GetEmailCampaigns GetEmailCampaigns (string apiKey, string partnerKey, string type = null, string status = null, string statistics = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, bool? excludeHtmlContent = null)
         {
-             ApiResponse<GetEmailCampaigns> localVarResponse = GetEmailCampaignsWithHttpInfo(type, status, statistics, startDate, endDate, limit, offset, sort, excludeHtmlContent);
+             ApiResponse<GetEmailCampaigns> localVarResponse = GetEmailCampaignsWithHttpInfo(apiKey, partnerKey, type, status, statistics, startDate, endDate, limit, offset, sort, excludeHtmlContent);
              return localVarResponse.Data;
         }
 
@@ -1575,7 +962,7 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="excludeHtmlContent">Use this flag to exclude htmlContent from the response body. If set to **true**, htmlContent field will be returned as empty string in the response body (optional)</param>
         /// <returns>ApiResponse of GetEmailCampaigns</returns>
-        public ApiResponse< GetEmailCampaigns > GetEmailCampaignsWithHttpInfo (string type = null, string status = null, string statistics = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, bool? excludeHtmlContent = null)
+        public ApiResponse< GetEmailCampaigns > GetEmailCampaignsWithHttpInfo (string apiKey, string partnerKey, string type = null, string status = null, string statistics = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, bool? excludeHtmlContent = null)
         {
 
             var localVarPath = "./emailCampaigns";
@@ -1611,14 +998,14 @@ namespace brevo_csharp.Api
             if (excludeHtmlContent != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeHtmlContent", excludeHtmlContent)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1653,9 +1040,9 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="excludeHtmlContent">Use this flag to exclude htmlContent from the response body. If set to **true**, htmlContent field will be returned as empty string in the response body (optional)</param>
         /// <returns>Task of GetEmailCampaigns</returns>
-        public async System.Threading.Tasks.Task<GetEmailCampaigns> GetEmailCampaignsAsync (string type = null, string status = null, string statistics = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, bool? excludeHtmlContent = null)
+        public async System.Threading.Tasks.Task<GetEmailCampaigns> GetEmailCampaignsAsync (string apiKey, string partnerKey, string type = null, string status = null, string statistics = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, bool? excludeHtmlContent = null)
         {
-             ApiResponse<GetEmailCampaigns> localVarResponse = await GetEmailCampaignsAsyncWithHttpInfo(type, status, statistics, startDate, endDate, limit, offset, sort, excludeHtmlContent);
+             ApiResponse<GetEmailCampaigns> localVarResponse = await GetEmailCampaignsAsyncWithHttpInfo(apiKey, partnerKey, type, status, statistics, startDate, endDate, limit, offset, sort, excludeHtmlContent);
              return localVarResponse.Data;
 
         }
@@ -1674,7 +1061,7 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="excludeHtmlContent">Use this flag to exclude htmlContent from the response body. If set to **true**, htmlContent field will be returned as empty string in the response body (optional)</param>
         /// <returns>Task of ApiResponse (GetEmailCampaigns)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetEmailCampaigns>> GetEmailCampaignsAsyncWithHttpInfo (string type = null, string status = null, string statistics = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, bool? excludeHtmlContent = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetEmailCampaigns>> GetEmailCampaignsAsyncWithHttpInfo (string apiKey, string partnerKey, string type = null, string status = null, string statistics = null, string startDate = null, string endDate = null, long? limit = null, long? offset = null, string sort = null, bool? excludeHtmlContent = null)
         {
 
             var localVarPath = "./emailCampaigns";
@@ -1710,14 +1097,14 @@ namespace brevo_csharp.Api
             if (excludeHtmlContent != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeHtmlContent", excludeHtmlContent)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1744,9 +1131,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Id of the campaign or template</param>
         /// <returns>GetSharedTemplateUrl</returns>
-        public GetSharedTemplateUrl GetSharedTemplateUrl (long? campaignId)
+        public GetSharedTemplateUrl GetSharedTemplateUrl (string apiKey, string partnerKey, long? campaignId)
         {
-             ApiResponse<GetSharedTemplateUrl> localVarResponse = GetSharedTemplateUrlWithHttpInfo(campaignId);
+             ApiResponse<GetSharedTemplateUrl> localVarResponse = GetSharedTemplateUrlWithHttpInfo(apiKey, partnerKey, campaignId);
              return localVarResponse.Data;
         }
 
@@ -1756,7 +1143,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Id of the campaign or template</param>
         /// <returns>ApiResponse of GetSharedTemplateUrl</returns>
-        public ApiResponse< GetSharedTemplateUrl > GetSharedTemplateUrlWithHttpInfo (long? campaignId)
+        public ApiResponse< GetSharedTemplateUrl > GetSharedTemplateUrlWithHttpInfo (string apiKey, string partnerKey, long? campaignId)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -1787,14 +1174,14 @@ namespace brevo_csharp.Api
             if (campaignId != null) localVarPathParams.Add("campaignId", this.Configuration.ApiClient.ParameterToString(campaignId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1821,9 +1208,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Id of the campaign or template</param>
         /// <returns>Task of GetSharedTemplateUrl</returns>
-        public async System.Threading.Tasks.Task<GetSharedTemplateUrl> GetSharedTemplateUrlAsync (long? campaignId)
+        public async System.Threading.Tasks.Task<GetSharedTemplateUrl> GetSharedTemplateUrlAsync (string apiKey, string partnerKey, long? campaignId)
         {
-             ApiResponse<GetSharedTemplateUrl> localVarResponse = await GetSharedTemplateUrlAsyncWithHttpInfo(campaignId);
+             ApiResponse<GetSharedTemplateUrl> localVarResponse = await GetSharedTemplateUrlAsyncWithHttpInfo(apiKey, partnerKey, campaignId);
              return localVarResponse.Data;
 
         }
@@ -1834,7 +1221,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Id of the campaign or template</param>
         /// <returns>Task of ApiResponse (GetSharedTemplateUrl)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetSharedTemplateUrl>> GetSharedTemplateUrlAsyncWithHttpInfo (long? campaignId)
+        public async System.Threading.Tasks.Task<ApiResponse<GetSharedTemplateUrl>> GetSharedTemplateUrlAsyncWithHttpInfo (string apiKey, string partnerKey, long? campaignId)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -1865,14 +1252,14 @@ namespace brevo_csharp.Api
             if (campaignId != null) localVarPathParams.Add("campaignId", this.Configuration.ApiClient.ParameterToString(campaignId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1899,9 +1286,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Id of the campaign</param>
         /// <returns></returns>
-        public void SendEmailCampaignNow (long? campaignId)
+        public void SendEmailCampaignNow (string apiKey, string partnerKey, long? campaignId)
         {
-             SendEmailCampaignNowWithHttpInfo(campaignId);
+             SendEmailCampaignNowWithHttpInfo(apiKey, partnerKey, campaignId);
         }
 
         /// <summary>
@@ -1910,7 +1297,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Id of the campaign</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SendEmailCampaignNowWithHttpInfo (long? campaignId)
+        public ApiResponse<Object> SendEmailCampaignNowWithHttpInfo (string apiKey, string partnerKey, long? campaignId)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -1941,14 +1328,14 @@ namespace brevo_csharp.Api
             if (campaignId != null) localVarPathParams.Add("campaignId", this.Configuration.ApiClient.ParameterToString(campaignId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1975,9 +1362,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Id of the campaign</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SendEmailCampaignNowAsync (long? campaignId)
+        public async System.Threading.Tasks.Task SendEmailCampaignNowAsync (string apiKey, string partnerKey, long? campaignId)
         {
-             await SendEmailCampaignNowAsyncWithHttpInfo(campaignId);
+             await SendEmailCampaignNowAsyncWithHttpInfo(apiKey, partnerKey, campaignId);
 
         }
 
@@ -1987,7 +1374,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Id of the campaign</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> SendEmailCampaignNowAsyncWithHttpInfo (long? campaignId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SendEmailCampaignNowAsyncWithHttpInfo (string apiKey, string partnerKey, long? campaignId)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -2018,14 +1405,14 @@ namespace brevo_csharp.Api
             if (campaignId != null) localVarPathParams.Add("campaignId", this.Configuration.ApiClient.ParameterToString(campaignId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2053,9 +1440,9 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="sendReport">Values for send a report</param>
         /// <returns></returns>
-        public void SendReport (long? campaignId, SendReport sendReport)
+        public void SendReport (string apiKey, string partnerKey, long? campaignId, SendReport sendReport)
         {
-             SendReportWithHttpInfo(campaignId, sendReport);
+             SendReportWithHttpInfo(apiKey, partnerKey, campaignId, sendReport);
         }
 
         /// <summary>
@@ -2065,7 +1452,7 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="sendReport">Values for send a report</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SendReportWithHttpInfo (long? campaignId, SendReport sendReport)
+        public ApiResponse<Object> SendReportWithHttpInfo (string apiKey, string partnerKey, long? campaignId, SendReport sendReport)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -2107,14 +1494,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2142,9 +1529,9 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="sendReport">Values for send a report</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SendReportAsync (long? campaignId, SendReport sendReport)
+        public async System.Threading.Tasks.Task SendReportAsync (string apiKey, string partnerKey, long? campaignId, SendReport sendReport)
         {
-             await SendReportAsyncWithHttpInfo(campaignId, sendReport);
+             await SendReportAsyncWithHttpInfo(apiKey, partnerKey, campaignId, sendReport);
 
         }
 
@@ -2155,7 +1542,7 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="sendReport">Values for send a report</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> SendReportAsyncWithHttpInfo (long? campaignId, SendReport sendReport)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SendReportAsyncWithHttpInfo (string apiKey, string partnerKey, long? campaignId, SendReport sendReport)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -2197,14 +1584,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2232,9 +1619,9 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="emailTo"></param>
         /// <returns></returns>
-        public void SendTestEmail (long? campaignId, SendTestEmail emailTo)
+        public void SendTestEmail (string apiKey, string partnerKey, long? campaignId, SendTestEmail emailTo)
         {
-             SendTestEmailWithHttpInfo(campaignId, emailTo);
+             SendTestEmailWithHttpInfo(apiKey, partnerKey, campaignId, emailTo);
         }
 
         /// <summary>
@@ -2244,7 +1631,7 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="emailTo"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SendTestEmailWithHttpInfo (long? campaignId, SendTestEmail emailTo)
+        public ApiResponse<Object> SendTestEmailWithHttpInfo (string apiKey, string partnerKey, long? campaignId, SendTestEmail emailTo)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -2286,14 +1673,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2321,9 +1708,9 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="emailTo"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SendTestEmailAsync (long? campaignId, SendTestEmail emailTo)
+        public async System.Threading.Tasks.Task SendTestEmailAsync (string apiKey, string partnerKey, long? campaignId, SendTestEmail emailTo)
         {
-             await SendTestEmailAsyncWithHttpInfo(campaignId, emailTo);
+             await SendTestEmailAsyncWithHttpInfo(apiKey, partnerKey, campaignId, emailTo);
 
         }
 
@@ -2334,7 +1721,7 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="emailTo"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> SendTestEmailAsyncWithHttpInfo (long? campaignId, SendTestEmail emailTo)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SendTestEmailAsyncWithHttpInfo (string apiKey, string partnerKey, long? campaignId, SendTestEmail emailTo)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -2376,14 +1763,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2411,9 +1798,9 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="status">Status of the campaign</param>
         /// <returns></returns>
-        public void UpdateCampaignStatus (long? campaignId, UpdateCampaignStatus status)
+        public void UpdateCampaignStatus (string apiKey, string partnerKey, long? campaignId, UpdateCampaignStatus status)
         {
-             UpdateCampaignStatusWithHttpInfo(campaignId, status);
+             UpdateCampaignStatusWithHttpInfo(apiKey, partnerKey, campaignId, status);
         }
 
         /// <summary>
@@ -2423,7 +1810,7 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="status">Status of the campaign</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateCampaignStatusWithHttpInfo (long? campaignId, UpdateCampaignStatus status)
+        public ApiResponse<Object> UpdateCampaignStatusWithHttpInfo (string apiKey, string partnerKey, long? campaignId, UpdateCampaignStatus status)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -2465,14 +1852,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2500,9 +1887,9 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="status">Status of the campaign</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateCampaignStatusAsync (long? campaignId, UpdateCampaignStatus status)
+        public async System.Threading.Tasks.Task UpdateCampaignStatusAsync (string apiKey, string partnerKey, long? campaignId, UpdateCampaignStatus status)
         {
-             await UpdateCampaignStatusAsyncWithHttpInfo(campaignId, status);
+             await UpdateCampaignStatusAsyncWithHttpInfo(apiKey, partnerKey, campaignId, status);
 
         }
 
@@ -2513,7 +1900,7 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="status">Status of the campaign</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateCampaignStatusAsyncWithHttpInfo (long? campaignId, UpdateCampaignStatus status)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateCampaignStatusAsyncWithHttpInfo (string apiKey, string partnerKey, long? campaignId, UpdateCampaignStatus status)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -2555,14 +1942,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2590,9 +1977,9 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="emailCampaign">Values to update a campaign</param>
         /// <returns></returns>
-        public void UpdateEmailCampaign (long? campaignId, UpdateEmailCampaign emailCampaign)
+        public void UpdateEmailCampaign (string apiKey, string partnerKey, long? campaignId, UpdateEmailCampaign emailCampaign)
         {
-             UpdateEmailCampaignWithHttpInfo(campaignId, emailCampaign);
+             UpdateEmailCampaignWithHttpInfo(apiKey, partnerKey, campaignId, emailCampaign);
         }
 
         /// <summary>
@@ -2602,7 +1989,7 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="emailCampaign">Values to update a campaign</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateEmailCampaignWithHttpInfo (long? campaignId, UpdateEmailCampaign emailCampaign)
+        public ApiResponse<Object> UpdateEmailCampaignWithHttpInfo (string apiKey, string partnerKey, long? campaignId, UpdateEmailCampaign emailCampaign)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -2644,14 +2031,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2679,9 +2066,9 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="emailCampaign">Values to update a campaign</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateEmailCampaignAsync (long? campaignId, UpdateEmailCampaign emailCampaign)
+        public async System.Threading.Tasks.Task UpdateEmailCampaignAsync (string apiKey, string partnerKey, long? campaignId, UpdateEmailCampaign emailCampaign)
         {
-             await UpdateEmailCampaignAsyncWithHttpInfo(campaignId, emailCampaign);
+             await UpdateEmailCampaignAsyncWithHttpInfo(apiKey, partnerKey, campaignId, emailCampaign);
 
         }
 
@@ -2692,7 +2079,7 @@ namespace brevo_csharp.Api
         /// <param name="campaignId">Id of the campaign</param>
         /// <param name="emailCampaign">Values to update a campaign</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateEmailCampaignAsyncWithHttpInfo (long? campaignId, UpdateEmailCampaign emailCampaign)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateEmailCampaignAsyncWithHttpInfo (string apiKey, string partnerKey, long? campaignId, UpdateEmailCampaign emailCampaign)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -2734,14 +2121,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2768,9 +2155,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uploadImage">Parameters to upload an image</param>
         /// <returns>UploadImageModel</returns>
-        public UploadImageModel UploadImageToGallery (UploadImageToGallery uploadImage)
+        public UploadImageModel UploadImageToGallery (string apiKey, string partnerKey, UploadImageToGallery uploadImage)
         {
-             ApiResponse<UploadImageModel> localVarResponse = UploadImageToGalleryWithHttpInfo(uploadImage);
+             ApiResponse<UploadImageModel> localVarResponse = UploadImageToGalleryWithHttpInfo(apiKey, partnerKey, uploadImage);
              return localVarResponse.Data;
         }
 
@@ -2780,7 +2167,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uploadImage">Parameters to upload an image</param>
         /// <returns>ApiResponse of UploadImageModel</returns>
-        public ApiResponse< UploadImageModel > UploadImageToGalleryWithHttpInfo (UploadImageToGallery uploadImage)
+        public ApiResponse< UploadImageModel > UploadImageToGalleryWithHttpInfo (string apiKey, string partnerKey, UploadImageToGallery uploadImage)
         {
             // verify the required parameter 'uploadImage' is set
             if (uploadImage == null)
@@ -2818,14 +2205,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2852,9 +2239,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uploadImage">Parameters to upload an image</param>
         /// <returns>Task of UploadImageModel</returns>
-        public async System.Threading.Tasks.Task<UploadImageModel> UploadImageToGalleryAsync (UploadImageToGallery uploadImage)
+        public async System.Threading.Tasks.Task<UploadImageModel> UploadImageToGalleryAsync (string apiKey, string partnerKey, UploadImageToGallery uploadImage)
         {
-             ApiResponse<UploadImageModel> localVarResponse = await UploadImageToGalleryAsyncWithHttpInfo(uploadImage);
+             ApiResponse<UploadImageModel> localVarResponse = await UploadImageToGalleryAsyncWithHttpInfo(apiKey, partnerKey, uploadImage);
              return localVarResponse.Data;
 
         }
@@ -2865,7 +2252,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uploadImage">Parameters to upload an image</param>
         /// <returns>Task of ApiResponse (UploadImageModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<UploadImageModel>> UploadImageToGalleryAsyncWithHttpInfo (UploadImageToGallery uploadImage)
+        public async System.Threading.Tasks.Task<ApiResponse<UploadImageModel>> UploadImageToGalleryAsyncWithHttpInfo (string apiKey, string partnerKey, UploadImageToGallery uploadImage)
         {
             // verify the required parameter 'uploadImage' is set
             if (uploadImage == null)
@@ -2903,14 +2290,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

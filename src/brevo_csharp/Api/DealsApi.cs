@@ -21,458 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IDealsApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Get deal attributes
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>DealAttributes</returns>
-        DealAttributes CrmAttributesDealsGet ();
-
-        /// <summary>
-        /// Get deal attributes
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of DealAttributes</returns>
-        ApiResponse<DealAttributes> CrmAttributesDealsGetWithHttpInfo ();
-        /// <summary>
-        /// Get all deals
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filtersAttributesDealName">Filter by attributes. If you have filter for owner on your side please send it as &#x60;filters[attributes.deal_owner]&#x60;.\&quot; (optional)</param>
-        /// <param name="filtersLinkedCompaniesIds">Filter by linked companies ids (optional)</param>
-        /// <param name="filtersLinkedContactsIds">Filter by linked companies ids (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
-        /// <param name="sortBy">The field used to sort field names. (optional)</param>
-        /// <returns>DealsList</returns>
-        DealsList CrmDealsGet (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null);
-
-        /// <summary>
-        /// Get all deals
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filtersAttributesDealName">Filter by attributes. If you have filter for owner on your side please send it as &#x60;filters[attributes.deal_owner]&#x60;.\&quot; (optional)</param>
-        /// <param name="filtersLinkedCompaniesIds">Filter by linked companies ids (optional)</param>
-        /// <param name="filtersLinkedContactsIds">Filter by linked companies ids (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
-        /// <param name="sortBy">The field used to sort field names. (optional)</param>
-        /// <returns>ApiResponse of DealsList</returns>
-        ApiResponse<DealsList> CrmDealsGetWithHttpInfo (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null);
-        /// <summary>
-        /// Delete a deal
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        void CrmDealsIdDelete (string id);
-
-        /// <summary>
-        /// Delete a deal
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CrmDealsIdDeleteWithHttpInfo (string id);
-        /// <summary>
-        /// Get a deal
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>Deal</returns>
-        Deal CrmDealsIdGet (string id);
-
-        /// <summary>
-        /// Get a deal
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>ApiResponse of Deal</returns>
-        ApiResponse<Deal> CrmDealsIdGetWithHttpInfo (string id);
-        /// <summary>
-        /// Update a deal
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="body">Updated deal details.</param>
-        /// <returns></returns>
-        void CrmDealsIdPatch (string id, Body7 body);
-
-        /// <summary>
-        /// Update a deal
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="body">Updated deal details.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CrmDealsIdPatchWithHttpInfo (string id, Body7 body);
-        /// <summary>
-        /// Link and Unlink a deal with contacts and companies
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="body">Linked / Unlinked contacts and companies ids.</param>
-        /// <returns></returns>
-        void CrmDealsLinkUnlinkIdPatch (string id, Body8 body);
-
-        /// <summary>
-        /// Link and Unlink a deal with contacts and companies
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="body">Linked / Unlinked contacts and companies ids.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CrmDealsLinkUnlinkIdPatchWithHttpInfo (string id, Body8 body);
-        /// <summary>
-        /// Create a deal
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Deal create data.</param>
-        /// <returns>InlineResponse2011</returns>
-        InlineResponse2011 CrmDealsPost (Body6 body);
-
-        /// <summary>
-        /// Create a deal
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Deal create data.</param>
-        /// <returns>ApiResponse of InlineResponse2011</returns>
-        ApiResponse<InlineResponse2011> CrmDealsPostWithHttpInfo (Body6 body);
-        /// <summary>
-        /// Get all pipelines
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Pipelines</returns>
-        Pipelines CrmPipelineDetailsAllGet ();
-
-        /// <summary>
-        /// Get all pipelines
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of Pipelines</returns>
-        ApiResponse<Pipelines> CrmPipelineDetailsAllGetWithHttpInfo ();
-        /// <summary>
-        /// Get pipeline stages
-        /// </summary>
-        /// <remarks>
-        /// This endpoint is deprecated. Prefer /crm/pipeline/details/{pipelineID} instead.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Pipeline</returns>
-        Pipeline CrmPipelineDetailsGet ();
-
-        /// <summary>
-        /// Get pipeline stages
-        /// </summary>
-        /// <remarks>
-        /// This endpoint is deprecated. Prefer /crm/pipeline/details/{pipelineID} instead.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of Pipeline</returns>
-        ApiResponse<Pipeline> CrmPipelineDetailsGetWithHttpInfo ();
-        /// <summary>
-        /// Get a pipeline
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pipelineID"></param>
-        /// <returns>Pipelines</returns>
-        Pipelines CrmPipelineDetailsPipelineIDGet (string pipelineID);
-
-        /// <summary>
-        /// Get a pipeline
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pipelineID"></param>
-        /// <returns>ApiResponse of Pipelines</returns>
-        ApiResponse<Pipelines> CrmPipelineDetailsPipelineIDGetWithHttpInfo (string pipelineID);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Get deal attributes
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of DealAttributes</returns>
-        System.Threading.Tasks.Task<DealAttributes> CrmAttributesDealsGetAsync ();
-
-        /// <summary>
-        /// Get deal attributes
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (DealAttributes)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DealAttributes>> CrmAttributesDealsGetAsyncWithHttpInfo ();
-        /// <summary>
-        /// Get all deals
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filtersAttributesDealName">Filter by attributes. If you have filter for owner on your side please send it as &#x60;filters[attributes.deal_owner]&#x60;.\&quot; (optional)</param>
-        /// <param name="filtersLinkedCompaniesIds">Filter by linked companies ids (optional)</param>
-        /// <param name="filtersLinkedContactsIds">Filter by linked companies ids (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
-        /// <param name="sortBy">The field used to sort field names. (optional)</param>
-        /// <returns>Task of DealsList</returns>
-        System.Threading.Tasks.Task<DealsList> CrmDealsGetAsync (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null);
-
-        /// <summary>
-        /// Get all deals
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filtersAttributesDealName">Filter by attributes. If you have filter for owner on your side please send it as &#x60;filters[attributes.deal_owner]&#x60;.\&quot; (optional)</param>
-        /// <param name="filtersLinkedCompaniesIds">Filter by linked companies ids (optional)</param>
-        /// <param name="filtersLinkedContactsIds">Filter by linked companies ids (optional)</param>
-        /// <param name="offset">Index of the first document of the page (optional)</param>
-        /// <param name="limit">Number of documents per page (optional, default to 50)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
-        /// <param name="sortBy">The field used to sort field names. (optional)</param>
-        /// <returns>Task of ApiResponse (DealsList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DealsList>> CrmDealsGetAsyncWithHttpInfo (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null);
-        /// <summary>
-        /// Delete a deal
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CrmDealsIdDeleteAsync (string id);
-
-        /// <summary>
-        /// Delete a deal
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CrmDealsIdDeleteAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// Get a deal
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>Task of Deal</returns>
-        System.Threading.Tasks.Task<Deal> CrmDealsIdGetAsync (string id);
-
-        /// <summary>
-        /// Get a deal
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>Task of ApiResponse (Deal)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Deal>> CrmDealsIdGetAsyncWithHttpInfo (string id);
-        /// <summary>
-        /// Update a deal
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="body">Updated deal details.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CrmDealsIdPatchAsync (string id, Body7 body);
-
-        /// <summary>
-        /// Update a deal
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="body">Updated deal details.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CrmDealsIdPatchAsyncWithHttpInfo (string id, Body7 body);
-        /// <summary>
-        /// Link and Unlink a deal with contacts and companies
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="body">Linked / Unlinked contacts and companies ids.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CrmDealsLinkUnlinkIdPatchAsync (string id, Body8 body);
-
-        /// <summary>
-        /// Link and Unlink a deal with contacts and companies
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="body">Linked / Unlinked contacts and companies ids.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CrmDealsLinkUnlinkIdPatchAsyncWithHttpInfo (string id, Body8 body);
-        /// <summary>
-        /// Create a deal
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Deal create data.</param>
-        /// <returns>Task of InlineResponse2011</returns>
-        System.Threading.Tasks.Task<InlineResponse2011> CrmDealsPostAsync (Body6 body);
-
-        /// <summary>
-        /// Create a deal
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Deal create data.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> CrmDealsPostAsyncWithHttpInfo (Body6 body);
-        /// <summary>
-        /// Get all pipelines
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of Pipelines</returns>
-        System.Threading.Tasks.Task<Pipelines> CrmPipelineDetailsAllGetAsync ();
-
-        /// <summary>
-        /// Get all pipelines
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (Pipelines)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Pipelines>> CrmPipelineDetailsAllGetAsyncWithHttpInfo ();
-        /// <summary>
-        /// Get pipeline stages
-        /// </summary>
-        /// <remarks>
-        /// This endpoint is deprecated. Prefer /crm/pipeline/details/{pipelineID} instead.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of Pipeline</returns>
-        System.Threading.Tasks.Task<Pipeline> CrmPipelineDetailsGetAsync ();
-
-        /// <summary>
-        /// Get pipeline stages
-        /// </summary>
-        /// <remarks>
-        /// This endpoint is deprecated. Prefer /crm/pipeline/details/{pipelineID} instead.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (Pipeline)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Pipeline>> CrmPipelineDetailsGetAsyncWithHttpInfo ();
-        /// <summary>
-        /// Get a pipeline
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pipelineID"></param>
-        /// <returns>Task of Pipelines</returns>
-        System.Threading.Tasks.Task<Pipelines> CrmPipelineDetailsPipelineIDGetAsync (string pipelineID);
-
-        /// <summary>
-        /// Get a pipeline
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pipelineID"></param>
-        /// <returns>Task of ApiResponse (Pipelines)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Pipelines>> CrmPipelineDetailsPipelineIDGetAsyncWithHttpInfo (string pipelineID);
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class DealsApi : IDealsApi
+    public partial class DealsApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -571,9 +120,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>DealAttributes</returns>
-        public DealAttributes CrmAttributesDealsGet ()
+        public DealAttributes CrmAttributesDealsGet (string apiKey, string partnerKey)
         {
-             ApiResponse<DealAttributes> localVarResponse = CrmAttributesDealsGetWithHttpInfo();
+             ApiResponse<DealAttributes> localVarResponse = CrmAttributesDealsGetWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
         }
 
@@ -582,7 +131,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of DealAttributes</returns>
-        public ApiResponse< DealAttributes > CrmAttributesDealsGetWithHttpInfo ()
+        public ApiResponse< DealAttributes > CrmAttributesDealsGetWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./crm/attributes/deals";
@@ -609,14 +158,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -642,9 +191,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of DealAttributes</returns>
-        public async System.Threading.Tasks.Task<DealAttributes> CrmAttributesDealsGetAsync ()
+        public async System.Threading.Tasks.Task<DealAttributes> CrmAttributesDealsGetAsync (string apiKey, string partnerKey)
         {
-             ApiResponse<DealAttributes> localVarResponse = await CrmAttributesDealsGetAsyncWithHttpInfo();
+             ApiResponse<DealAttributes> localVarResponse = await CrmAttributesDealsGetAsyncWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
 
         }
@@ -654,7 +203,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (DealAttributes)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DealAttributes>> CrmAttributesDealsGetAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<DealAttributes>> CrmAttributesDealsGetAsyncWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./crm/attributes/deals";
@@ -681,14 +230,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -721,9 +270,9 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>DealsList</returns>
-        public DealsList CrmDealsGet (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
+        public DealsList CrmDealsGet (string apiKey, string partnerKey, string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
         {
-             ApiResponse<DealsList> localVarResponse = CrmDealsGetWithHttpInfo(filtersAttributesDealName, filtersLinkedCompaniesIds, filtersLinkedContactsIds, offset, limit, sort, sortBy);
+             ApiResponse<DealsList> localVarResponse = CrmDealsGetWithHttpInfo(apiKey, partnerKey, filtersAttributesDealName, filtersLinkedCompaniesIds, filtersLinkedContactsIds, offset, limit, sort, sortBy);
              return localVarResponse.Data;
         }
 
@@ -739,7 +288,7 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>ApiResponse of DealsList</returns>
-        public ApiResponse< DealsList > CrmDealsGetWithHttpInfo (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
+        public ApiResponse< DealsList > CrmDealsGetWithHttpInfo (string apiKey, string partnerKey, string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
         {
 
             var localVarPath = "./crm/deals";
@@ -773,14 +322,14 @@ namespace brevo_csharp.Api
             if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sortBy", sortBy)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -813,9 +362,9 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>Task of DealsList</returns>
-        public async System.Threading.Tasks.Task<DealsList> CrmDealsGetAsync (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
+        public async System.Threading.Tasks.Task<DealsList> CrmDealsGetAsync (string apiKey, string partnerKey, string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
         {
-             ApiResponse<DealsList> localVarResponse = await CrmDealsGetAsyncWithHttpInfo(filtersAttributesDealName, filtersLinkedCompaniesIds, filtersLinkedContactsIds, offset, limit, sort, sortBy);
+             ApiResponse<DealsList> localVarResponse = await CrmDealsGetAsyncWithHttpInfo(apiKey, partnerKey, filtersAttributesDealName, filtersLinkedCompaniesIds, filtersLinkedContactsIds, offset, limit, sort, sortBy);
              return localVarResponse.Data;
 
         }
@@ -832,7 +381,7 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>Task of ApiResponse (DealsList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DealsList>> CrmDealsGetAsyncWithHttpInfo (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DealsList>> CrmDealsGetAsyncWithHttpInfo (string apiKey, string partnerKey, string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
         {
 
             var localVarPath = "./crm/deals";
@@ -866,14 +415,14 @@ namespace brevo_csharp.Api
             if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sortBy", sortBy)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -900,9 +449,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns></returns>
-        public void CrmDealsIdDelete (string id)
+        public void CrmDealsIdDelete (string apiKey, string partnerKey, string id)
         {
-             CrmDealsIdDeleteWithHttpInfo(id);
+             CrmDealsIdDeleteWithHttpInfo(apiKey, partnerKey, id);
         }
 
         /// <summary>
@@ -911,7 +460,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CrmDealsIdDeleteWithHttpInfo (string id)
+        public ApiResponse<Object> CrmDealsIdDeleteWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -942,14 +491,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -976,9 +525,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CrmDealsIdDeleteAsync (string id)
+        public async System.Threading.Tasks.Task CrmDealsIdDeleteAsync (string apiKey, string partnerKey, string id)
         {
-             await CrmDealsIdDeleteAsyncWithHttpInfo(id);
+             await CrmDealsIdDeleteAsyncWithHttpInfo(apiKey, partnerKey, id);
 
         }
 
@@ -988,7 +537,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmDealsIdDeleteAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmDealsIdDeleteAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1019,14 +568,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1053,9 +602,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Deal</returns>
-        public Deal CrmDealsIdGet (string id)
+        public Deal CrmDealsIdGet (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<Deal> localVarResponse = CrmDealsIdGetWithHttpInfo(id);
+             ApiResponse<Deal> localVarResponse = CrmDealsIdGetWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
         }
 
@@ -1065,7 +614,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>ApiResponse of Deal</returns>
-        public ApiResponse< Deal > CrmDealsIdGetWithHttpInfo (string id)
+        public ApiResponse< Deal > CrmDealsIdGetWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1096,14 +645,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1130,9 +679,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Task of Deal</returns>
-        public async System.Threading.Tasks.Task<Deal> CrmDealsIdGetAsync (string id)
+        public async System.Threading.Tasks.Task<Deal> CrmDealsIdGetAsync (string apiKey, string partnerKey, string id)
         {
-             ApiResponse<Deal> localVarResponse = await CrmDealsIdGetAsyncWithHttpInfo(id);
+             ApiResponse<Deal> localVarResponse = await CrmDealsIdGetAsyncWithHttpInfo(apiKey, partnerKey, id);
              return localVarResponse.Data;
 
         }
@@ -1143,7 +692,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>Task of ApiResponse (Deal)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Deal>> CrmDealsIdGetAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<Deal>> CrmDealsIdGetAsyncWithHttpInfo (string apiKey, string partnerKey, string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1174,14 +723,14 @@ namespace brevo_csharp.Api
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1209,9 +758,9 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated deal details.</param>
         /// <returns></returns>
-        public void CrmDealsIdPatch (string id, Body7 body)
+        public void CrmDealsIdPatch (string apiKey, string partnerKey, string id, Body7 body)
         {
-             CrmDealsIdPatchWithHttpInfo(id, body);
+             CrmDealsIdPatchWithHttpInfo(apiKey, partnerKey, id, body);
         }
 
         /// <summary>
@@ -1221,7 +770,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated deal details.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CrmDealsIdPatchWithHttpInfo (string id, Body7 body)
+        public ApiResponse<Object> CrmDealsIdPatchWithHttpInfo (string apiKey, string partnerKey, string id, Body7 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1263,14 +812,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1298,9 +847,9 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated deal details.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CrmDealsIdPatchAsync (string id, Body7 body)
+        public async System.Threading.Tasks.Task CrmDealsIdPatchAsync (string apiKey, string partnerKey, string id, Body7 body)
         {
-             await CrmDealsIdPatchAsyncWithHttpInfo(id, body);
+             await CrmDealsIdPatchAsyncWithHttpInfo(apiKey, partnerKey, id, body);
 
         }
 
@@ -1311,7 +860,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated deal details.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmDealsIdPatchAsyncWithHttpInfo (string id, Body7 body)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmDealsIdPatchAsyncWithHttpInfo (string apiKey, string partnerKey, string id, Body7 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1353,14 +902,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1388,9 +937,9 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and companies ids.</param>
         /// <returns></returns>
-        public void CrmDealsLinkUnlinkIdPatch (string id, Body8 body)
+        public void CrmDealsLinkUnlinkIdPatch (string apiKey, string partnerKey, string id, Body8 body)
         {
-             CrmDealsLinkUnlinkIdPatchWithHttpInfo(id, body);
+             CrmDealsLinkUnlinkIdPatchWithHttpInfo(apiKey, partnerKey, id, body);
         }
 
         /// <summary>
@@ -1400,7 +949,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and companies ids.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CrmDealsLinkUnlinkIdPatchWithHttpInfo (string id, Body8 body)
+        public ApiResponse<Object> CrmDealsLinkUnlinkIdPatchWithHttpInfo (string apiKey, string partnerKey, string id, Body8 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1442,14 +991,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1477,9 +1026,9 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and companies ids.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CrmDealsLinkUnlinkIdPatchAsync (string id, Body8 body)
+        public async System.Threading.Tasks.Task CrmDealsLinkUnlinkIdPatchAsync (string apiKey, string partnerKey, string id, Body8 body)
         {
-             await CrmDealsLinkUnlinkIdPatchAsyncWithHttpInfo(id, body);
+             await CrmDealsLinkUnlinkIdPatchAsyncWithHttpInfo(apiKey, partnerKey, id, body);
 
         }
 
@@ -1490,7 +1039,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and companies ids.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmDealsLinkUnlinkIdPatchAsyncWithHttpInfo (string id, Body8 body)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmDealsLinkUnlinkIdPatchAsyncWithHttpInfo (string apiKey, string partnerKey, string id, Body8 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1532,14 +1081,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1566,9 +1115,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Deal create data.</param>
         /// <returns>InlineResponse2011</returns>
-        public InlineResponse2011 CrmDealsPost (Body6 body)
+        public InlineResponse2011 CrmDealsPost (string apiKey, string partnerKey, Body6 body)
         {
-             ApiResponse<InlineResponse2011> localVarResponse = CrmDealsPostWithHttpInfo(body);
+             ApiResponse<InlineResponse2011> localVarResponse = CrmDealsPostWithHttpInfo(apiKey, partnerKey, body);
              return localVarResponse.Data;
         }
 
@@ -1578,7 +1127,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Deal create data.</param>
         /// <returns>ApiResponse of InlineResponse2011</returns>
-        public ApiResponse< InlineResponse2011 > CrmDealsPostWithHttpInfo (Body6 body)
+        public ApiResponse< InlineResponse2011 > CrmDealsPostWithHttpInfo (string apiKey, string partnerKey, Body6 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1616,14 +1165,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1650,9 +1199,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Deal create data.</param>
         /// <returns>Task of InlineResponse2011</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2011> CrmDealsPostAsync (Body6 body)
+        public async System.Threading.Tasks.Task<InlineResponse2011> CrmDealsPostAsync (string apiKey, string partnerKey, Body6 body)
         {
-             ApiResponse<InlineResponse2011> localVarResponse = await CrmDealsPostAsyncWithHttpInfo(body);
+             ApiResponse<InlineResponse2011> localVarResponse = await CrmDealsPostAsyncWithHttpInfo(apiKey, partnerKey, body);
              return localVarResponse.Data;
 
         }
@@ -1663,7 +1212,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Deal create data.</param>
         /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> CrmDealsPostAsyncWithHttpInfo (Body6 body)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> CrmDealsPostAsyncWithHttpInfo (string apiKey, string partnerKey, Body6 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1701,14 +1250,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1734,9 +1283,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Pipelines</returns>
-        public Pipelines CrmPipelineDetailsAllGet ()
+        public Pipelines CrmPipelineDetailsAllGet (string apiKey, string partnerKey)
         {
-             ApiResponse<Pipelines> localVarResponse = CrmPipelineDetailsAllGetWithHttpInfo();
+             ApiResponse<Pipelines> localVarResponse = CrmPipelineDetailsAllGetWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
         }
 
@@ -1745,7 +1294,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Pipelines</returns>
-        public ApiResponse< Pipelines > CrmPipelineDetailsAllGetWithHttpInfo ()
+        public ApiResponse< Pipelines > CrmPipelineDetailsAllGetWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./crm/pipeline/details/all";
@@ -1772,14 +1321,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1805,9 +1354,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of Pipelines</returns>
-        public async System.Threading.Tasks.Task<Pipelines> CrmPipelineDetailsAllGetAsync ()
+        public async System.Threading.Tasks.Task<Pipelines> CrmPipelineDetailsAllGetAsync (string apiKey, string partnerKey)
         {
-             ApiResponse<Pipelines> localVarResponse = await CrmPipelineDetailsAllGetAsyncWithHttpInfo();
+             ApiResponse<Pipelines> localVarResponse = await CrmPipelineDetailsAllGetAsyncWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
 
         }
@@ -1817,7 +1366,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (Pipelines)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Pipelines>> CrmPipelineDetailsAllGetAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<Pipelines>> CrmPipelineDetailsAllGetAsyncWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./crm/pipeline/details/all";
@@ -1844,14 +1393,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1877,9 +1426,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Pipeline</returns>
-        public Pipeline CrmPipelineDetailsGet ()
+        public Pipeline CrmPipelineDetailsGet (string apiKey, string partnerKey)
         {
-             ApiResponse<Pipeline> localVarResponse = CrmPipelineDetailsGetWithHttpInfo();
+             ApiResponse<Pipeline> localVarResponse = CrmPipelineDetailsGetWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
         }
 
@@ -1888,7 +1437,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Pipeline</returns>
-        public ApiResponse< Pipeline > CrmPipelineDetailsGetWithHttpInfo ()
+        public ApiResponse< Pipeline > CrmPipelineDetailsGetWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./crm/pipeline/details";
@@ -1915,14 +1464,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1948,9 +1497,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of Pipeline</returns>
-        public async System.Threading.Tasks.Task<Pipeline> CrmPipelineDetailsGetAsync ()
+        public async System.Threading.Tasks.Task<Pipeline> CrmPipelineDetailsGetAsync (string apiKey, string partnerKey)
         {
-             ApiResponse<Pipeline> localVarResponse = await CrmPipelineDetailsGetAsyncWithHttpInfo();
+             ApiResponse<Pipeline> localVarResponse = await CrmPipelineDetailsGetAsyncWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
 
         }
@@ -1960,7 +1509,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (Pipeline)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Pipeline>> CrmPipelineDetailsGetAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<Pipeline>> CrmPipelineDetailsGetAsyncWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./crm/pipeline/details";
@@ -1987,14 +1536,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2021,9 +1570,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pipelineID"></param>
         /// <returns>Pipelines</returns>
-        public Pipelines CrmPipelineDetailsPipelineIDGet (string pipelineID)
+        public Pipelines CrmPipelineDetailsPipelineIDGet (string apiKey, string partnerKey, string pipelineID)
         {
-             ApiResponse<Pipelines> localVarResponse = CrmPipelineDetailsPipelineIDGetWithHttpInfo(pipelineID);
+             ApiResponse<Pipelines> localVarResponse = CrmPipelineDetailsPipelineIDGetWithHttpInfo(apiKey, partnerKey, pipelineID);
              return localVarResponse.Data;
         }
 
@@ -2033,7 +1582,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pipelineID"></param>
         /// <returns>ApiResponse of Pipelines</returns>
-        public ApiResponse< Pipelines > CrmPipelineDetailsPipelineIDGetWithHttpInfo (string pipelineID)
+        public ApiResponse< Pipelines > CrmPipelineDetailsPipelineIDGetWithHttpInfo (string apiKey, string partnerKey, string pipelineID)
         {
             // verify the required parameter 'pipelineID' is set
             if (pipelineID == null)
@@ -2064,14 +1613,14 @@ namespace brevo_csharp.Api
             if (pipelineID != null) localVarPathParams.Add("pipelineID", this.Configuration.ApiClient.ParameterToString(pipelineID)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2098,9 +1647,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pipelineID"></param>
         /// <returns>Task of Pipelines</returns>
-        public async System.Threading.Tasks.Task<Pipelines> CrmPipelineDetailsPipelineIDGetAsync (string pipelineID)
+        public async System.Threading.Tasks.Task<Pipelines> CrmPipelineDetailsPipelineIDGetAsync (string apiKey, string partnerKey, string pipelineID)
         {
-             ApiResponse<Pipelines> localVarResponse = await CrmPipelineDetailsPipelineIDGetAsyncWithHttpInfo(pipelineID);
+             ApiResponse<Pipelines> localVarResponse = await CrmPipelineDetailsPipelineIDGetAsyncWithHttpInfo(apiKey, partnerKey, pipelineID);
              return localVarResponse.Data;
 
         }
@@ -2111,7 +1660,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pipelineID"></param>
         /// <returns>Task of ApiResponse (Pipelines)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Pipelines>> CrmPipelineDetailsPipelineIDGetAsyncWithHttpInfo (string pipelineID)
+        public async System.Threading.Tasks.Task<ApiResponse<Pipelines>> CrmPipelineDetailsPipelineIDGetAsyncWithHttpInfo (string apiKey, string partnerKey, string pipelineID)
         {
             // verify the required parameter 'pipelineID' is set
             if (pipelineID == null)
@@ -2142,14 +1691,14 @@ namespace brevo_csharp.Api
             if (pipelineID != null) localVarPathParams.Add("pipelineID", this.Configuration.ApiClient.ParameterToString(pipelineID)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

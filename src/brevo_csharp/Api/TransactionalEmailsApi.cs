@@ -21,1114 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ITransactionalEmailsApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Add a new domain to the list of blocked domains
-        /// </summary>
-        /// <remarks>
-        /// Blocks a new domain in order to avoid messages being sent to the same
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="blockDomain"></param>
-        /// <returns></returns>
-        void BlockNewDomain (BlockDomain blockDomain);
-
-        /// <summary>
-        /// Add a new domain to the list of blocked domains
-        /// </summary>
-        /// <remarks>
-        /// Blocks a new domain in order to avoid messages being sent to the same
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="blockDomain"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> BlockNewDomainWithHttpInfo (BlockDomain blockDomain);
-        /// <summary>
-        /// Create an email template
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="smtpTemplate">values to update in transactional email template</param>
-        /// <returns>CreateModel</returns>
-        CreateModel CreateSmtpTemplate (CreateSmtpTemplate smtpTemplate);
-
-        /// <summary>
-        /// Create an email template
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="smtpTemplate">values to update in transactional email template</param>
-        /// <returns>ApiResponse of CreateModel</returns>
-        ApiResponse<CreateModel> CreateSmtpTemplateWithHttpInfo (CreateSmtpTemplate smtpTemplate);
-        /// <summary>
-        /// Unblock an existing domain from the list of blocked domains
-        /// </summary>
-        /// <remarks>
-        /// Unblocks an existing domain from the list of blocked domains
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The name of the domain to be deleted</param>
-        /// <returns></returns>
-        void DeleteBlockedDomain (string domain);
-
-        /// <summary>
-        /// Unblock an existing domain from the list of blocked domains
-        /// </summary>
-        /// <remarks>
-        /// Unblocks an existing domain from the list of blocked domains
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The name of the domain to be deleted</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteBlockedDomainWithHttpInfo (string domain);
-        /// <summary>
-        /// Delete hardbounces
-        /// </summary>
-        /// <remarks>
-        /// Delete hardbounces. To use carefully (e.g. in case of temporary ISP failures)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteHardbounces">values to delete hardbounces (optional)</param>
-        /// <returns></returns>
-        void DeleteHardbounces (DeleteHardbounces deleteHardbounces = null);
-
-        /// <summary>
-        /// Delete hardbounces
-        /// </summary>
-        /// <remarks>
-        /// Delete hardbounces. To use carefully (e.g. in case of temporary ISP failures)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteHardbounces">values to delete hardbounces (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteHardbouncesWithHttpInfo (DeleteHardbounces deleteHardbounces = null);
-        /// <summary>
-        /// Delete scheduled emails by batchId or messageId
-        /// </summary>
-        /// <remarks>
-        /// Delete scheduled batch of emails by batchId or single scheduled email by messageId
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">The &#x60;batchId&#x60; of scheduled emails batch (Should be a valid UUIDv4) or the &#x60;messageId&#x60; of scheduled email.</param>
-        /// <returns></returns>
-        void DeleteScheduledEmailById (string identifier);
-
-        /// <summary>
-        /// Delete scheduled emails by batchId or messageId
-        /// </summary>
-        /// <remarks>
-        /// Delete scheduled batch of emails by batchId or single scheduled email by messageId
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">The &#x60;batchId&#x60; of scheduled emails batch (Should be a valid UUIDv4) or the &#x60;messageId&#x60; of scheduled email.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteScheduledEmailByIdWithHttpInfo (string identifier);
-        /// <summary>
-        /// Delete an inactive email template
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">id of the template</param>
-        /// <returns></returns>
-        void DeleteSmtpTemplate (long? templateId);
-
-        /// <summary>
-        /// Delete an inactive email template
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">id of the template</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteSmtpTemplateWithHttpInfo (long? templateId);
-        /// <summary>
-        /// Get your transactional email activity aggregated over a period of time
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the aggregated stats for past 90 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="tag">Tag of the emails (optional)</param>
-        /// <returns>GetAggregatedReport</returns>
-        GetAggregatedReport GetAggregatedSmtpReport (string startDate = null, string endDate = null, long? days = null, string tag = null);
-
-        /// <summary>
-        /// Get your transactional email activity aggregated over a period of time
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the aggregated stats for past 90 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="tag">Tag of the emails (optional)</param>
-        /// <returns>ApiResponse of GetAggregatedReport</returns>
-        ApiResponse<GetAggregatedReport> GetAggregatedSmtpReportWithHttpInfo (string startDate = null, string endDate = null, long? days = null, string tag = null);
-        /// <summary>
-        /// Get the list of blocked domains
-        /// </summary>
-        /// <remarks>
-        /// Get the list of blocked domains
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>GetBlockedDomains</returns>
-        GetBlockedDomains GetBlockedDomains ();
-
-        /// <summary>
-        /// Get the list of blocked domains
-        /// </summary>
-        /// <remarks>
-        /// Get the list of blocked domains
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of GetBlockedDomains</returns>
-        ApiResponse<GetBlockedDomains> GetBlockedDomainsWithHttpInfo ();
-        /// <summary>
-        /// Get all your transactional email activity (unaggregated events)
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the aggregated stats for past 30 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number limitation for the result returned (optional, default to 2500)</param>
-        /// <param name="offset">Beginning point in the list to retrieve from. (optional, default to 0)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="email">Filter the report for a specific email addresses (optional)</param>
-        /// <param name="_event">Filter the report for a specific event type (optional)</param>
-        /// <param name="tags">Filter the report for tags (serialized and urlencoded array) (optional)</param>
-        /// <param name="messageId">Filter on a specific message id (optional)</param>
-        /// <param name="templateId">Filter on a specific template id (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>GetEmailEventReport</returns>
-        GetEmailEventReport GetEmailEventReport (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string email = null, string _event = null, string tags = null, string messageId = null, long? templateId = null, string sort = null);
-
-        /// <summary>
-        /// Get all your transactional email activity (unaggregated events)
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the aggregated stats for past 30 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number limitation for the result returned (optional, default to 2500)</param>
-        /// <param name="offset">Beginning point in the list to retrieve from. (optional, default to 0)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="email">Filter the report for a specific email addresses (optional)</param>
-        /// <param name="_event">Filter the report for a specific event type (optional)</param>
-        /// <param name="tags">Filter the report for tags (serialized and urlencoded array) (optional)</param>
-        /// <param name="messageId">Filter on a specific message id (optional)</param>
-        /// <param name="templateId">Filter on a specific template id (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>ApiResponse of GetEmailEventReport</returns>
-        ApiResponse<GetEmailEventReport> GetEmailEventReportWithHttpInfo (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string email = null, string _event = null, string tags = null, string messageId = null, long? templateId = null, string sort = null);
-        /// <summary>
-        /// Fetch scheduled emails by batchId
-        /// </summary>
-        /// <remarks>
-        /// Fetch scheduled batch of emails by batchId (Can retrieve data upto 30 days old)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchId">The batchId of scheduled emails batch (Should be a valid UUIDv4)</param>
-        /// <param name="startDate">Mandatory if &#x60;endDate&#x60; is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date. (optional)</param>
-        /// <param name="endDate">Mandatory if &#x60;startDate&#x60; is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="status">Filter the records by &#x60;status&#x60; of the scheduled email batch or message. (optional)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 100)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <returns>GetScheduledEmailByBatchId</returns>
-        GetScheduledEmailByBatchId GetScheduledEmailByBatchId (string batchId, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string status = null, long? limit = null, long? offset = null);
-
-        /// <summary>
-        /// Fetch scheduled emails by batchId
-        /// </summary>
-        /// <remarks>
-        /// Fetch scheduled batch of emails by batchId (Can retrieve data upto 30 days old)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchId">The batchId of scheduled emails batch (Should be a valid UUIDv4)</param>
-        /// <param name="startDate">Mandatory if &#x60;endDate&#x60; is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date. (optional)</param>
-        /// <param name="endDate">Mandatory if &#x60;startDate&#x60; is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="status">Filter the records by &#x60;status&#x60; of the scheduled email batch or message. (optional)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 100)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <returns>ApiResponse of GetScheduledEmailByBatchId</returns>
-        ApiResponse<GetScheduledEmailByBatchId> GetScheduledEmailByBatchIdWithHttpInfo (string batchId, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string status = null, long? limit = null, long? offset = null);
-        /// <summary>
-        /// Fetch scheduled email by messageId
-        /// </summary>
-        /// <remarks>
-        /// Fetch scheduled email by messageId (Can retrieve data upto 30 days old)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId">The messageId of scheduled email</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <returns>GetScheduledEmailByMessageId</returns>
-        GetScheduledEmailByMessageId GetScheduledEmailByMessageId (string messageId, DateTime? startDate = null, DateTime? endDate = null);
-
-        /// <summary>
-        /// Fetch scheduled email by messageId
-        /// </summary>
-        /// <remarks>
-        /// Fetch scheduled email by messageId (Can retrieve data upto 30 days old)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId">The messageId of scheduled email</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <returns>ApiResponse of GetScheduledEmailByMessageId</returns>
-        ApiResponse<GetScheduledEmailByMessageId> GetScheduledEmailByMessageIdWithHttpInfo (string messageId, DateTime? startDate = null, DateTime? endDate = null);
-        /// <summary>
-        /// Get your transactional email activity aggregated per day
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents returned per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD) (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="tag">Tag of the emails (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>GetReports</returns>
-        GetReports GetSmtpReport (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null);
-
-        /// <summary>
-        /// Get your transactional email activity aggregated per day
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents returned per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD) (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="tag">Tag of the emails (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>ApiResponse of GetReports</returns>
-        ApiResponse<GetReports> GetSmtpReportWithHttpInfo (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null);
-        /// <summary>
-        /// Returns the template information
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">id of the template</param>
-        /// <returns>GetSmtpTemplateOverview</returns>
-        GetSmtpTemplateOverview GetSmtpTemplate (long? templateId);
-
-        /// <summary>
-        /// Returns the template information
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">id of the template</param>
-        /// <returns>ApiResponse of GetSmtpTemplateOverview</returns>
-        ApiResponse<GetSmtpTemplateOverview> GetSmtpTemplateWithHttpInfo (long? templateId);
-        /// <summary>
-        /// Get the list of email templates
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateStatus">Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>GetSmtpTemplates</returns>
-        GetSmtpTemplates GetSmtpTemplates (bool? templateStatus = null, long? limit = null, long? offset = null, string sort = null);
-
-        /// <summary>
-        /// Get the list of email templates
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateStatus">Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>ApiResponse of GetSmtpTemplates</returns>
-        ApiResponse<GetSmtpTemplates> GetSmtpTemplatesWithHttpInfo (bool? templateStatus = null, long? limit = null, long? offset = null, string sort = null);
-        /// <summary>
-        /// Get the list of blocked or unsubscribed transactional contacts
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the blocked or unsubscribed contacts (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the blocked or unsubscribed contacts (optional)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <param name="senders">Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>GetTransacBlockedContacts</returns>
-        GetTransacBlockedContacts GetTransacBlockedContacts (string startDate = null, string endDate = null, long? limit = null, long? offset = null, List<string> senders = null, string sort = null);
-
-        /// <summary>
-        /// Get the list of blocked or unsubscribed transactional contacts
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the blocked or unsubscribed contacts (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the blocked or unsubscribed contacts (optional)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <param name="senders">Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>ApiResponse of GetTransacBlockedContacts</returns>
-        ApiResponse<GetTransacBlockedContacts> GetTransacBlockedContactsWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null, List<string> senders = null, string sort = null);
-        /// <summary>
-        /// Get the personalized content of a sent transactional email
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">Unique id of the transactional email that has been sent to a particular contact</param>
-        /// <returns>GetTransacEmailContent</returns>
-        GetTransacEmailContent GetTransacEmailContent (string uuid);
-
-        /// <summary>
-        /// Get the personalized content of a sent transactional email
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">Unique id of the transactional email that has been sent to a particular contact</param>
-        /// <returns>ApiResponse of GetTransacEmailContent</returns>
-        ApiResponse<GetTransacEmailContent> GetTransacEmailContentWithHttpInfo (string uuid);
-        /// <summary>
-        /// Get the list of transactional emails on the basis of allowed filters
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the list of emails for past 30 days by default. To retrieve emails before that time, please pass startDate and endDate in query filters.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent. (optional)</param>
-        /// <param name="templateId">Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email. (optional)</param>
-        /// <param name="messageId">Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. (optional)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 500)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <returns>GetTransacEmailsList</returns>
-        GetTransacEmailsList GetTransacEmailsList (string email = null, long? templateId = null, string messageId = null, string startDate = null, string endDate = null, string sort = null, long? limit = null, long? offset = null);
-
-        /// <summary>
-        /// Get the list of transactional emails on the basis of allowed filters
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the list of emails for past 30 days by default. To retrieve emails before that time, please pass startDate and endDate in query filters.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent. (optional)</param>
-        /// <param name="templateId">Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email. (optional)</param>
-        /// <param name="messageId">Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. (optional)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 500)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <returns>ApiResponse of GetTransacEmailsList</returns>
-        ApiResponse<GetTransacEmailsList> GetTransacEmailsListWithHttpInfo (string email = null, long? templateId = null, string messageId = null, string startDate = null, string endDate = null, string sort = null, long? limit = null, long? offset = null);
-        /// <summary>
-        /// Send a template to your test list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">Id of the template</param>
-        /// <param name="sendTestEmail"></param>
-        /// <returns></returns>
-        void SendTestTemplate (long? templateId, SendTestEmail sendTestEmail);
-
-        /// <summary>
-        /// Send a template to your test list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">Id of the template</param>
-        /// <param name="sendTestEmail"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SendTestTemplateWithHttpInfo (long? templateId, SendTestEmail sendTestEmail);
-        /// <summary>
-        /// Send a transactional email
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendSmtpEmail">Values to send a transactional email</param>
-        /// <returns>CreateSmtpEmail</returns>
-        CreateSmtpEmail SendTransacEmail (SendSmtpEmail sendSmtpEmail);
-
-        /// <summary>
-        /// Send a transactional email
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendSmtpEmail">Values to send a transactional email</param>
-        /// <returns>ApiResponse of CreateSmtpEmail</returns>
-        ApiResponse<CreateSmtpEmail> SendTransacEmailWithHttpInfo (SendSmtpEmail sendSmtpEmail);
-        /// <summary>
-        /// Unblock or resubscribe a transactional contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">contact email (urlencoded) to unblock.</param>
-        /// <returns></returns>
-        void SmtpBlockedContactsEmailDelete (string email);
-
-        /// <summary>
-        /// Unblock or resubscribe a transactional contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">contact email (urlencoded) to unblock.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SmtpBlockedContactsEmailDeleteWithHttpInfo (string email);
-        /// <summary>
-        /// Delete an SMTP transactional log
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">MessageId or Email of the transactional log(s) to delete</param>
-        /// <returns></returns>
-        void SmtpLogIdentifierDelete (string identifier);
-
-        /// <summary>
-        /// Delete an SMTP transactional log
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">MessageId or Email of the transactional log(s) to delete</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SmtpLogIdentifierDeleteWithHttpInfo (string identifier);
-        /// <summary>
-        /// Update an email template
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">id of the template</param>
-        /// <param name="smtpTemplate">values to update in transactional email template</param>
-        /// <returns></returns>
-        void UpdateSmtpTemplate (long? templateId, UpdateSmtpTemplate smtpTemplate);
-
-        /// <summary>
-        /// Update an email template
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">id of the template</param>
-        /// <param name="smtpTemplate">values to update in transactional email template</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateSmtpTemplateWithHttpInfo (long? templateId, UpdateSmtpTemplate smtpTemplate);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Add a new domain to the list of blocked domains
-        /// </summary>
-        /// <remarks>
-        /// Blocks a new domain in order to avoid messages being sent to the same
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="blockDomain"></param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task BlockNewDomainAsync (BlockDomain blockDomain);
-
-        /// <summary>
-        /// Add a new domain to the list of blocked domains
-        /// </summary>
-        /// <remarks>
-        /// Blocks a new domain in order to avoid messages being sent to the same
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="blockDomain"></param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> BlockNewDomainAsyncWithHttpInfo (BlockDomain blockDomain);
-        /// <summary>
-        /// Create an email template
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="smtpTemplate">values to update in transactional email template</param>
-        /// <returns>Task of CreateModel</returns>
-        System.Threading.Tasks.Task<CreateModel> CreateSmtpTemplateAsync (CreateSmtpTemplate smtpTemplate);
-
-        /// <summary>
-        /// Create an email template
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="smtpTemplate">values to update in transactional email template</param>
-        /// <returns>Task of ApiResponse (CreateModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateSmtpTemplateAsyncWithHttpInfo (CreateSmtpTemplate smtpTemplate);
-        /// <summary>
-        /// Unblock an existing domain from the list of blocked domains
-        /// </summary>
-        /// <remarks>
-        /// Unblocks an existing domain from the list of blocked domains
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The name of the domain to be deleted</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteBlockedDomainAsync (string domain);
-
-        /// <summary>
-        /// Unblock an existing domain from the list of blocked domains
-        /// </summary>
-        /// <remarks>
-        /// Unblocks an existing domain from the list of blocked domains
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The name of the domain to be deleted</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteBlockedDomainAsyncWithHttpInfo (string domain);
-        /// <summary>
-        /// Delete hardbounces
-        /// </summary>
-        /// <remarks>
-        /// Delete hardbounces. To use carefully (e.g. in case of temporary ISP failures)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteHardbounces">values to delete hardbounces (optional)</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteHardbouncesAsync (DeleteHardbounces deleteHardbounces = null);
-
-        /// <summary>
-        /// Delete hardbounces
-        /// </summary>
-        /// <remarks>
-        /// Delete hardbounces. To use carefully (e.g. in case of temporary ISP failures)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteHardbounces">values to delete hardbounces (optional)</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteHardbouncesAsyncWithHttpInfo (DeleteHardbounces deleteHardbounces = null);
-        /// <summary>
-        /// Delete scheduled emails by batchId or messageId
-        /// </summary>
-        /// <remarks>
-        /// Delete scheduled batch of emails by batchId or single scheduled email by messageId
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">The &#x60;batchId&#x60; of scheduled emails batch (Should be a valid UUIDv4) or the &#x60;messageId&#x60; of scheduled email.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteScheduledEmailByIdAsync (string identifier);
-
-        /// <summary>
-        /// Delete scheduled emails by batchId or messageId
-        /// </summary>
-        /// <remarks>
-        /// Delete scheduled batch of emails by batchId or single scheduled email by messageId
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">The &#x60;batchId&#x60; of scheduled emails batch (Should be a valid UUIDv4) or the &#x60;messageId&#x60; of scheduled email.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteScheduledEmailByIdAsyncWithHttpInfo (string identifier);
-        /// <summary>
-        /// Delete an inactive email template
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">id of the template</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteSmtpTemplateAsync (long? templateId);
-
-        /// <summary>
-        /// Delete an inactive email template
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">id of the template</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSmtpTemplateAsyncWithHttpInfo (long? templateId);
-        /// <summary>
-        /// Get your transactional email activity aggregated over a period of time
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the aggregated stats for past 90 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="tag">Tag of the emails (optional)</param>
-        /// <returns>Task of GetAggregatedReport</returns>
-        System.Threading.Tasks.Task<GetAggregatedReport> GetAggregatedSmtpReportAsync (string startDate = null, string endDate = null, long? days = null, string tag = null);
-
-        /// <summary>
-        /// Get your transactional email activity aggregated over a period of time
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the aggregated stats for past 90 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="tag">Tag of the emails (optional)</param>
-        /// <returns>Task of ApiResponse (GetAggregatedReport)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetAggregatedReport>> GetAggregatedSmtpReportAsyncWithHttpInfo (string startDate = null, string endDate = null, long? days = null, string tag = null);
-        /// <summary>
-        /// Get the list of blocked domains
-        /// </summary>
-        /// <remarks>
-        /// Get the list of blocked domains
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of GetBlockedDomains</returns>
-        System.Threading.Tasks.Task<GetBlockedDomains> GetBlockedDomainsAsync ();
-
-        /// <summary>
-        /// Get the list of blocked domains
-        /// </summary>
-        /// <remarks>
-        /// Get the list of blocked domains
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (GetBlockedDomains)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetBlockedDomains>> GetBlockedDomainsAsyncWithHttpInfo ();
-        /// <summary>
-        /// Get all your transactional email activity (unaggregated events)
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the aggregated stats for past 30 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number limitation for the result returned (optional, default to 2500)</param>
-        /// <param name="offset">Beginning point in the list to retrieve from. (optional, default to 0)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="email">Filter the report for a specific email addresses (optional)</param>
-        /// <param name="_event">Filter the report for a specific event type (optional)</param>
-        /// <param name="tags">Filter the report for tags (serialized and urlencoded array) (optional)</param>
-        /// <param name="messageId">Filter on a specific message id (optional)</param>
-        /// <param name="templateId">Filter on a specific template id (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of GetEmailEventReport</returns>
-        System.Threading.Tasks.Task<GetEmailEventReport> GetEmailEventReportAsync (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string email = null, string _event = null, string tags = null, string messageId = null, long? templateId = null, string sort = null);
-
-        /// <summary>
-        /// Get all your transactional email activity (unaggregated events)
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the aggregated stats for past 30 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number limitation for the result returned (optional, default to 2500)</param>
-        /// <param name="offset">Beginning point in the list to retrieve from. (optional, default to 0)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="email">Filter the report for a specific email addresses (optional)</param>
-        /// <param name="_event">Filter the report for a specific event type (optional)</param>
-        /// <param name="tags">Filter the report for tags (serialized and urlencoded array) (optional)</param>
-        /// <param name="messageId">Filter on a specific message id (optional)</param>
-        /// <param name="templateId">Filter on a specific template id (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (GetEmailEventReport)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetEmailEventReport>> GetEmailEventReportAsyncWithHttpInfo (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string email = null, string _event = null, string tags = null, string messageId = null, long? templateId = null, string sort = null);
-        /// <summary>
-        /// Fetch scheduled emails by batchId
-        /// </summary>
-        /// <remarks>
-        /// Fetch scheduled batch of emails by batchId (Can retrieve data upto 30 days old)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchId">The batchId of scheduled emails batch (Should be a valid UUIDv4)</param>
-        /// <param name="startDate">Mandatory if &#x60;endDate&#x60; is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date. (optional)</param>
-        /// <param name="endDate">Mandatory if &#x60;startDate&#x60; is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="status">Filter the records by &#x60;status&#x60; of the scheduled email batch or message. (optional)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 100)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <returns>Task of GetScheduledEmailByBatchId</returns>
-        System.Threading.Tasks.Task<GetScheduledEmailByBatchId> GetScheduledEmailByBatchIdAsync (string batchId, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string status = null, long? limit = null, long? offset = null);
-
-        /// <summary>
-        /// Fetch scheduled emails by batchId
-        /// </summary>
-        /// <remarks>
-        /// Fetch scheduled batch of emails by batchId (Can retrieve data upto 30 days old)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchId">The batchId of scheduled emails batch (Should be a valid UUIDv4)</param>
-        /// <param name="startDate">Mandatory if &#x60;endDate&#x60; is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date. (optional)</param>
-        /// <param name="endDate">Mandatory if &#x60;startDate&#x60; is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="status">Filter the records by &#x60;status&#x60; of the scheduled email batch or message. (optional)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 100)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <returns>Task of ApiResponse (GetScheduledEmailByBatchId)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetScheduledEmailByBatchId>> GetScheduledEmailByBatchIdAsyncWithHttpInfo (string batchId, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string status = null, long? limit = null, long? offset = null);
-        /// <summary>
-        /// Fetch scheduled email by messageId
-        /// </summary>
-        /// <remarks>
-        /// Fetch scheduled email by messageId (Can retrieve data upto 30 days old)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId">The messageId of scheduled email</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <returns>Task of GetScheduledEmailByMessageId</returns>
-        System.Threading.Tasks.Task<GetScheduledEmailByMessageId> GetScheduledEmailByMessageIdAsync (string messageId, DateTime? startDate = null, DateTime? endDate = null);
-
-        /// <summary>
-        /// Fetch scheduled email by messageId
-        /// </summary>
-        /// <remarks>
-        /// Fetch scheduled email by messageId (Can retrieve data upto 30 days old)
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId">The messageId of scheduled email</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <returns>Task of ApiResponse (GetScheduledEmailByMessageId)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetScheduledEmailByMessageId>> GetScheduledEmailByMessageIdAsyncWithHttpInfo (string messageId, DateTime? startDate = null, DateTime? endDate = null);
-        /// <summary>
-        /// Get your transactional email activity aggregated per day
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents returned per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD) (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="tag">Tag of the emails (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of GetReports</returns>
-        System.Threading.Tasks.Task<GetReports> GetSmtpReportAsync (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null);
-
-        /// <summary>
-        /// Get your transactional email activity aggregated per day
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents returned per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD) (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) (optional)</param>
-        /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
-        /// <param name="tag">Tag of the emails (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (GetReports)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetReports>> GetSmtpReportAsyncWithHttpInfo (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null);
-        /// <summary>
-        /// Returns the template information
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">id of the template</param>
-        /// <returns>Task of GetSmtpTemplateOverview</returns>
-        System.Threading.Tasks.Task<GetSmtpTemplateOverview> GetSmtpTemplateAsync (long? templateId);
-
-        /// <summary>
-        /// Returns the template information
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">id of the template</param>
-        /// <returns>Task of ApiResponse (GetSmtpTemplateOverview)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetSmtpTemplateOverview>> GetSmtpTemplateAsyncWithHttpInfo (long? templateId);
-        /// <summary>
-        /// Get the list of email templates
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateStatus">Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of GetSmtpTemplates</returns>
-        System.Threading.Tasks.Task<GetSmtpTemplates> GetSmtpTemplatesAsync (bool? templateStatus = null, long? limit = null, long? offset = null, string sort = null);
-
-        /// <summary>
-        /// Get the list of email templates
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateStatus">Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (GetSmtpTemplates)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetSmtpTemplates>> GetSmtpTemplatesAsyncWithHttpInfo (bool? templateStatus = null, long? limit = null, long? offset = null, string sort = null);
-        /// <summary>
-        /// Get the list of blocked or unsubscribed transactional contacts
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the blocked or unsubscribed contacts (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the blocked or unsubscribed contacts (optional)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <param name="senders">Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of GetTransacBlockedContacts</returns>
-        System.Threading.Tasks.Task<GetTransacBlockedContacts> GetTransacBlockedContactsAsync (string startDate = null, string endDate = null, long? limit = null, long? offset = null, List<string> senders = null, string sort = null);
-
-        /// <summary>
-        /// Get the list of blocked or unsubscribed transactional contacts
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the blocked or unsubscribed contacts (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the blocked or unsubscribed contacts (optional)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
-        /// <param name="senders">Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <returns>Task of ApiResponse (GetTransacBlockedContacts)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetTransacBlockedContacts>> GetTransacBlockedContactsAsyncWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null, List<string> senders = null, string sort = null);
-        /// <summary>
-        /// Get the personalized content of a sent transactional email
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">Unique id of the transactional email that has been sent to a particular contact</param>
-        /// <returns>Task of GetTransacEmailContent</returns>
-        System.Threading.Tasks.Task<GetTransacEmailContent> GetTransacEmailContentAsync (string uuid);
-
-        /// <summary>
-        /// Get the personalized content of a sent transactional email
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">Unique id of the transactional email that has been sent to a particular contact</param>
-        /// <returns>Task of ApiResponse (GetTransacEmailContent)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetTransacEmailContent>> GetTransacEmailContentAsyncWithHttpInfo (string uuid);
-        /// <summary>
-        /// Get the list of transactional emails on the basis of allowed filters
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the list of emails for past 30 days by default. To retrieve emails before that time, please pass startDate and endDate in query filters.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent. (optional)</param>
-        /// <param name="templateId">Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email. (optional)</param>
-        /// <param name="messageId">Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. (optional)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 500)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <returns>Task of GetTransacEmailsList</returns>
-        System.Threading.Tasks.Task<GetTransacEmailsList> GetTransacEmailsListAsync (string email = null, long? templateId = null, string messageId = null, string startDate = null, string endDate = null, string sort = null, long? limit = null, long? offset = null);
-
-        /// <summary>
-        /// Get the list of transactional emails on the basis of allowed filters
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will show the list of emails for past 30 days by default. To retrieve emails before that time, please pass startDate and endDate in query filters.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent. (optional)</param>
-        /// <param name="templateId">Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email. (optional)</param>
-        /// <param name="messageId">Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. (optional)</param>
-        /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
-        /// <param name="limit">Number of documents returned per page (optional, default to 500)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <returns>Task of ApiResponse (GetTransacEmailsList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetTransacEmailsList>> GetTransacEmailsListAsyncWithHttpInfo (string email = null, long? templateId = null, string messageId = null, string startDate = null, string endDate = null, string sort = null, long? limit = null, long? offset = null);
-        /// <summary>
-        /// Send a template to your test list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">Id of the template</param>
-        /// <param name="sendTestEmail"></param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SendTestTemplateAsync (long? templateId, SendTestEmail sendTestEmail);
-
-        /// <summary>
-        /// Send a template to your test list
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">Id of the template</param>
-        /// <param name="sendTestEmail"></param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SendTestTemplateAsyncWithHttpInfo (long? templateId, SendTestEmail sendTestEmail);
-        /// <summary>
-        /// Send a transactional email
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendSmtpEmail">Values to send a transactional email</param>
-        /// <returns>Task of CreateSmtpEmail</returns>
-        System.Threading.Tasks.Task<CreateSmtpEmail> SendTransacEmailAsync (SendSmtpEmail sendSmtpEmail);
-
-        /// <summary>
-        /// Send a transactional email
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sendSmtpEmail">Values to send a transactional email</param>
-        /// <returns>Task of ApiResponse (CreateSmtpEmail)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateSmtpEmail>> SendTransacEmailAsyncWithHttpInfo (SendSmtpEmail sendSmtpEmail);
-        /// <summary>
-        /// Unblock or resubscribe a transactional contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">contact email (urlencoded) to unblock.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SmtpBlockedContactsEmailDeleteAsync (string email);
-
-        /// <summary>
-        /// Unblock or resubscribe a transactional contact
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email">contact email (urlencoded) to unblock.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SmtpBlockedContactsEmailDeleteAsyncWithHttpInfo (string email);
-        /// <summary>
-        /// Delete an SMTP transactional log
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">MessageId or Email of the transactional log(s) to delete</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SmtpLogIdentifierDeleteAsync (string identifier);
-
-        /// <summary>
-        /// Delete an SMTP transactional log
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">MessageId or Email of the transactional log(s) to delete</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SmtpLogIdentifierDeleteAsyncWithHttpInfo (string identifier);
-        /// <summary>
-        /// Update an email template
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">id of the template</param>
-        /// <param name="smtpTemplate">values to update in transactional email template</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateSmtpTemplateAsync (long? templateId, UpdateSmtpTemplate smtpTemplate);
-
-        /// <summary>
-        /// Update an email template
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templateId">id of the template</param>
-        /// <param name="smtpTemplate">values to update in transactional email template</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateSmtpTemplateAsyncWithHttpInfo (long? templateId, UpdateSmtpTemplate smtpTemplate);
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class TransactionalEmailsApi : ITransactionalEmailsApi
+    public partial class TransactionalEmailsApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -1228,9 +121,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockDomain"></param>
         /// <returns></returns>
-        public void BlockNewDomain (BlockDomain blockDomain)
+        public void BlockNewDomain (string apiKey, string partnerKey, BlockDomain blockDomain)
         {
-             BlockNewDomainWithHttpInfo(blockDomain);
+             BlockNewDomainWithHttpInfo(apiKey, partnerKey, blockDomain);
         }
 
         /// <summary>
@@ -1239,7 +132,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockDomain"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> BlockNewDomainWithHttpInfo (BlockDomain blockDomain)
+        public ApiResponse<Object> BlockNewDomainWithHttpInfo (string apiKey, string partnerKey, BlockDomain blockDomain)
         {
             // verify the required parameter 'blockDomain' is set
             if (blockDomain == null)
@@ -1277,14 +170,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1311,9 +204,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockDomain"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task BlockNewDomainAsync (BlockDomain blockDomain)
+        public async System.Threading.Tasks.Task BlockNewDomainAsync (string apiKey, string partnerKey, BlockDomain blockDomain)
         {
-             await BlockNewDomainAsyncWithHttpInfo(blockDomain);
+             await BlockNewDomainAsyncWithHttpInfo(apiKey, partnerKey, blockDomain);
 
         }
 
@@ -1323,7 +216,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockDomain"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> BlockNewDomainAsyncWithHttpInfo (BlockDomain blockDomain)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> BlockNewDomainAsyncWithHttpInfo (string apiKey, string partnerKey, BlockDomain blockDomain)
         {
             // verify the required parameter 'blockDomain' is set
             if (blockDomain == null)
@@ -1361,14 +254,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1395,9 +288,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpTemplate">values to update in transactional email template</param>
         /// <returns>CreateModel</returns>
-        public CreateModel CreateSmtpTemplate (CreateSmtpTemplate smtpTemplate)
+        public CreateModel CreateSmtpTemplate (string apiKey, string partnerKey, CreateSmtpTemplate smtpTemplate)
         {
-             ApiResponse<CreateModel> localVarResponse = CreateSmtpTemplateWithHttpInfo(smtpTemplate);
+             ApiResponse<CreateModel> localVarResponse = CreateSmtpTemplateWithHttpInfo(apiKey, partnerKey, smtpTemplate);
              return localVarResponse.Data;
         }
 
@@ -1407,7 +300,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpTemplate">values to update in transactional email template</param>
         /// <returns>ApiResponse of CreateModel</returns>
-        public ApiResponse< CreateModel > CreateSmtpTemplateWithHttpInfo (CreateSmtpTemplate smtpTemplate)
+        public ApiResponse< CreateModel > CreateSmtpTemplateWithHttpInfo (string apiKey, string partnerKey, CreateSmtpTemplate smtpTemplate)
         {
             // verify the required parameter 'smtpTemplate' is set
             if (smtpTemplate == null)
@@ -1445,14 +338,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1479,9 +372,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpTemplate">values to update in transactional email template</param>
         /// <returns>Task of CreateModel</returns>
-        public async System.Threading.Tasks.Task<CreateModel> CreateSmtpTemplateAsync (CreateSmtpTemplate smtpTemplate)
+        public async System.Threading.Tasks.Task<CreateModel> CreateSmtpTemplateAsync (string apiKey, string partnerKey, CreateSmtpTemplate smtpTemplate)
         {
-             ApiResponse<CreateModel> localVarResponse = await CreateSmtpTemplateAsyncWithHttpInfo(smtpTemplate);
+             ApiResponse<CreateModel> localVarResponse = await CreateSmtpTemplateAsyncWithHttpInfo(apiKey, partnerKey, smtpTemplate);
              return localVarResponse.Data;
 
         }
@@ -1492,7 +385,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smtpTemplate">values to update in transactional email template</param>
         /// <returns>Task of ApiResponse (CreateModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateSmtpTemplateAsyncWithHttpInfo (CreateSmtpTemplate smtpTemplate)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateModel>> CreateSmtpTemplateAsyncWithHttpInfo (string apiKey, string partnerKey, CreateSmtpTemplate smtpTemplate)
         {
             // verify the required parameter 'smtpTemplate' is set
             if (smtpTemplate == null)
@@ -1530,14 +423,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1564,9 +457,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The name of the domain to be deleted</param>
         /// <returns></returns>
-        public void DeleteBlockedDomain (string domain)
+        public void DeleteBlockedDomain (string apiKey, string partnerKey, string domain)
         {
-             DeleteBlockedDomainWithHttpInfo(domain);
+             DeleteBlockedDomainWithHttpInfo(apiKey, partnerKey, domain);
         }
 
         /// <summary>
@@ -1575,7 +468,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The name of the domain to be deleted</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteBlockedDomainWithHttpInfo (string domain)
+        public ApiResponse<Object> DeleteBlockedDomainWithHttpInfo (string apiKey, string partnerKey, string domain)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -1606,14 +499,14 @@ namespace brevo_csharp.Api
             if (domain != null) localVarPathParams.Add("domain", this.Configuration.ApiClient.ParameterToString(domain)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1640,9 +533,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The name of the domain to be deleted</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteBlockedDomainAsync (string domain)
+        public async System.Threading.Tasks.Task DeleteBlockedDomainAsync (string apiKey, string partnerKey, string domain)
         {
-             await DeleteBlockedDomainAsyncWithHttpInfo(domain);
+             await DeleteBlockedDomainAsyncWithHttpInfo(apiKey, partnerKey, domain);
 
         }
 
@@ -1652,7 +545,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The name of the domain to be deleted</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteBlockedDomainAsyncWithHttpInfo (string domain)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteBlockedDomainAsyncWithHttpInfo (string apiKey, string partnerKey, string domain)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -1683,14 +576,14 @@ namespace brevo_csharp.Api
             if (domain != null) localVarPathParams.Add("domain", this.Configuration.ApiClient.ParameterToString(domain)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1717,9 +610,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteHardbounces">values to delete hardbounces (optional)</param>
         /// <returns></returns>
-        public void DeleteHardbounces (DeleteHardbounces deleteHardbounces = null)
+        public void DeleteHardbounces (string apiKey, string partnerKey, DeleteHardbounces deleteHardbounces = null)
         {
-             DeleteHardbouncesWithHttpInfo(deleteHardbounces);
+             DeleteHardbouncesWithHttpInfo(apiKey, partnerKey, deleteHardbounces);
         }
 
         /// <summary>
@@ -1728,7 +621,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteHardbounces">values to delete hardbounces (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteHardbouncesWithHttpInfo (DeleteHardbounces deleteHardbounces = null)
+        public ApiResponse<Object> DeleteHardbouncesWithHttpInfo (string apiKey, string partnerKey, DeleteHardbounces deleteHardbounces = null)
         {
 
             var localVarPath = "./smtp/deleteHardbounces";
@@ -1763,14 +656,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1797,9 +690,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteHardbounces">values to delete hardbounces (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteHardbouncesAsync (DeleteHardbounces deleteHardbounces = null)
+        public async System.Threading.Tasks.Task DeleteHardbouncesAsync (string apiKey, string partnerKey, DeleteHardbounces deleteHardbounces = null)
         {
-             await DeleteHardbouncesAsyncWithHttpInfo(deleteHardbounces);
+             await DeleteHardbouncesAsyncWithHttpInfo(apiKey, partnerKey, deleteHardbounces);
 
         }
 
@@ -1809,7 +702,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteHardbounces">values to delete hardbounces (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteHardbouncesAsyncWithHttpInfo (DeleteHardbounces deleteHardbounces = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteHardbouncesAsyncWithHttpInfo (string apiKey, string partnerKey, DeleteHardbounces deleteHardbounces = null)
         {
 
             var localVarPath = "./smtp/deleteHardbounces";
@@ -1844,14 +737,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1878,9 +771,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">The &#x60;batchId&#x60; of scheduled emails batch (Should be a valid UUIDv4) or the &#x60;messageId&#x60; of scheduled email.</param>
         /// <returns></returns>
-        public void DeleteScheduledEmailById (string identifier)
+        public void DeleteScheduledEmailById (string apiKey, string partnerKey, string identifier)
         {
-             DeleteScheduledEmailByIdWithHttpInfo(identifier);
+             DeleteScheduledEmailByIdWithHttpInfo(apiKey, partnerKey, identifier);
         }
 
         /// <summary>
@@ -1889,7 +782,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">The &#x60;batchId&#x60; of scheduled emails batch (Should be a valid UUIDv4) or the &#x60;messageId&#x60; of scheduled email.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteScheduledEmailByIdWithHttpInfo (string identifier)
+        public ApiResponse<Object> DeleteScheduledEmailByIdWithHttpInfo (string apiKey, string partnerKey, string identifier)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -1920,14 +813,14 @@ namespace brevo_csharp.Api
             if (identifier != null) localVarPathParams.Add("identifier", this.Configuration.ApiClient.ParameterToString(identifier)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1954,9 +847,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">The &#x60;batchId&#x60; of scheduled emails batch (Should be a valid UUIDv4) or the &#x60;messageId&#x60; of scheduled email.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteScheduledEmailByIdAsync (string identifier)
+        public async System.Threading.Tasks.Task DeleteScheduledEmailByIdAsync (string apiKey, string partnerKey, string identifier)
         {
-             await DeleteScheduledEmailByIdAsyncWithHttpInfo(identifier);
+             await DeleteScheduledEmailByIdAsyncWithHttpInfo(apiKey, partnerKey, identifier);
 
         }
 
@@ -1966,7 +859,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">The &#x60;batchId&#x60; of scheduled emails batch (Should be a valid UUIDv4) or the &#x60;messageId&#x60; of scheduled email.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteScheduledEmailByIdAsyncWithHttpInfo (string identifier)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteScheduledEmailByIdAsyncWithHttpInfo (string apiKey, string partnerKey, string identifier)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -1997,14 +890,14 @@ namespace brevo_csharp.Api
             if (identifier != null) localVarPathParams.Add("identifier", this.Configuration.ApiClient.ParameterToString(identifier)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2031,9 +924,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">id of the template</param>
         /// <returns></returns>
-        public void DeleteSmtpTemplate (long? templateId)
+        public void DeleteSmtpTemplate (string apiKey, string partnerKey, long? templateId)
         {
-             DeleteSmtpTemplateWithHttpInfo(templateId);
+             DeleteSmtpTemplateWithHttpInfo(apiKey, partnerKey, templateId);
         }
 
         /// <summary>
@@ -2042,7 +935,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">id of the template</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteSmtpTemplateWithHttpInfo (long? templateId)
+        public ApiResponse<Object> DeleteSmtpTemplateWithHttpInfo (string apiKey, string partnerKey, long? templateId)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -2073,14 +966,14 @@ namespace brevo_csharp.Api
             if (templateId != null) localVarPathParams.Add("templateId", this.Configuration.ApiClient.ParameterToString(templateId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2107,9 +1000,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">id of the template</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteSmtpTemplateAsync (long? templateId)
+        public async System.Threading.Tasks.Task DeleteSmtpTemplateAsync (string apiKey, string partnerKey, long? templateId)
         {
-             await DeleteSmtpTemplateAsyncWithHttpInfo(templateId);
+             await DeleteSmtpTemplateAsyncWithHttpInfo(apiKey, partnerKey, templateId);
 
         }
 
@@ -2119,7 +1012,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">id of the template</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSmtpTemplateAsyncWithHttpInfo (long? templateId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSmtpTemplateAsyncWithHttpInfo (string apiKey, string partnerKey, long? templateId)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -2150,14 +1043,14 @@ namespace brevo_csharp.Api
             if (templateId != null) localVarPathParams.Add("templateId", this.Configuration.ApiClient.ParameterToString(templateId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2187,9 +1080,9 @@ namespace brevo_csharp.Api
         /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
         /// <param name="tag">Tag of the emails (optional)</param>
         /// <returns>GetAggregatedReport</returns>
-        public GetAggregatedReport GetAggregatedSmtpReport (string startDate = null, string endDate = null, long? days = null, string tag = null)
+        public GetAggregatedReport GetAggregatedSmtpReport (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? days = null, string tag = null)
         {
-             ApiResponse<GetAggregatedReport> localVarResponse = GetAggregatedSmtpReportWithHttpInfo(startDate, endDate, days, tag);
+             ApiResponse<GetAggregatedReport> localVarResponse = GetAggregatedSmtpReportWithHttpInfo(apiKey, partnerKey, startDate, endDate, days, tag);
              return localVarResponse.Data;
         }
 
@@ -2202,7 +1095,7 @@ namespace brevo_csharp.Api
         /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
         /// <param name="tag">Tag of the emails (optional)</param>
         /// <returns>ApiResponse of GetAggregatedReport</returns>
-        public ApiResponse< GetAggregatedReport > GetAggregatedSmtpReportWithHttpInfo (string startDate = null, string endDate = null, long? days = null, string tag = null)
+        public ApiResponse< GetAggregatedReport > GetAggregatedSmtpReportWithHttpInfo (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? days = null, string tag = null)
         {
 
             var localVarPath = "./smtp/statistics/aggregatedReport";
@@ -2233,14 +1126,14 @@ namespace brevo_csharp.Api
             if (tag != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "tag", tag)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2270,9 +1163,9 @@ namespace brevo_csharp.Api
         /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
         /// <param name="tag">Tag of the emails (optional)</param>
         /// <returns>Task of GetAggregatedReport</returns>
-        public async System.Threading.Tasks.Task<GetAggregatedReport> GetAggregatedSmtpReportAsync (string startDate = null, string endDate = null, long? days = null, string tag = null)
+        public async System.Threading.Tasks.Task<GetAggregatedReport> GetAggregatedSmtpReportAsync (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? days = null, string tag = null)
         {
-             ApiResponse<GetAggregatedReport> localVarResponse = await GetAggregatedSmtpReportAsyncWithHttpInfo(startDate, endDate, days, tag);
+             ApiResponse<GetAggregatedReport> localVarResponse = await GetAggregatedSmtpReportAsyncWithHttpInfo(apiKey, partnerKey, startDate, endDate, days, tag);
              return localVarResponse.Data;
 
         }
@@ -2286,7 +1179,7 @@ namespace brevo_csharp.Api
         /// <param name="days">Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)</param>
         /// <param name="tag">Tag of the emails (optional)</param>
         /// <returns>Task of ApiResponse (GetAggregatedReport)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetAggregatedReport>> GetAggregatedSmtpReportAsyncWithHttpInfo (string startDate = null, string endDate = null, long? days = null, string tag = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetAggregatedReport>> GetAggregatedSmtpReportAsyncWithHttpInfo (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? days = null, string tag = null)
         {
 
             var localVarPath = "./smtp/statistics/aggregatedReport";
@@ -2317,14 +1210,14 @@ namespace brevo_csharp.Api
             if (tag != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "tag", tag)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2350,9 +1243,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>GetBlockedDomains</returns>
-        public GetBlockedDomains GetBlockedDomains ()
+        public GetBlockedDomains GetBlockedDomains (string apiKey, string partnerKey)
         {
-             ApiResponse<GetBlockedDomains> localVarResponse = GetBlockedDomainsWithHttpInfo();
+             ApiResponse<GetBlockedDomains> localVarResponse = GetBlockedDomainsWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
         }
 
@@ -2361,7 +1254,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of GetBlockedDomains</returns>
-        public ApiResponse< GetBlockedDomains > GetBlockedDomainsWithHttpInfo ()
+        public ApiResponse< GetBlockedDomains > GetBlockedDomainsWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./smtp/blockedDomains";
@@ -2388,14 +1281,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2421,9 +1314,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of GetBlockedDomains</returns>
-        public async System.Threading.Tasks.Task<GetBlockedDomains> GetBlockedDomainsAsync ()
+        public async System.Threading.Tasks.Task<GetBlockedDomains> GetBlockedDomainsAsync (string apiKey, string partnerKey)
         {
-             ApiResponse<GetBlockedDomains> localVarResponse = await GetBlockedDomainsAsyncWithHttpInfo();
+             ApiResponse<GetBlockedDomains> localVarResponse = await GetBlockedDomainsAsyncWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
 
         }
@@ -2433,7 +1326,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (GetBlockedDomains)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetBlockedDomains>> GetBlockedDomainsAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<GetBlockedDomains>> GetBlockedDomainsAsyncWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./smtp/blockedDomains";
@@ -2460,14 +1353,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2504,9 +1397,9 @@ namespace brevo_csharp.Api
         /// <param name="templateId">Filter on a specific template id (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>GetEmailEventReport</returns>
-        public GetEmailEventReport GetEmailEventReport (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string email = null, string _event = null, string tags = null, string messageId = null, long? templateId = null, string sort = null)
+        public GetEmailEventReport GetEmailEventReport (string apiKey, string partnerKey, long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string email = null, string _event = null, string tags = null, string messageId = null, long? templateId = null, string sort = null)
         {
-             ApiResponse<GetEmailEventReport> localVarResponse = GetEmailEventReportWithHttpInfo(limit, offset, startDate, endDate, days, email, _event, tags, messageId, templateId, sort);
+             ApiResponse<GetEmailEventReport> localVarResponse = GetEmailEventReportWithHttpInfo(apiKey, partnerKey, limit, offset, startDate, endDate, days, email, _event, tags, messageId, templateId, sort);
              return localVarResponse.Data;
         }
 
@@ -2526,7 +1419,7 @@ namespace brevo_csharp.Api
         /// <param name="templateId">Filter on a specific template id (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>ApiResponse of GetEmailEventReport</returns>
-        public ApiResponse< GetEmailEventReport > GetEmailEventReportWithHttpInfo (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string email = null, string _event = null, string tags = null, string messageId = null, long? templateId = null, string sort = null)
+        public ApiResponse< GetEmailEventReport > GetEmailEventReportWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string email = null, string _event = null, string tags = null, string messageId = null, long? templateId = null, string sort = null)
         {
 
             var localVarPath = "./smtp/statistics/events";
@@ -2564,14 +1457,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2608,9 +1501,9 @@ namespace brevo_csharp.Api
         /// <param name="templateId">Filter on a specific template id (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of GetEmailEventReport</returns>
-        public async System.Threading.Tasks.Task<GetEmailEventReport> GetEmailEventReportAsync (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string email = null, string _event = null, string tags = null, string messageId = null, long? templateId = null, string sort = null)
+        public async System.Threading.Tasks.Task<GetEmailEventReport> GetEmailEventReportAsync (string apiKey, string partnerKey, long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string email = null, string _event = null, string tags = null, string messageId = null, long? templateId = null, string sort = null)
         {
-             ApiResponse<GetEmailEventReport> localVarResponse = await GetEmailEventReportAsyncWithHttpInfo(limit, offset, startDate, endDate, days, email, _event, tags, messageId, templateId, sort);
+             ApiResponse<GetEmailEventReport> localVarResponse = await GetEmailEventReportAsyncWithHttpInfo(apiKey, partnerKey, limit, offset, startDate, endDate, days, email, _event, tags, messageId, templateId, sort);
              return localVarResponse.Data;
 
         }
@@ -2631,7 +1524,7 @@ namespace brevo_csharp.Api
         /// <param name="templateId">Filter on a specific template id (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetEmailEventReport)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetEmailEventReport>> GetEmailEventReportAsyncWithHttpInfo (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string email = null, string _event = null, string tags = null, string messageId = null, long? templateId = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetEmailEventReport>> GetEmailEventReportAsyncWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string email = null, string _event = null, string tags = null, string messageId = null, long? templateId = null, string sort = null)
         {
 
             var localVarPath = "./smtp/statistics/events";
@@ -2669,14 +1562,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2709,9 +1602,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page (optional, default to 100)</param>
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <returns>GetScheduledEmailByBatchId</returns>
-        public GetScheduledEmailByBatchId GetScheduledEmailByBatchId (string batchId, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string status = null, long? limit = null, long? offset = null)
+        public GetScheduledEmailByBatchId GetScheduledEmailByBatchId (string apiKey, string partnerKey, string batchId, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string status = null, long? limit = null, long? offset = null)
         {
-             ApiResponse<GetScheduledEmailByBatchId> localVarResponse = GetScheduledEmailByBatchIdWithHttpInfo(batchId, startDate, endDate, sort, status, limit, offset);
+             ApiResponse<GetScheduledEmailByBatchId> localVarResponse = GetScheduledEmailByBatchIdWithHttpInfo(apiKey, partnerKey, batchId, startDate, endDate, sort, status, limit, offset);
              return localVarResponse.Data;
         }
 
@@ -2727,7 +1620,7 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page (optional, default to 100)</param>
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <returns>ApiResponse of GetScheduledEmailByBatchId</returns>
-        public ApiResponse< GetScheduledEmailByBatchId > GetScheduledEmailByBatchIdWithHttpInfo (string batchId, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string status = null, long? limit = null, long? offset = null)
+        public ApiResponse< GetScheduledEmailByBatchId > GetScheduledEmailByBatchIdWithHttpInfo (string apiKey, string partnerKey, string batchId, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string status = null, long? limit = null, long? offset = null)
         {
             // verify the required parameter 'batchId' is set
             if (batchId == null)
@@ -2764,14 +1657,14 @@ namespace brevo_csharp.Api
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2804,9 +1697,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page (optional, default to 100)</param>
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <returns>Task of GetScheduledEmailByBatchId</returns>
-        public async System.Threading.Tasks.Task<GetScheduledEmailByBatchId> GetScheduledEmailByBatchIdAsync (string batchId, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string status = null, long? limit = null, long? offset = null)
+        public async System.Threading.Tasks.Task<GetScheduledEmailByBatchId> GetScheduledEmailByBatchIdAsync (string apiKey, string partnerKey, string batchId, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string status = null, long? limit = null, long? offset = null)
         {
-             ApiResponse<GetScheduledEmailByBatchId> localVarResponse = await GetScheduledEmailByBatchIdAsyncWithHttpInfo(batchId, startDate, endDate, sort, status, limit, offset);
+             ApiResponse<GetScheduledEmailByBatchId> localVarResponse = await GetScheduledEmailByBatchIdAsyncWithHttpInfo(apiKey, partnerKey, batchId, startDate, endDate, sort, status, limit, offset);
              return localVarResponse.Data;
 
         }
@@ -2823,7 +1716,7 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page (optional, default to 100)</param>
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (GetScheduledEmailByBatchId)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetScheduledEmailByBatchId>> GetScheduledEmailByBatchIdAsyncWithHttpInfo (string batchId, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string status = null, long? limit = null, long? offset = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetScheduledEmailByBatchId>> GetScheduledEmailByBatchIdAsyncWithHttpInfo (string apiKey, string partnerKey, string batchId, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string status = null, long? limit = null, long? offset = null)
         {
             // verify the required parameter 'batchId' is set
             if (batchId == null)
@@ -2860,14 +1753,14 @@ namespace brevo_csharp.Api
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2896,9 +1789,9 @@ namespace brevo_csharp.Api
         /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
         /// <returns>GetScheduledEmailByMessageId</returns>
-        public GetScheduledEmailByMessageId GetScheduledEmailByMessageId (string messageId, DateTime? startDate = null, DateTime? endDate = null)
+        public GetScheduledEmailByMessageId GetScheduledEmailByMessageId (string apiKey, string partnerKey, string messageId, DateTime? startDate = null, DateTime? endDate = null)
         {
-             ApiResponse<GetScheduledEmailByMessageId> localVarResponse = GetScheduledEmailByMessageIdWithHttpInfo(messageId, startDate, endDate);
+             ApiResponse<GetScheduledEmailByMessageId> localVarResponse = GetScheduledEmailByMessageIdWithHttpInfo(apiKey, partnerKey, messageId, startDate, endDate);
              return localVarResponse.Data;
         }
 
@@ -2910,7 +1803,7 @@ namespace brevo_csharp.Api
         /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
         /// <returns>ApiResponse of GetScheduledEmailByMessageId</returns>
-        public ApiResponse< GetScheduledEmailByMessageId > GetScheduledEmailByMessageIdWithHttpInfo (string messageId, DateTime? startDate = null, DateTime? endDate = null)
+        public ApiResponse< GetScheduledEmailByMessageId > GetScheduledEmailByMessageIdWithHttpInfo (string apiKey, string partnerKey, string messageId, DateTime? startDate = null, DateTime? endDate = null)
         {
             // verify the required parameter 'messageId' is set
             if (messageId == null)
@@ -2943,14 +1836,14 @@ namespace brevo_csharp.Api
             if (endDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "endDate", endDate)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2979,9 +1872,9 @@ namespace brevo_csharp.Api
         /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
         /// <returns>Task of GetScheduledEmailByMessageId</returns>
-        public async System.Threading.Tasks.Task<GetScheduledEmailByMessageId> GetScheduledEmailByMessageIdAsync (string messageId, DateTime? startDate = null, DateTime? endDate = null)
+        public async System.Threading.Tasks.Task<GetScheduledEmailByMessageId> GetScheduledEmailByMessageIdAsync (string apiKey, string partnerKey, string messageId, DateTime? startDate = null, DateTime? endDate = null)
         {
-             ApiResponse<GetScheduledEmailByMessageId> localVarResponse = await GetScheduledEmailByMessageIdAsyncWithHttpInfo(messageId, startDate, endDate);
+             ApiResponse<GetScheduledEmailByMessageId> localVarResponse = await GetScheduledEmailByMessageIdAsyncWithHttpInfo(apiKey, partnerKey, messageId, startDate, endDate);
              return localVarResponse.Data;
 
         }
@@ -2994,7 +1887,7 @@ namespace brevo_csharp.Api
         /// <param name="startDate">Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
         /// <returns>Task of ApiResponse (GetScheduledEmailByMessageId)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetScheduledEmailByMessageId>> GetScheduledEmailByMessageIdAsyncWithHttpInfo (string messageId, DateTime? startDate = null, DateTime? endDate = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetScheduledEmailByMessageId>> GetScheduledEmailByMessageIdAsyncWithHttpInfo (string apiKey, string partnerKey, string messageId, DateTime? startDate = null, DateTime? endDate = null)
         {
             // verify the required parameter 'messageId' is set
             if (messageId == null)
@@ -3027,14 +1920,14 @@ namespace brevo_csharp.Api
             if (endDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "endDate", endDate)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3067,9 +1960,9 @@ namespace brevo_csharp.Api
         /// <param name="tag">Tag of the emails (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>GetReports</returns>
-        public GetReports GetSmtpReport (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null)
+        public GetReports GetSmtpReport (string apiKey, string partnerKey, long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null)
         {
-             ApiResponse<GetReports> localVarResponse = GetSmtpReportWithHttpInfo(limit, offset, startDate, endDate, days, tag, sort);
+             ApiResponse<GetReports> localVarResponse = GetSmtpReportWithHttpInfo(apiKey, partnerKey, limit, offset, startDate, endDate, days, tag, sort);
              return localVarResponse.Data;
         }
 
@@ -3085,7 +1978,7 @@ namespace brevo_csharp.Api
         /// <param name="tag">Tag of the emails (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>ApiResponse of GetReports</returns>
-        public ApiResponse< GetReports > GetSmtpReportWithHttpInfo (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null)
+        public ApiResponse< GetReports > GetSmtpReportWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null)
         {
 
             var localVarPath = "./smtp/statistics/reports";
@@ -3119,14 +2012,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3159,9 +2052,9 @@ namespace brevo_csharp.Api
         /// <param name="tag">Tag of the emails (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of GetReports</returns>
-        public async System.Threading.Tasks.Task<GetReports> GetSmtpReportAsync (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null)
+        public async System.Threading.Tasks.Task<GetReports> GetSmtpReportAsync (string apiKey, string partnerKey, long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null)
         {
-             ApiResponse<GetReports> localVarResponse = await GetSmtpReportAsyncWithHttpInfo(limit, offset, startDate, endDate, days, tag, sort);
+             ApiResponse<GetReports> localVarResponse = await GetSmtpReportAsyncWithHttpInfo(apiKey, partnerKey, limit, offset, startDate, endDate, days, tag, sort);
              return localVarResponse.Data;
 
         }
@@ -3178,7 +2071,7 @@ namespace brevo_csharp.Api
         /// <param name="tag">Tag of the emails (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetReports)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetReports>> GetSmtpReportAsyncWithHttpInfo (long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetReports>> GetSmtpReportAsyncWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null, string startDate = null, string endDate = null, long? days = null, string tag = null, string sort = null)
         {
 
             var localVarPath = "./smtp/statistics/reports";
@@ -3212,14 +2105,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3246,9 +2139,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">id of the template</param>
         /// <returns>GetSmtpTemplateOverview</returns>
-        public GetSmtpTemplateOverview GetSmtpTemplate (long? templateId)
+        public GetSmtpTemplateOverview GetSmtpTemplate (string apiKey, string partnerKey, long? templateId)
         {
-             ApiResponse<GetSmtpTemplateOverview> localVarResponse = GetSmtpTemplateWithHttpInfo(templateId);
+             ApiResponse<GetSmtpTemplateOverview> localVarResponse = GetSmtpTemplateWithHttpInfo(apiKey, partnerKey, templateId);
              return localVarResponse.Data;
         }
 
@@ -3258,7 +2151,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">id of the template</param>
         /// <returns>ApiResponse of GetSmtpTemplateOverview</returns>
-        public ApiResponse< GetSmtpTemplateOverview > GetSmtpTemplateWithHttpInfo (long? templateId)
+        public ApiResponse< GetSmtpTemplateOverview > GetSmtpTemplateWithHttpInfo (string apiKey, string partnerKey, long? templateId)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -3289,14 +2182,14 @@ namespace brevo_csharp.Api
             if (templateId != null) localVarPathParams.Add("templateId", this.Configuration.ApiClient.ParameterToString(templateId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3323,9 +2216,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">id of the template</param>
         /// <returns>Task of GetSmtpTemplateOverview</returns>
-        public async System.Threading.Tasks.Task<GetSmtpTemplateOverview> GetSmtpTemplateAsync (long? templateId)
+        public async System.Threading.Tasks.Task<GetSmtpTemplateOverview> GetSmtpTemplateAsync (string apiKey, string partnerKey, long? templateId)
         {
-             ApiResponse<GetSmtpTemplateOverview> localVarResponse = await GetSmtpTemplateAsyncWithHttpInfo(templateId);
+             ApiResponse<GetSmtpTemplateOverview> localVarResponse = await GetSmtpTemplateAsyncWithHttpInfo(apiKey, partnerKey, templateId);
              return localVarResponse.Data;
 
         }
@@ -3336,7 +2229,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">id of the template</param>
         /// <returns>Task of ApiResponse (GetSmtpTemplateOverview)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetSmtpTemplateOverview>> GetSmtpTemplateAsyncWithHttpInfo (long? templateId)
+        public async System.Threading.Tasks.Task<ApiResponse<GetSmtpTemplateOverview>> GetSmtpTemplateAsyncWithHttpInfo (string apiKey, string partnerKey, long? templateId)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -3367,14 +2260,14 @@ namespace brevo_csharp.Api
             if (templateId != null) localVarPathParams.Add("templateId", this.Configuration.ApiClient.ParameterToString(templateId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3404,9 +2297,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>GetSmtpTemplates</returns>
-        public GetSmtpTemplates GetSmtpTemplates (bool? templateStatus = null, long? limit = null, long? offset = null, string sort = null)
+        public GetSmtpTemplates GetSmtpTemplates (string apiKey, string partnerKey, bool? templateStatus = null, long? limit = null, long? offset = null, string sort = null)
         {
-             ApiResponse<GetSmtpTemplates> localVarResponse = GetSmtpTemplatesWithHttpInfo(templateStatus, limit, offset, sort);
+             ApiResponse<GetSmtpTemplates> localVarResponse = GetSmtpTemplatesWithHttpInfo(apiKey, partnerKey, templateStatus, limit, offset, sort);
              return localVarResponse.Data;
         }
 
@@ -3419,7 +2312,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>ApiResponse of GetSmtpTemplates</returns>
-        public ApiResponse< GetSmtpTemplates > GetSmtpTemplatesWithHttpInfo (bool? templateStatus = null, long? limit = null, long? offset = null, string sort = null)
+        public ApiResponse< GetSmtpTemplates > GetSmtpTemplatesWithHttpInfo (string apiKey, string partnerKey, bool? templateStatus = null, long? limit = null, long? offset = null, string sort = null)
         {
 
             var localVarPath = "./smtp/templates";
@@ -3450,14 +2343,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3487,9 +2380,9 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of GetSmtpTemplates</returns>
-        public async System.Threading.Tasks.Task<GetSmtpTemplates> GetSmtpTemplatesAsync (bool? templateStatus = null, long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<GetSmtpTemplates> GetSmtpTemplatesAsync (string apiKey, string partnerKey, bool? templateStatus = null, long? limit = null, long? offset = null, string sort = null)
         {
-             ApiResponse<GetSmtpTemplates> localVarResponse = await GetSmtpTemplatesAsyncWithHttpInfo(templateStatus, limit, offset, sort);
+             ApiResponse<GetSmtpTemplates> localVarResponse = await GetSmtpTemplatesAsyncWithHttpInfo(apiKey, partnerKey, templateStatus, limit, offset, sort);
              return localVarResponse.Data;
 
         }
@@ -3503,7 +2396,7 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetSmtpTemplates)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetSmtpTemplates>> GetSmtpTemplatesAsyncWithHttpInfo (bool? templateStatus = null, long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetSmtpTemplates>> GetSmtpTemplatesAsyncWithHttpInfo (string apiKey, string partnerKey, bool? templateStatus = null, long? limit = null, long? offset = null, string sort = null)
         {
 
             var localVarPath = "./smtp/templates";
@@ -3534,14 +2427,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3573,9 +2466,9 @@ namespace brevo_csharp.Api
         /// <param name="senders">Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>GetTransacBlockedContacts</returns>
-        public GetTransacBlockedContacts GetTransacBlockedContacts (string startDate = null, string endDate = null, long? limit = null, long? offset = null, List<string> senders = null, string sort = null)
+        public GetTransacBlockedContacts GetTransacBlockedContacts (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null, List<string> senders = null, string sort = null)
         {
-             ApiResponse<GetTransacBlockedContacts> localVarResponse = GetTransacBlockedContactsWithHttpInfo(startDate, endDate, limit, offset, senders, sort);
+             ApiResponse<GetTransacBlockedContacts> localVarResponse = GetTransacBlockedContactsWithHttpInfo(apiKey, partnerKey, startDate, endDate, limit, offset, senders, sort);
              return localVarResponse.Data;
         }
 
@@ -3590,7 +2483,7 @@ namespace brevo_csharp.Api
         /// <param name="senders">Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>ApiResponse of GetTransacBlockedContacts</returns>
-        public ApiResponse< GetTransacBlockedContacts > GetTransacBlockedContactsWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null, List<string> senders = null, string sort = null)
+        public ApiResponse< GetTransacBlockedContacts > GetTransacBlockedContactsWithHttpInfo (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null, List<string> senders = null, string sort = null)
         {
 
             var localVarPath = "./smtp/blockedContacts";
@@ -3623,14 +2516,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3662,9 +2555,9 @@ namespace brevo_csharp.Api
         /// <param name="senders">Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of GetTransacBlockedContacts</returns>
-        public async System.Threading.Tasks.Task<GetTransacBlockedContacts> GetTransacBlockedContactsAsync (string startDate = null, string endDate = null, long? limit = null, long? offset = null, List<string> senders = null, string sort = null)
+        public async System.Threading.Tasks.Task<GetTransacBlockedContacts> GetTransacBlockedContactsAsync (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null, List<string> senders = null, string sort = null)
         {
-             ApiResponse<GetTransacBlockedContacts> localVarResponse = await GetTransacBlockedContactsAsyncWithHttpInfo(startDate, endDate, limit, offset, senders, sort);
+             ApiResponse<GetTransacBlockedContacts> localVarResponse = await GetTransacBlockedContactsAsyncWithHttpInfo(apiKey, partnerKey, startDate, endDate, limit, offset, senders, sort);
              return localVarResponse.Data;
 
         }
@@ -3680,7 +2573,7 @@ namespace brevo_csharp.Api
         /// <param name="senders">Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetTransacBlockedContacts)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetTransacBlockedContacts>> GetTransacBlockedContactsAsyncWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null, List<string> senders = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetTransacBlockedContacts>> GetTransacBlockedContactsAsyncWithHttpInfo (string apiKey, string partnerKey, string startDate = null, string endDate = null, long? limit = null, long? offset = null, List<string> senders = null, string sort = null)
         {
 
             var localVarPath = "./smtp/blockedContacts";
@@ -3713,14 +2606,14 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3747,9 +2640,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">Unique id of the transactional email that has been sent to a particular contact</param>
         /// <returns>GetTransacEmailContent</returns>
-        public GetTransacEmailContent GetTransacEmailContent (string uuid)
+        public GetTransacEmailContent GetTransacEmailContent (string apiKey, string partnerKey, string uuid)
         {
-             ApiResponse<GetTransacEmailContent> localVarResponse = GetTransacEmailContentWithHttpInfo(uuid);
+             ApiResponse<GetTransacEmailContent> localVarResponse = GetTransacEmailContentWithHttpInfo(apiKey, partnerKey, uuid);
              return localVarResponse.Data;
         }
 
@@ -3759,7 +2652,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">Unique id of the transactional email that has been sent to a particular contact</param>
         /// <returns>ApiResponse of GetTransacEmailContent</returns>
-        public ApiResponse< GetTransacEmailContent > GetTransacEmailContentWithHttpInfo (string uuid)
+        public ApiResponse< GetTransacEmailContent > GetTransacEmailContentWithHttpInfo (string apiKey, string partnerKey, string uuid)
         {
             // verify the required parameter 'uuid' is set
             if (uuid == null)
@@ -3790,14 +2683,14 @@ namespace brevo_csharp.Api
             if (uuid != null) localVarPathParams.Add("uuid", this.Configuration.ApiClient.ParameterToString(uuid)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3824,9 +2717,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">Unique id of the transactional email that has been sent to a particular contact</param>
         /// <returns>Task of GetTransacEmailContent</returns>
-        public async System.Threading.Tasks.Task<GetTransacEmailContent> GetTransacEmailContentAsync (string uuid)
+        public async System.Threading.Tasks.Task<GetTransacEmailContent> GetTransacEmailContentAsync (string apiKey, string partnerKey, string uuid)
         {
-             ApiResponse<GetTransacEmailContent> localVarResponse = await GetTransacEmailContentAsyncWithHttpInfo(uuid);
+             ApiResponse<GetTransacEmailContent> localVarResponse = await GetTransacEmailContentAsyncWithHttpInfo(apiKey, partnerKey, uuid);
              return localVarResponse.Data;
 
         }
@@ -3837,7 +2730,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">Unique id of the transactional email that has been sent to a particular contact</param>
         /// <returns>Task of ApiResponse (GetTransacEmailContent)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetTransacEmailContent>> GetTransacEmailContentAsyncWithHttpInfo (string uuid)
+        public async System.Threading.Tasks.Task<ApiResponse<GetTransacEmailContent>> GetTransacEmailContentAsyncWithHttpInfo (string apiKey, string partnerKey, string uuid)
         {
             // verify the required parameter 'uuid' is set
             if (uuid == null)
@@ -3868,14 +2761,14 @@ namespace brevo_csharp.Api
             if (uuid != null) localVarPathParams.Add("uuid", this.Configuration.ApiClient.ParameterToString(uuid)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3909,9 +2802,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page (optional, default to 500)</param>
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <returns>GetTransacEmailsList</returns>
-        public GetTransacEmailsList GetTransacEmailsList (string email = null, long? templateId = null, string messageId = null, string startDate = null, string endDate = null, string sort = null, long? limit = null, long? offset = null)
+        public GetTransacEmailsList GetTransacEmailsList (string apiKey, string partnerKey, string email = null, long? templateId = null, string messageId = null, string startDate = null, string endDate = null, string sort = null, long? limit = null, long? offset = null)
         {
-             ApiResponse<GetTransacEmailsList> localVarResponse = GetTransacEmailsListWithHttpInfo(email, templateId, messageId, startDate, endDate, sort, limit, offset);
+             ApiResponse<GetTransacEmailsList> localVarResponse = GetTransacEmailsListWithHttpInfo(apiKey, partnerKey, email, templateId, messageId, startDate, endDate, sort, limit, offset);
              return localVarResponse.Data;
         }
 
@@ -3928,7 +2821,7 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page (optional, default to 500)</param>
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <returns>ApiResponse of GetTransacEmailsList</returns>
-        public ApiResponse< GetTransacEmailsList > GetTransacEmailsListWithHttpInfo (string email = null, long? templateId = null, string messageId = null, string startDate = null, string endDate = null, string sort = null, long? limit = null, long? offset = null)
+        public ApiResponse< GetTransacEmailsList > GetTransacEmailsListWithHttpInfo (string apiKey, string partnerKey, string email = null, long? templateId = null, string messageId = null, string startDate = null, string endDate = null, string sort = null, long? limit = null, long? offset = null)
         {
 
             var localVarPath = "./smtp/emails";
@@ -3963,14 +2856,14 @@ namespace brevo_csharp.Api
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4004,9 +2897,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page (optional, default to 500)</param>
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <returns>Task of GetTransacEmailsList</returns>
-        public async System.Threading.Tasks.Task<GetTransacEmailsList> GetTransacEmailsListAsync (string email = null, long? templateId = null, string messageId = null, string startDate = null, string endDate = null, string sort = null, long? limit = null, long? offset = null)
+        public async System.Threading.Tasks.Task<GetTransacEmailsList> GetTransacEmailsListAsync (string apiKey, string partnerKey, string email = null, long? templateId = null, string messageId = null, string startDate = null, string endDate = null, string sort = null, long? limit = null, long? offset = null)
         {
-             ApiResponse<GetTransacEmailsList> localVarResponse = await GetTransacEmailsListAsyncWithHttpInfo(email, templateId, messageId, startDate, endDate, sort, limit, offset);
+             ApiResponse<GetTransacEmailsList> localVarResponse = await GetTransacEmailsListAsyncWithHttpInfo(apiKey, partnerKey, email, templateId, messageId, startDate, endDate, sort, limit, offset);
              return localVarResponse.Data;
 
         }
@@ -4024,7 +2917,7 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page (optional, default to 500)</param>
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (GetTransacEmailsList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetTransacEmailsList>> GetTransacEmailsListAsyncWithHttpInfo (string email = null, long? templateId = null, string messageId = null, string startDate = null, string endDate = null, string sort = null, long? limit = null, long? offset = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetTransacEmailsList>> GetTransacEmailsListAsyncWithHttpInfo (string apiKey, string partnerKey, string email = null, long? templateId = null, string messageId = null, string startDate = null, string endDate = null, string sort = null, long? limit = null, long? offset = null)
         {
 
             var localVarPath = "./smtp/emails";
@@ -4059,14 +2952,14 @@ namespace brevo_csharp.Api
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4094,9 +2987,9 @@ namespace brevo_csharp.Api
         /// <param name="templateId">Id of the template</param>
         /// <param name="sendTestEmail"></param>
         /// <returns></returns>
-        public void SendTestTemplate (long? templateId, SendTestEmail sendTestEmail)
+        public void SendTestTemplate (string apiKey, string partnerKey, long? templateId, SendTestEmail sendTestEmail)
         {
-             SendTestTemplateWithHttpInfo(templateId, sendTestEmail);
+             SendTestTemplateWithHttpInfo(apiKey, partnerKey, templateId, sendTestEmail);
         }
 
         /// <summary>
@@ -4106,7 +2999,7 @@ namespace brevo_csharp.Api
         /// <param name="templateId">Id of the template</param>
         /// <param name="sendTestEmail"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SendTestTemplateWithHttpInfo (long? templateId, SendTestEmail sendTestEmail)
+        public ApiResponse<Object> SendTestTemplateWithHttpInfo (string apiKey, string partnerKey, long? templateId, SendTestEmail sendTestEmail)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -4148,14 +3041,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4183,9 +3076,9 @@ namespace brevo_csharp.Api
         /// <param name="templateId">Id of the template</param>
         /// <param name="sendTestEmail"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SendTestTemplateAsync (long? templateId, SendTestEmail sendTestEmail)
+        public async System.Threading.Tasks.Task SendTestTemplateAsync (string apiKey, string partnerKey, long? templateId, SendTestEmail sendTestEmail)
         {
-             await SendTestTemplateAsyncWithHttpInfo(templateId, sendTestEmail);
+             await SendTestTemplateAsyncWithHttpInfo(apiKey, partnerKey, templateId, sendTestEmail);
 
         }
 
@@ -4196,7 +3089,7 @@ namespace brevo_csharp.Api
         /// <param name="templateId">Id of the template</param>
         /// <param name="sendTestEmail"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> SendTestTemplateAsyncWithHttpInfo (long? templateId, SendTestEmail sendTestEmail)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SendTestTemplateAsyncWithHttpInfo (string apiKey, string partnerKey, long? templateId, SendTestEmail sendTestEmail)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -4238,14 +3131,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4272,9 +3165,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendSmtpEmail">Values to send a transactional email</param>
         /// <returns>CreateSmtpEmail</returns>
-        public CreateSmtpEmail SendTransacEmail (SendSmtpEmail sendSmtpEmail)
+        public CreateSmtpEmail SendTransacEmail (string apiKey, string partnerKey, SendSmtpEmail sendSmtpEmail)
         {
-             ApiResponse<CreateSmtpEmail> localVarResponse = SendTransacEmailWithHttpInfo(sendSmtpEmail);
+             ApiResponse<CreateSmtpEmail> localVarResponse = SendTransacEmailWithHttpInfo(apiKey, partnerKey, sendSmtpEmail);
              return localVarResponse.Data;
         }
 
@@ -4284,7 +3177,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendSmtpEmail">Values to send a transactional email</param>
         /// <returns>ApiResponse of CreateSmtpEmail</returns>
-        public ApiResponse< CreateSmtpEmail > SendTransacEmailWithHttpInfo (SendSmtpEmail sendSmtpEmail)
+        public ApiResponse< CreateSmtpEmail > SendTransacEmailWithHttpInfo (string apiKey, string partnerKey, SendSmtpEmail sendSmtpEmail)
         {
             // verify the required parameter 'sendSmtpEmail' is set
             if (sendSmtpEmail == null)
@@ -4322,14 +3215,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4356,9 +3249,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendSmtpEmail">Values to send a transactional email</param>
         /// <returns>Task of CreateSmtpEmail</returns>
-        public async System.Threading.Tasks.Task<CreateSmtpEmail> SendTransacEmailAsync (SendSmtpEmail sendSmtpEmail)
+        public async System.Threading.Tasks.Task<CreateSmtpEmail> SendTransacEmailAsync (string apiKey, string partnerKey, SendSmtpEmail sendSmtpEmail)
         {
-             ApiResponse<CreateSmtpEmail> localVarResponse = await SendTransacEmailAsyncWithHttpInfo(sendSmtpEmail);
+             ApiResponse<CreateSmtpEmail> localVarResponse = await SendTransacEmailAsyncWithHttpInfo(apiKey, partnerKey, sendSmtpEmail);
              return localVarResponse.Data;
 
         }
@@ -4369,7 +3262,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendSmtpEmail">Values to send a transactional email</param>
         /// <returns>Task of ApiResponse (CreateSmtpEmail)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateSmtpEmail>> SendTransacEmailAsyncWithHttpInfo (SendSmtpEmail sendSmtpEmail)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateSmtpEmail>> SendTransacEmailAsyncWithHttpInfo (string apiKey, string partnerKey, SendSmtpEmail sendSmtpEmail)
         {
             // verify the required parameter 'sendSmtpEmail' is set
             if (sendSmtpEmail == null)
@@ -4407,14 +3300,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4441,9 +3334,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">contact email (urlencoded) to unblock.</param>
         /// <returns></returns>
-        public void SmtpBlockedContactsEmailDelete (string email)
+        public void SmtpBlockedContactsEmailDelete (string apiKey, string partnerKey, string email)
         {
-             SmtpBlockedContactsEmailDeleteWithHttpInfo(email);
+             SmtpBlockedContactsEmailDeleteWithHttpInfo(apiKey, partnerKey, email);
         }
 
         /// <summary>
@@ -4452,7 +3345,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">contact email (urlencoded) to unblock.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SmtpBlockedContactsEmailDeleteWithHttpInfo (string email)
+        public ApiResponse<Object> SmtpBlockedContactsEmailDeleteWithHttpInfo (string apiKey, string partnerKey, string email)
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -4483,14 +3376,14 @@ namespace brevo_csharp.Api
             if (email != null) localVarPathParams.Add("email", this.Configuration.ApiClient.ParameterToString(email)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4517,9 +3410,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">contact email (urlencoded) to unblock.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SmtpBlockedContactsEmailDeleteAsync (string email)
+        public async System.Threading.Tasks.Task SmtpBlockedContactsEmailDeleteAsync (string apiKey, string partnerKey, string email)
         {
-             await SmtpBlockedContactsEmailDeleteAsyncWithHttpInfo(email);
+             await SmtpBlockedContactsEmailDeleteAsyncWithHttpInfo(apiKey, partnerKey, email);
 
         }
 
@@ -4529,7 +3422,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">contact email (urlencoded) to unblock.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> SmtpBlockedContactsEmailDeleteAsyncWithHttpInfo (string email)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SmtpBlockedContactsEmailDeleteAsyncWithHttpInfo (string apiKey, string partnerKey, string email)
         {
             // verify the required parameter 'email' is set
             if (email == null)
@@ -4560,14 +3453,14 @@ namespace brevo_csharp.Api
             if (email != null) localVarPathParams.Add("email", this.Configuration.ApiClient.ParameterToString(email)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4594,9 +3487,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">MessageId or Email of the transactional log(s) to delete</param>
         /// <returns></returns>
-        public void SmtpLogIdentifierDelete (string identifier)
+        public void SmtpLogIdentifierDelete (string apiKey, string partnerKey, string identifier)
         {
-             SmtpLogIdentifierDeleteWithHttpInfo(identifier);
+             SmtpLogIdentifierDeleteWithHttpInfo(apiKey, partnerKey, identifier);
         }
 
         /// <summary>
@@ -4605,7 +3498,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">MessageId or Email of the transactional log(s) to delete</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SmtpLogIdentifierDeleteWithHttpInfo (string identifier)
+        public ApiResponse<Object> SmtpLogIdentifierDeleteWithHttpInfo (string apiKey, string partnerKey, string identifier)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -4636,14 +3529,14 @@ namespace brevo_csharp.Api
             if (identifier != null) localVarPathParams.Add("identifier", this.Configuration.ApiClient.ParameterToString(identifier)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4670,9 +3563,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">MessageId or Email of the transactional log(s) to delete</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SmtpLogIdentifierDeleteAsync (string identifier)
+        public async System.Threading.Tasks.Task SmtpLogIdentifierDeleteAsync (string apiKey, string partnerKey, string identifier)
         {
-             await SmtpLogIdentifierDeleteAsyncWithHttpInfo(identifier);
+             await SmtpLogIdentifierDeleteAsyncWithHttpInfo(apiKey, partnerKey, identifier);
 
         }
 
@@ -4682,7 +3575,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">MessageId or Email of the transactional log(s) to delete</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> SmtpLogIdentifierDeleteAsyncWithHttpInfo (string identifier)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SmtpLogIdentifierDeleteAsyncWithHttpInfo (string apiKey, string partnerKey, string identifier)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -4713,14 +3606,14 @@ namespace brevo_csharp.Api
             if (identifier != null) localVarPathParams.Add("identifier", this.Configuration.ApiClient.ParameterToString(identifier)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4748,9 +3641,9 @@ namespace brevo_csharp.Api
         /// <param name="templateId">id of the template</param>
         /// <param name="smtpTemplate">values to update in transactional email template</param>
         /// <returns></returns>
-        public void UpdateSmtpTemplate (long? templateId, UpdateSmtpTemplate smtpTemplate)
+        public void UpdateSmtpTemplate (string apiKey, string partnerKey, long? templateId, UpdateSmtpTemplate smtpTemplate)
         {
-             UpdateSmtpTemplateWithHttpInfo(templateId, smtpTemplate);
+             UpdateSmtpTemplateWithHttpInfo(apiKey, partnerKey, templateId, smtpTemplate);
         }
 
         /// <summary>
@@ -4760,7 +3653,7 @@ namespace brevo_csharp.Api
         /// <param name="templateId">id of the template</param>
         /// <param name="smtpTemplate">values to update in transactional email template</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateSmtpTemplateWithHttpInfo (long? templateId, UpdateSmtpTemplate smtpTemplate)
+        public ApiResponse<Object> UpdateSmtpTemplateWithHttpInfo (string apiKey, string partnerKey, long? templateId, UpdateSmtpTemplate smtpTemplate)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -4802,14 +3695,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -4837,9 +3730,9 @@ namespace brevo_csharp.Api
         /// <param name="templateId">id of the template</param>
         /// <param name="smtpTemplate">values to update in transactional email template</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateSmtpTemplateAsync (long? templateId, UpdateSmtpTemplate smtpTemplate)
+        public async System.Threading.Tasks.Task UpdateSmtpTemplateAsync (string apiKey, string partnerKey, long? templateId, UpdateSmtpTemplate smtpTemplate)
         {
-             await UpdateSmtpTemplateAsyncWithHttpInfo(templateId, smtpTemplate);
+             await UpdateSmtpTemplateAsyncWithHttpInfo(apiKey, partnerKey, templateId, smtpTemplate);
 
         }
 
@@ -4850,7 +3743,7 @@ namespace brevo_csharp.Api
         /// <param name="templateId">id of the template</param>
         /// <param name="smtpTemplate">values to update in transactional email template</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateSmtpTemplateAsyncWithHttpInfo (long? templateId, UpdateSmtpTemplate smtpTemplate)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateSmtpTemplateAsyncWithHttpInfo (string apiKey, string partnerKey, long? templateId, UpdateSmtpTemplate smtpTemplate)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -4892,14 +3785,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

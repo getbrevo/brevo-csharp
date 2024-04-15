@@ -21,734 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IResellerApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Add Email and/or SMS credits to a specific child account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="addCredits">Values to post to add credit to a specific child account</param>
-        /// <returns>RemainingCreditModel</returns>
-        RemainingCreditModel AddCredits (string childIdentifier, AddCredits addCredits);
-
-        /// <summary>
-        /// Add Email and/or SMS credits to a specific child account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="addCredits">Values to post to add credit to a specific child account</param>
-        /// <returns>ApiResponse of RemainingCreditModel</returns>
-        ApiResponse<RemainingCreditModel> AddCreditsWithHttpInfo (string childIdentifier, AddCredits addCredits);
-        /// <summary>
-        /// Associate a dedicated IP to the child
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="ip">IP to associate</param>
-        /// <returns></returns>
-        void AssociateIpToChild (string childIdentifier, ManageIp ip);
-
-        /// <summary>
-        /// Associate a dedicated IP to the child
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="ip">IP to associate</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> AssociateIpToChildWithHttpInfo (string childIdentifier, ManageIp ip);
-        /// <summary>
-        /// Create a domain for a child account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="addChildDomain">Sender domain to add for a specific child account. This will not be displayed to the parent account.</param>
-        /// <returns></returns>
-        void CreateChildDomain (string childIdentifier, AddChildDomain addChildDomain);
-
-        /// <summary>
-        /// Create a domain for a child account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="addChildDomain">Sender domain to add for a specific child account. This will not be displayed to the parent account.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateChildDomainWithHttpInfo (string childIdentifier, AddChildDomain addChildDomain);
-        /// <summary>
-        /// Creates a reseller child
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resellerChild">reseller child to add (optional)</param>
-        /// <returns>CreateReseller</returns>
-        CreateReseller CreateResellerChild (CreateChild resellerChild = null);
-
-        /// <summary>
-        /// Creates a reseller child
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resellerChild">reseller child to add (optional)</param>
-        /// <returns>ApiResponse of CreateReseller</returns>
-        ApiResponse<CreateReseller> CreateResellerChildWithHttpInfo (CreateChild resellerChild = null);
-        /// <summary>
-        /// Delete the sender domain of the reseller child based on the childIdentifier and domainName passed
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="domainName">Pass the existing domain that needs to be deleted</param>
-        /// <returns></returns>
-        void DeleteChildDomain (string childIdentifier, string domainName);
-
-        /// <summary>
-        /// Delete the sender domain of the reseller child based on the childIdentifier and domainName passed
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="domainName">Pass the existing domain that needs to be deleted</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteChildDomainWithHttpInfo (string childIdentifier, string domainName);
-        /// <summary>
-        /// Delete a single reseller child based on the child identifier supplied
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or child id of reseller&#39;s child</param>
-        /// <returns></returns>
-        void DeleteResellerChild (string childIdentifier);
-
-        /// <summary>
-        /// Delete a single reseller child based on the child identifier supplied
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or child id of reseller&#39;s child</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteResellerChildWithHttpInfo (string childIdentifier);
-        /// <summary>
-        /// Dissociate a dedicated IP to the child
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="ip">IP to dissociate</param>
-        /// <returns></returns>
-        void DissociateIpFromChild (string childIdentifier, ManageIp ip);
-
-        /// <summary>
-        /// Dissociate a dedicated IP to the child
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="ip">IP to dissociate</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DissociateIpFromChildWithHttpInfo (string childIdentifier, ManageIp ip);
-        /// <summary>
-        /// Get the status of a reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the identifier supplied
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <returns>GetChildAccountCreationStatus</returns>
-        GetChildAccountCreationStatus GetChildAccountCreationStatus (string childIdentifier);
-
-        /// <summary>
-        /// Get the status of a reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the identifier supplied
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <returns>ApiResponse of GetChildAccountCreationStatus</returns>
-        ApiResponse<GetChildAccountCreationStatus> GetChildAccountCreationStatusWithHttpInfo (string childIdentifier);
-        /// <summary>
-        /// Get all sender domains for a specific child account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <returns>GetChildDomains</returns>
-        GetChildDomains GetChildDomains (string childIdentifier);
-
-        /// <summary>
-        /// Get all sender domains for a specific child account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <returns>ApiResponse of GetChildDomains</returns>
-        ApiResponse<GetChildDomains> GetChildDomainsWithHttpInfo (string childIdentifier);
-        /// <summary>
-        /// Get a child account&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <returns>GetChildInfo</returns>
-        GetChildInfo GetChildInfo (string childIdentifier);
-
-        /// <summary>
-        /// Get a child account&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <returns>ApiResponse of GetChildInfo</returns>
-        ApiResponse<GetChildInfo> GetChildInfoWithHttpInfo (string childIdentifier);
-        /// <summary>
-        /// Get the list of all children accounts
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents for child accounts information per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <returns>GetChildrenList</returns>
-        GetChildrenList GetResellerChilds (long? limit = null, long? offset = null);
-
-        /// <summary>
-        /// Get the list of all children accounts
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents for child accounts information per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <returns>ApiResponse of GetChildrenList</returns>
-        ApiResponse<GetChildrenList> GetResellerChildsWithHttpInfo (long? limit = null, long? offset = null);
-        /// <summary>
-        /// Get session token to access Brevo (SSO)
-        /// </summary>
-        /// <remarks>
-        /// It returns a session [token] which will remain valid for a short period of time. A child account will be able to access a white-labeled section by using the following url pattern &#x3D;&gt; https:/email.mydomain.com/login/sso?token&#x3D;[token]
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <returns>GetSsoToken</returns>
-        GetSsoToken GetSsoToken (string childIdentifier);
-
-        /// <summary>
-        /// Get session token to access Brevo (SSO)
-        /// </summary>
-        /// <remarks>
-        /// It returns a session [token] which will remain valid for a short period of time. A child account will be able to access a white-labeled section by using the following url pattern &#x3D;&gt; https:/email.mydomain.com/login/sso?token&#x3D;[token]
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <returns>ApiResponse of GetSsoToken</returns>
-        ApiResponse<GetSsoToken> GetSsoTokenWithHttpInfo (string childIdentifier);
-        /// <summary>
-        /// Remove Email and/or SMS credits from a specific child account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="removeCredits">Values to post to remove email or SMS credits from a specific child account</param>
-        /// <returns>RemainingCreditModel</returns>
-        RemainingCreditModel RemoveCredits (string childIdentifier, RemoveCredits removeCredits);
-
-        /// <summary>
-        /// Remove Email and/or SMS credits from a specific child account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="removeCredits">Values to post to remove email or SMS credits from a specific child account</param>
-        /// <returns>ApiResponse of RemainingCreditModel</returns>
-        ApiResponse<RemainingCreditModel> RemoveCreditsWithHttpInfo (string childIdentifier, RemoveCredits removeCredits);
-        /// <summary>
-        /// Update info of reseller&#39;s child account status based on the childIdentifier supplied
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="updateChildAccountStatus">values to update in child account status</param>
-        /// <returns></returns>
-        void UpdateChildAccountStatus (string childIdentifier, UpdateChildAccountStatus updateChildAccountStatus);
-
-        /// <summary>
-        /// Update info of reseller&#39;s child account status based on the childIdentifier supplied
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="updateChildAccountStatus">values to update in child account status</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateChildAccountStatusWithHttpInfo (string childIdentifier, UpdateChildAccountStatus updateChildAccountStatus);
-        /// <summary>
-        /// Update the sender domain of reseller&#39;s child based on the childIdentifier and domainName passed
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="domainName">Pass the existing domain that needs to be updated</param>
-        /// <param name="updateChildDomain">value to update for sender domain</param>
-        /// <returns></returns>
-        void UpdateChildDomain (string childIdentifier, string domainName, UpdateChildDomain updateChildDomain);
-
-        /// <summary>
-        /// Update the sender domain of reseller&#39;s child based on the childIdentifier and domainName passed
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="domainName">Pass the existing domain that needs to be updated</param>
-        /// <param name="updateChildDomain">value to update for sender domain</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateChildDomainWithHttpInfo (string childIdentifier, string domainName, UpdateChildDomain updateChildDomain);
-        /// <summary>
-        /// Update info of reseller&#39;s child based on the child identifier supplied
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="resellerChild">values to update in child profile</param>
-        /// <returns></returns>
-        void UpdateResellerChild (string childIdentifier, UpdateChild resellerChild);
-
-        /// <summary>
-        /// Update info of reseller&#39;s child based on the child identifier supplied
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="resellerChild">values to update in child profile</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateResellerChildWithHttpInfo (string childIdentifier, UpdateChild resellerChild);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Add Email and/or SMS credits to a specific child account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="addCredits">Values to post to add credit to a specific child account</param>
-        /// <returns>Task of RemainingCreditModel</returns>
-        System.Threading.Tasks.Task<RemainingCreditModel> AddCreditsAsync (string childIdentifier, AddCredits addCredits);
-
-        /// <summary>
-        /// Add Email and/or SMS credits to a specific child account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="addCredits">Values to post to add credit to a specific child account</param>
-        /// <returns>Task of ApiResponse (RemainingCreditModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RemainingCreditModel>> AddCreditsAsyncWithHttpInfo (string childIdentifier, AddCredits addCredits);
-        /// <summary>
-        /// Associate a dedicated IP to the child
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="ip">IP to associate</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task AssociateIpToChildAsync (string childIdentifier, ManageIp ip);
-
-        /// <summary>
-        /// Associate a dedicated IP to the child
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="ip">IP to associate</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> AssociateIpToChildAsyncWithHttpInfo (string childIdentifier, ManageIp ip);
-        /// <summary>
-        /// Create a domain for a child account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="addChildDomain">Sender domain to add for a specific child account. This will not be displayed to the parent account.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateChildDomainAsync (string childIdentifier, AddChildDomain addChildDomain);
-
-        /// <summary>
-        /// Create a domain for a child account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="addChildDomain">Sender domain to add for a specific child account. This will not be displayed to the parent account.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateChildDomainAsyncWithHttpInfo (string childIdentifier, AddChildDomain addChildDomain);
-        /// <summary>
-        /// Creates a reseller child
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resellerChild">reseller child to add (optional)</param>
-        /// <returns>Task of CreateReseller</returns>
-        System.Threading.Tasks.Task<CreateReseller> CreateResellerChildAsync (CreateChild resellerChild = null);
-
-        /// <summary>
-        /// Creates a reseller child
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resellerChild">reseller child to add (optional)</param>
-        /// <returns>Task of ApiResponse (CreateReseller)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateReseller>> CreateResellerChildAsyncWithHttpInfo (CreateChild resellerChild = null);
-        /// <summary>
-        /// Delete the sender domain of the reseller child based on the childIdentifier and domainName passed
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="domainName">Pass the existing domain that needs to be deleted</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteChildDomainAsync (string childIdentifier, string domainName);
-
-        /// <summary>
-        /// Delete the sender domain of the reseller child based on the childIdentifier and domainName passed
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="domainName">Pass the existing domain that needs to be deleted</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteChildDomainAsyncWithHttpInfo (string childIdentifier, string domainName);
-        /// <summary>
-        /// Delete a single reseller child based on the child identifier supplied
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or child id of reseller&#39;s child</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteResellerChildAsync (string childIdentifier);
-
-        /// <summary>
-        /// Delete a single reseller child based on the child identifier supplied
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or child id of reseller&#39;s child</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteResellerChildAsyncWithHttpInfo (string childIdentifier);
-        /// <summary>
-        /// Dissociate a dedicated IP to the child
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="ip">IP to dissociate</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DissociateIpFromChildAsync (string childIdentifier, ManageIp ip);
-
-        /// <summary>
-        /// Dissociate a dedicated IP to the child
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="ip">IP to dissociate</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DissociateIpFromChildAsyncWithHttpInfo (string childIdentifier, ManageIp ip);
-        /// <summary>
-        /// Get the status of a reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the identifier supplied
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <returns>Task of GetChildAccountCreationStatus</returns>
-        System.Threading.Tasks.Task<GetChildAccountCreationStatus> GetChildAccountCreationStatusAsync (string childIdentifier);
-
-        /// <summary>
-        /// Get the status of a reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the identifier supplied
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <returns>Task of ApiResponse (GetChildAccountCreationStatus)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetChildAccountCreationStatus>> GetChildAccountCreationStatusAsyncWithHttpInfo (string childIdentifier);
-        /// <summary>
-        /// Get all sender domains for a specific child account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <returns>Task of GetChildDomains</returns>
-        System.Threading.Tasks.Task<GetChildDomains> GetChildDomainsAsync (string childIdentifier);
-
-        /// <summary>
-        /// Get all sender domains for a specific child account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <returns>Task of ApiResponse (GetChildDomains)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetChildDomains>> GetChildDomainsAsyncWithHttpInfo (string childIdentifier);
-        /// <summary>
-        /// Get a child account&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <returns>Task of GetChildInfo</returns>
-        System.Threading.Tasks.Task<GetChildInfo> GetChildInfoAsync (string childIdentifier);
-
-        /// <summary>
-        /// Get a child account&#39;s details
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <returns>Task of ApiResponse (GetChildInfo)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetChildInfo>> GetChildInfoAsyncWithHttpInfo (string childIdentifier);
-        /// <summary>
-        /// Get the list of all children accounts
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents for child accounts information per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <returns>Task of GetChildrenList</returns>
-        System.Threading.Tasks.Task<GetChildrenList> GetResellerChildsAsync (long? limit = null, long? offset = null);
-
-        /// <summary>
-        /// Get the list of all children accounts
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents for child accounts information per page (optional, default to 10)</param>
-        /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
-        /// <returns>Task of ApiResponse (GetChildrenList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetChildrenList>> GetResellerChildsAsyncWithHttpInfo (long? limit = null, long? offset = null);
-        /// <summary>
-        /// Get session token to access Brevo (SSO)
-        /// </summary>
-        /// <remarks>
-        /// It returns a session [token] which will remain valid for a short period of time. A child account will be able to access a white-labeled section by using the following url pattern &#x3D;&gt; https:/email.mydomain.com/login/sso?token&#x3D;[token]
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <returns>Task of GetSsoToken</returns>
-        System.Threading.Tasks.Task<GetSsoToken> GetSsoTokenAsync (string childIdentifier);
-
-        /// <summary>
-        /// Get session token to access Brevo (SSO)
-        /// </summary>
-        /// <remarks>
-        /// It returns a session [token] which will remain valid for a short period of time. A child account will be able to access a white-labeled section by using the following url pattern &#x3D;&gt; https:/email.mydomain.com/login/sso?token&#x3D;[token]
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <returns>Task of ApiResponse (GetSsoToken)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetSsoToken>> GetSsoTokenAsyncWithHttpInfo (string childIdentifier);
-        /// <summary>
-        /// Remove Email and/or SMS credits from a specific child account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="removeCredits">Values to post to remove email or SMS credits from a specific child account</param>
-        /// <returns>Task of RemainingCreditModel</returns>
-        System.Threading.Tasks.Task<RemainingCreditModel> RemoveCreditsAsync (string childIdentifier, RemoveCredits removeCredits);
-
-        /// <summary>
-        /// Remove Email and/or SMS credits from a specific child account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="removeCredits">Values to post to remove email or SMS credits from a specific child account</param>
-        /// <returns>Task of ApiResponse (RemainingCreditModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RemainingCreditModel>> RemoveCreditsAsyncWithHttpInfo (string childIdentifier, RemoveCredits removeCredits);
-        /// <summary>
-        /// Update info of reseller&#39;s child account status based on the childIdentifier supplied
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="updateChildAccountStatus">values to update in child account status</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateChildAccountStatusAsync (string childIdentifier, UpdateChildAccountStatus updateChildAccountStatus);
-
-        /// <summary>
-        /// Update info of reseller&#39;s child account status based on the childIdentifier supplied
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="updateChildAccountStatus">values to update in child account status</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateChildAccountStatusAsyncWithHttpInfo (string childIdentifier, UpdateChildAccountStatus updateChildAccountStatus);
-        /// <summary>
-        /// Update the sender domain of reseller&#39;s child based on the childIdentifier and domainName passed
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="domainName">Pass the existing domain that needs to be updated</param>
-        /// <param name="updateChildDomain">value to update for sender domain</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateChildDomainAsync (string childIdentifier, string domainName, UpdateChildDomain updateChildDomain);
-
-        /// <summary>
-        /// Update the sender domain of reseller&#39;s child based on the childIdentifier and domainName passed
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="domainName">Pass the existing domain that needs to be updated</param>
-        /// <param name="updateChildDomain">value to update for sender domain</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateChildDomainAsyncWithHttpInfo (string childIdentifier, string domainName, UpdateChildDomain updateChildDomain);
-        /// <summary>
-        /// Update info of reseller&#39;s child based on the child identifier supplied
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="resellerChild">values to update in child profile</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateResellerChildAsync (string childIdentifier, UpdateChild resellerChild);
-
-        /// <summary>
-        /// Update info of reseller&#39;s child based on the child identifier supplied
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
-        /// <param name="resellerChild">values to update in child profile</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateResellerChildAsyncWithHttpInfo (string childIdentifier, UpdateChild resellerChild);
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class ResellerApi : IResellerApi
+    public partial class ResellerApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -849,9 +122,9 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="addCredits">Values to post to add credit to a specific child account</param>
         /// <returns>RemainingCreditModel</returns>
-        public RemainingCreditModel AddCredits (string childIdentifier, AddCredits addCredits)
+        public RemainingCreditModel AddCredits (string apiKey, string partnerKey, string childIdentifier, AddCredits addCredits)
         {
-             ApiResponse<RemainingCreditModel> localVarResponse = AddCreditsWithHttpInfo(childIdentifier, addCredits);
+             ApiResponse<RemainingCreditModel> localVarResponse = AddCreditsWithHttpInfo(apiKey, partnerKey, childIdentifier, addCredits);
              return localVarResponse.Data;
         }
 
@@ -862,7 +135,7 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="addCredits">Values to post to add credit to a specific child account</param>
         /// <returns>ApiResponse of RemainingCreditModel</returns>
-        public ApiResponse< RemainingCreditModel > AddCreditsWithHttpInfo (string childIdentifier, AddCredits addCredits)
+        public ApiResponse< RemainingCreditModel > AddCreditsWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, AddCredits addCredits)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -904,14 +177,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -939,9 +212,9 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="addCredits">Values to post to add credit to a specific child account</param>
         /// <returns>Task of RemainingCreditModel</returns>
-        public async System.Threading.Tasks.Task<RemainingCreditModel> AddCreditsAsync (string childIdentifier, AddCredits addCredits)
+        public async System.Threading.Tasks.Task<RemainingCreditModel> AddCreditsAsync (string apiKey, string partnerKey, string childIdentifier, AddCredits addCredits)
         {
-             ApiResponse<RemainingCreditModel> localVarResponse = await AddCreditsAsyncWithHttpInfo(childIdentifier, addCredits);
+             ApiResponse<RemainingCreditModel> localVarResponse = await AddCreditsAsyncWithHttpInfo(apiKey, partnerKey, childIdentifier, addCredits);
              return localVarResponse.Data;
 
         }
@@ -953,7 +226,7 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="addCredits">Values to post to add credit to a specific child account</param>
         /// <returns>Task of ApiResponse (RemainingCreditModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<RemainingCreditModel>> AddCreditsAsyncWithHttpInfo (string childIdentifier, AddCredits addCredits)
+        public async System.Threading.Tasks.Task<ApiResponse<RemainingCreditModel>> AddCreditsAsyncWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, AddCredits addCredits)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -995,14 +268,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1030,9 +303,9 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="ip">IP to associate</param>
         /// <returns></returns>
-        public void AssociateIpToChild (string childIdentifier, ManageIp ip)
+        public void AssociateIpToChild (string apiKey, string partnerKey, string childIdentifier, ManageIp ip)
         {
-             AssociateIpToChildWithHttpInfo(childIdentifier, ip);
+             AssociateIpToChildWithHttpInfo(apiKey, partnerKey, childIdentifier, ip);
         }
 
         /// <summary>
@@ -1042,7 +315,7 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="ip">IP to associate</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> AssociateIpToChildWithHttpInfo (string childIdentifier, ManageIp ip)
+        public ApiResponse<Object> AssociateIpToChildWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, ManageIp ip)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -1084,14 +357,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1119,9 +392,9 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="ip">IP to associate</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AssociateIpToChildAsync (string childIdentifier, ManageIp ip)
+        public async System.Threading.Tasks.Task AssociateIpToChildAsync (string apiKey, string partnerKey, string childIdentifier, ManageIp ip)
         {
-             await AssociateIpToChildAsyncWithHttpInfo(childIdentifier, ip);
+             await AssociateIpToChildAsyncWithHttpInfo(apiKey, partnerKey, childIdentifier, ip);
 
         }
 
@@ -1132,7 +405,7 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="ip">IP to associate</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> AssociateIpToChildAsyncWithHttpInfo (string childIdentifier, ManageIp ip)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> AssociateIpToChildAsyncWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, ManageIp ip)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -1174,14 +447,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1209,9 +482,9 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="addChildDomain">Sender domain to add for a specific child account. This will not be displayed to the parent account.</param>
         /// <returns></returns>
-        public void CreateChildDomain (string childIdentifier, AddChildDomain addChildDomain)
+        public void CreateChildDomain (string apiKey, string partnerKey, string childIdentifier, AddChildDomain addChildDomain)
         {
-             CreateChildDomainWithHttpInfo(childIdentifier, addChildDomain);
+             CreateChildDomainWithHttpInfo(apiKey, partnerKey, childIdentifier, addChildDomain);
         }
 
         /// <summary>
@@ -1221,7 +494,7 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="addChildDomain">Sender domain to add for a specific child account. This will not be displayed to the parent account.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CreateChildDomainWithHttpInfo (string childIdentifier, AddChildDomain addChildDomain)
+        public ApiResponse<Object> CreateChildDomainWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, AddChildDomain addChildDomain)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -1263,14 +536,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1298,9 +571,9 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="addChildDomain">Sender domain to add for a specific child account. This will not be displayed to the parent account.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateChildDomainAsync (string childIdentifier, AddChildDomain addChildDomain)
+        public async System.Threading.Tasks.Task CreateChildDomainAsync (string apiKey, string partnerKey, string childIdentifier, AddChildDomain addChildDomain)
         {
-             await CreateChildDomainAsyncWithHttpInfo(childIdentifier, addChildDomain);
+             await CreateChildDomainAsyncWithHttpInfo(apiKey, partnerKey, childIdentifier, addChildDomain);
 
         }
 
@@ -1311,7 +584,7 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="addChildDomain">Sender domain to add for a specific child account. This will not be displayed to the parent account.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateChildDomainAsyncWithHttpInfo (string childIdentifier, AddChildDomain addChildDomain)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateChildDomainAsyncWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, AddChildDomain addChildDomain)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -1353,14 +626,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1387,9 +660,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resellerChild">reseller child to add (optional)</param>
         /// <returns>CreateReseller</returns>
-        public CreateReseller CreateResellerChild (CreateChild resellerChild = null)
+        public CreateReseller CreateResellerChild (string apiKey, string partnerKey, CreateChild resellerChild = null)
         {
-             ApiResponse<CreateReseller> localVarResponse = CreateResellerChildWithHttpInfo(resellerChild);
+             ApiResponse<CreateReseller> localVarResponse = CreateResellerChildWithHttpInfo(apiKey, partnerKey, resellerChild);
              return localVarResponse.Data;
         }
 
@@ -1399,7 +672,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resellerChild">reseller child to add (optional)</param>
         /// <returns>ApiResponse of CreateReseller</returns>
-        public ApiResponse< CreateReseller > CreateResellerChildWithHttpInfo (CreateChild resellerChild = null)
+        public ApiResponse< CreateReseller > CreateResellerChildWithHttpInfo (string apiKey, string partnerKey, CreateChild resellerChild = null)
         {
 
             var localVarPath = "./reseller/children";
@@ -1434,14 +707,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1468,9 +741,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resellerChild">reseller child to add (optional)</param>
         /// <returns>Task of CreateReseller</returns>
-        public async System.Threading.Tasks.Task<CreateReseller> CreateResellerChildAsync (CreateChild resellerChild = null)
+        public async System.Threading.Tasks.Task<CreateReseller> CreateResellerChildAsync (string apiKey, string partnerKey, CreateChild resellerChild = null)
         {
-             ApiResponse<CreateReseller> localVarResponse = await CreateResellerChildAsyncWithHttpInfo(resellerChild);
+             ApiResponse<CreateReseller> localVarResponse = await CreateResellerChildAsyncWithHttpInfo(apiKey, partnerKey, resellerChild);
              return localVarResponse.Data;
 
         }
@@ -1481,7 +754,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resellerChild">reseller child to add (optional)</param>
         /// <returns>Task of ApiResponse (CreateReseller)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateReseller>> CreateResellerChildAsyncWithHttpInfo (CreateChild resellerChild = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateReseller>> CreateResellerChildAsyncWithHttpInfo (string apiKey, string partnerKey, CreateChild resellerChild = null)
         {
 
             var localVarPath = "./reseller/children";
@@ -1516,14 +789,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1551,9 +824,9 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="domainName">Pass the existing domain that needs to be deleted</param>
         /// <returns></returns>
-        public void DeleteChildDomain (string childIdentifier, string domainName)
+        public void DeleteChildDomain (string apiKey, string partnerKey, string childIdentifier, string domainName)
         {
-             DeleteChildDomainWithHttpInfo(childIdentifier, domainName);
+             DeleteChildDomainWithHttpInfo(apiKey, partnerKey, childIdentifier, domainName);
         }
 
         /// <summary>
@@ -1563,7 +836,7 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="domainName">Pass the existing domain that needs to be deleted</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteChildDomainWithHttpInfo (string childIdentifier, string domainName)
+        public ApiResponse<Object> DeleteChildDomainWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, string domainName)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -1598,14 +871,14 @@ namespace brevo_csharp.Api
             if (domainName != null) localVarPathParams.Add("domainName", this.Configuration.ApiClient.ParameterToString(domainName)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1633,9 +906,9 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="domainName">Pass the existing domain that needs to be deleted</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteChildDomainAsync (string childIdentifier, string domainName)
+        public async System.Threading.Tasks.Task DeleteChildDomainAsync (string apiKey, string partnerKey, string childIdentifier, string domainName)
         {
-             await DeleteChildDomainAsyncWithHttpInfo(childIdentifier, domainName);
+             await DeleteChildDomainAsyncWithHttpInfo(apiKey, partnerKey, childIdentifier, domainName);
 
         }
 
@@ -1646,7 +919,7 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="domainName">Pass the existing domain that needs to be deleted</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteChildDomainAsyncWithHttpInfo (string childIdentifier, string domainName)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteChildDomainAsyncWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, string domainName)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -1681,14 +954,14 @@ namespace brevo_csharp.Api
             if (domainName != null) localVarPathParams.Add("domainName", this.Configuration.ApiClient.ParameterToString(domainName)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1715,9 +988,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or child id of reseller&#39;s child</param>
         /// <returns></returns>
-        public void DeleteResellerChild (string childIdentifier)
+        public void DeleteResellerChild (string apiKey, string partnerKey, string childIdentifier)
         {
-             DeleteResellerChildWithHttpInfo(childIdentifier);
+             DeleteResellerChildWithHttpInfo(apiKey, partnerKey, childIdentifier);
         }
 
         /// <summary>
@@ -1726,7 +999,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or child id of reseller&#39;s child</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteResellerChildWithHttpInfo (string childIdentifier)
+        public ApiResponse<Object> DeleteResellerChildWithHttpInfo (string apiKey, string partnerKey, string childIdentifier)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -1757,14 +1030,14 @@ namespace brevo_csharp.Api
             if (childIdentifier != null) localVarPathParams.Add("childIdentifier", this.Configuration.ApiClient.ParameterToString(childIdentifier)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1791,9 +1064,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or child id of reseller&#39;s child</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteResellerChildAsync (string childIdentifier)
+        public async System.Threading.Tasks.Task DeleteResellerChildAsync (string apiKey, string partnerKey, string childIdentifier)
         {
-             await DeleteResellerChildAsyncWithHttpInfo(childIdentifier);
+             await DeleteResellerChildAsyncWithHttpInfo(apiKey, partnerKey, childIdentifier);
 
         }
 
@@ -1803,7 +1076,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or child id of reseller&#39;s child</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteResellerChildAsyncWithHttpInfo (string childIdentifier)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteResellerChildAsyncWithHttpInfo (string apiKey, string partnerKey, string childIdentifier)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -1834,14 +1107,14 @@ namespace brevo_csharp.Api
             if (childIdentifier != null) localVarPathParams.Add("childIdentifier", this.Configuration.ApiClient.ParameterToString(childIdentifier)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1869,9 +1142,9 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="ip">IP to dissociate</param>
         /// <returns></returns>
-        public void DissociateIpFromChild (string childIdentifier, ManageIp ip)
+        public void DissociateIpFromChild (string apiKey, string partnerKey, string childIdentifier, ManageIp ip)
         {
-             DissociateIpFromChildWithHttpInfo(childIdentifier, ip);
+             DissociateIpFromChildWithHttpInfo(apiKey, partnerKey, childIdentifier, ip);
         }
 
         /// <summary>
@@ -1881,7 +1154,7 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="ip">IP to dissociate</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DissociateIpFromChildWithHttpInfo (string childIdentifier, ManageIp ip)
+        public ApiResponse<Object> DissociateIpFromChildWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, ManageIp ip)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -1923,14 +1196,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1958,9 +1231,9 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="ip">IP to dissociate</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DissociateIpFromChildAsync (string childIdentifier, ManageIp ip)
+        public async System.Threading.Tasks.Task DissociateIpFromChildAsync (string apiKey, string partnerKey, string childIdentifier, ManageIp ip)
         {
-             await DissociateIpFromChildAsyncWithHttpInfo(childIdentifier, ip);
+             await DissociateIpFromChildAsyncWithHttpInfo(apiKey, partnerKey, childIdentifier, ip);
 
         }
 
@@ -1971,7 +1244,7 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="ip">IP to dissociate</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DissociateIpFromChildAsyncWithHttpInfo (string childIdentifier, ManageIp ip)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DissociateIpFromChildAsyncWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, ManageIp ip)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -2013,14 +1286,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2047,9 +1320,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <returns>GetChildAccountCreationStatus</returns>
-        public GetChildAccountCreationStatus GetChildAccountCreationStatus (string childIdentifier)
+        public GetChildAccountCreationStatus GetChildAccountCreationStatus (string apiKey, string partnerKey, string childIdentifier)
         {
-             ApiResponse<GetChildAccountCreationStatus> localVarResponse = GetChildAccountCreationStatusWithHttpInfo(childIdentifier);
+             ApiResponse<GetChildAccountCreationStatus> localVarResponse = GetChildAccountCreationStatusWithHttpInfo(apiKey, partnerKey, childIdentifier);
              return localVarResponse.Data;
         }
 
@@ -2059,7 +1332,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <returns>ApiResponse of GetChildAccountCreationStatus</returns>
-        public ApiResponse< GetChildAccountCreationStatus > GetChildAccountCreationStatusWithHttpInfo (string childIdentifier)
+        public ApiResponse< GetChildAccountCreationStatus > GetChildAccountCreationStatusWithHttpInfo (string apiKey, string partnerKey, string childIdentifier)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -2090,14 +1363,14 @@ namespace brevo_csharp.Api
             if (childIdentifier != null) localVarPathParams.Add("childIdentifier", this.Configuration.ApiClient.ParameterToString(childIdentifier)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2124,9 +1397,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <returns>Task of GetChildAccountCreationStatus</returns>
-        public async System.Threading.Tasks.Task<GetChildAccountCreationStatus> GetChildAccountCreationStatusAsync (string childIdentifier)
+        public async System.Threading.Tasks.Task<GetChildAccountCreationStatus> GetChildAccountCreationStatusAsync (string apiKey, string partnerKey, string childIdentifier)
         {
-             ApiResponse<GetChildAccountCreationStatus> localVarResponse = await GetChildAccountCreationStatusAsyncWithHttpInfo(childIdentifier);
+             ApiResponse<GetChildAccountCreationStatus> localVarResponse = await GetChildAccountCreationStatusAsyncWithHttpInfo(apiKey, partnerKey, childIdentifier);
              return localVarResponse.Data;
 
         }
@@ -2137,7 +1410,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <returns>Task of ApiResponse (GetChildAccountCreationStatus)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetChildAccountCreationStatus>> GetChildAccountCreationStatusAsyncWithHttpInfo (string childIdentifier)
+        public async System.Threading.Tasks.Task<ApiResponse<GetChildAccountCreationStatus>> GetChildAccountCreationStatusAsyncWithHttpInfo (string apiKey, string partnerKey, string childIdentifier)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -2168,14 +1441,14 @@ namespace brevo_csharp.Api
             if (childIdentifier != null) localVarPathParams.Add("childIdentifier", this.Configuration.ApiClient.ParameterToString(childIdentifier)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2202,9 +1475,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <returns>GetChildDomains</returns>
-        public GetChildDomains GetChildDomains (string childIdentifier)
+        public GetChildDomains GetChildDomains (string apiKey, string partnerKey, string childIdentifier)
         {
-             ApiResponse<GetChildDomains> localVarResponse = GetChildDomainsWithHttpInfo(childIdentifier);
+             ApiResponse<GetChildDomains> localVarResponse = GetChildDomainsWithHttpInfo(apiKey, partnerKey, childIdentifier);
              return localVarResponse.Data;
         }
 
@@ -2214,7 +1487,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <returns>ApiResponse of GetChildDomains</returns>
-        public ApiResponse< GetChildDomains > GetChildDomainsWithHttpInfo (string childIdentifier)
+        public ApiResponse< GetChildDomains > GetChildDomainsWithHttpInfo (string apiKey, string partnerKey, string childIdentifier)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -2245,14 +1518,14 @@ namespace brevo_csharp.Api
             if (childIdentifier != null) localVarPathParams.Add("childIdentifier", this.Configuration.ApiClient.ParameterToString(childIdentifier)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2279,9 +1552,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <returns>Task of GetChildDomains</returns>
-        public async System.Threading.Tasks.Task<GetChildDomains> GetChildDomainsAsync (string childIdentifier)
+        public async System.Threading.Tasks.Task<GetChildDomains> GetChildDomainsAsync (string apiKey, string partnerKey, string childIdentifier)
         {
-             ApiResponse<GetChildDomains> localVarResponse = await GetChildDomainsAsyncWithHttpInfo(childIdentifier);
+             ApiResponse<GetChildDomains> localVarResponse = await GetChildDomainsAsyncWithHttpInfo(apiKey, partnerKey, childIdentifier);
              return localVarResponse.Data;
 
         }
@@ -2292,7 +1565,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <returns>Task of ApiResponse (GetChildDomains)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetChildDomains>> GetChildDomainsAsyncWithHttpInfo (string childIdentifier)
+        public async System.Threading.Tasks.Task<ApiResponse<GetChildDomains>> GetChildDomainsAsyncWithHttpInfo (string apiKey, string partnerKey, string childIdentifier)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -2323,14 +1596,14 @@ namespace brevo_csharp.Api
             if (childIdentifier != null) localVarPathParams.Add("childIdentifier", this.Configuration.ApiClient.ParameterToString(childIdentifier)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2357,9 +1630,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <returns>GetChildInfo</returns>
-        public GetChildInfo GetChildInfo (string childIdentifier)
+        public GetChildInfo GetChildInfo (string apiKey, string partnerKey, string childIdentifier)
         {
-             ApiResponse<GetChildInfo> localVarResponse = GetChildInfoWithHttpInfo(childIdentifier);
+             ApiResponse<GetChildInfo> localVarResponse = GetChildInfoWithHttpInfo(apiKey, partnerKey, childIdentifier);
              return localVarResponse.Data;
         }
 
@@ -2369,7 +1642,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <returns>ApiResponse of GetChildInfo</returns>
-        public ApiResponse< GetChildInfo > GetChildInfoWithHttpInfo (string childIdentifier)
+        public ApiResponse< GetChildInfo > GetChildInfoWithHttpInfo (string apiKey, string partnerKey, string childIdentifier)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -2400,14 +1673,14 @@ namespace brevo_csharp.Api
             if (childIdentifier != null) localVarPathParams.Add("childIdentifier", this.Configuration.ApiClient.ParameterToString(childIdentifier)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2434,9 +1707,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <returns>Task of GetChildInfo</returns>
-        public async System.Threading.Tasks.Task<GetChildInfo> GetChildInfoAsync (string childIdentifier)
+        public async System.Threading.Tasks.Task<GetChildInfo> GetChildInfoAsync (string apiKey, string partnerKey, string childIdentifier)
         {
-             ApiResponse<GetChildInfo> localVarResponse = await GetChildInfoAsyncWithHttpInfo(childIdentifier);
+             ApiResponse<GetChildInfo> localVarResponse = await GetChildInfoAsyncWithHttpInfo(apiKey, partnerKey, childIdentifier);
              return localVarResponse.Data;
 
         }
@@ -2447,7 +1720,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <returns>Task of ApiResponse (GetChildInfo)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetChildInfo>> GetChildInfoAsyncWithHttpInfo (string childIdentifier)
+        public async System.Threading.Tasks.Task<ApiResponse<GetChildInfo>> GetChildInfoAsyncWithHttpInfo (string apiKey, string partnerKey, string childIdentifier)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -2478,14 +1751,14 @@ namespace brevo_csharp.Api
             if (childIdentifier != null) localVarPathParams.Add("childIdentifier", this.Configuration.ApiClient.ParameterToString(childIdentifier)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2513,9 +1786,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents for child accounts information per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <returns>GetChildrenList</returns>
-        public GetChildrenList GetResellerChilds (long? limit = null, long? offset = null)
+        public GetChildrenList GetResellerChilds (string apiKey, string partnerKey, long? limit = null, long? offset = null)
         {
-             ApiResponse<GetChildrenList> localVarResponse = GetResellerChildsWithHttpInfo(limit, offset);
+             ApiResponse<GetChildrenList> localVarResponse = GetResellerChildsWithHttpInfo(apiKey, partnerKey, limit, offset);
              return localVarResponse.Data;
         }
 
@@ -2526,7 +1799,7 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents for child accounts information per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <returns>ApiResponse of GetChildrenList</returns>
-        public ApiResponse< GetChildrenList > GetResellerChildsWithHttpInfo (long? limit = null, long? offset = null)
+        public ApiResponse< GetChildrenList > GetResellerChildsWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null)
         {
 
             var localVarPath = "./reseller/children";
@@ -2555,14 +1828,14 @@ namespace brevo_csharp.Api
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2590,9 +1863,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents for child accounts information per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <returns>Task of GetChildrenList</returns>
-        public async System.Threading.Tasks.Task<GetChildrenList> GetResellerChildsAsync (long? limit = null, long? offset = null)
+        public async System.Threading.Tasks.Task<GetChildrenList> GetResellerChildsAsync (string apiKey, string partnerKey, long? limit = null, long? offset = null)
         {
-             ApiResponse<GetChildrenList> localVarResponse = await GetResellerChildsAsyncWithHttpInfo(limit, offset);
+             ApiResponse<GetChildrenList> localVarResponse = await GetResellerChildsAsyncWithHttpInfo(apiKey, partnerKey, limit, offset);
              return localVarResponse.Data;
 
         }
@@ -2604,7 +1877,7 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents for child accounts information per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (GetChildrenList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetChildrenList>> GetResellerChildsAsyncWithHttpInfo (long? limit = null, long? offset = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetChildrenList>> GetResellerChildsAsyncWithHttpInfo (string apiKey, string partnerKey, long? limit = null, long? offset = null)
         {
 
             var localVarPath = "./reseller/children";
@@ -2633,14 +1906,14 @@ namespace brevo_csharp.Api
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2667,9 +1940,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <returns>GetSsoToken</returns>
-        public GetSsoToken GetSsoToken (string childIdentifier)
+        public GetSsoToken GetSsoToken (string apiKey, string partnerKey, string childIdentifier)
         {
-             ApiResponse<GetSsoToken> localVarResponse = GetSsoTokenWithHttpInfo(childIdentifier);
+             ApiResponse<GetSsoToken> localVarResponse = GetSsoTokenWithHttpInfo(apiKey, partnerKey, childIdentifier);
              return localVarResponse.Data;
         }
 
@@ -2679,7 +1952,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <returns>ApiResponse of GetSsoToken</returns>
-        public ApiResponse< GetSsoToken > GetSsoTokenWithHttpInfo (string childIdentifier)
+        public ApiResponse< GetSsoToken > GetSsoTokenWithHttpInfo (string apiKey, string partnerKey, string childIdentifier)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -2710,14 +1983,14 @@ namespace brevo_csharp.Api
             if (childIdentifier != null) localVarPathParams.Add("childIdentifier", this.Configuration.ApiClient.ParameterToString(childIdentifier)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2744,9 +2017,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <returns>Task of GetSsoToken</returns>
-        public async System.Threading.Tasks.Task<GetSsoToken> GetSsoTokenAsync (string childIdentifier)
+        public async System.Threading.Tasks.Task<GetSsoToken> GetSsoTokenAsync (string apiKey, string partnerKey, string childIdentifier)
         {
-             ApiResponse<GetSsoToken> localVarResponse = await GetSsoTokenAsyncWithHttpInfo(childIdentifier);
+             ApiResponse<GetSsoToken> localVarResponse = await GetSsoTokenAsyncWithHttpInfo(apiKey, partnerKey, childIdentifier);
              return localVarResponse.Data;
 
         }
@@ -2757,7 +2030,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <returns>Task of ApiResponse (GetSsoToken)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetSsoToken>> GetSsoTokenAsyncWithHttpInfo (string childIdentifier)
+        public async System.Threading.Tasks.Task<ApiResponse<GetSsoToken>> GetSsoTokenAsyncWithHttpInfo (string apiKey, string partnerKey, string childIdentifier)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -2788,14 +2061,14 @@ namespace brevo_csharp.Api
             if (childIdentifier != null) localVarPathParams.Add("childIdentifier", this.Configuration.ApiClient.ParameterToString(childIdentifier)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2823,9 +2096,9 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="removeCredits">Values to post to remove email or SMS credits from a specific child account</param>
         /// <returns>RemainingCreditModel</returns>
-        public RemainingCreditModel RemoveCredits (string childIdentifier, RemoveCredits removeCredits)
+        public RemainingCreditModel RemoveCredits (string apiKey, string partnerKey, string childIdentifier, RemoveCredits removeCredits)
         {
-             ApiResponse<RemainingCreditModel> localVarResponse = RemoveCreditsWithHttpInfo(childIdentifier, removeCredits);
+             ApiResponse<RemainingCreditModel> localVarResponse = RemoveCreditsWithHttpInfo(apiKey, partnerKey, childIdentifier, removeCredits);
              return localVarResponse.Data;
         }
 
@@ -2836,7 +2109,7 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="removeCredits">Values to post to remove email or SMS credits from a specific child account</param>
         /// <returns>ApiResponse of RemainingCreditModel</returns>
-        public ApiResponse< RemainingCreditModel > RemoveCreditsWithHttpInfo (string childIdentifier, RemoveCredits removeCredits)
+        public ApiResponse< RemainingCreditModel > RemoveCreditsWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, RemoveCredits removeCredits)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -2878,14 +2151,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -2913,9 +2186,9 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="removeCredits">Values to post to remove email or SMS credits from a specific child account</param>
         /// <returns>Task of RemainingCreditModel</returns>
-        public async System.Threading.Tasks.Task<RemainingCreditModel> RemoveCreditsAsync (string childIdentifier, RemoveCredits removeCredits)
+        public async System.Threading.Tasks.Task<RemainingCreditModel> RemoveCreditsAsync (string apiKey, string partnerKey, string childIdentifier, RemoveCredits removeCredits)
         {
-             ApiResponse<RemainingCreditModel> localVarResponse = await RemoveCreditsAsyncWithHttpInfo(childIdentifier, removeCredits);
+             ApiResponse<RemainingCreditModel> localVarResponse = await RemoveCreditsAsyncWithHttpInfo(apiKey, partnerKey, childIdentifier, removeCredits);
              return localVarResponse.Data;
 
         }
@@ -2927,7 +2200,7 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="removeCredits">Values to post to remove email or SMS credits from a specific child account</param>
         /// <returns>Task of ApiResponse (RemainingCreditModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<RemainingCreditModel>> RemoveCreditsAsyncWithHttpInfo (string childIdentifier, RemoveCredits removeCredits)
+        public async System.Threading.Tasks.Task<ApiResponse<RemainingCreditModel>> RemoveCreditsAsyncWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, RemoveCredits removeCredits)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -2969,14 +2242,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3004,9 +2277,9 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="updateChildAccountStatus">values to update in child account status</param>
         /// <returns></returns>
-        public void UpdateChildAccountStatus (string childIdentifier, UpdateChildAccountStatus updateChildAccountStatus)
+        public void UpdateChildAccountStatus (string apiKey, string partnerKey, string childIdentifier, UpdateChildAccountStatus updateChildAccountStatus)
         {
-             UpdateChildAccountStatusWithHttpInfo(childIdentifier, updateChildAccountStatus);
+             UpdateChildAccountStatusWithHttpInfo(apiKey, partnerKey, childIdentifier, updateChildAccountStatus);
         }
 
         /// <summary>
@@ -3016,7 +2289,7 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="updateChildAccountStatus">values to update in child account status</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateChildAccountStatusWithHttpInfo (string childIdentifier, UpdateChildAccountStatus updateChildAccountStatus)
+        public ApiResponse<Object> UpdateChildAccountStatusWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, UpdateChildAccountStatus updateChildAccountStatus)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -3058,14 +2331,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3093,9 +2366,9 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="updateChildAccountStatus">values to update in child account status</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateChildAccountStatusAsync (string childIdentifier, UpdateChildAccountStatus updateChildAccountStatus)
+        public async System.Threading.Tasks.Task UpdateChildAccountStatusAsync (string apiKey, string partnerKey, string childIdentifier, UpdateChildAccountStatus updateChildAccountStatus)
         {
-             await UpdateChildAccountStatusAsyncWithHttpInfo(childIdentifier, updateChildAccountStatus);
+             await UpdateChildAccountStatusAsyncWithHttpInfo(apiKey, partnerKey, childIdentifier, updateChildAccountStatus);
 
         }
 
@@ -3106,7 +2379,7 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="updateChildAccountStatus">values to update in child account status</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateChildAccountStatusAsyncWithHttpInfo (string childIdentifier, UpdateChildAccountStatus updateChildAccountStatus)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateChildAccountStatusAsyncWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, UpdateChildAccountStatus updateChildAccountStatus)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -3148,14 +2421,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3184,9 +2457,9 @@ namespace brevo_csharp.Api
         /// <param name="domainName">Pass the existing domain that needs to be updated</param>
         /// <param name="updateChildDomain">value to update for sender domain</param>
         /// <returns></returns>
-        public void UpdateChildDomain (string childIdentifier, string domainName, UpdateChildDomain updateChildDomain)
+        public void UpdateChildDomain (string apiKey, string partnerKey, string childIdentifier, string domainName, UpdateChildDomain updateChildDomain)
         {
-             UpdateChildDomainWithHttpInfo(childIdentifier, domainName, updateChildDomain);
+             UpdateChildDomainWithHttpInfo(apiKey, partnerKey, childIdentifier, domainName, updateChildDomain);
         }
 
         /// <summary>
@@ -3197,7 +2470,7 @@ namespace brevo_csharp.Api
         /// <param name="domainName">Pass the existing domain that needs to be updated</param>
         /// <param name="updateChildDomain">value to update for sender domain</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateChildDomainWithHttpInfo (string childIdentifier, string domainName, UpdateChildDomain updateChildDomain)
+        public ApiResponse<Object> UpdateChildDomainWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, string domainName, UpdateChildDomain updateChildDomain)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -3243,14 +2516,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3279,9 +2552,9 @@ namespace brevo_csharp.Api
         /// <param name="domainName">Pass the existing domain that needs to be updated</param>
         /// <param name="updateChildDomain">value to update for sender domain</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateChildDomainAsync (string childIdentifier, string domainName, UpdateChildDomain updateChildDomain)
+        public async System.Threading.Tasks.Task UpdateChildDomainAsync (string apiKey, string partnerKey, string childIdentifier, string domainName, UpdateChildDomain updateChildDomain)
         {
-             await UpdateChildDomainAsyncWithHttpInfo(childIdentifier, domainName, updateChildDomain);
+             await UpdateChildDomainAsyncWithHttpInfo(apiKey, partnerKey, childIdentifier, domainName, updateChildDomain);
 
         }
 
@@ -3293,7 +2566,7 @@ namespace brevo_csharp.Api
         /// <param name="domainName">Pass the existing domain that needs to be updated</param>
         /// <param name="updateChildDomain">value to update for sender domain</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateChildDomainAsyncWithHttpInfo (string childIdentifier, string domainName, UpdateChildDomain updateChildDomain)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateChildDomainAsyncWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, string domainName, UpdateChildDomain updateChildDomain)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -3339,14 +2612,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3374,9 +2647,9 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="resellerChild">values to update in child profile</param>
         /// <returns></returns>
-        public void UpdateResellerChild (string childIdentifier, UpdateChild resellerChild)
+        public void UpdateResellerChild (string apiKey, string partnerKey, string childIdentifier, UpdateChild resellerChild)
         {
-             UpdateResellerChildWithHttpInfo(childIdentifier, resellerChild);
+             UpdateResellerChildWithHttpInfo(apiKey, partnerKey, childIdentifier, resellerChild);
         }
 
         /// <summary>
@@ -3386,7 +2659,7 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="resellerChild">values to update in child profile</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateResellerChildWithHttpInfo (string childIdentifier, UpdateChild resellerChild)
+        public ApiResponse<Object> UpdateResellerChildWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, UpdateChild resellerChild)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -3428,14 +2701,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -3463,9 +2736,9 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="resellerChild">values to update in child profile</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateResellerChildAsync (string childIdentifier, UpdateChild resellerChild)
+        public async System.Threading.Tasks.Task UpdateResellerChildAsync (string apiKey, string partnerKey, string childIdentifier, UpdateChild resellerChild)
         {
-             await UpdateResellerChildAsyncWithHttpInfo(childIdentifier, resellerChild);
+             await UpdateResellerChildAsyncWithHttpInfo(apiKey, partnerKey, childIdentifier, resellerChild);
 
         }
 
@@ -3476,7 +2749,7 @@ namespace brevo_csharp.Api
         /// <param name="childIdentifier">Either auth key or id of reseller&#39;s child</param>
         /// <param name="resellerChild">values to update in child profile</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateResellerChildAsyncWithHttpInfo (string childIdentifier, UpdateChild resellerChild)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateResellerChildAsyncWithHttpInfo (string apiKey, string partnerKey, string childIdentifier, UpdateChild resellerChild)
         {
             // verify the required parameter 'childIdentifier' is set
             if (childIdentifier == null)
@@ -3518,14 +2791,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

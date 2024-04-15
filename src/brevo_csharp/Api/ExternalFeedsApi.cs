@@ -21,256 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IExternalFeedsApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Create an external feed
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will create an external feed.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createExternalFeed">Values to create a feed</param>
-        /// <returns>InlineResponse2015</returns>
-        InlineResponse2015 CreateExternalFeed (CreateExternalFeed createExternalFeed);
-
-        /// <summary>
-        /// Create an external feed
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will create an external feed.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createExternalFeed">Values to create a feed</param>
-        /// <returns>ApiResponse of InlineResponse2015</returns>
-        ApiResponse<InlineResponse2015> CreateExternalFeedWithHttpInfo (CreateExternalFeed createExternalFeed);
-        /// <summary>
-        /// Delete an external feed
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will delete an external feed.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">UUID of the feed to delete</param>
-        /// <returns></returns>
-        void DeleteExternalFeed (string uuid);
-
-        /// <summary>
-        /// Delete an external feed
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will delete an external feed.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">UUID of the feed to delete</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteExternalFeedWithHttpInfo (string uuid);
-        /// <summary>
-        /// Fetch all external feeds
-        /// </summary>
-        /// <remarks>
-        /// This endpoint can fetch all created external feeds.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="search">Can be used to filter records by search keyword on feed name (optional)</param>
-        /// <param name="startDate">Mandatory if &#x60;endDate&#x60; is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older than current date. (optional)</param>
-        /// <param name="endDate">Mandatory if &#x60;startDate&#x60; is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed. (optional, default to desc)</param>
-        /// <param name="authType">Filter the records by &#x60;authType&#x60; of the feed. (optional)</param>
-        /// <param name="limit">Number of documents returned per page. (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document on the page. (optional, default to 0)</param>
-        /// <returns>GetAllExternalFeeds</returns>
-        GetAllExternalFeeds GetAllExternalFeeds (string search = null, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string authType = null, long? limit = null, long? offset = null);
-
-        /// <summary>
-        /// Fetch all external feeds
-        /// </summary>
-        /// <remarks>
-        /// This endpoint can fetch all created external feeds.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="search">Can be used to filter records by search keyword on feed name (optional)</param>
-        /// <param name="startDate">Mandatory if &#x60;endDate&#x60; is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older than current date. (optional)</param>
-        /// <param name="endDate">Mandatory if &#x60;startDate&#x60; is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed. (optional, default to desc)</param>
-        /// <param name="authType">Filter the records by &#x60;authType&#x60; of the feed. (optional)</param>
-        /// <param name="limit">Number of documents returned per page. (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document on the page. (optional, default to 0)</param>
-        /// <returns>ApiResponse of GetAllExternalFeeds</returns>
-        ApiResponse<GetAllExternalFeeds> GetAllExternalFeedsWithHttpInfo (string search = null, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string authType = null, long? limit = null, long? offset = null);
-        /// <summary>
-        /// Get an external feed by UUID
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will update an external feed.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">UUID of the feed to fetch</param>
-        /// <returns>GetExternalFeedByUUID</returns>
-        GetExternalFeedByUUID GetExternalFeedByUUID (string uuid);
-
-        /// <summary>
-        /// Get an external feed by UUID
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will update an external feed.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">UUID of the feed to fetch</param>
-        /// <returns>ApiResponse of GetExternalFeedByUUID</returns>
-        ApiResponse<GetExternalFeedByUUID> GetExternalFeedByUUIDWithHttpInfo (string uuid);
-        /// <summary>
-        /// Update an external feed
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will update an external feed.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">UUID of the feed to update</param>
-        /// <param name="updateExternalFeed">Values to update a feed</param>
-        /// <returns></returns>
-        void UpdateExternalFeed (string uuid, UpdateExternalFeed updateExternalFeed);
-
-        /// <summary>
-        /// Update an external feed
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will update an external feed.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">UUID of the feed to update</param>
-        /// <param name="updateExternalFeed">Values to update a feed</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateExternalFeedWithHttpInfo (string uuid, UpdateExternalFeed updateExternalFeed);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Create an external feed
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will create an external feed.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createExternalFeed">Values to create a feed</param>
-        /// <returns>Task of InlineResponse2015</returns>
-        System.Threading.Tasks.Task<InlineResponse2015> CreateExternalFeedAsync (CreateExternalFeed createExternalFeed);
-
-        /// <summary>
-        /// Create an external feed
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will create an external feed.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createExternalFeed">Values to create a feed</param>
-        /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> CreateExternalFeedAsyncWithHttpInfo (CreateExternalFeed createExternalFeed);
-        /// <summary>
-        /// Delete an external feed
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will delete an external feed.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">UUID of the feed to delete</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteExternalFeedAsync (string uuid);
-
-        /// <summary>
-        /// Delete an external feed
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will delete an external feed.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">UUID of the feed to delete</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteExternalFeedAsyncWithHttpInfo (string uuid);
-        /// <summary>
-        /// Fetch all external feeds
-        /// </summary>
-        /// <remarks>
-        /// This endpoint can fetch all created external feeds.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="search">Can be used to filter records by search keyword on feed name (optional)</param>
-        /// <param name="startDate">Mandatory if &#x60;endDate&#x60; is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older than current date. (optional)</param>
-        /// <param name="endDate">Mandatory if &#x60;startDate&#x60; is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed. (optional, default to desc)</param>
-        /// <param name="authType">Filter the records by &#x60;authType&#x60; of the feed. (optional)</param>
-        /// <param name="limit">Number of documents returned per page. (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document on the page. (optional, default to 0)</param>
-        /// <returns>Task of GetAllExternalFeeds</returns>
-        System.Threading.Tasks.Task<GetAllExternalFeeds> GetAllExternalFeedsAsync (string search = null, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string authType = null, long? limit = null, long? offset = null);
-
-        /// <summary>
-        /// Fetch all external feeds
-        /// </summary>
-        /// <remarks>
-        /// This endpoint can fetch all created external feeds.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="search">Can be used to filter records by search keyword on feed name (optional)</param>
-        /// <param name="startDate">Mandatory if &#x60;endDate&#x60; is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older than current date. (optional)</param>
-        /// <param name="endDate">Mandatory if &#x60;startDate&#x60; is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)</param>
-        /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed. (optional, default to desc)</param>
-        /// <param name="authType">Filter the records by &#x60;authType&#x60; of the feed. (optional)</param>
-        /// <param name="limit">Number of documents returned per page. (optional, default to 50)</param>
-        /// <param name="offset">Index of the first document on the page. (optional, default to 0)</param>
-        /// <returns>Task of ApiResponse (GetAllExternalFeeds)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetAllExternalFeeds>> GetAllExternalFeedsAsyncWithHttpInfo (string search = null, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string authType = null, long? limit = null, long? offset = null);
-        /// <summary>
-        /// Get an external feed by UUID
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will update an external feed.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">UUID of the feed to fetch</param>
-        /// <returns>Task of GetExternalFeedByUUID</returns>
-        System.Threading.Tasks.Task<GetExternalFeedByUUID> GetExternalFeedByUUIDAsync (string uuid);
-
-        /// <summary>
-        /// Get an external feed by UUID
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will update an external feed.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">UUID of the feed to fetch</param>
-        /// <returns>Task of ApiResponse (GetExternalFeedByUUID)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetExternalFeedByUUID>> GetExternalFeedByUUIDAsyncWithHttpInfo (string uuid);
-        /// <summary>
-        /// Update an external feed
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will update an external feed.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">UUID of the feed to update</param>
-        /// <param name="updateExternalFeed">Values to update a feed</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateExternalFeedAsync (string uuid, UpdateExternalFeed updateExternalFeed);
-
-        /// <summary>
-        /// Update an external feed
-        /// </summary>
-        /// <remarks>
-        /// This endpoint will update an external feed.
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="uuid">UUID of the feed to update</param>
-        /// <param name="updateExternalFeed">Values to update a feed</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateExternalFeedAsyncWithHttpInfo (string uuid, UpdateExternalFeed updateExternalFeed);
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class ExternalFeedsApi : IExternalFeedsApi
+    public partial class ExternalFeedsApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -370,9 +121,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createExternalFeed">Values to create a feed</param>
         /// <returns>InlineResponse2015</returns>
-        public InlineResponse2015 CreateExternalFeed (CreateExternalFeed createExternalFeed)
+        public InlineResponse2015 CreateExternalFeed (string apiKey, string partnerKey, CreateExternalFeed createExternalFeed)
         {
-             ApiResponse<InlineResponse2015> localVarResponse = CreateExternalFeedWithHttpInfo(createExternalFeed);
+             ApiResponse<InlineResponse2015> localVarResponse = CreateExternalFeedWithHttpInfo(apiKey, partnerKey, createExternalFeed);
              return localVarResponse.Data;
         }
 
@@ -382,7 +133,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createExternalFeed">Values to create a feed</param>
         /// <returns>ApiResponse of InlineResponse2015</returns>
-        public ApiResponse< InlineResponse2015 > CreateExternalFeedWithHttpInfo (CreateExternalFeed createExternalFeed)
+        public ApiResponse< InlineResponse2015 > CreateExternalFeedWithHttpInfo (string apiKey, string partnerKey, CreateExternalFeed createExternalFeed)
         {
             // verify the required parameter 'createExternalFeed' is set
             if (createExternalFeed == null)
@@ -420,14 +171,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -454,9 +205,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createExternalFeed">Values to create a feed</param>
         /// <returns>Task of InlineResponse2015</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2015> CreateExternalFeedAsync (CreateExternalFeed createExternalFeed)
+        public async System.Threading.Tasks.Task<InlineResponse2015> CreateExternalFeedAsync (string apiKey, string partnerKey, CreateExternalFeed createExternalFeed)
         {
-             ApiResponse<InlineResponse2015> localVarResponse = await CreateExternalFeedAsyncWithHttpInfo(createExternalFeed);
+             ApiResponse<InlineResponse2015> localVarResponse = await CreateExternalFeedAsyncWithHttpInfo(apiKey, partnerKey, createExternalFeed);
              return localVarResponse.Data;
 
         }
@@ -467,7 +218,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createExternalFeed">Values to create a feed</param>
         /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> CreateExternalFeedAsyncWithHttpInfo (CreateExternalFeed createExternalFeed)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> CreateExternalFeedAsyncWithHttpInfo (string apiKey, string partnerKey, CreateExternalFeed createExternalFeed)
         {
             // verify the required parameter 'createExternalFeed' is set
             if (createExternalFeed == null)
@@ -505,14 +256,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -539,9 +290,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">UUID of the feed to delete</param>
         /// <returns></returns>
-        public void DeleteExternalFeed (string uuid)
+        public void DeleteExternalFeed (string apiKey, string partnerKey, string uuid)
         {
-             DeleteExternalFeedWithHttpInfo(uuid);
+             DeleteExternalFeedWithHttpInfo(apiKey, partnerKey, uuid);
         }
 
         /// <summary>
@@ -550,7 +301,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">UUID of the feed to delete</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteExternalFeedWithHttpInfo (string uuid)
+        public ApiResponse<Object> DeleteExternalFeedWithHttpInfo (string apiKey, string partnerKey, string uuid)
         {
             // verify the required parameter 'uuid' is set
             if (uuid == null)
@@ -581,14 +332,14 @@ namespace brevo_csharp.Api
             if (uuid != null) localVarPathParams.Add("uuid", this.Configuration.ApiClient.ParameterToString(uuid)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -615,9 +366,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">UUID of the feed to delete</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteExternalFeedAsync (string uuid)
+        public async System.Threading.Tasks.Task DeleteExternalFeedAsync (string apiKey, string partnerKey, string uuid)
         {
-             await DeleteExternalFeedAsyncWithHttpInfo(uuid);
+             await DeleteExternalFeedAsyncWithHttpInfo(apiKey, partnerKey, uuid);
 
         }
 
@@ -627,7 +378,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">UUID of the feed to delete</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteExternalFeedAsyncWithHttpInfo (string uuid)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteExternalFeedAsyncWithHttpInfo (string apiKey, string partnerKey, string uuid)
         {
             // verify the required parameter 'uuid' is set
             if (uuid == null)
@@ -658,14 +409,14 @@ namespace brevo_csharp.Api
             if (uuid != null) localVarPathParams.Add("uuid", this.Configuration.ApiClient.ParameterToString(uuid)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -698,9 +449,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page. (optional, default to 50)</param>
         /// <param name="offset">Index of the first document on the page. (optional, default to 0)</param>
         /// <returns>GetAllExternalFeeds</returns>
-        public GetAllExternalFeeds GetAllExternalFeeds (string search = null, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string authType = null, long? limit = null, long? offset = null)
+        public GetAllExternalFeeds GetAllExternalFeeds (string apiKey, string partnerKey, string search = null, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string authType = null, long? limit = null, long? offset = null)
         {
-             ApiResponse<GetAllExternalFeeds> localVarResponse = GetAllExternalFeedsWithHttpInfo(search, startDate, endDate, sort, authType, limit, offset);
+             ApiResponse<GetAllExternalFeeds> localVarResponse = GetAllExternalFeedsWithHttpInfo(apiKey, partnerKey, search, startDate, endDate, sort, authType, limit, offset);
              return localVarResponse.Data;
         }
 
@@ -716,7 +467,7 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page. (optional, default to 50)</param>
         /// <param name="offset">Index of the first document on the page. (optional, default to 0)</param>
         /// <returns>ApiResponse of GetAllExternalFeeds</returns>
-        public ApiResponse< GetAllExternalFeeds > GetAllExternalFeedsWithHttpInfo (string search = null, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string authType = null, long? limit = null, long? offset = null)
+        public ApiResponse< GetAllExternalFeeds > GetAllExternalFeedsWithHttpInfo (string apiKey, string partnerKey, string search = null, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string authType = null, long? limit = null, long? offset = null)
         {
 
             var localVarPath = "./feeds";
@@ -750,14 +501,14 @@ namespace brevo_csharp.Api
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -790,9 +541,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page. (optional, default to 50)</param>
         /// <param name="offset">Index of the first document on the page. (optional, default to 0)</param>
         /// <returns>Task of GetAllExternalFeeds</returns>
-        public async System.Threading.Tasks.Task<GetAllExternalFeeds> GetAllExternalFeedsAsync (string search = null, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string authType = null, long? limit = null, long? offset = null)
+        public async System.Threading.Tasks.Task<GetAllExternalFeeds> GetAllExternalFeedsAsync (string apiKey, string partnerKey, string search = null, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string authType = null, long? limit = null, long? offset = null)
         {
-             ApiResponse<GetAllExternalFeeds> localVarResponse = await GetAllExternalFeedsAsyncWithHttpInfo(search, startDate, endDate, sort, authType, limit, offset);
+             ApiResponse<GetAllExternalFeeds> localVarResponse = await GetAllExternalFeedsAsyncWithHttpInfo(apiKey, partnerKey, search, startDate, endDate, sort, authType, limit, offset);
              return localVarResponse.Data;
 
         }
@@ -809,7 +560,7 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page. (optional, default to 50)</param>
         /// <param name="offset">Index of the first document on the page. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (GetAllExternalFeeds)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetAllExternalFeeds>> GetAllExternalFeedsAsyncWithHttpInfo (string search = null, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string authType = null, long? limit = null, long? offset = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetAllExternalFeeds>> GetAllExternalFeedsAsyncWithHttpInfo (string apiKey, string partnerKey, string search = null, DateTime? startDate = null, DateTime? endDate = null, string sort = null, string authType = null, long? limit = null, long? offset = null)
         {
 
             var localVarPath = "./feeds";
@@ -843,14 +594,14 @@ namespace brevo_csharp.Api
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -877,9 +628,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">UUID of the feed to fetch</param>
         /// <returns>GetExternalFeedByUUID</returns>
-        public GetExternalFeedByUUID GetExternalFeedByUUID (string uuid)
+        public GetExternalFeedByUUID GetExternalFeedByUUID (string apiKey, string partnerKey, string uuid)
         {
-             ApiResponse<GetExternalFeedByUUID> localVarResponse = GetExternalFeedByUUIDWithHttpInfo(uuid);
+             ApiResponse<GetExternalFeedByUUID> localVarResponse = GetExternalFeedByUUIDWithHttpInfo(apiKey, partnerKey, uuid);
              return localVarResponse.Data;
         }
 
@@ -889,7 +640,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">UUID of the feed to fetch</param>
         /// <returns>ApiResponse of GetExternalFeedByUUID</returns>
-        public ApiResponse< GetExternalFeedByUUID > GetExternalFeedByUUIDWithHttpInfo (string uuid)
+        public ApiResponse< GetExternalFeedByUUID > GetExternalFeedByUUIDWithHttpInfo (string apiKey, string partnerKey, string uuid)
         {
             // verify the required parameter 'uuid' is set
             if (uuid == null)
@@ -920,14 +671,14 @@ namespace brevo_csharp.Api
             if (uuid != null) localVarPathParams.Add("uuid", this.Configuration.ApiClient.ParameterToString(uuid)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -954,9 +705,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">UUID of the feed to fetch</param>
         /// <returns>Task of GetExternalFeedByUUID</returns>
-        public async System.Threading.Tasks.Task<GetExternalFeedByUUID> GetExternalFeedByUUIDAsync (string uuid)
+        public async System.Threading.Tasks.Task<GetExternalFeedByUUID> GetExternalFeedByUUIDAsync (string apiKey, string partnerKey, string uuid)
         {
-             ApiResponse<GetExternalFeedByUUID> localVarResponse = await GetExternalFeedByUUIDAsyncWithHttpInfo(uuid);
+             ApiResponse<GetExternalFeedByUUID> localVarResponse = await GetExternalFeedByUUIDAsyncWithHttpInfo(apiKey, partnerKey, uuid);
              return localVarResponse.Data;
 
         }
@@ -967,7 +718,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uuid">UUID of the feed to fetch</param>
         /// <returns>Task of ApiResponse (GetExternalFeedByUUID)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetExternalFeedByUUID>> GetExternalFeedByUUIDAsyncWithHttpInfo (string uuid)
+        public async System.Threading.Tasks.Task<ApiResponse<GetExternalFeedByUUID>> GetExternalFeedByUUIDAsyncWithHttpInfo (string apiKey, string partnerKey, string uuid)
         {
             // verify the required parameter 'uuid' is set
             if (uuid == null)
@@ -998,14 +749,14 @@ namespace brevo_csharp.Api
             if (uuid != null) localVarPathParams.Add("uuid", this.Configuration.ApiClient.ParameterToString(uuid)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1033,9 +784,9 @@ namespace brevo_csharp.Api
         /// <param name="uuid">UUID of the feed to update</param>
         /// <param name="updateExternalFeed">Values to update a feed</param>
         /// <returns></returns>
-        public void UpdateExternalFeed (string uuid, UpdateExternalFeed updateExternalFeed)
+        public void UpdateExternalFeed (string apiKey, string partnerKey, string uuid, UpdateExternalFeed updateExternalFeed)
         {
-             UpdateExternalFeedWithHttpInfo(uuid, updateExternalFeed);
+             UpdateExternalFeedWithHttpInfo(apiKey, partnerKey, uuid, updateExternalFeed);
         }
 
         /// <summary>
@@ -1045,7 +796,7 @@ namespace brevo_csharp.Api
         /// <param name="uuid">UUID of the feed to update</param>
         /// <param name="updateExternalFeed">Values to update a feed</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateExternalFeedWithHttpInfo (string uuid, UpdateExternalFeed updateExternalFeed)
+        public ApiResponse<Object> UpdateExternalFeedWithHttpInfo (string apiKey, string partnerKey, string uuid, UpdateExternalFeed updateExternalFeed)
         {
             // verify the required parameter 'uuid' is set
             if (uuid == null)
@@ -1087,14 +838,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1122,9 +873,9 @@ namespace brevo_csharp.Api
         /// <param name="uuid">UUID of the feed to update</param>
         /// <param name="updateExternalFeed">Values to update a feed</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateExternalFeedAsync (string uuid, UpdateExternalFeed updateExternalFeed)
+        public async System.Threading.Tasks.Task UpdateExternalFeedAsync (string apiKey, string partnerKey, string uuid, UpdateExternalFeed updateExternalFeed)
         {
-             await UpdateExternalFeedAsyncWithHttpInfo(uuid, updateExternalFeed);
+             await UpdateExternalFeedAsyncWithHttpInfo(apiKey, partnerKey, uuid, updateExternalFeed);
 
         }
 
@@ -1135,7 +886,7 @@ namespace brevo_csharp.Api
         /// <param name="uuid">UUID of the feed to update</param>
         /// <param name="updateExternalFeed">Values to update a feed</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateExternalFeedAsyncWithHttpInfo (string uuid, UpdateExternalFeed updateExternalFeed)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateExternalFeedAsyncWithHttpInfo (string apiKey, string partnerKey, string uuid, UpdateExternalFeed updateExternalFeed)
         {
             // verify the required parameter 'uuid' is set
             if (uuid == null)
@@ -1177,14 +928,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request

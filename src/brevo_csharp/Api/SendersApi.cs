@@ -21,320 +21,7 @@ namespace brevo_csharp.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ISendersApi : IApiAccessor
-    {
-        #region Synchronous Operations
-        /// <summary>
-        /// Create a new sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sender">sender&#39;s name (optional)</param>
-        /// <returns>CreateSenderModel</returns>
-        CreateSenderModel CreateSender (CreateSender sender = null);
-
-        /// <summary>
-        /// Create a new sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sender">sender&#39;s name (optional)</param>
-        /// <returns>ApiResponse of CreateSenderModel</returns>
-        ApiResponse<CreateSenderModel> CreateSenderWithHttpInfo (CreateSender sender = null);
-        /// <summary>
-        /// Delete a sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderId">Id of the sender</param>
-        /// <returns></returns>
-        void DeleteSender (long? senderId);
-
-        /// <summary>
-        /// Delete a sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderId">Id of the sender</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteSenderWithHttpInfo (long? senderId);
-        /// <summary>
-        /// Get all the dedicated IPs for your account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>GetIps</returns>
-        GetIps GetIps ();
-
-        /// <summary>
-        /// Get all the dedicated IPs for your account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of GetIps</returns>
-        ApiResponse<GetIps> GetIpsWithHttpInfo ();
-        /// <summary>
-        /// Get all the dedicated IPs for a sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderId">Id of the sender</param>
-        /// <returns>GetIpsFromSender</returns>
-        GetIpsFromSender GetIpsFromSender (long? senderId);
-
-        /// <summary>
-        /// Get all the dedicated IPs for a sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderId">Id of the sender</param>
-        /// <returns>ApiResponse of GetIpsFromSender</returns>
-        ApiResponse<GetIpsFromSender> GetIpsFromSenderWithHttpInfo (long? senderId);
-        /// <summary>
-        /// Get the list of all your senders
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ip">Filter your senders for a specific ip (available for dedicated IP usage only) (optional)</param>
-        /// <param name="domain">Filter your senders for a specific domain (optional)</param>
-        /// <returns>GetSendersList</returns>
-        GetSendersList GetSenders (string ip = null, string domain = null);
-
-        /// <summary>
-        /// Get the list of all your senders
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ip">Filter your senders for a specific ip (available for dedicated IP usage only) (optional)</param>
-        /// <param name="domain">Filter your senders for a specific domain (optional)</param>
-        /// <returns>ApiResponse of GetSendersList</returns>
-        ApiResponse<GetSendersList> GetSendersWithHttpInfo (string ip = null, string domain = null);
-        /// <summary>
-        /// Update a sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderId">Id of the sender</param>
-        /// <param name="sender">sender&#39;s name (optional)</param>
-        /// <returns></returns>
-        void UpdateSender (long? senderId, UpdateSender sender = null);
-
-        /// <summary>
-        /// Update a sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderId">Id of the sender</param>
-        /// <param name="sender">sender&#39;s name (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateSenderWithHttpInfo (long? senderId, UpdateSender sender = null);
-        /// <summary>
-        /// Update a sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderId">Id of the sender</param>
-        /// <param name="otp">otp (optional)</param>
-        /// <returns></returns>
-        void ValidateSenderByOTP (long? senderId, Otp otp = null);
-
-        /// <summary>
-        /// Update a sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderId">Id of the sender</param>
-        /// <param name="otp">otp (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ValidateSenderByOTPWithHttpInfo (long? senderId, Otp otp = null);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// Create a new sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sender">sender&#39;s name (optional)</param>
-        /// <returns>Task of CreateSenderModel</returns>
-        System.Threading.Tasks.Task<CreateSenderModel> CreateSenderAsync (CreateSender sender = null);
-
-        /// <summary>
-        /// Create a new sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sender">sender&#39;s name (optional)</param>
-        /// <returns>Task of ApiResponse (CreateSenderModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateSenderModel>> CreateSenderAsyncWithHttpInfo (CreateSender sender = null);
-        /// <summary>
-        /// Delete a sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderId">Id of the sender</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteSenderAsync (long? senderId);
-
-        /// <summary>
-        /// Delete a sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderId">Id of the sender</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSenderAsyncWithHttpInfo (long? senderId);
-        /// <summary>
-        /// Get all the dedicated IPs for your account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of GetIps</returns>
-        System.Threading.Tasks.Task<GetIps> GetIpsAsync ();
-
-        /// <summary>
-        /// Get all the dedicated IPs for your account
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (GetIps)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetIps>> GetIpsAsyncWithHttpInfo ();
-        /// <summary>
-        /// Get all the dedicated IPs for a sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderId">Id of the sender</param>
-        /// <returns>Task of GetIpsFromSender</returns>
-        System.Threading.Tasks.Task<GetIpsFromSender> GetIpsFromSenderAsync (long? senderId);
-
-        /// <summary>
-        /// Get all the dedicated IPs for a sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderId">Id of the sender</param>
-        /// <returns>Task of ApiResponse (GetIpsFromSender)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetIpsFromSender>> GetIpsFromSenderAsyncWithHttpInfo (long? senderId);
-        /// <summary>
-        /// Get the list of all your senders
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ip">Filter your senders for a specific ip (available for dedicated IP usage only) (optional)</param>
-        /// <param name="domain">Filter your senders for a specific domain (optional)</param>
-        /// <returns>Task of GetSendersList</returns>
-        System.Threading.Tasks.Task<GetSendersList> GetSendersAsync (string ip = null, string domain = null);
-
-        /// <summary>
-        /// Get the list of all your senders
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ip">Filter your senders for a specific ip (available for dedicated IP usage only) (optional)</param>
-        /// <param name="domain">Filter your senders for a specific domain (optional)</param>
-        /// <returns>Task of ApiResponse (GetSendersList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetSendersList>> GetSendersAsyncWithHttpInfo (string ip = null, string domain = null);
-        /// <summary>
-        /// Update a sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderId">Id of the sender</param>
-        /// <param name="sender">sender&#39;s name (optional)</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateSenderAsync (long? senderId, UpdateSender sender = null);
-
-        /// <summary>
-        /// Update a sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderId">Id of the sender</param>
-        /// <param name="sender">sender&#39;s name (optional)</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateSenderAsyncWithHttpInfo (long? senderId, UpdateSender sender = null);
-        /// <summary>
-        /// Update a sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderId">Id of the sender</param>
-        /// <param name="otp">otp (optional)</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ValidateSenderByOTPAsync (long? senderId, Otp otp = null);
-
-        /// <summary>
-        /// Update a sender
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderId">Id of the sender</param>
-        /// <param name="otp">otp (optional)</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ValidateSenderByOTPAsyncWithHttpInfo (long? senderId, Otp otp = null);
-        #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public partial class SendersApi : ISendersApi
+    public partial class SendersApi
     {
         private brevo_csharp.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
@@ -434,9 +121,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sender">sender&#39;s name (optional)</param>
         /// <returns>CreateSenderModel</returns>
-        public CreateSenderModel CreateSender (CreateSender sender = null)
+        public CreateSenderModel CreateSender (string apiKey, string partnerKey, CreateSender sender = null)
         {
-             ApiResponse<CreateSenderModel> localVarResponse = CreateSenderWithHttpInfo(sender);
+             ApiResponse<CreateSenderModel> localVarResponse = CreateSenderWithHttpInfo(apiKey, partnerKey, sender);
              return localVarResponse.Data;
         }
 
@@ -446,7 +133,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sender">sender&#39;s name (optional)</param>
         /// <returns>ApiResponse of CreateSenderModel</returns>
-        public ApiResponse< CreateSenderModel > CreateSenderWithHttpInfo (CreateSender sender = null)
+        public ApiResponse< CreateSenderModel > CreateSenderWithHttpInfo (string apiKey, string partnerKey, CreateSender sender = null)
         {
 
             var localVarPath = "./senders";
@@ -481,14 +168,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -515,9 +202,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sender">sender&#39;s name (optional)</param>
         /// <returns>Task of CreateSenderModel</returns>
-        public async System.Threading.Tasks.Task<CreateSenderModel> CreateSenderAsync (CreateSender sender = null)
+        public async System.Threading.Tasks.Task<CreateSenderModel> CreateSenderAsync (string apiKey, string partnerKey, CreateSender sender = null)
         {
-             ApiResponse<CreateSenderModel> localVarResponse = await CreateSenderAsyncWithHttpInfo(sender);
+             ApiResponse<CreateSenderModel> localVarResponse = await CreateSenderAsyncWithHttpInfo(apiKey, partnerKey, sender);
              return localVarResponse.Data;
 
         }
@@ -528,7 +215,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sender">sender&#39;s name (optional)</param>
         /// <returns>Task of ApiResponse (CreateSenderModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateSenderModel>> CreateSenderAsyncWithHttpInfo (CreateSender sender = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CreateSenderModel>> CreateSenderAsyncWithHttpInfo (string apiKey, string partnerKey, CreateSender sender = null)
         {
 
             var localVarPath = "./senders";
@@ -563,14 +250,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -597,9 +284,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">Id of the sender</param>
         /// <returns></returns>
-        public void DeleteSender (long? senderId)
+        public void DeleteSender (string apiKey, string partnerKey, long? senderId)
         {
-             DeleteSenderWithHttpInfo(senderId);
+             DeleteSenderWithHttpInfo(apiKey, partnerKey, senderId);
         }
 
         /// <summary>
@@ -608,7 +295,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">Id of the sender</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteSenderWithHttpInfo (long? senderId)
+        public ApiResponse<Object> DeleteSenderWithHttpInfo (string apiKey, string partnerKey, long? senderId)
         {
             // verify the required parameter 'senderId' is set
             if (senderId == null)
@@ -639,14 +326,14 @@ namespace brevo_csharp.Api
             if (senderId != null) localVarPathParams.Add("senderId", this.Configuration.ApiClient.ParameterToString(senderId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -673,9 +360,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">Id of the sender</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteSenderAsync (long? senderId)
+        public async System.Threading.Tasks.Task DeleteSenderAsync (string apiKey, string partnerKey, long? senderId)
         {
-             await DeleteSenderAsyncWithHttpInfo(senderId);
+             await DeleteSenderAsyncWithHttpInfo(apiKey, partnerKey, senderId);
 
         }
 
@@ -685,7 +372,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">Id of the sender</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSenderAsyncWithHttpInfo (long? senderId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSenderAsyncWithHttpInfo (string apiKey, string partnerKey, long? senderId)
         {
             // verify the required parameter 'senderId' is set
             if (senderId == null)
@@ -716,14 +403,14 @@ namespace brevo_csharp.Api
             if (senderId != null) localVarPathParams.Add("senderId", this.Configuration.ApiClient.ParameterToString(senderId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -749,9 +436,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>GetIps</returns>
-        public GetIps GetIps ()
+        public GetIps GetIps (string apiKey, string partnerKey)
         {
-             ApiResponse<GetIps> localVarResponse = GetIpsWithHttpInfo();
+             ApiResponse<GetIps> localVarResponse = GetIpsWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
         }
 
@@ -760,7 +447,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of GetIps</returns>
-        public ApiResponse< GetIps > GetIpsWithHttpInfo ()
+        public ApiResponse< GetIps > GetIpsWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./senders/ips";
@@ -787,14 +474,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -820,9 +507,9 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of GetIps</returns>
-        public async System.Threading.Tasks.Task<GetIps> GetIpsAsync ()
+        public async System.Threading.Tasks.Task<GetIps> GetIpsAsync (string apiKey, string partnerKey)
         {
-             ApiResponse<GetIps> localVarResponse = await GetIpsAsyncWithHttpInfo();
+             ApiResponse<GetIps> localVarResponse = await GetIpsAsyncWithHttpInfo(apiKey, partnerKey);
              return localVarResponse.Data;
 
         }
@@ -832,7 +519,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (GetIps)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetIps>> GetIpsAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<GetIps>> GetIpsAsyncWithHttpInfo (string apiKey, string partnerKey)
         {
 
             var localVarPath = "./senders/ips";
@@ -859,14 +546,14 @@ namespace brevo_csharp.Api
 
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -893,9 +580,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">Id of the sender</param>
         /// <returns>GetIpsFromSender</returns>
-        public GetIpsFromSender GetIpsFromSender (long? senderId)
+        public GetIpsFromSender GetIpsFromSender (string apiKey, string partnerKey, long? senderId)
         {
-             ApiResponse<GetIpsFromSender> localVarResponse = GetIpsFromSenderWithHttpInfo(senderId);
+             ApiResponse<GetIpsFromSender> localVarResponse = GetIpsFromSenderWithHttpInfo(apiKey, partnerKey, senderId);
              return localVarResponse.Data;
         }
 
@@ -905,7 +592,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">Id of the sender</param>
         /// <returns>ApiResponse of GetIpsFromSender</returns>
-        public ApiResponse< GetIpsFromSender > GetIpsFromSenderWithHttpInfo (long? senderId)
+        public ApiResponse< GetIpsFromSender > GetIpsFromSenderWithHttpInfo (string apiKey, string partnerKey, long? senderId)
         {
             // verify the required parameter 'senderId' is set
             if (senderId == null)
@@ -936,14 +623,14 @@ namespace brevo_csharp.Api
             if (senderId != null) localVarPathParams.Add("senderId", this.Configuration.ApiClient.ParameterToString(senderId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -970,9 +657,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">Id of the sender</param>
         /// <returns>Task of GetIpsFromSender</returns>
-        public async System.Threading.Tasks.Task<GetIpsFromSender> GetIpsFromSenderAsync (long? senderId)
+        public async System.Threading.Tasks.Task<GetIpsFromSender> GetIpsFromSenderAsync (string apiKey, string partnerKey, long? senderId)
         {
-             ApiResponse<GetIpsFromSender> localVarResponse = await GetIpsFromSenderAsyncWithHttpInfo(senderId);
+             ApiResponse<GetIpsFromSender> localVarResponse = await GetIpsFromSenderAsyncWithHttpInfo(apiKey, partnerKey, senderId);
              return localVarResponse.Data;
 
         }
@@ -983,7 +670,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">Id of the sender</param>
         /// <returns>Task of ApiResponse (GetIpsFromSender)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetIpsFromSender>> GetIpsFromSenderAsyncWithHttpInfo (long? senderId)
+        public async System.Threading.Tasks.Task<ApiResponse<GetIpsFromSender>> GetIpsFromSenderAsyncWithHttpInfo (string apiKey, string partnerKey, long? senderId)
         {
             // verify the required parameter 'senderId' is set
             if (senderId == null)
@@ -1014,14 +701,14 @@ namespace brevo_csharp.Api
             if (senderId != null) localVarPathParams.Add("senderId", this.Configuration.ApiClient.ParameterToString(senderId)); // path parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1049,9 +736,9 @@ namespace brevo_csharp.Api
         /// <param name="ip">Filter your senders for a specific ip (available for dedicated IP usage only) (optional)</param>
         /// <param name="domain">Filter your senders for a specific domain (optional)</param>
         /// <returns>GetSendersList</returns>
-        public GetSendersList GetSenders (string ip = null, string domain = null)
+        public GetSendersList GetSenders (string apiKey, string partnerKey, string ip = null, string domain = null)
         {
-             ApiResponse<GetSendersList> localVarResponse = GetSendersWithHttpInfo(ip, domain);
+             ApiResponse<GetSendersList> localVarResponse = GetSendersWithHttpInfo(apiKey, partnerKey, ip, domain);
              return localVarResponse.Data;
         }
 
@@ -1062,7 +749,7 @@ namespace brevo_csharp.Api
         /// <param name="ip">Filter your senders for a specific ip (available for dedicated IP usage only) (optional)</param>
         /// <param name="domain">Filter your senders for a specific domain (optional)</param>
         /// <returns>ApiResponse of GetSendersList</returns>
-        public ApiResponse< GetSendersList > GetSendersWithHttpInfo (string ip = null, string domain = null)
+        public ApiResponse< GetSendersList > GetSendersWithHttpInfo (string apiKey, string partnerKey, string ip = null, string domain = null)
         {
 
             var localVarPath = "./senders";
@@ -1091,14 +778,14 @@ namespace brevo_csharp.Api
             if (domain != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "domain", domain)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1126,9 +813,9 @@ namespace brevo_csharp.Api
         /// <param name="ip">Filter your senders for a specific ip (available for dedicated IP usage only) (optional)</param>
         /// <param name="domain">Filter your senders for a specific domain (optional)</param>
         /// <returns>Task of GetSendersList</returns>
-        public async System.Threading.Tasks.Task<GetSendersList> GetSendersAsync (string ip = null, string domain = null)
+        public async System.Threading.Tasks.Task<GetSendersList> GetSendersAsync (string apiKey, string partnerKey, string ip = null, string domain = null)
         {
-             ApiResponse<GetSendersList> localVarResponse = await GetSendersAsyncWithHttpInfo(ip, domain);
+             ApiResponse<GetSendersList> localVarResponse = await GetSendersAsyncWithHttpInfo(apiKey, partnerKey, ip, domain);
              return localVarResponse.Data;
 
         }
@@ -1140,7 +827,7 @@ namespace brevo_csharp.Api
         /// <param name="ip">Filter your senders for a specific ip (available for dedicated IP usage only) (optional)</param>
         /// <param name="domain">Filter your senders for a specific domain (optional)</param>
         /// <returns>Task of ApiResponse (GetSendersList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetSendersList>> GetSendersAsyncWithHttpInfo (string ip = null, string domain = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetSendersList>> GetSendersAsyncWithHttpInfo (string apiKey, string partnerKey, string ip = null, string domain = null)
         {
 
             var localVarPath = "./senders";
@@ -1169,14 +856,14 @@ namespace brevo_csharp.Api
             if (domain != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "domain", domain)); // query parameter
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1204,9 +891,9 @@ namespace brevo_csharp.Api
         /// <param name="senderId">Id of the sender</param>
         /// <param name="sender">sender&#39;s name (optional)</param>
         /// <returns></returns>
-        public void UpdateSender (long? senderId, UpdateSender sender = null)
+        public void UpdateSender (string apiKey, string partnerKey, long? senderId, UpdateSender sender = null)
         {
-             UpdateSenderWithHttpInfo(senderId, sender);
+             UpdateSenderWithHttpInfo(apiKey, partnerKey, senderId, sender);
         }
 
         /// <summary>
@@ -1216,7 +903,7 @@ namespace brevo_csharp.Api
         /// <param name="senderId">Id of the sender</param>
         /// <param name="sender">sender&#39;s name (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateSenderWithHttpInfo (long? senderId, UpdateSender sender = null)
+        public ApiResponse<Object> UpdateSenderWithHttpInfo (string apiKey, string partnerKey, long? senderId, UpdateSender sender = null)
         {
             // verify the required parameter 'senderId' is set
             if (senderId == null)
@@ -1255,14 +942,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1290,9 +977,9 @@ namespace brevo_csharp.Api
         /// <param name="senderId">Id of the sender</param>
         /// <param name="sender">sender&#39;s name (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateSenderAsync (long? senderId, UpdateSender sender = null)
+        public async System.Threading.Tasks.Task UpdateSenderAsync (string apiKey, string partnerKey, long? senderId, UpdateSender sender = null)
         {
-             await UpdateSenderAsyncWithHttpInfo(senderId, sender);
+             await UpdateSenderAsyncWithHttpInfo(apiKey, partnerKey, senderId, sender);
 
         }
 
@@ -1303,7 +990,7 @@ namespace brevo_csharp.Api
         /// <param name="senderId">Id of the sender</param>
         /// <param name="sender">sender&#39;s name (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateSenderAsyncWithHttpInfo (long? senderId, UpdateSender sender = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateSenderAsyncWithHttpInfo (string apiKey, string partnerKey, long? senderId, UpdateSender sender = null)
         {
             // verify the required parameter 'senderId' is set
             if (senderId == null)
@@ -1342,14 +1029,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1377,9 +1064,9 @@ namespace brevo_csharp.Api
         /// <param name="senderId">Id of the sender</param>
         /// <param name="otp">otp (optional)</param>
         /// <returns></returns>
-        public void ValidateSenderByOTP (long? senderId, Otp otp = null)
+        public void ValidateSenderByOTP (string apiKey, string partnerKey, long? senderId, Otp otp = null)
         {
-             ValidateSenderByOTPWithHttpInfo(senderId, otp);
+             ValidateSenderByOTPWithHttpInfo(apiKey, partnerKey, senderId, otp);
         }
 
         /// <summary>
@@ -1389,7 +1076,7 @@ namespace brevo_csharp.Api
         /// <param name="senderId">Id of the sender</param>
         /// <param name="otp">otp (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> ValidateSenderByOTPWithHttpInfo (long? senderId, Otp otp = null)
+        public ApiResponse<Object> ValidateSenderByOTPWithHttpInfo (string apiKey, string partnerKey, long? senderId, Otp otp = null)
         {
             // verify the required parameter 'senderId' is set
             if (senderId == null)
@@ -1428,14 +1115,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
@@ -1463,9 +1150,9 @@ namespace brevo_csharp.Api
         /// <param name="senderId">Id of the sender</param>
         /// <param name="otp">otp (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ValidateSenderByOTPAsync (long? senderId, Otp otp = null)
+        public async System.Threading.Tasks.Task ValidateSenderByOTPAsync (string apiKey, string partnerKey, long? senderId, Otp otp = null)
         {
-             await ValidateSenderByOTPAsyncWithHttpInfo(senderId, otp);
+             await ValidateSenderByOTPAsyncWithHttpInfo(apiKey, partnerKey, senderId, otp);
 
         }
 
@@ -1476,7 +1163,7 @@ namespace brevo_csharp.Api
         /// <param name="senderId">Id of the sender</param>
         /// <param name="otp">otp (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ValidateSenderByOTPAsyncWithHttpInfo (long? senderId, Otp otp = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ValidateSenderByOTPAsyncWithHttpInfo (string apiKey, string partnerKey, long? senderId, Otp otp = null)
         {
             // verify the required parameter 'senderId' is set
             if (senderId == null)
@@ -1515,14 +1202,14 @@ namespace brevo_csharp.Api
             }
 
             // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            if (!String.IsNullOrEmpty(apiKey))
             {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+                localVarHeaderParams["api-key"] = apiKey;
             }
             // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            if (!String.IsNullOrEmpty(partnerKey))
             {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+                localVarHeaderParams["partner-key"] = partnerKey;
             }
 
             // make the HTTP request
