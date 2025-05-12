@@ -36,10 +36,8 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2003" /> class.
         /// </summary>
-        /// <param name="id">The id of the collection (required).</param>
-        /// <param name="name">The name of the collection (required).</param>
-        /// <param name="defaultCoupon">The default coupon of the collection (required).</param>
-        public InlineResponse2003(string id = default(string), string name = default(string), string defaultCoupon = default(string))
+        /// <param name="id">Unique ID of the created attribute (required).</param>
+        public InlineResponse2003(string id = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -50,46 +48,14 @@ namespace brevo_csharp.Model
             {
                 this.Id = id;
             }
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new InvalidDataException("name is a required property for InlineResponse2003 and cannot be null");
-            }
-            else
-            {
-                this.Name = name;
-            }
-            // to ensure "defaultCoupon" is required (not null)
-            if (defaultCoupon == null)
-            {
-                throw new InvalidDataException("defaultCoupon is a required property for InlineResponse2003 and cannot be null");
-            }
-            else
-            {
-                this.DefaultCoupon = defaultCoupon;
-            }
         }
         
         /// <summary>
-        /// The id of the collection
+        /// Unique ID of the created attribute
         /// </summary>
-        /// <value>The id of the collection</value>
+        /// <value>Unique ID of the created attribute</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
-
-        /// <summary>
-        /// The name of the collection
-        /// </summary>
-        /// <value>The name of the collection</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// The default coupon of the collection
-        /// </summary>
-        /// <value>The default coupon of the collection</value>
-        [DataMember(Name="defaultCoupon", EmitDefaultValue=false)]
-        public string DefaultCoupon { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -100,8 +66,6 @@ namespace brevo_csharp.Model
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2003 {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  DefaultCoupon: ").Append(DefaultCoupon).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,16 +104,6 @@ namespace brevo_csharp.Model
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.DefaultCoupon == input.DefaultCoupon ||
-                    (this.DefaultCoupon != null &&
-                    this.DefaultCoupon.Equals(input.DefaultCoupon))
                 );
         }
 
@@ -164,10 +118,6 @@ namespace brevo_csharp.Model
                 int hashCode = 41;
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.DefaultCoupon != null)
-                    hashCode = hashCode * 59 + this.DefaultCoupon.GetHashCode();
                 return hashCode;
             }
         }

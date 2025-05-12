@@ -4,12 +4,12 @@ All URIs are relative to *https://api.brevo.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateUnifiedEvent**](EventsApi.md#createunifiedevent) | **POST** /events | Create an event
+[**CreateEvent**](EventsApi.md#createevent) | **POST** /events | Create an event
 
 
-<a name="createunifiedevent"></a>
-# **CreateUnifiedEvent**
-> void CreateUnifiedEvent (ModelEvent _event)
+<a name="createevent"></a>
+# **CreateEvent**
+> void CreateEvent (ModelEvent _event)
 
 Create an event
 
@@ -25,7 +25,7 @@ using brevo_csharp.Model;
 
 namespace Example
 {
-    public class CreateUnifiedEventExample
+    public class CreateEventExample
     {
         public void main()
         {
@@ -44,11 +44,11 @@ namespace Example
             try
             {
                 // Create an event
-                apiInstance.CreateUnifiedEvent(_event);
+                apiInstance.CreateEvent(_event);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling EventsApi.CreateUnifiedEvent: " + e.Message );
+                Debug.Print("Exception when calling EventsApi.CreateEvent: " + e.Message );
             }
         }
     }

@@ -31,31 +31,45 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Body12" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Body12() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Body12" /> class.
-        /// </summary>
-        /// <param name="text">edited message text (required).</param>
-        public Body12(string text = default(string))
+        /// <param name="linkContactIds">Contact ids for contacts to be linked with deal.</param>
+        /// <param name="unlinkContactIds">Contact ids for contacts to be unlinked from deal.</param>
+        /// <param name="linkCompanyIds">Company ids to be linked with deal.</param>
+        /// <param name="unlinkCompanyIds">Company ids to be unlinked from deal.</param>
+        public Body12(List<long?> linkContactIds = default(List<long?>), List<long?> unlinkContactIds = default(List<long?>), List<string> linkCompanyIds = default(List<string>), List<string> unlinkCompanyIds = default(List<string>))
         {
-            // to ensure "text" is required (not null)
-            if (text == null)
-            {
-                throw new InvalidDataException("text is a required property for Body12 and cannot be null");
-            }
-            else
-            {
-                this.Text = text;
-            }
+            this.LinkContactIds = linkContactIds;
+            this.UnlinkContactIds = unlinkContactIds;
+            this.LinkCompanyIds = linkCompanyIds;
+            this.UnlinkCompanyIds = unlinkCompanyIds;
         }
         
         /// <summary>
-        /// edited message text
+        /// Contact ids for contacts to be linked with deal
         /// </summary>
-        /// <value>edited message text</value>
-        [DataMember(Name="text", EmitDefaultValue=false)]
-        public string Text { get; set; }
+        /// <value>Contact ids for contacts to be linked with deal</value>
+        [DataMember(Name="linkContactIds", EmitDefaultValue=false)]
+        public List<long?> LinkContactIds { get; set; }
+
+        /// <summary>
+        /// Contact ids for contacts to be unlinked from deal
+        /// </summary>
+        /// <value>Contact ids for contacts to be unlinked from deal</value>
+        [DataMember(Name="unlinkContactIds", EmitDefaultValue=false)]
+        public List<long?> UnlinkContactIds { get; set; }
+
+        /// <summary>
+        /// Company ids to be linked with deal
+        /// </summary>
+        /// <value>Company ids to be linked with deal</value>
+        [DataMember(Name="linkCompanyIds", EmitDefaultValue=false)]
+        public List<string> LinkCompanyIds { get; set; }
+
+        /// <summary>
+        /// Company ids to be unlinked from deal
+        /// </summary>
+        /// <value>Company ids to be unlinked from deal</value>
+        [DataMember(Name="unlinkCompanyIds", EmitDefaultValue=false)]
+        public List<string> UnlinkCompanyIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,7 +79,10 @@ namespace brevo_csharp.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Body12 {\n");
-            sb.Append("  Text: ").Append(Text).Append("\n");
+            sb.Append("  LinkContactIds: ").Append(LinkContactIds).Append("\n");
+            sb.Append("  UnlinkContactIds: ").Append(UnlinkContactIds).Append("\n");
+            sb.Append("  LinkCompanyIds: ").Append(LinkCompanyIds).Append("\n");
+            sb.Append("  UnlinkCompanyIds: ").Append(UnlinkCompanyIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,9 +118,24 @@ namespace brevo_csharp.Model
 
             return 
                 (
-                    this.Text == input.Text ||
-                    (this.Text != null &&
-                    this.Text.Equals(input.Text))
+                    this.LinkContactIds == input.LinkContactIds ||
+                    this.LinkContactIds != null &&
+                    this.LinkContactIds.SequenceEqual(input.LinkContactIds)
+                ) && 
+                (
+                    this.UnlinkContactIds == input.UnlinkContactIds ||
+                    this.UnlinkContactIds != null &&
+                    this.UnlinkContactIds.SequenceEqual(input.UnlinkContactIds)
+                ) && 
+                (
+                    this.LinkCompanyIds == input.LinkCompanyIds ||
+                    this.LinkCompanyIds != null &&
+                    this.LinkCompanyIds.SequenceEqual(input.LinkCompanyIds)
+                ) && 
+                (
+                    this.UnlinkCompanyIds == input.UnlinkCompanyIds ||
+                    this.UnlinkCompanyIds != null &&
+                    this.UnlinkCompanyIds.SequenceEqual(input.UnlinkCompanyIds)
                 );
         }
 
@@ -116,8 +148,14 @@ namespace brevo_csharp.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Text != null)
-                    hashCode = hashCode * 59 + this.Text.GetHashCode();
+                if (this.LinkContactIds != null)
+                    hashCode = hashCode * 59 + this.LinkContactIds.GetHashCode();
+                if (this.UnlinkContactIds != null)
+                    hashCode = hashCode * 59 + this.UnlinkContactIds.GetHashCode();
+                if (this.LinkCompanyIds != null)
+                    hashCode = hashCode * 59 + this.LinkCompanyIds.GetHashCode();
+                if (this.UnlinkCompanyIds != null)
+                    hashCode = hashCode * 59 + this.UnlinkCompanyIds.GetHashCode();
                 return hashCode;
             }
         }

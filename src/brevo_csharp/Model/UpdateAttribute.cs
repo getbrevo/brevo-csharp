@@ -33,10 +33,12 @@ namespace brevo_csharp.Model
         /// </summary>
         /// <param name="value">Value of the attribute to update. Use only if the attribute&#39;s category is &#39;calculated&#39; or &#39;global&#39;.</param>
         /// <param name="enumeration">List of the values and labels that the attribute can take. Use only if the attribute&#39;s category is \&quot;category\&quot;. For example, [{\&quot;value\&quot;:1, \&quot;label\&quot;:\&quot;male\&quot;}, {\&quot;value\&quot;:2, \&quot;label\&quot;:\&quot;female\&quot;}].</param>
-        public UpdateAttribute(string value = default(string), List<UpdateAttributeEnumeration> enumeration = default(List<UpdateAttributeEnumeration>))
+        /// <param name="multiCategoryOptions">Use this option to add multiple-choice attributes options only if the attribute&#39;s category is \&quot;normal\&quot;. **This option is specifically designed for updating multiple-choice attributes**. For example: **[\&quot;USA\&quot;,\&quot;INDIA\&quot;]** .</param>
+        public UpdateAttribute(string value = default(string), List<UpdateAttributeEnumeration> enumeration = default(List<UpdateAttributeEnumeration>), List<string> multiCategoryOptions = default(List<string>))
         {
             this.Value = value;
             this.Enumeration = enumeration;
+            this.MultiCategoryOptions = multiCategoryOptions;
         }
         
         /// <summary>
@@ -54,6 +56,13 @@ namespace brevo_csharp.Model
         public List<UpdateAttributeEnumeration> Enumeration { get; set; }
 
         /// <summary>
+        /// Use this option to add multiple-choice attributes options only if the attribute&#39;s category is \&quot;normal\&quot;. **This option is specifically designed for updating multiple-choice attributes**. For example: **[\&quot;USA\&quot;,\&quot;INDIA\&quot;]** 
+        /// </summary>
+        /// <value>Use this option to add multiple-choice attributes options only if the attribute&#39;s category is \&quot;normal\&quot;. **This option is specifically designed for updating multiple-choice attributes**. For example: **[\&quot;USA\&quot;,\&quot;INDIA\&quot;]** </value>
+        [DataMember(Name="multiCategoryOptions", EmitDefaultValue=false)]
+        public List<string> MultiCategoryOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +72,7 @@ namespace brevo_csharp.Model
             sb.Append("class UpdateAttribute {\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Enumeration: ").Append(Enumeration).Append("\n");
+            sb.Append("  MultiCategoryOptions: ").Append(MultiCategoryOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,6 +116,11 @@ namespace brevo_csharp.Model
                     this.Enumeration == input.Enumeration ||
                     this.Enumeration != null &&
                     this.Enumeration.SequenceEqual(input.Enumeration)
+                ) && 
+                (
+                    this.MultiCategoryOptions == input.MultiCategoryOptions ||
+                    this.MultiCategoryOptions != null &&
+                    this.MultiCategoryOptions.SequenceEqual(input.MultiCategoryOptions)
                 );
         }
 
@@ -122,6 +137,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.Enumeration != null)
                     hashCode = hashCode * 59 + this.Enumeration.GetHashCode();
+                if (this.MultiCategoryOptions != null)
+                    hashCode = hashCode * 59 + this.MultiCategoryOptions.GetHashCode();
                 return hashCode;
             }
         }

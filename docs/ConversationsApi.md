@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 <a name="conversationsagentonlinepingpost"></a>
 # **ConversationsAgentOnlinePingPost**
-> void ConversationsAgentOnlinePingPost (Body15 body)
+> void ConversationsAgentOnlinePingPost (Body19 body)
 
 Sets agent’s status to online for 2-3 minutes
 
@@ -47,7 +47,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("partner-key", "Bearer");
 
             var apiInstance = new ConversationsApi();
-            var body = new Body15(); // Body15 | Agent fields.
+            var body = new Body19(); // Body19 | Agent fields.
 
             try
             {
@@ -67,7 +67,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Body15**](Body15.md)| Agent fields. | 
+ **body** | [**Body19**](Body19.md)| Agent fields. | 
 
 ### Return type
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 <a name="conversationsmessagesidput"></a>
 # **ConversationsMessagesIdPut**
-> ConversationsMessage ConversationsMessagesIdPut (string id, Body12 body = null)
+> ConversationsMessage ConversationsMessagesIdPut (string id, Body16 body = null)
 
 Update a message sent by an agent
 
@@ -254,7 +254,7 @@ namespace Example
 
             var apiInstance = new ConversationsApi();
             var id = id_example;  // string | ID of the message
-            var body = new Body12(); // Body12 |  (optional) 
+            var body = new Body16(); // Body16 |  (optional) 
 
             try
             {
@@ -276,7 +276,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| ID of the message | 
- **body** | [**Body12**](Body12.md)|  | [optional] 
+ **body** | [**Body16**](Body16.md)|  | [optional] 
 
 ### Return type
 
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 <a name="conversationsmessagespost"></a>
 # **ConversationsMessagesPost**
-> ConversationsMessage ConversationsMessagesPost (Body11 body)
+> ConversationsMessage ConversationsMessagesPost (Body15 body)
 
 Send a message as an agent
 
@@ -323,7 +323,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("partner-key", "Bearer");
 
             var apiInstance = new ConversationsApi();
-            var body = new Body11(); // Body11 | Message fields.
+            var body = new Body15(); // Body15 | Message fields.
 
             try
             {
@@ -344,7 +344,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Body11**](Body11.md)| Message fields. | 
+ **body** | [**Body15**](Body15.md)| Message fields. | 
 
 ### Return type
 
@@ -498,7 +498,7 @@ Name | Type | Description  | Notes
 
 <a name="conversationspushedmessagesidput"></a>
 # **ConversationsPushedMessagesIdPut**
-> ConversationsMessage ConversationsPushedMessagesIdPut (string id, Body14 body)
+> ConversationsMessage ConversationsPushedMessagesIdPut (string id, Body18 body)
 
 Update an automated message
 
@@ -527,7 +527,7 @@ namespace Example
 
             var apiInstance = new ConversationsApi();
             var id = id_example;  // string | ID of the message
-            var body = new Body14(); // Body14 | 
+            var body = new Body18(); // Body18 | 
 
             try
             {
@@ -549,7 +549,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| ID of the message | 
- **body** | [**Body14**](Body14.md)|  | 
+ **body** | [**Body18**](Body18.md)|  | 
 
 ### Return type
 
@@ -568,7 +568,7 @@ Name | Type | Description  | Notes
 
 <a name="conversationspushedmessagespost"></a>
 # **ConversationsPushedMessagesPost**
-> ConversationsMessage ConversationsPushedMessagesPost (Body13 body)
+> ConversationsMessage ConversationsPushedMessagesPost (Body17 body)
 
 Send an automated message to a visitor
 
@@ -598,7 +598,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("partner-key", "Bearer");
 
             var apiInstance = new ConversationsApi();
-            var body = new Body13(); // Body13 | 
+            var body = new Body17(); // Body17 | 
 
             try
             {
@@ -619,7 +619,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Body13**](Body13.md)|  | 
+ **body** | [**Body17**](Body17.md)|  | 
 
 ### Return type
 

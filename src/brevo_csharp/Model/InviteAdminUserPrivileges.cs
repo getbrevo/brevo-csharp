@@ -58,7 +58,37 @@ namespace brevo_csharp.Model
             /// Enum Appmanagement for value: app_management
             /// </summary>
             [EnumMember(Value = "app_management")]
-            Appmanagement = 4
+            Appmanagement = 4,
+            
+            /// <summary>
+            /// Enum Suborganizationgroups for value: sub_organization_groups
+            /// </summary>
+            [EnumMember(Value = "sub_organization_groups")]
+            Suborganizationgroups = 5,
+            
+            /// <summary>
+            /// Enum Createsuborganizations for value: create_sub_organizations
+            /// </summary>
+            [EnumMember(Value = "create_sub_organizations")]
+            Createsuborganizations = 6,
+            
+            /// <summary>
+            /// Enum Managesuborganizations for value: manage_sub_organizations
+            /// </summary>
+            [EnumMember(Value = "manage_sub_organizations")]
+            Managesuborganizations = 7,
+            
+            /// <summary>
+            /// Enum Analytics for value: analytics
+            /// </summary>
+            [EnumMember(Value = "analytics")]
+            Analytics = 8,
+            
+            /// <summary>
+            /// Enum Security for value: security
+            /// </summary>
+            [EnumMember(Value = "security")]
+            Security = 9
         }
 
         /// <summary>
@@ -84,7 +114,31 @@ namespace brevo_csharp.Model
             /// Enum None for value: none
             /// </summary>
             [EnumMember(Value = "none")]
-            None = 2
+            None = 2,
+            
+            /// <summary>
+            /// Enum Create for value: create
+            /// </summary>
+            [EnumMember(Value = "create")]
+            Create = 3,
+            
+            /// <summary>
+            /// Enum Editdelete for value: edit_delete
+            /// </summary>
+            [EnumMember(Value = "edit_delete")]
+            Editdelete = 4,
+            
+            /// <summary>
+            /// Enum Downloaddata for value: download_data
+            /// </summary>
+            [EnumMember(Value = "download_data")]
+            Downloaddata = 5,
+            
+            /// <summary>
+            /// Enum Createalerts for value: create_alerts
+            /// </summary>
+            [EnumMember(Value = "create_alerts")]
+            Createalerts = 6
         }
 
 

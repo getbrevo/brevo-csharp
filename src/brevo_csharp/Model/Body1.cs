@@ -36,35 +36,43 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Body1" /> class.
         /// </summary>
-        /// <param name="groupName">The name of the group of sub-accounts (required).</param>
-        /// <param name="subAccountIds">Pass the list of sub-account Ids to be included in the group.</param>
-        public Body1(string groupName = default(string), List<long?> subAccountIds = default(List<long?>))
+        /// <param name="ip">IP Address (required).</param>
+        /// <param name="ids">Pass the list of sub-account Ids to be associated with the IP address (required).</param>
+        public Body1(string ip = default(string), List<long?> ids = default(List<long?>))
         {
-            // to ensure "groupName" is required (not null)
-            if (groupName == null)
+            // to ensure "ip" is required (not null)
+            if (ip == null)
             {
-                throw new InvalidDataException("groupName is a required property for Body1 and cannot be null");
+                throw new InvalidDataException("ip is a required property for Body1 and cannot be null");
             }
             else
             {
-                this.GroupName = groupName;
+                this.Ip = ip;
             }
-            this.SubAccountIds = subAccountIds;
+            // to ensure "ids" is required (not null)
+            if (ids == null)
+            {
+                throw new InvalidDataException("ids is a required property for Body1 and cannot be null");
+            }
+            else
+            {
+                this.Ids = ids;
+            }
         }
         
         /// <summary>
-        /// The name of the group of sub-accounts
+        /// IP Address
         /// </summary>
-        /// <value>The name of the group of sub-accounts</value>
-        [DataMember(Name="groupName", EmitDefaultValue=false)]
-        public string GroupName { get; set; }
+        /// <value>IP Address</value>
+        [DataMember(Name="ip", EmitDefaultValue=false)]
+        public string Ip { get; set; }
 
         /// <summary>
-        /// Pass the list of sub-account Ids to be included in the group
+        /// Pass the list of sub-account Ids to be associated with the IP address
         /// </summary>
-        /// <value>Pass the list of sub-account Ids to be included in the group</value>
-        [DataMember(Name="subAccountIds", EmitDefaultValue=false)]
-        public List<long?> SubAccountIds { get; set; }
+        /// <value>Pass the list of sub-account Ids to be associated with the IP address</value>
+        [DataMember(Name="ids", EmitDefaultValue=false)]
+        public List<long?> Ids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,8 +82,8 @@ namespace brevo_csharp.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Body1 {\n");
-            sb.Append("  GroupName: ").Append(GroupName).Append("\n");
-            sb.Append("  SubAccountIds: ").Append(SubAccountIds).Append("\n");
+            sb.Append("  Ip: ").Append(Ip).Append("\n");
+            sb.Append("  Ids: ").Append(Ids).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,14 +119,14 @@ namespace brevo_csharp.Model
 
             return 
                 (
-                    this.GroupName == input.GroupName ||
-                    (this.GroupName != null &&
-                    this.GroupName.Equals(input.GroupName))
+                    this.Ip == input.Ip ||
+                    (this.Ip != null &&
+                    this.Ip.Equals(input.Ip))
                 ) && 
                 (
-                    this.SubAccountIds == input.SubAccountIds ||
-                    this.SubAccountIds != null &&
-                    this.SubAccountIds.SequenceEqual(input.SubAccountIds)
+                    this.Ids == input.Ids ||
+                    this.Ids != null &&
+                    this.Ids.SequenceEqual(input.Ids)
                 );
         }
 
@@ -131,10 +139,10 @@ namespace brevo_csharp.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.GroupName != null)
-                    hashCode = hashCode * 59 + this.GroupName.GetHashCode();
-                if (this.SubAccountIds != null)
-                    hashCode = hashCode * 59 + this.SubAccountIds.GetHashCode();
+                if (this.Ip != null)
+                    hashCode = hashCode * 59 + this.Ip.GetHashCode();
+                if (this.Ids != null)
+                    hashCode = hashCode * 59 + this.Ids.GetHashCode();
                 return hashCode;
             }
         }

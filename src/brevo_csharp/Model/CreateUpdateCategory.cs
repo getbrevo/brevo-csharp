@@ -41,7 +41,8 @@ namespace brevo_csharp.Model
         /// <param name="url">URL to the category.</param>
         /// <param name="updateEnabled">Facilitate to update the existing category in the same request (updateEnabled &#x3D; true) (default to false).</param>
         /// <param name="deletedAt">UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) of the category deleted from the shop&#39;s database.</param>
-        public CreateUpdateCategory(string id = default(string), string name = default(string), string url = default(string), bool? updateEnabled = false, string deletedAt = default(string))
+        /// <param name="isDeleted">category deleted from the shop&#39;s database.</param>
+        public CreateUpdateCategory(string id = default(string), string name = default(string), string url = default(string), bool? updateEnabled = false, string deletedAt = default(string), bool? isDeleted = default(bool?))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -64,6 +65,7 @@ namespace brevo_csharp.Model
                 this.UpdateEnabled = updateEnabled;
             }
             this.DeletedAt = deletedAt;
+            this.IsDeleted = isDeleted;
         }
         
         /// <summary>
@@ -102,6 +104,13 @@ namespace brevo_csharp.Model
         public string DeletedAt { get; set; }
 
         /// <summary>
+        /// category deleted from the shop&#39;s database
+        /// </summary>
+        /// <value>category deleted from the shop&#39;s database</value>
+        [DataMember(Name="isDeleted", EmitDefaultValue=false)]
+        public bool? IsDeleted { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -114,6 +123,7 @@ namespace brevo_csharp.Model
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  UpdateEnabled: ").Append(UpdateEnabled).Append("\n");
             sb.Append("  DeletedAt: ").Append(DeletedAt).Append("\n");
+            sb.Append("  IsDeleted: ").Append(IsDeleted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -172,6 +182,11 @@ namespace brevo_csharp.Model
                     this.DeletedAt == input.DeletedAt ||
                     (this.DeletedAt != null &&
                     this.DeletedAt.Equals(input.DeletedAt))
+                ) && 
+                (
+                    this.IsDeleted == input.IsDeleted ||
+                    (this.IsDeleted != null &&
+                    this.IsDeleted.Equals(input.IsDeleted))
                 );
         }
 
@@ -194,6 +209,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.UpdateEnabled.GetHashCode();
                 if (this.DeletedAt != null)
                     hashCode = hashCode * 59 + this.DeletedAt.GetHashCode();
+                if (this.IsDeleted != null)
+                    hashCode = hashCode * 59 + this.IsDeleted.GetHashCode();
                 return hashCode;
             }
         }

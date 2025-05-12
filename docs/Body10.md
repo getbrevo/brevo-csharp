@@ -3,16 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Name of task | [optional] 
-**Duration** | **int?** | Duration of task in milliseconds [1 minute &#x3D; 60000 ms] | [optional] 
-**TaskTypeId** | **string** | Id for type of task e.g Call / Email / Meeting etc. | [optional] 
-**Date** | **DateTime?** | Task date/time | [optional] 
-**Notes** | **string** | Notes added to a task | [optional] 
-**Done** | **bool?** | Task marked as done | [optional] 
-**AssignToId** | **string** | User id to whom task is assigned | [optional] 
-**ContactsIds** | **List&lt;int?&gt;** | Contact ids for contacts linked to this task | [optional] 
-**DealsIds** | **List&lt;string&gt;** | Deal ids for deals a task is linked to | [optional] 
-**CompaniesIds** | **List&lt;string&gt;** | Companies ids for companies a task is linked to | [optional] 
+**Name** | **string** | Name of deal | 
+**Attributes** | **Object** | Attributes for deal creation  To assign owner of a Deal you can send attributes.deal_owner and utilize the account email or ID.  If you want to create a deal on a specific pipeline and stage you can use the following attributes &#x60;pipeline&#x60; and &#x60;deal_stage&#x60;.  Pipeline and deal_stage are ids you can fetch using this endpoint &#x60;/crm/pipeline/details/{pipelineID}&#x60;  | [optional] 
+**LinkedContactsIds** | **List&lt;long?&gt;** | Contact ids to be linked with deal | [optional] 
+**LinkedCompaniesIds** | **List&lt;string&gt;** | Company ids to be linked with deal | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -33,7 +33,7 @@ namespace brevo_csharp.Model
         /// </summary>
         /// <param name="segments">segments.</param>
         /// <param name="count">Number of Segments available in your account.</param>
-        public GetSegments(GetSegmentsSegments segments = default(GetSegmentsSegments), long? count = default(long?))
+        public GetSegments(List<Object> segments = default(List<Object>), long? count = default(long?))
         {
             this.Segments = segments;
             this.Count = count;
@@ -43,7 +43,7 @@ namespace brevo_csharp.Model
         /// Gets or Sets Segments
         /// </summary>
         [DataMember(Name="segments", EmitDefaultValue=false)]
-        public GetSegmentsSegments Segments { get; set; }
+        public List<Object> Segments { get; set; }
 
         /// <summary>
         /// Number of Segments available in your account
@@ -98,8 +98,8 @@ namespace brevo_csharp.Model
             return 
                 (
                     this.Segments == input.Segments ||
-                    (this.Segments != null &&
-                    this.Segments.Equals(input.Segments))
+                    this.Segments != null &&
+                    this.Segments.SequenceEqual(input.Segments)
                 ) && 
                 (
                     this.Count == input.Count ||

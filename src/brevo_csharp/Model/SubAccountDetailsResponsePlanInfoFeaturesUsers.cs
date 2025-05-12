@@ -23,7 +23,7 @@ using SwaggerDateConverter = brevo_csharp.Client.SwaggerDateConverter;
 namespace brevo_csharp.Model
 {
     /// <summary>
-    /// Multi-account details
+    /// Marketing users to manage the marketing channels
     /// </summary>
     [DataContract]
     public partial class SubAccountDetailsResponsePlanInfoFeaturesUsers :  IEquatable<SubAccountDetailsResponsePlanInfoFeaturesUsers>
@@ -31,8 +31,8 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubAccountDetailsResponsePlanInfoFeaturesUsers" /> class.
         /// </summary>
-        /// <param name="quantity">Quantity of multi-account&#39;s provided.</param>
-        /// <param name="remaining">Available multi-accounts for use.</param>
+        /// <param name="quantity">Quantity of marketing users provided.</param>
+        /// <param name="remaining">Available marketing users for use.</param>
         public SubAccountDetailsResponsePlanInfoFeaturesUsers(long? quantity = default(long?), long? remaining = default(long?))
         {
             this.Quantity = quantity;
@@ -40,16 +40,16 @@ namespace brevo_csharp.Model
         }
         
         /// <summary>
-        /// Quantity of multi-account&#39;s provided
+        /// Quantity of marketing users provided
         /// </summary>
-        /// <value>Quantity of multi-account&#39;s provided</value>
+        /// <value>Quantity of marketing users provided</value>
         [DataMember(Name="quantity", EmitDefaultValue=false)]
         public long? Quantity { get; set; }
 
         /// <summary>
-        /// Available multi-accounts for use
+        /// Available marketing users for use
         /// </summary>
-        /// <value>Available multi-accounts for use</value>
+        /// <value>Available marketing users for use</value>
         [DataMember(Name="remaining", EmitDefaultValue=false)]
         public long? Remaining { get; set; }
 

@@ -31,14 +31,14 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateContact" /> class.
         /// </summary>
-        /// <param name="attributes">Pass the set of attributes to be updated. These attributes must be present in your account. Values that don&#39;t match the attribute type (e.g. text or string in a date attribute) will be ignored.To update existing email address of a contact with the new one please pass EMAIL in attributes. For example, &#x60;{ \&quot;EMAIL\&quot;:\&quot;newemail@domain.com\&quot;, \&quot;FNAME\&quot;:\&quot;Ellie\&quot;, \&quot;LNAME\&quot;:\&quot;Roger\&quot;}&#x60;. The attribute&#39;s parameter should be passed in capital letter while updating a contact. Keep in mind transactional attributes can be updated the same way as normal attributes. Mobile Number in \&quot;SMS\&quot; field should be passed with proper country code. For example {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;}.</param>
+        /// <param name="attributes">Pass the set of attributes to be updated. These attributes must be present in your account. Values that don&#39;t match the attribute type (e.g. text or string in a date attribute) will be ignored.To update existing email address of a contact with the new one please pass EMAIL in attributes. For example, &#x60;{ \&quot;EMAIL\&quot;:\&quot;newemail@domain.com\&quot;, \&quot;FNAME\&quot;:\&quot;Ellie\&quot;, \&quot;LNAME\&quot;:\&quot;Roger\&quot;, \&quot;COUNTRIES\&quot;:[\&quot;India\&quot;,\&quot;China\&quot;]}&#x60;. The attribute&#39;s parameter should be passed in capital letter while updating a contact. Keep in mind transactional attributes can be updated the same way as normal attributes. Mobile Number in \&quot;SMS\&quot; field should be passed with proper country code. For example {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;}.</param>
         /// <param name="extId">Pass your own Id to update ext_id of a contact..</param>
         /// <param name="emailBlacklisted">Set/unset this field to blacklist/allow the contact for emails (emailBlacklisted &#x3D; true).</param>
         /// <param name="smsBlacklisted">Set/unset this field to blacklist/allow the contact for SMS (smsBlacklisted &#x3D; true).</param>
         /// <param name="listIds">Ids of the lists to add the contact to.</param>
         /// <param name="unlinkListIds">Ids of the lists to remove the contact from.</param>
         /// <param name="smtpBlacklistSender">transactional email forbidden sender for contact. Use only for email Contact.</param>
-        public UpdateContact(Object attributes = default(Object), string extId = default(string), bool? emailBlacklisted = default(bool?), bool? smsBlacklisted = default(bool?), List<long?> listIds = default(List<long?>), List<long?> unlinkListIds = default(List<long?>), List<string> smtpBlacklistSender = default(List<string>))
+        public UpdateContact(Dictionary<string, Object> attributes = default(Dictionary<string, Object>), string extId = default(string), bool? emailBlacklisted = default(bool?), bool? smsBlacklisted = default(bool?), List<long?> listIds = default(List<long?>), List<long?> unlinkListIds = default(List<long?>), List<string> smtpBlacklistSender = default(List<string>))
         {
             this.Attributes = attributes;
             this.ExtId = extId;
@@ -50,11 +50,11 @@ namespace brevo_csharp.Model
         }
         
         /// <summary>
-        /// Pass the set of attributes to be updated. These attributes must be present in your account. Values that don&#39;t match the attribute type (e.g. text or string in a date attribute) will be ignored.To update existing email address of a contact with the new one please pass EMAIL in attributes. For example, &#x60;{ \&quot;EMAIL\&quot;:\&quot;newemail@domain.com\&quot;, \&quot;FNAME\&quot;:\&quot;Ellie\&quot;, \&quot;LNAME\&quot;:\&quot;Roger\&quot;}&#x60;. The attribute&#39;s parameter should be passed in capital letter while updating a contact. Keep in mind transactional attributes can be updated the same way as normal attributes. Mobile Number in \&quot;SMS\&quot; field should be passed with proper country code. For example {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;}
+        /// Pass the set of attributes to be updated. These attributes must be present in your account. Values that don&#39;t match the attribute type (e.g. text or string in a date attribute) will be ignored.To update existing email address of a contact with the new one please pass EMAIL in attributes. For example, &#x60;{ \&quot;EMAIL\&quot;:\&quot;newemail@domain.com\&quot;, \&quot;FNAME\&quot;:\&quot;Ellie\&quot;, \&quot;LNAME\&quot;:\&quot;Roger\&quot;, \&quot;COUNTRIES\&quot;:[\&quot;India\&quot;,\&quot;China\&quot;]}&#x60;. The attribute&#39;s parameter should be passed in capital letter while updating a contact. Keep in mind transactional attributes can be updated the same way as normal attributes. Mobile Number in \&quot;SMS\&quot; field should be passed with proper country code. For example {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;}
         /// </summary>
-        /// <value>Pass the set of attributes to be updated. These attributes must be present in your account. Values that don&#39;t match the attribute type (e.g. text or string in a date attribute) will be ignored.To update existing email address of a contact with the new one please pass EMAIL in attributes. For example, &#x60;{ \&quot;EMAIL\&quot;:\&quot;newemail@domain.com\&quot;, \&quot;FNAME\&quot;:\&quot;Ellie\&quot;, \&quot;LNAME\&quot;:\&quot;Roger\&quot;}&#x60;. The attribute&#39;s parameter should be passed in capital letter while updating a contact. Keep in mind transactional attributes can be updated the same way as normal attributes. Mobile Number in \&quot;SMS\&quot; field should be passed with proper country code. For example {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;}</value>
+        /// <value>Pass the set of attributes to be updated. These attributes must be present in your account. Values that don&#39;t match the attribute type (e.g. text or string in a date attribute) will be ignored.To update existing email address of a contact with the new one please pass EMAIL in attributes. For example, &#x60;{ \&quot;EMAIL\&quot;:\&quot;newemail@domain.com\&quot;, \&quot;FNAME\&quot;:\&quot;Ellie\&quot;, \&quot;LNAME\&quot;:\&quot;Roger\&quot;, \&quot;COUNTRIES\&quot;:[\&quot;India\&quot;,\&quot;China\&quot;]}&#x60;. The attribute&#39;s parameter should be passed in capital letter while updating a contact. Keep in mind transactional attributes can be updated the same way as normal attributes. Mobile Number in \&quot;SMS\&quot; field should be passed with proper country code. For example {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;}</value>
         [DataMember(Name="attributes", EmitDefaultValue=false)]
-        public Object Attributes { get; set; }
+        public Dictionary<string, Object> Attributes { get; set; }
 
         /// <summary>
         /// Pass your own Id to update ext_id of a contact.
@@ -149,8 +149,8 @@ namespace brevo_csharp.Model
             return 
                 (
                     this.Attributes == input.Attributes ||
-                    (this.Attributes != null &&
-                    this.Attributes.Equals(input.Attributes))
+                    this.Attributes != null &&
+                    this.Attributes.SequenceEqual(input.Attributes)
                 ) && 
                 (
                     this.ExtId == input.ExtId ||

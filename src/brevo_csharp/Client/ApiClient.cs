@@ -178,7 +178,7 @@ namespace brevo_csharp.Client
             
             // set user agent
             if (!Configuration.UserAgent.ToLower().StartsWith("brevo_"))
-                Configuration.UserAgent = "brevo_clientAPI/v1.0.0/c#";
+                Configuration.UserAgent = "brevo_clientAPI/v1.1.0/c#";
 
             RestClient.UserAgent = Configuration.UserAgent;
 

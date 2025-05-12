@@ -94,7 +94,13 @@ namespace brevo_csharp.Model
             /// Enum Rejected for value: rejected
             /// </summary>
             [EnumMember(Value = "rejected")]
-            Rejected = 10
+            Rejected = 10,
+            
+            /// <summary>
+            /// Enum Skipped for value: skipped
+            /// </summary>
+            [EnumMember(Value = "skipped")]
+            Skipped = 11
         }
 
         /// <summary>

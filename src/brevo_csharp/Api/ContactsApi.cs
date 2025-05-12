@@ -32,7 +32,7 @@ namespace brevo_csharp.Api
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
+        /// <param name="contactEmails">Emails addresses OR IDs OR EXT_ID attributes of the contacts</param>
         /// <returns>PostContactInfo</returns>
         PostContactInfo AddContactToList (long? listId, AddContactToList contactEmails);
 
@@ -44,7 +44,7 @@ namespace brevo_csharp.Api
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
+        /// <param name="contactEmails">Emails addresses OR IDs OR EXT_ID attributes of the contacts</param>
         /// <returns>ApiResponse of PostContactInfo</returns>
         ApiResponse<PostContactInfo> AddContactToListWithHttpInfo (long? listId, AddContactToList contactEmails);
         /// <summary>
@@ -76,7 +76,7 @@ namespace brevo_csharp.Api
         /// Create a contact
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates new contacts on Brevo. Contacts can be created by passing either - &lt;br&gt;&lt;br&gt; 1. email address of the contact (email_id),  &lt;br&gt; 2. phone number of the contact (to be passed as \&quot;SMS\&quot; field in \&quot;attributes\&quot; along with proper country code), For example- {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;} &lt;br&gt; 3. ext_id &lt;br&gt;
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createContact">Values to create a contact</param>
@@ -87,7 +87,7 @@ namespace brevo_csharp.Api
         /// Create a contact
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates new contacts on Brevo. Contacts can be created by passing either - &lt;br&gt;&lt;br&gt; 1. email address of the contact (email_id),  &lt;br&gt; 2. phone number of the contact (to be passed as \&quot;SMS\&quot; field in \&quot;attributes\&quot; along with proper country code), For example- {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;} &lt;br&gt; 3. ext_id &lt;br&gt;
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createContact">Values to create a contact</param>
@@ -183,23 +183,25 @@ namespace brevo_csharp.Api
         /// Delete a contact
         /// </summary>
         /// <remarks>
-        /// 
+        /// There are 2 ways to delete a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute.
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded)</param>
+        /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional)</param>
         /// <returns></returns>
-        void DeleteContact (string identifier);
+        void DeleteContact (string identifier, string identifierType = null);
 
         /// <summary>
         /// Delete a contact
         /// </summary>
         /// <remarks>
-        /// 
+        /// There are 2 ways to delete a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute.
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded)</param>
+        /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteContactWithHttpInfo (string identifier);
+        ApiResponse<Object> DeleteContactWithHttpInfo (string identifier, string identifierType = null);
         /// <summary>
         /// Delete a folder (and all its lists)
         /// </summary>
@@ -243,6 +245,31 @@ namespace brevo_csharp.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteListWithHttpInfo (long? listId);
         /// <summary>
+        /// Delete a multiple-choice attribute option
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributeType">Type of the attribute</param>
+        /// <param name="multipleChoiceAttribute">Name of the existing multiple-choice attribute</param>
+        /// <param name="multipleChoiceAttributeOption">Name of the existing multiple-choice attribute option that you want to delete</param>
+        /// <returns></returns>
+        void DeleteMultiAttributeOptions (string attributeType, string multipleChoiceAttribute, string multipleChoiceAttributeOption);
+
+        /// <summary>
+        /// Delete a multiple-choice attribute option
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributeType">Type of the attribute</param>
+        /// <param name="multipleChoiceAttribute">Name of the existing multiple-choice attribute</param>
+        /// <param name="multipleChoiceAttributeOption">Name of the existing multiple-choice attribute option that you want to delete</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteMultiAttributeOptionsWithHttpInfo (string attributeType, string multipleChoiceAttribute, string multipleChoiceAttributeOption);
+        /// <summary>
         /// List all attributes
         /// </summary>
         /// <remarks>
@@ -265,27 +292,29 @@ namespace brevo_csharp.Api
         /// Get a contact&#39;s details
         /// </summary>
         /// <remarks>
-        /// Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.brevo.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
+        /// There are 2 ways to get a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL), phone_id (for SMS) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL, SMS and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute &lt;br&gt;&lt;br&gt;Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats &#x60;&#x60;https://developers.brevo.com/reference/contacts-7#getcontactstats&#x60;&#x60; endpoint with the appropriate date ranges.
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value OR EXT_ID attribute (urlencoded)</param>
+        /// <param name="identifierType">email_id for Email, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional)</param>
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>GetExtendedContactDetails</returns>
-        GetExtendedContactDetails GetContactInfo (string identifier, string startDate = null, string endDate = null);
+        GetExtendedContactDetails GetContactInfo (string identifier, Object identifierType = null, string startDate = null, string endDate = null);
 
         /// <summary>
         /// Get a contact&#39;s details
         /// </summary>
         /// <remarks>
-        /// Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.brevo.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
+        /// There are 2 ways to get a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL), phone_id (for SMS) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL, SMS and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute &lt;br&gt;&lt;br&gt;Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats &#x60;&#x60;https://developers.brevo.com/reference/contacts-7#getcontactstats&#x60;&#x60; endpoint with the appropriate date ranges.
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value OR EXT_ID attribute (urlencoded)</param>
+        /// <param name="identifierType">email_id for Email, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional)</param>
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>ApiResponse of GetExtendedContactDetails</returns>
-        ApiResponse<GetExtendedContactDetails> GetContactInfoWithHttpInfo (string identifier, string startDate = null, string endDate = null);
+        ApiResponse<GetExtendedContactDetails> GetContactInfoWithHttpInfo (string identifier, Object identifierType = null, string startDate = null, string endDate = null);
         /// <summary>
         /// Get email campaigns&#39; statistics for a contact
         /// </summary>
@@ -325,8 +354,9 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="segmentId">Id of the segment. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
+        /// <param name="filter">Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,\&quot;Antoine\&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, \&quot;1989-11-23\&quot;), filter&#x3D;equals(GENDER, \&quot;1\&quot;), filter&#x3D;equals(GENDER, \&quot;MALE\&quot;), filter&#x3D;equals(COUNTRY,\&quot;USA, INDIA\&quot;)**  (optional)</param>
         /// <returns>GetContacts</returns>
-        GetContacts GetContacts (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null);
+        GetContacts GetContacts (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, Object filter = null);
 
         /// <summary>
         /// Get all the contacts
@@ -342,8 +372,9 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="segmentId">Id of the segment. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
+        /// <param name="filter">Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,\&quot;Antoine\&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, \&quot;1989-11-23\&quot;), filter&#x3D;equals(GENDER, \&quot;1\&quot;), filter&#x3D;equals(GENDER, \&quot;MALE\&quot;), filter&#x3D;equals(COUNTRY,\&quot;USA, INDIA\&quot;)**  (optional)</param>
         /// <returns>ApiResponse of GetContacts</returns>
-        ApiResponse<GetContacts> GetContactsWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null);
+        ApiResponse<GetContacts> GetContactsWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, Object filter = null);
         /// <summary>
         /// Get contacts in a list
         /// </summary>
@@ -428,11 +459,11 @@ namespace brevo_csharp.Api
         /// 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page</param>
-        /// <param name="offset">Index of the first document of the page</param>
+        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
+        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>GetFolders</returns>
-        GetFolders GetFolders (long? limit, long? offset, string sort = null);
+        GetFolders GetFolders (long? limit = null, long? offset = null, string sort = null);
 
         /// <summary>
         /// Get all folders
@@ -441,11 +472,11 @@ namespace brevo_csharp.Api
         /// 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page</param>
-        /// <param name="offset">Index of the first document of the page</param>
+        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
+        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>ApiResponse of GetFolders</returns>
-        ApiResponse<GetFolders> GetFoldersWithHttpInfo (long? limit, long? offset, string sort = null);
+        ApiResponse<GetFolders> GetFoldersWithHttpInfo (long? limit = null, long? offset = null, string sort = null);
         /// <summary>
         /// Get a list&#39;s details
         /// </summary>
@@ -525,7 +556,7 @@ namespace brevo_csharp.Api
         /// Import contacts
         /// </summary>
         /// <remarks>
-        /// It returns the background process ID which on completion calls the notify URL that you have set in the input.
+        /// It returns the background process ID which on completion calls the notify URL that you have set in the input.  **Note**: - Any contact attribute that doesn&#39;t exist in your account will be ignored at import end. 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestContactImport">Values to import contacts in Brevo. To know more about the expected format, please have a look at &#x60;&#x60;https://help.brevo.com/hc/en-us/articles/209499265-Build-contacts-lists-for-your-email-marketing-campaigns&#x60;&#x60;</param>
@@ -536,7 +567,7 @@ namespace brevo_csharp.Api
         /// Import contacts
         /// </summary>
         /// <remarks>
-        /// It returns the background process ID which on completion calls the notify URL that you have set in the input.
+        /// It returns the background process ID which on completion calls the notify URL that you have set in the input.  **Note**: - Any contact attribute that doesn&#39;t exist in your account will be ignored at import end. 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestContactImport">Values to import contacts in Brevo. To know more about the expected format, please have a look at &#x60;&#x60;https://help.brevo.com/hc/en-us/articles/209499265-Build-contacts-lists-for-your-email-marketing-campaigns&#x60;&#x60;</param>
@@ -550,7 +581,7 @@ namespace brevo_csharp.Api
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
+        /// <param name="contactEmails">Emails addresses OR IDs OR EXT_ID attributes of the contacts</param>
         /// <returns>PostContactInfo</returns>
         PostContactInfo RemoveContactFromList (long? listId, RemoveContactFromList contactEmails);
 
@@ -562,7 +593,7 @@ namespace brevo_csharp.Api
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
+        /// <param name="contactEmails">Emails addresses OR IDs OR EXT_ID attributes of the contacts</param>
         /// <returns>ApiResponse of PostContactInfo</returns>
         ApiResponse<PostContactInfo> RemoveContactFromListWithHttpInfo (long? listId, RemoveContactFromList contactEmails);
         /// <summary>
@@ -636,25 +667,27 @@ namespace brevo_csharp.Api
         /// Update a contact
         /// </summary>
         /// <remarks>
-        /// 
+        /// There are 2 ways to update a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded) OR its SMS attribute value OR its WHATSAPP attribute value OR its LANDLINE attribute value</param>
         /// <param name="updateContact">Values to update a contact</param>
+        /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional)</param>
         /// <returns></returns>
-        void UpdateContact (string identifier, UpdateContact updateContact);
+        void UpdateContact (string identifier, UpdateContact updateContact, Object identifierType = null);
 
         /// <summary>
         /// Update a contact
         /// </summary>
         /// <remarks>
-        /// 
+        /// There are 2 ways to update a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded) OR its SMS attribute value OR its WHATSAPP attribute value OR its LANDLINE attribute value</param>
         /// <param name="updateContact">Values to update a contact</param>
+        /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateContactWithHttpInfo (string identifier, UpdateContact updateContact);
+        ApiResponse<Object> UpdateContactWithHttpInfo (string identifier, UpdateContact updateContact, Object identifierType = null);
         /// <summary>
         /// Update a folder
         /// </summary>
@@ -711,7 +744,7 @@ namespace brevo_csharp.Api
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
+        /// <param name="contactEmails">Emails addresses OR IDs OR EXT_ID attributes of the contacts</param>
         /// <returns>Task of PostContactInfo</returns>
         System.Threading.Tasks.Task<PostContactInfo> AddContactToListAsync (long? listId, AddContactToList contactEmails);
 
@@ -723,7 +756,7 @@ namespace brevo_csharp.Api
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
+        /// <param name="contactEmails">Emails addresses OR IDs OR EXT_ID attributes of the contacts</param>
         /// <returns>Task of ApiResponse (PostContactInfo)</returns>
         System.Threading.Tasks.Task<ApiResponse<PostContactInfo>> AddContactToListAsyncWithHttpInfo (long? listId, AddContactToList contactEmails);
         /// <summary>
@@ -755,7 +788,7 @@ namespace brevo_csharp.Api
         /// Create a contact
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates new contacts on Brevo. Contacts can be created by passing either - &lt;br&gt;&lt;br&gt; 1. email address of the contact (email_id),  &lt;br&gt; 2. phone number of the contact (to be passed as \&quot;SMS\&quot; field in \&quot;attributes\&quot; along with proper country code), For example- {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;} &lt;br&gt; 3. ext_id &lt;br&gt;
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createContact">Values to create a contact</param>
@@ -766,7 +799,7 @@ namespace brevo_csharp.Api
         /// Create a contact
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates new contacts on Brevo. Contacts can be created by passing either - &lt;br&gt;&lt;br&gt; 1. email address of the contact (email_id),  &lt;br&gt; 2. phone number of the contact (to be passed as \&quot;SMS\&quot; field in \&quot;attributes\&quot; along with proper country code), For example- {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;} &lt;br&gt; 3. ext_id &lt;br&gt;
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createContact">Values to create a contact</param>
@@ -862,23 +895,25 @@ namespace brevo_csharp.Api
         /// Delete a contact
         /// </summary>
         /// <remarks>
-        /// 
+        /// There are 2 ways to delete a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute.
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded)</param>
+        /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteContactAsync (string identifier);
+        System.Threading.Tasks.Task DeleteContactAsync (string identifier, string identifierType = null);
 
         /// <summary>
         /// Delete a contact
         /// </summary>
         /// <remarks>
-        /// 
+        /// There are 2 ways to delete a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute.
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded)</param>
+        /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteContactAsyncWithHttpInfo (string identifier);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteContactAsyncWithHttpInfo (string identifier, string identifierType = null);
         /// <summary>
         /// Delete a folder (and all its lists)
         /// </summary>
@@ -922,6 +957,31 @@ namespace brevo_csharp.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteListAsyncWithHttpInfo (long? listId);
         /// <summary>
+        /// Delete a multiple-choice attribute option
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributeType">Type of the attribute</param>
+        /// <param name="multipleChoiceAttribute">Name of the existing multiple-choice attribute</param>
+        /// <param name="multipleChoiceAttributeOption">Name of the existing multiple-choice attribute option that you want to delete</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteMultiAttributeOptionsAsync (string attributeType, string multipleChoiceAttribute, string multipleChoiceAttributeOption);
+
+        /// <summary>
+        /// Delete a multiple-choice attribute option
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributeType">Type of the attribute</param>
+        /// <param name="multipleChoiceAttribute">Name of the existing multiple-choice attribute</param>
+        /// <param name="multipleChoiceAttributeOption">Name of the existing multiple-choice attribute option that you want to delete</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteMultiAttributeOptionsAsyncWithHttpInfo (string attributeType, string multipleChoiceAttribute, string multipleChoiceAttributeOption);
+        /// <summary>
         /// List all attributes
         /// </summary>
         /// <remarks>
@@ -944,27 +1004,29 @@ namespace brevo_csharp.Api
         /// Get a contact&#39;s details
         /// </summary>
         /// <remarks>
-        /// Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.brevo.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
+        /// There are 2 ways to get a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL), phone_id (for SMS) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL, SMS and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute &lt;br&gt;&lt;br&gt;Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats &#x60;&#x60;https://developers.brevo.com/reference/contacts-7#getcontactstats&#x60;&#x60; endpoint with the appropriate date ranges.
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value OR EXT_ID attribute (urlencoded)</param>
+        /// <param name="identifierType">email_id for Email, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional)</param>
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>Task of GetExtendedContactDetails</returns>
-        System.Threading.Tasks.Task<GetExtendedContactDetails> GetContactInfoAsync (string identifier, string startDate = null, string endDate = null);
+        System.Threading.Tasks.Task<GetExtendedContactDetails> GetContactInfoAsync (string identifier, Object identifierType = null, string startDate = null, string endDate = null);
 
         /// <summary>
         /// Get a contact&#39;s details
         /// </summary>
         /// <remarks>
-        /// Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.brevo.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
+        /// There are 2 ways to get a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL), phone_id (for SMS) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL, SMS and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute &lt;br&gt;&lt;br&gt;Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats &#x60;&#x60;https://developers.brevo.com/reference/contacts-7#getcontactstats&#x60;&#x60; endpoint with the appropriate date ranges.
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value OR EXT_ID attribute (urlencoded)</param>
+        /// <param name="identifierType">email_id for Email, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional)</param>
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>Task of ApiResponse (GetExtendedContactDetails)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetExtendedContactDetails>> GetContactInfoAsyncWithHttpInfo (string identifier, string startDate = null, string endDate = null);
+        System.Threading.Tasks.Task<ApiResponse<GetExtendedContactDetails>> GetContactInfoAsyncWithHttpInfo (string identifier, Object identifierType = null, string startDate = null, string endDate = null);
         /// <summary>
         /// Get email campaigns&#39; statistics for a contact
         /// </summary>
@@ -1004,8 +1066,9 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="segmentId">Id of the segment. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
+        /// <param name="filter">Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,\&quot;Antoine\&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, \&quot;1989-11-23\&quot;), filter&#x3D;equals(GENDER, \&quot;1\&quot;), filter&#x3D;equals(GENDER, \&quot;MALE\&quot;), filter&#x3D;equals(COUNTRY,\&quot;USA, INDIA\&quot;)**  (optional)</param>
         /// <returns>Task of GetContacts</returns>
-        System.Threading.Tasks.Task<GetContacts> GetContactsAsync (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null);
+        System.Threading.Tasks.Task<GetContacts> GetContactsAsync (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, Object filter = null);
 
         /// <summary>
         /// Get all the contacts
@@ -1021,8 +1084,9 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="segmentId">Id of the segment. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
+        /// <param name="filter">Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,\&quot;Antoine\&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, \&quot;1989-11-23\&quot;), filter&#x3D;equals(GENDER, \&quot;1\&quot;), filter&#x3D;equals(GENDER, \&quot;MALE\&quot;), filter&#x3D;equals(COUNTRY,\&quot;USA, INDIA\&quot;)**  (optional)</param>
         /// <returns>Task of ApiResponse (GetContacts)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetContacts>> GetContactsAsyncWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null);
+        System.Threading.Tasks.Task<ApiResponse<GetContacts>> GetContactsAsyncWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, Object filter = null);
         /// <summary>
         /// Get contacts in a list
         /// </summary>
@@ -1107,11 +1171,11 @@ namespace brevo_csharp.Api
         /// 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page</param>
-        /// <param name="offset">Index of the first document of the page</param>
+        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
+        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of GetFolders</returns>
-        System.Threading.Tasks.Task<GetFolders> GetFoldersAsync (long? limit, long? offset, string sort = null);
+        System.Threading.Tasks.Task<GetFolders> GetFoldersAsync (long? limit = null, long? offset = null, string sort = null);
 
         /// <summary>
         /// Get all folders
@@ -1120,11 +1184,11 @@ namespace brevo_csharp.Api
         /// 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page</param>
-        /// <param name="offset">Index of the first document of the page</param>
+        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
+        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetFolders)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetFolders>> GetFoldersAsyncWithHttpInfo (long? limit, long? offset, string sort = null);
+        System.Threading.Tasks.Task<ApiResponse<GetFolders>> GetFoldersAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null);
         /// <summary>
         /// Get a list&#39;s details
         /// </summary>
@@ -1204,7 +1268,7 @@ namespace brevo_csharp.Api
         /// Import contacts
         /// </summary>
         /// <remarks>
-        /// It returns the background process ID which on completion calls the notify URL that you have set in the input.
+        /// It returns the background process ID which on completion calls the notify URL that you have set in the input.  **Note**: - Any contact attribute that doesn&#39;t exist in your account will be ignored at import end. 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestContactImport">Values to import contacts in Brevo. To know more about the expected format, please have a look at &#x60;&#x60;https://help.brevo.com/hc/en-us/articles/209499265-Build-contacts-lists-for-your-email-marketing-campaigns&#x60;&#x60;</param>
@@ -1215,7 +1279,7 @@ namespace brevo_csharp.Api
         /// Import contacts
         /// </summary>
         /// <remarks>
-        /// It returns the background process ID which on completion calls the notify URL that you have set in the input.
+        /// It returns the background process ID which on completion calls the notify URL that you have set in the input.  **Note**: - Any contact attribute that doesn&#39;t exist in your account will be ignored at import end. 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestContactImport">Values to import contacts in Brevo. To know more about the expected format, please have a look at &#x60;&#x60;https://help.brevo.com/hc/en-us/articles/209499265-Build-contacts-lists-for-your-email-marketing-campaigns&#x60;&#x60;</param>
@@ -1229,7 +1293,7 @@ namespace brevo_csharp.Api
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
+        /// <param name="contactEmails">Emails addresses OR IDs OR EXT_ID attributes of the contacts</param>
         /// <returns>Task of PostContactInfo</returns>
         System.Threading.Tasks.Task<PostContactInfo> RemoveContactFromListAsync (long? listId, RemoveContactFromList contactEmails);
 
@@ -1241,7 +1305,7 @@ namespace brevo_csharp.Api
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
+        /// <param name="contactEmails">Emails addresses OR IDs OR EXT_ID attributes of the contacts</param>
         /// <returns>Task of ApiResponse (PostContactInfo)</returns>
         System.Threading.Tasks.Task<ApiResponse<PostContactInfo>> RemoveContactFromListAsyncWithHttpInfo (long? listId, RemoveContactFromList contactEmails);
         /// <summary>
@@ -1315,25 +1379,27 @@ namespace brevo_csharp.Api
         /// Update a contact
         /// </summary>
         /// <remarks>
-        /// 
+        /// There are 2 ways to update a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded) OR its SMS attribute value OR its WHATSAPP attribute value OR its LANDLINE attribute value</param>
         /// <param name="updateContact">Values to update a contact</param>
+        /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateContactAsync (string identifier, UpdateContact updateContact);
+        System.Threading.Tasks.Task UpdateContactAsync (string identifier, UpdateContact updateContact, Object identifierType = null);
 
         /// <summary>
         /// Update a contact
         /// </summary>
         /// <remarks>
-        /// 
+        /// There are 2 ways to update a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded) OR its SMS attribute value OR its WHATSAPP attribute value OR its LANDLINE attribute value</param>
         /// <param name="updateContact">Values to update a contact</param>
+        /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateContactAsyncWithHttpInfo (string identifier, UpdateContact updateContact);
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateContactAsyncWithHttpInfo (string identifier, UpdateContact updateContact, Object identifierType = null);
         /// <summary>
         /// Update a folder
         /// </summary>
@@ -1485,7 +1551,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
+        /// <param name="contactEmails">Emails addresses OR IDs OR EXT_ID attributes of the contacts</param>
         /// <returns>PostContactInfo</returns>
         public PostContactInfo AddContactToList (long? listId, AddContactToList contactEmails)
         {
@@ -1498,7 +1564,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
+        /// <param name="contactEmails">Emails addresses OR IDs OR EXT_ID attributes of the contacts</param>
         /// <returns>ApiResponse of PostContactInfo</returns>
         public ApiResponse< PostContactInfo > AddContactToListWithHttpInfo (long? listId, AddContactToList contactEmails)
         {
@@ -1575,7 +1641,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
+        /// <param name="contactEmails">Emails addresses OR IDs OR EXT_ID attributes of the contacts</param>
         /// <returns>Task of PostContactInfo</returns>
         public async System.Threading.Tasks.Task<PostContactInfo> AddContactToListAsync (long? listId, AddContactToList contactEmails)
         {
@@ -1589,7 +1655,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
+        /// <param name="contactEmails">Emails addresses OR IDs OR EXT_ID attributes of the contacts</param>
         /// <returns>Task of ApiResponse (PostContactInfo)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PostContactInfo>> AddContactToListAsyncWithHttpInfo (long? listId, AddContactToList contactEmails)
         {
@@ -1853,7 +1919,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Create a contact 
+        /// Create a contact Creates new contacts on Brevo. Contacts can be created by passing either - &lt;br&gt;&lt;br&gt; 1. email address of the contact (email_id),  &lt;br&gt; 2. phone number of the contact (to be passed as \&quot;SMS\&quot; field in \&quot;attributes\&quot; along with proper country code), For example- {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;} &lt;br&gt; 3. ext_id &lt;br&gt;
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createContact">Values to create a contact</param>
@@ -1865,7 +1931,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Create a contact 
+        /// Create a contact Creates new contacts on Brevo. Contacts can be created by passing either - &lt;br&gt;&lt;br&gt; 1. email address of the contact (email_id),  &lt;br&gt; 2. phone number of the contact (to be passed as \&quot;SMS\&quot; field in \&quot;attributes\&quot; along with proper country code), For example- {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;} &lt;br&gt; 3. ext_id &lt;br&gt;
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createContact">Values to create a contact</param>
@@ -1937,7 +2003,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Create a contact 
+        /// Create a contact Creates new contacts on Brevo. Contacts can be created by passing either - &lt;br&gt;&lt;br&gt; 1. email address of the contact (email_id),  &lt;br&gt; 2. phone number of the contact (to be passed as \&quot;SMS\&quot; field in \&quot;attributes\&quot; along with proper country code), For example- {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;} &lt;br&gt; 3. ext_id &lt;br&gt;
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createContact">Values to create a contact</param>
@@ -1950,7 +2016,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Create a contact 
+        /// Create a contact Creates new contacts on Brevo. Contacts can be created by passing either - &lt;br&gt;&lt;br&gt; 1. email address of the contact (email_id),  &lt;br&gt; 2. phone number of the contact (to be passed as \&quot;SMS\&quot; field in \&quot;attributes\&quot; along with proper country code), For example- {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;} &lt;br&gt; 3. ext_id &lt;br&gt;
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createContact">Values to create a contact</param>
@@ -2692,23 +2758,25 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Delete a contact 
+        /// Delete a contact There are 2 ways to delete a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute.
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded)</param>
+        /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional)</param>
         /// <returns></returns>
-        public void DeleteContact (string identifier)
+        public void DeleteContact (string identifier, string identifierType = null)
         {
-             DeleteContactWithHttpInfo(identifier);
+             DeleteContactWithHttpInfo(identifier, identifierType);
         }
 
         /// <summary>
-        /// Delete a contact 
+        /// Delete a contact There are 2 ways to delete a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute.
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded)</param>
+        /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteContactWithHttpInfo (string identifier)
+        public ApiResponse<Object> DeleteContactWithHttpInfo (string identifier, string identifierType = null)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -2737,6 +2805,7 @@ namespace brevo_csharp.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (identifier != null) localVarPathParams.Add("identifier", this.Configuration.ApiClient.ParameterToString(identifier)); // path parameter
+            if (identifierType != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "identifierType", identifierType)); // query parameter
 
             // authentication (api-key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
@@ -2768,24 +2837,26 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Delete a contact 
+        /// Delete a contact There are 2 ways to delete a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute.
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded)</param>
+        /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteContactAsync (string identifier)
+        public async System.Threading.Tasks.Task DeleteContactAsync (string identifier, string identifierType = null)
         {
-             await DeleteContactAsyncWithHttpInfo(identifier);
+             await DeleteContactAsyncWithHttpInfo(identifier, identifierType);
 
         }
 
         /// <summary>
-        /// Delete a contact 
+        /// Delete a contact There are 2 ways to delete a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute.
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded)</param>
+        /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteContactAsyncWithHttpInfo (string identifier)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteContactAsyncWithHttpInfo (string identifier, string identifierType = null)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -2814,6 +2885,7 @@ namespace brevo_csharp.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (identifier != null) localVarPathParams.Add("identifier", this.Configuration.ApiClient.ParameterToString(identifier)); // path parameter
+            if (identifierType != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "identifierType", identifierType)); // query parameter
 
             // authentication (api-key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
@@ -3151,6 +3223,183 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
+        /// Delete a multiple-choice attribute option 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributeType">Type of the attribute</param>
+        /// <param name="multipleChoiceAttribute">Name of the existing multiple-choice attribute</param>
+        /// <param name="multipleChoiceAttributeOption">Name of the existing multiple-choice attribute option that you want to delete</param>
+        /// <returns></returns>
+        public void DeleteMultiAttributeOptions (string attributeType, string multipleChoiceAttribute, string multipleChoiceAttributeOption)
+        {
+             DeleteMultiAttributeOptionsWithHttpInfo(attributeType, multipleChoiceAttribute, multipleChoiceAttributeOption);
+        }
+
+        /// <summary>
+        /// Delete a multiple-choice attribute option 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributeType">Type of the attribute</param>
+        /// <param name="multipleChoiceAttribute">Name of the existing multiple-choice attribute</param>
+        /// <param name="multipleChoiceAttributeOption">Name of the existing multiple-choice attribute option that you want to delete</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteMultiAttributeOptionsWithHttpInfo (string attributeType, string multipleChoiceAttribute, string multipleChoiceAttributeOption)
+        {
+            // verify the required parameter 'attributeType' is set
+            if (attributeType == null)
+                throw new ApiException(400, "Missing required parameter 'attributeType' when calling ContactsApi->DeleteMultiAttributeOptions");
+            // verify the required parameter 'multipleChoiceAttribute' is set
+            if (multipleChoiceAttribute == null)
+                throw new ApiException(400, "Missing required parameter 'multipleChoiceAttribute' when calling ContactsApi->DeleteMultiAttributeOptions");
+            // verify the required parameter 'multipleChoiceAttributeOption' is set
+            if (multipleChoiceAttributeOption == null)
+                throw new ApiException(400, "Missing required parameter 'multipleChoiceAttributeOption' when calling ContactsApi->DeleteMultiAttributeOptions");
+
+            var localVarPath = "./contacts/attributes/{attributeType}/{multipleChoiceAttribute}/{multipleChoiceAttributeOption}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (attributeType != null) localVarPathParams.Add("attributeType", this.Configuration.ApiClient.ParameterToString(attributeType)); // path parameter
+            if (multipleChoiceAttribute != null) localVarPathParams.Add("multipleChoiceAttribute", this.Configuration.ApiClient.ParameterToString(multipleChoiceAttribute)); // path parameter
+            if (multipleChoiceAttributeOption != null) localVarPathParams.Add("multipleChoiceAttributeOption", this.Configuration.ApiClient.ParameterToString(multipleChoiceAttributeOption)); // path parameter
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteMultiAttributeOptions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete a multiple-choice attribute option 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributeType">Type of the attribute</param>
+        /// <param name="multipleChoiceAttribute">Name of the existing multiple-choice attribute</param>
+        /// <param name="multipleChoiceAttributeOption">Name of the existing multiple-choice attribute option that you want to delete</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteMultiAttributeOptionsAsync (string attributeType, string multipleChoiceAttribute, string multipleChoiceAttributeOption)
+        {
+             await DeleteMultiAttributeOptionsAsyncWithHttpInfo(attributeType, multipleChoiceAttribute, multipleChoiceAttributeOption);
+
+        }
+
+        /// <summary>
+        /// Delete a multiple-choice attribute option 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributeType">Type of the attribute</param>
+        /// <param name="multipleChoiceAttribute">Name of the existing multiple-choice attribute</param>
+        /// <param name="multipleChoiceAttributeOption">Name of the existing multiple-choice attribute option that you want to delete</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteMultiAttributeOptionsAsyncWithHttpInfo (string attributeType, string multipleChoiceAttribute, string multipleChoiceAttributeOption)
+        {
+            // verify the required parameter 'attributeType' is set
+            if (attributeType == null)
+                throw new ApiException(400, "Missing required parameter 'attributeType' when calling ContactsApi->DeleteMultiAttributeOptions");
+            // verify the required parameter 'multipleChoiceAttribute' is set
+            if (multipleChoiceAttribute == null)
+                throw new ApiException(400, "Missing required parameter 'multipleChoiceAttribute' when calling ContactsApi->DeleteMultiAttributeOptions");
+            // verify the required parameter 'multipleChoiceAttributeOption' is set
+            if (multipleChoiceAttributeOption == null)
+                throw new ApiException(400, "Missing required parameter 'multipleChoiceAttributeOption' when calling ContactsApi->DeleteMultiAttributeOptions");
+
+            var localVarPath = "./contacts/attributes/{attributeType}/{multipleChoiceAttribute}/{multipleChoiceAttributeOption}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (attributeType != null) localVarPathParams.Add("attributeType", this.Configuration.ApiClient.ParameterToString(attributeType)); // path parameter
+            if (multipleChoiceAttribute != null) localVarPathParams.Add("multipleChoiceAttribute", this.Configuration.ApiClient.ParameterToString(multipleChoiceAttribute)); // path parameter
+            if (multipleChoiceAttributeOption != null) localVarPathParams.Add("multipleChoiceAttributeOption", this.Configuration.ApiClient.ParameterToString(multipleChoiceAttributeOption)); // path parameter
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteMultiAttributeOptions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
         /// List all attributes 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3294,28 +3543,30 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Get a contact&#39;s details Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.brevo.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
+        /// Get a contact&#39;s details There are 2 ways to get a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL), phone_id (for SMS) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL, SMS and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute &lt;br&gt;&lt;br&gt;Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats &#x60;&#x60;https://developers.brevo.com/reference/contacts-7#getcontactstats&#x60;&#x60; endpoint with the appropriate date ranges.
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value OR EXT_ID attribute (urlencoded)</param>
+        /// <param name="identifierType">email_id for Email, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional)</param>
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>GetExtendedContactDetails</returns>
-        public GetExtendedContactDetails GetContactInfo (string identifier, string startDate = null, string endDate = null)
+        public GetExtendedContactDetails GetContactInfo (string identifier, Object identifierType = null, string startDate = null, string endDate = null)
         {
-             ApiResponse<GetExtendedContactDetails> localVarResponse = GetContactInfoWithHttpInfo(identifier, startDate, endDate);
+             ApiResponse<GetExtendedContactDetails> localVarResponse = GetContactInfoWithHttpInfo(identifier, identifierType, startDate, endDate);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a contact&#39;s details Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.brevo.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
+        /// Get a contact&#39;s details There are 2 ways to get a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL), phone_id (for SMS) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL, SMS and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute &lt;br&gt;&lt;br&gt;Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats &#x60;&#x60;https://developers.brevo.com/reference/contacts-7#getcontactstats&#x60;&#x60; endpoint with the appropriate date ranges.
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value OR EXT_ID attribute (urlencoded)</param>
+        /// <param name="identifierType">email_id for Email, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional)</param>
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>ApiResponse of GetExtendedContactDetails</returns>
-        public ApiResponse< GetExtendedContactDetails > GetContactInfoWithHttpInfo (string identifier, string startDate = null, string endDate = null)
+        public ApiResponse< GetExtendedContactDetails > GetContactInfoWithHttpInfo (string identifier, Object identifierType = null, string startDate = null, string endDate = null)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -3344,6 +3595,7 @@ namespace brevo_csharp.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (identifier != null) localVarPathParams.Add("identifier", this.Configuration.ApiClient.ParameterToString(identifier)); // path parameter
+            if (identifierType != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "identifierType", identifierType)); // query parameter
             if (startDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "startDate", startDate)); // query parameter
             if (endDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "endDate", endDate)); // query parameter
 
@@ -3377,29 +3629,31 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Get a contact&#39;s details Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.brevo.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
+        /// Get a contact&#39;s details There are 2 ways to get a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL), phone_id (for SMS) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL, SMS and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute &lt;br&gt;&lt;br&gt;Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats &#x60;&#x60;https://developers.brevo.com/reference/contacts-7#getcontactstats&#x60;&#x60; endpoint with the appropriate date ranges.
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value OR EXT_ID attribute (urlencoded)</param>
+        /// <param name="identifierType">email_id for Email, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional)</param>
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>Task of GetExtendedContactDetails</returns>
-        public async System.Threading.Tasks.Task<GetExtendedContactDetails> GetContactInfoAsync (string identifier, string startDate = null, string endDate = null)
+        public async System.Threading.Tasks.Task<GetExtendedContactDetails> GetContactInfoAsync (string identifier, Object identifierType = null, string startDate = null, string endDate = null)
         {
-             ApiResponse<GetExtendedContactDetails> localVarResponse = await GetContactInfoAsyncWithHttpInfo(identifier, startDate, endDate);
+             ApiResponse<GetExtendedContactDetails> localVarResponse = await GetContactInfoAsyncWithHttpInfo(identifier, identifierType, startDate, endDate);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get a contact&#39;s details Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.brevo.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
+        /// Get a contact&#39;s details There are 2 ways to get a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL), phone_id (for SMS) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL, SMS and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute &lt;br&gt;&lt;br&gt;Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats &#x60;&#x60;https://developers.brevo.com/reference/contacts-7#getcontactstats&#x60;&#x60; endpoint with the appropriate date ranges.
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR its SMS attribute value OR EXT_ID attribute (urlencoded)</param>
+        /// <param name="identifierType">email_id for Email, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional)</param>
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>Task of ApiResponse (GetExtendedContactDetails)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetExtendedContactDetails>> GetContactInfoAsyncWithHttpInfo (string identifier, string startDate = null, string endDate = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetExtendedContactDetails>> GetContactInfoAsyncWithHttpInfo (string identifier, Object identifierType = null, string startDate = null, string endDate = null)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -3428,6 +3682,7 @@ namespace brevo_csharp.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (identifier != null) localVarPathParams.Add("identifier", this.Configuration.ApiClient.ParameterToString(identifier)); // path parameter
+            if (identifierType != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "identifierType", identifierType)); // query parameter
             if (startDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "startDate", startDate)); // query parameter
             if (endDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "endDate", endDate)); // query parameter
 
@@ -3638,10 +3893,11 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="segmentId">Id of the segment. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
+        /// <param name="filter">Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,\&quot;Antoine\&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, \&quot;1989-11-23\&quot;), filter&#x3D;equals(GENDER, \&quot;1\&quot;), filter&#x3D;equals(GENDER, \&quot;MALE\&quot;), filter&#x3D;equals(COUNTRY,\&quot;USA, INDIA\&quot;)**  (optional)</param>
         /// <returns>GetContacts</returns>
-        public GetContacts GetContacts (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null)
+        public GetContacts GetContacts (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, Object filter = null)
         {
-             ApiResponse<GetContacts> localVarResponse = GetContactsWithHttpInfo(limit, offset, modifiedSince, createdSince, sort, segmentId, listIds);
+             ApiResponse<GetContacts> localVarResponse = GetContactsWithHttpInfo(limit, offset, modifiedSince, createdSince, sort, segmentId, listIds, filter);
              return localVarResponse.Data;
         }
 
@@ -3656,8 +3912,9 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="segmentId">Id of the segment. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
+        /// <param name="filter">Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,\&quot;Antoine\&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, \&quot;1989-11-23\&quot;), filter&#x3D;equals(GENDER, \&quot;1\&quot;), filter&#x3D;equals(GENDER, \&quot;MALE\&quot;), filter&#x3D;equals(COUNTRY,\&quot;USA, INDIA\&quot;)**  (optional)</param>
         /// <returns>ApiResponse of GetContacts</returns>
-        public ApiResponse< GetContacts > GetContactsWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null)
+        public ApiResponse< GetContacts > GetContactsWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, Object filter = null)
         {
 
             var localVarPath = "./contacts";
@@ -3689,6 +3946,7 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
             if (segmentId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "segmentId", segmentId)); // query parameter
             if (listIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "listIds", listIds)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (api-key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
@@ -3730,10 +3988,11 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="segmentId">Id of the segment. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
+        /// <param name="filter">Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,\&quot;Antoine\&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, \&quot;1989-11-23\&quot;), filter&#x3D;equals(GENDER, \&quot;1\&quot;), filter&#x3D;equals(GENDER, \&quot;MALE\&quot;), filter&#x3D;equals(COUNTRY,\&quot;USA, INDIA\&quot;)**  (optional)</param>
         /// <returns>Task of GetContacts</returns>
-        public async System.Threading.Tasks.Task<GetContacts> GetContactsAsync (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null)
+        public async System.Threading.Tasks.Task<GetContacts> GetContactsAsync (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, Object filter = null)
         {
-             ApiResponse<GetContacts> localVarResponse = await GetContactsAsyncWithHttpInfo(limit, offset, modifiedSince, createdSince, sort, segmentId, listIds);
+             ApiResponse<GetContacts> localVarResponse = await GetContactsAsyncWithHttpInfo(limit, offset, modifiedSince, createdSince, sort, segmentId, listIds, filter);
              return localVarResponse.Data;
 
         }
@@ -3749,8 +4008,9 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="segmentId">Id of the segment. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
+        /// <param name="filter">Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,\&quot;Antoine\&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, \&quot;1989-11-23\&quot;), filter&#x3D;equals(GENDER, \&quot;1\&quot;), filter&#x3D;equals(GENDER, \&quot;MALE\&quot;), filter&#x3D;equals(COUNTRY,\&quot;USA, INDIA\&quot;)**  (optional)</param>
         /// <returns>Task of ApiResponse (GetContacts)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetContacts>> GetContactsAsyncWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetContacts>> GetContactsAsyncWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, Object filter = null)
         {
 
             var localVarPath = "./contacts";
@@ -3782,6 +4042,7 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
             if (segmentId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "segmentId", segmentId)); // query parameter
             if (listIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "listIds", listIds)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (api-key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
@@ -4323,11 +4584,11 @@ namespace brevo_csharp.Api
         /// Get all folders 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page</param>
-        /// <param name="offset">Index of the first document of the page</param>
+        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
+        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>GetFolders</returns>
-        public GetFolders GetFolders (long? limit, long? offset, string sort = null)
+        public GetFolders GetFolders (long? limit = null, long? offset = null, string sort = null)
         {
              ApiResponse<GetFolders> localVarResponse = GetFoldersWithHttpInfo(limit, offset, sort);
              return localVarResponse.Data;
@@ -4337,18 +4598,12 @@ namespace brevo_csharp.Api
         /// Get all folders 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page</param>
-        /// <param name="offset">Index of the first document of the page</param>
+        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
+        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>ApiResponse of GetFolders</returns>
-        public ApiResponse< GetFolders > GetFoldersWithHttpInfo (long? limit, long? offset, string sort = null)
+        public ApiResponse< GetFolders > GetFoldersWithHttpInfo (long? limit = null, long? offset = null, string sort = null)
         {
-            // verify the required parameter 'limit' is set
-            if (limit == null)
-                throw new ApiException(400, "Missing required parameter 'limit' when calling ContactsApi->GetFolders");
-            // verify the required parameter 'offset' is set
-            if (offset == null)
-                throw new ApiException(400, "Missing required parameter 'offset' when calling ContactsApi->GetFolders");
 
             var localVarPath = "./contacts/folders";
             var localVarPathParams = new Dictionary<String, String>();
@@ -4409,11 +4664,11 @@ namespace brevo_csharp.Api
         /// Get all folders 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page</param>
-        /// <param name="offset">Index of the first document of the page</param>
+        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
+        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of GetFolders</returns>
-        public async System.Threading.Tasks.Task<GetFolders> GetFoldersAsync (long? limit, long? offset, string sort = null)
+        public async System.Threading.Tasks.Task<GetFolders> GetFoldersAsync (long? limit = null, long? offset = null, string sort = null)
         {
              ApiResponse<GetFolders> localVarResponse = await GetFoldersAsyncWithHttpInfo(limit, offset, sort);
              return localVarResponse.Data;
@@ -4424,18 +4679,12 @@ namespace brevo_csharp.Api
         /// Get all folders 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of documents per page</param>
-        /// <param name="offset">Index of the first document of the page</param>
+        /// <param name="limit">Number of documents per page (optional, default to 10)</param>
+        /// <param name="offset">Index of the first document of the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <returns>Task of ApiResponse (GetFolders)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetFolders>> GetFoldersAsyncWithHttpInfo (long? limit, long? offset, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetFolders>> GetFoldersAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null)
         {
-            // verify the required parameter 'limit' is set
-            if (limit == null)
-                throw new ApiException(400, "Missing required parameter 'limit' when calling ContactsApi->GetFolders");
-            // verify the required parameter 'offset' is set
-            if (offset == null)
-                throw new ApiException(400, "Missing required parameter 'offset' when calling ContactsApi->GetFolders");
 
             var localVarPath = "./contacts/folders";
             var localVarPathParams = new Dictionary<String, String>();
@@ -4994,7 +5243,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Import contacts It returns the background process ID which on completion calls the notify URL that you have set in the input.
+        /// Import contacts It returns the background process ID which on completion calls the notify URL that you have set in the input.  **Note**: - Any contact attribute that doesn&#39;t exist in your account will be ignored at import end. 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestContactImport">Values to import contacts in Brevo. To know more about the expected format, please have a look at &#x60;&#x60;https://help.brevo.com/hc/en-us/articles/209499265-Build-contacts-lists-for-your-email-marketing-campaigns&#x60;&#x60;</param>
@@ -5006,7 +5255,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Import contacts It returns the background process ID which on completion calls the notify URL that you have set in the input.
+        /// Import contacts It returns the background process ID which on completion calls the notify URL that you have set in the input.  **Note**: - Any contact attribute that doesn&#39;t exist in your account will be ignored at import end. 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestContactImport">Values to import contacts in Brevo. To know more about the expected format, please have a look at &#x60;&#x60;https://help.brevo.com/hc/en-us/articles/209499265-Build-contacts-lists-for-your-email-marketing-campaigns&#x60;&#x60;</param>
@@ -5078,7 +5327,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Import contacts It returns the background process ID which on completion calls the notify URL that you have set in the input.
+        /// Import contacts It returns the background process ID which on completion calls the notify URL that you have set in the input.  **Note**: - Any contact attribute that doesn&#39;t exist in your account will be ignored at import end. 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestContactImport">Values to import contacts in Brevo. To know more about the expected format, please have a look at &#x60;&#x60;https://help.brevo.com/hc/en-us/articles/209499265-Build-contacts-lists-for-your-email-marketing-campaigns&#x60;&#x60;</param>
@@ -5091,7 +5340,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Import contacts It returns the background process ID which on completion calls the notify URL that you have set in the input.
+        /// Import contacts It returns the background process ID which on completion calls the notify URL that you have set in the input.  **Note**: - Any contact attribute that doesn&#39;t exist in your account will be ignored at import end. 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestContactImport">Values to import contacts in Brevo. To know more about the expected format, please have a look at &#x60;&#x60;https://help.brevo.com/hc/en-us/articles/209499265-Build-contacts-lists-for-your-email-marketing-campaigns&#x60;&#x60;</param>
@@ -5167,7 +5416,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
+        /// <param name="contactEmails">Emails addresses OR IDs OR EXT_ID attributes of the contacts</param>
         /// <returns>PostContactInfo</returns>
         public PostContactInfo RemoveContactFromList (long? listId, RemoveContactFromList contactEmails)
         {
@@ -5180,7 +5429,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
+        /// <param name="contactEmails">Emails addresses OR IDs OR EXT_ID attributes of the contacts</param>
         /// <returns>ApiResponse of PostContactInfo</returns>
         public ApiResponse< PostContactInfo > RemoveContactFromListWithHttpInfo (long? listId, RemoveContactFromList contactEmails)
         {
@@ -5257,7 +5506,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
+        /// <param name="contactEmails">Emails addresses OR IDs OR EXT_ID attributes of the contacts</param>
         /// <returns>Task of PostContactInfo</returns>
         public async System.Threading.Tasks.Task<PostContactInfo> RemoveContactFromListAsync (long? listId, RemoveContactFromList contactEmails)
         {
@@ -5271,7 +5520,7 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">Id of the list</param>
-        /// <param name="contactEmails">Emails addresses OR IDs of the contacts</param>
+        /// <param name="contactEmails">Emails addresses OR IDs OR EXT_ID attributes of the contacts</param>
         /// <returns>Task of ApiResponse (PostContactInfo)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PostContactInfo>> RemoveContactFromListAsyncWithHttpInfo (long? listId, RemoveContactFromList contactEmails)
         {
@@ -5871,25 +6120,27 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Update a contact 
+        /// Update a contact There are 2 ways to update a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded) OR its SMS attribute value OR its WHATSAPP attribute value OR its LANDLINE attribute value</param>
         /// <param name="updateContact">Values to update a contact</param>
+        /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional)</param>
         /// <returns></returns>
-        public void UpdateContact (string identifier, UpdateContact updateContact)
+        public void UpdateContact (string identifier, UpdateContact updateContact, Object identifierType = null)
         {
-             UpdateContactWithHttpInfo(identifier, updateContact);
+             UpdateContactWithHttpInfo(identifier, updateContact, identifierType);
         }
 
         /// <summary>
-        /// Update a contact 
+        /// Update a contact There are 2 ways to update a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded) OR its SMS attribute value OR its WHATSAPP attribute value OR its LANDLINE attribute value</param>
         /// <param name="updateContact">Values to update a contact</param>
+        /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateContactWithHttpInfo (string identifier, UpdateContact updateContact)
+        public ApiResponse<Object> UpdateContactWithHttpInfo (string identifier, UpdateContact updateContact, Object identifierType = null)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -5921,6 +6172,7 @@ namespace brevo_csharp.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (identifier != null) localVarPathParams.Add("identifier", this.Configuration.ApiClient.ParameterToString(identifier)); // path parameter
+            if (identifierType != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "identifierType", identifierType)); // query parameter
             if (updateContact != null && updateContact.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(updateContact); // http body (model) parameter
@@ -5960,26 +6212,28 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Update a contact 
+        /// Update a contact There are 2 ways to update a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded) OR its SMS attribute value OR its WHATSAPP attribute value OR its LANDLINE attribute value</param>
         /// <param name="updateContact">Values to update a contact</param>
+        /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateContactAsync (string identifier, UpdateContact updateContact)
+        public async System.Threading.Tasks.Task UpdateContactAsync (string identifier, UpdateContact updateContact, Object identifierType = null)
         {
-             await UpdateContactAsyncWithHttpInfo(identifier, updateContact);
+             await UpdateContactAsyncWithHttpInfo(identifier, updateContact, identifierType);
 
         }
 
         /// <summary>
-        /// Update a contact 
+        /// Update a contact There are 2 ways to update a contact &lt;br&gt;&lt;br&gt; Option 1- https://api.brevo.com/v3/contacts/{identifier} &lt;br&gt;&lt;br&gt; Option 2- https://api.brevo.com/v3/contacts/{identifier}?identifierType&#x3D;{} &lt;br&gt; &lt;br&gt; Option 1 only works if identifierType is email_id (for EMAIL) or contact_id (for ID of the contact),where you can directly pass the value of EMAIL and ID of the contact.   &lt;br&gt;&lt;br&gt; Option 2 works for all identifierType, use email_id for EMAIL attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifier">Email (urlencoded) OR ID of the contact</param>
+        /// <param name="identifier">Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded) OR its SMS attribute value OR its WHATSAPP attribute value OR its LANDLINE attribute value</param>
         /// <param name="updateContact">Values to update a contact</param>
+        /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateContactAsyncWithHttpInfo (string identifier, UpdateContact updateContact)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateContactAsyncWithHttpInfo (string identifier, UpdateContact updateContact, Object identifierType = null)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -6011,6 +6265,7 @@ namespace brevo_csharp.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (identifier != null) localVarPathParams.Add("identifier", this.Configuration.ApiClient.ParameterToString(identifier)); // path parameter
+            if (identifierType != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "identifierType", identifierType)); // query parameter
             if (updateContact != null && updateContact.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(updateContact); // http body (model) parameter

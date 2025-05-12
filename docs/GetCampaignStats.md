@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **Viewed** | **long?** | Number of openings for the campaign | 
 **Deferred** | **long?** | Number of deferred emails for the campaign | [optional] 
 **ReturnBounce** | **long?** | Total number of non-delivered campaigns for a particular campaign id. | [optional] 
+**OpensRate** | **float?** | Percentage of recipients who open the email out of your total number of recipients. Depending on your Campaign settings, they may include Apple MPP opens. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

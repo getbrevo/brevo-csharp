@@ -74,7 +74,7 @@ This endpoint does not need any parameter.
 
 <a name="getaccountactivity"></a>
 # **GetAccountActivity**
-> GetAccountActivity GetAccountActivity (string startDate = null, string endDate = null, long? limit = null, long? offset = null)
+> GetAccountActivity GetAccountActivity (string startDate = null, string endDate = null, string email = null, long? limit = null, long? offset = null)
 
 Get user activity logs
 
@@ -104,13 +104,14 @@ namespace Example
             var apiInstance = new AccountApi();
             var startDate = startDate_example;  // string | Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional) 
             var endDate = endDate_example;  // string | Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional) 
+            var email = email_example;  // string | Enter the user's email address to filter their activity in the account. (optional) 
             var limit = 789;  // long? | Number of documents per page (optional)  (default to 10)
             var offset = 789;  // long? | Index of the first document in the page. (optional)  (default to 0)
 
             try
             {
                 // Get user activity logs
-                GetAccountActivity result = apiInstance.GetAccountActivity(startDate, endDate, limit, offset);
+                GetAccountActivity result = apiInstance.GetAccountActivity(startDate, endDate, email, limit, offset);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -128,6 +129,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startDate** | **string**| Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. | [optional] 
  **endDate** | **string**| Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. | [optional] 
+ **email** | **string**| Enter the user&#39;s email address to filter their activity in the account. | [optional] 
  **limit** | **long?**| Number of documents per page | [optional] [default to 10]
  **offset** | **long?**| Index of the first document in the page. | [optional] [default to 0]
 

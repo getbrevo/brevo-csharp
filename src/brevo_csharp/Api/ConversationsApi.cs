@@ -33,7 +33,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Agent fields.</param>
         /// <returns></returns>
-        void ConversationsAgentOnlinePingPost (Body15 body);
+        void ConversationsAgentOnlinePingPost (Body19 body);
 
         /// <summary>
         /// Sets agent’s status to online for 2-3 minutes
@@ -44,7 +44,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Agent fields.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ConversationsAgentOnlinePingPostWithHttpInfo (Body15 body);
+        ApiResponse<Object> ConversationsAgentOnlinePingPostWithHttpInfo (Body19 body);
         /// <summary>
         /// Delete a message sent by an agent
         /// </summary>
@@ -97,7 +97,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"> (optional)</param>
         /// <returns>ConversationsMessage</returns>
-        ConversationsMessage ConversationsMessagesIdPut (string id, Body12 body = null);
+        ConversationsMessage ConversationsMessagesIdPut (string id, Body16 body = null);
 
         /// <summary>
         /// Update a message sent by an agent
@@ -109,7 +109,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of ConversationsMessage</returns>
-        ApiResponse<ConversationsMessage> ConversationsMessagesIdPutWithHttpInfo (string id, Body12 body = null);
+        ApiResponse<ConversationsMessage> ConversationsMessagesIdPutWithHttpInfo (string id, Body16 body = null);
         /// <summary>
         /// Send a message as an agent
         /// </summary>
@@ -119,7 +119,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Message fields.</param>
         /// <returns>ConversationsMessage</returns>
-        ConversationsMessage ConversationsMessagesPost (Body11 body);
+        ConversationsMessage ConversationsMessagesPost (Body15 body);
 
         /// <summary>
         /// Send a message as an agent
@@ -130,7 +130,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Message fields.</param>
         /// <returns>ApiResponse of ConversationsMessage</returns>
-        ApiResponse<ConversationsMessage> ConversationsMessagesPostWithHttpInfo (Body11 body);
+        ApiResponse<ConversationsMessage> ConversationsMessagesPostWithHttpInfo (Body15 body);
         /// <summary>
         /// Delete an automated message
         /// </summary>
@@ -183,7 +183,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"></param>
         /// <returns>ConversationsMessage</returns>
-        ConversationsMessage ConversationsPushedMessagesIdPut (string id, Body14 body);
+        ConversationsMessage ConversationsPushedMessagesIdPut (string id, Body18 body);
 
         /// <summary>
         /// Update an automated message
@@ -195,7 +195,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"></param>
         /// <returns>ApiResponse of ConversationsMessage</returns>
-        ApiResponse<ConversationsMessage> ConversationsPushedMessagesIdPutWithHttpInfo (string id, Body14 body);
+        ApiResponse<ConversationsMessage> ConversationsPushedMessagesIdPutWithHttpInfo (string id, Body18 body);
         /// <summary>
         /// Send an automated message to a visitor
         /// </summary>
@@ -205,7 +205,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ConversationsMessage</returns>
-        ConversationsMessage ConversationsPushedMessagesPost (Body13 body);
+        ConversationsMessage ConversationsPushedMessagesPost (Body17 body);
 
         /// <summary>
         /// Send an automated message to a visitor
@@ -216,7 +216,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of ConversationsMessage</returns>
-        ApiResponse<ConversationsMessage> ConversationsPushedMessagesPostWithHttpInfo (Body13 body);
+        ApiResponse<ConversationsMessage> ConversationsPushedMessagesPostWithHttpInfo (Body17 body);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -228,7 +228,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Agent fields.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ConversationsAgentOnlinePingPostAsync (Body15 body);
+        System.Threading.Tasks.Task ConversationsAgentOnlinePingPostAsync (Body19 body);
 
         /// <summary>
         /// Sets agent’s status to online for 2-3 minutes
@@ -239,7 +239,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Agent fields.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ConversationsAgentOnlinePingPostAsyncWithHttpInfo (Body15 body);
+        System.Threading.Tasks.Task<ApiResponse<Object>> ConversationsAgentOnlinePingPostAsyncWithHttpInfo (Body19 body);
         /// <summary>
         /// Delete a message sent by an agent
         /// </summary>
@@ -292,7 +292,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of ConversationsMessage</returns>
-        System.Threading.Tasks.Task<ConversationsMessage> ConversationsMessagesIdPutAsync (string id, Body12 body = null);
+        System.Threading.Tasks.Task<ConversationsMessage> ConversationsMessagesIdPutAsync (string id, Body16 body = null);
 
         /// <summary>
         /// Update a message sent by an agent
@@ -304,7 +304,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsMessagesIdPutAsyncWithHttpInfo (string id, Body12 body = null);
+        System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsMessagesIdPutAsyncWithHttpInfo (string id, Body16 body = null);
         /// <summary>
         /// Send a message as an agent
         /// </summary>
@@ -314,7 +314,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Message fields.</param>
         /// <returns>Task of ConversationsMessage</returns>
-        System.Threading.Tasks.Task<ConversationsMessage> ConversationsMessagesPostAsync (Body11 body);
+        System.Threading.Tasks.Task<ConversationsMessage> ConversationsMessagesPostAsync (Body15 body);
 
         /// <summary>
         /// Send a message as an agent
@@ -325,7 +325,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Message fields.</param>
         /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsMessagesPostAsyncWithHttpInfo (Body11 body);
+        System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsMessagesPostAsyncWithHttpInfo (Body15 body);
         /// <summary>
         /// Delete an automated message
         /// </summary>
@@ -378,7 +378,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"></param>
         /// <returns>Task of ConversationsMessage</returns>
-        System.Threading.Tasks.Task<ConversationsMessage> ConversationsPushedMessagesIdPutAsync (string id, Body14 body);
+        System.Threading.Tasks.Task<ConversationsMessage> ConversationsPushedMessagesIdPutAsync (string id, Body18 body);
 
         /// <summary>
         /// Update an automated message
@@ -390,7 +390,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"></param>
         /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsPushedMessagesIdPutAsyncWithHttpInfo (string id, Body14 body);
+        System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsPushedMessagesIdPutAsyncWithHttpInfo (string id, Body18 body);
         /// <summary>
         /// Send an automated message to a visitor
         /// </summary>
@@ -400,7 +400,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>Task of ConversationsMessage</returns>
-        System.Threading.Tasks.Task<ConversationsMessage> ConversationsPushedMessagesPostAsync (Body13 body);
+        System.Threading.Tasks.Task<ConversationsMessage> ConversationsPushedMessagesPostAsync (Body17 body);
 
         /// <summary>
         /// Send an automated message to a visitor
@@ -411,7 +411,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsPushedMessagesPostAsyncWithHttpInfo (Body13 body);
+        System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsPushedMessagesPostAsyncWithHttpInfo (Body17 body);
         #endregion Asynchronous Operations
     }
 
@@ -518,7 +518,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Agent fields.</param>
         /// <returns></returns>
-        public void ConversationsAgentOnlinePingPost (Body15 body)
+        public void ConversationsAgentOnlinePingPost (Body19 body)
         {
              ConversationsAgentOnlinePingPostWithHttpInfo(body);
         }
@@ -529,7 +529,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Agent fields.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> ConversationsAgentOnlinePingPostWithHttpInfo (Body15 body)
+        public ApiResponse<Object> ConversationsAgentOnlinePingPostWithHttpInfo (Body19 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -601,7 +601,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Agent fields.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ConversationsAgentOnlinePingPostAsync (Body15 body)
+        public async System.Threading.Tasks.Task ConversationsAgentOnlinePingPostAsync (Body19 body)
         {
              await ConversationsAgentOnlinePingPostAsyncWithHttpInfo(body);
 
@@ -613,7 +613,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Agent fields.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ConversationsAgentOnlinePingPostAsyncWithHttpInfo (Body15 body)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ConversationsAgentOnlinePingPostAsyncWithHttpInfo (Body19 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -994,7 +994,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"> (optional)</param>
         /// <returns>ConversationsMessage</returns>
-        public ConversationsMessage ConversationsMessagesIdPut (string id, Body12 body = null)
+        public ConversationsMessage ConversationsMessagesIdPut (string id, Body16 body = null)
         {
              ApiResponse<ConversationsMessage> localVarResponse = ConversationsMessagesIdPutWithHttpInfo(id, body);
              return localVarResponse.Data;
@@ -1007,7 +1007,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of ConversationsMessage</returns>
-        public ApiResponse< ConversationsMessage > ConversationsMessagesIdPutWithHttpInfo (string id, Body12 body = null)
+        public ApiResponse< ConversationsMessage > ConversationsMessagesIdPutWithHttpInfo (string id, Body16 body = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1081,7 +1081,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of ConversationsMessage</returns>
-        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsMessagesIdPutAsync (string id, Body12 body = null)
+        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsMessagesIdPutAsync (string id, Body16 body = null)
         {
              ApiResponse<ConversationsMessage> localVarResponse = await ConversationsMessagesIdPutAsyncWithHttpInfo(id, body);
              return localVarResponse.Data;
@@ -1095,7 +1095,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsMessagesIdPutAsyncWithHttpInfo (string id, Body12 body = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsMessagesIdPutAsyncWithHttpInfo (string id, Body16 body = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1168,7 +1168,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Message fields.</param>
         /// <returns>ConversationsMessage</returns>
-        public ConversationsMessage ConversationsMessagesPost (Body11 body)
+        public ConversationsMessage ConversationsMessagesPost (Body15 body)
         {
              ApiResponse<ConversationsMessage> localVarResponse = ConversationsMessagesPostWithHttpInfo(body);
              return localVarResponse.Data;
@@ -1180,7 +1180,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Message fields.</param>
         /// <returns>ApiResponse of ConversationsMessage</returns>
-        public ApiResponse< ConversationsMessage > ConversationsMessagesPostWithHttpInfo (Body11 body)
+        public ApiResponse< ConversationsMessage > ConversationsMessagesPostWithHttpInfo (Body15 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1252,7 +1252,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Message fields.</param>
         /// <returns>Task of ConversationsMessage</returns>
-        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsMessagesPostAsync (Body11 body)
+        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsMessagesPostAsync (Body15 body)
         {
              ApiResponse<ConversationsMessage> localVarResponse = await ConversationsMessagesPostAsyncWithHttpInfo(body);
              return localVarResponse.Data;
@@ -1265,7 +1265,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Message fields.</param>
         /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsMessagesPostAsyncWithHttpInfo (Body11 body)
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsMessagesPostAsyncWithHttpInfo (Body15 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1646,7 +1646,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"></param>
         /// <returns>ConversationsMessage</returns>
-        public ConversationsMessage ConversationsPushedMessagesIdPut (string id, Body14 body)
+        public ConversationsMessage ConversationsPushedMessagesIdPut (string id, Body18 body)
         {
              ApiResponse<ConversationsMessage> localVarResponse = ConversationsPushedMessagesIdPutWithHttpInfo(id, body);
              return localVarResponse.Data;
@@ -1659,7 +1659,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"></param>
         /// <returns>ApiResponse of ConversationsMessage</returns>
-        public ApiResponse< ConversationsMessage > ConversationsPushedMessagesIdPutWithHttpInfo (string id, Body14 body)
+        public ApiResponse< ConversationsMessage > ConversationsPushedMessagesIdPutWithHttpInfo (string id, Body18 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1736,7 +1736,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"></param>
         /// <returns>Task of ConversationsMessage</returns>
-        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsPushedMessagesIdPutAsync (string id, Body14 body)
+        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsPushedMessagesIdPutAsync (string id, Body18 body)
         {
              ApiResponse<ConversationsMessage> localVarResponse = await ConversationsPushedMessagesIdPutAsyncWithHttpInfo(id, body);
              return localVarResponse.Data;
@@ -1750,7 +1750,7 @@ namespace brevo_csharp.Api
         /// <param name="id">ID of the message</param>
         /// <param name="body"></param>
         /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsPushedMessagesIdPutAsyncWithHttpInfo (string id, Body14 body)
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsPushedMessagesIdPutAsyncWithHttpInfo (string id, Body18 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1826,7 +1826,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ConversationsMessage</returns>
-        public ConversationsMessage ConversationsPushedMessagesPost (Body13 body)
+        public ConversationsMessage ConversationsPushedMessagesPost (Body17 body)
         {
              ApiResponse<ConversationsMessage> localVarResponse = ConversationsPushedMessagesPostWithHttpInfo(body);
              return localVarResponse.Data;
@@ -1838,7 +1838,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of ConversationsMessage</returns>
-        public ApiResponse< ConversationsMessage > ConversationsPushedMessagesPostWithHttpInfo (Body13 body)
+        public ApiResponse< ConversationsMessage > ConversationsPushedMessagesPostWithHttpInfo (Body17 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1910,7 +1910,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>Task of ConversationsMessage</returns>
-        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsPushedMessagesPostAsync (Body13 body)
+        public async System.Threading.Tasks.Task<ConversationsMessage> ConversationsPushedMessagesPostAsync (Body17 body)
         {
              ApiResponse<ConversationsMessage> localVarResponse = await ConversationsPushedMessagesPostAsyncWithHttpInfo(body);
              return localVarResponse.Data;
@@ -1923,7 +1923,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>Task of ApiResponse (ConversationsMessage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsPushedMessagesPostAsyncWithHttpInfo (Body13 body)
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationsMessage>> ConversationsPushedMessagesPostAsyncWithHttpInfo (Body17 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)

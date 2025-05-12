@@ -52,10 +52,11 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
+        /// <param name="email">Enter the user&#39;s email address to filter their activity in the account. (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>GetAccountActivity</returns>
-        GetAccountActivity GetAccountActivity (string startDate = null, string endDate = null, long? limit = null, long? offset = null);
+        GetAccountActivity GetAccountActivity (string startDate = null, string endDate = null, string email = null, long? limit = null, long? offset = null);
 
         /// <summary>
         /// Get user activity logs
@@ -66,10 +67,11 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
+        /// <param name="email">Enter the user&#39;s email address to filter their activity in the account. (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>ApiResponse of GetAccountActivity</returns>
-        ApiResponse<GetAccountActivity> GetAccountActivityWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null);
+        ApiResponse<GetAccountActivity> GetAccountActivityWithHttpInfo (string startDate = null, string endDate = null, string email = null, long? limit = null, long? offset = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -100,10 +102,11 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
+        /// <param name="email">Enter the user&#39;s email address to filter their activity in the account. (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>Task of GetAccountActivity</returns>
-        System.Threading.Tasks.Task<GetAccountActivity> GetAccountActivityAsync (string startDate = null, string endDate = null, long? limit = null, long? offset = null);
+        System.Threading.Tasks.Task<GetAccountActivity> GetAccountActivityAsync (string startDate = null, string endDate = null, string email = null, long? limit = null, long? offset = null);
 
         /// <summary>
         /// Get user activity logs
@@ -114,10 +117,11 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
+        /// <param name="email">Enter the user&#39;s email address to filter their activity in the account. (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (GetAccountActivity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetAccountActivity>> GetAccountActivityAsyncWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null);
+        System.Threading.Tasks.Task<ApiResponse<GetAccountActivity>> GetAccountActivityAsyncWithHttpInfo (string startDate = null, string endDate = null, string email = null, long? limit = null, long? offset = null);
         #endregion Asynchronous Operations
     }
 
@@ -367,12 +371,13 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
+        /// <param name="email">Enter the user&#39;s email address to filter their activity in the account. (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>GetAccountActivity</returns>
-        public GetAccountActivity GetAccountActivity (string startDate = null, string endDate = null, long? limit = null, long? offset = null)
+        public GetAccountActivity GetAccountActivity (string startDate = null, string endDate = null, string email = null, long? limit = null, long? offset = null)
         {
-             ApiResponse<GetAccountActivity> localVarResponse = GetAccountActivityWithHttpInfo(startDate, endDate, limit, offset);
+             ApiResponse<GetAccountActivity> localVarResponse = GetAccountActivityWithHttpInfo(startDate, endDate, email, limit, offset);
              return localVarResponse.Data;
         }
 
@@ -382,10 +387,11 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
+        /// <param name="email">Enter the user&#39;s email address to filter their activity in the account. (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>ApiResponse of GetAccountActivity</returns>
-        public ApiResponse< GetAccountActivity > GetAccountActivityWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null)
+        public ApiResponse< GetAccountActivity > GetAccountActivityWithHttpInfo (string startDate = null, string endDate = null, string email = null, long? limit = null, long? offset = null)
         {
 
             var localVarPath = "./organization/activities";
@@ -412,6 +418,7 @@ namespace brevo_csharp.Api
 
             if (startDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "startDate", startDate)); // query parameter
             if (endDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "endDate", endDate)); // query parameter
+            if (email != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "email", email)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
 
@@ -450,12 +457,13 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
+        /// <param name="email">Enter the user&#39;s email address to filter their activity in the account. (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>Task of GetAccountActivity</returns>
-        public async System.Threading.Tasks.Task<GetAccountActivity> GetAccountActivityAsync (string startDate = null, string endDate = null, long? limit = null, long? offset = null)
+        public async System.Threading.Tasks.Task<GetAccountActivity> GetAccountActivityAsync (string startDate = null, string endDate = null, string email = null, long? limit = null, long? offset = null)
         {
-             ApiResponse<GetAccountActivity> localVarResponse = await GetAccountActivityAsyncWithHttpInfo(startDate, endDate, limit, offset);
+             ApiResponse<GetAccountActivity> localVarResponse = await GetAccountActivityAsyncWithHttpInfo(startDate, endDate, email, limit, offset);
              return localVarResponse.Data;
 
         }
@@ -466,10 +474,11 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
+        /// <param name="email">Enter the user&#39;s email address to filter their activity in the account. (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (GetAccountActivity)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetAccountActivity>> GetAccountActivityAsyncWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetAccountActivity>> GetAccountActivityAsyncWithHttpInfo (string startDate = null, string endDate = null, string email = null, long? limit = null, long? offset = null)
         {
 
             var localVarPath = "./organization/activities";
@@ -496,6 +505,7 @@ namespace brevo_csharp.Api
 
             if (startDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "startDate", startDate)); // query parameter
             if (endDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "endDate", endDate)); // query parameter
+            if (email != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "email", email)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
 

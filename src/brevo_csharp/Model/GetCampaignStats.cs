@@ -52,7 +52,8 @@ namespace brevo_csharp.Model
         /// <param name="viewed">Number of openings for the campaign (required).</param>
         /// <param name="deferred">Number of deferred emails for the campaign.</param>
         /// <param name="returnBounce">Total number of non-delivered campaigns for a particular campaign id..</param>
-        public GetCampaignStats(long? listId = default(long?), long? uniqueClicks = default(long?), long? clickers = default(long?), long? complaints = default(long?), long? delivered = default(long?), long? sent = default(long?), long? softBounces = default(long?), long? hardBounces = default(long?), long? uniqueViews = default(long?), long? trackableViews = default(long?), float? trackableViewsRate = default(float?), long? estimatedViews = default(long?), long? unsubscriptions = default(long?), long? viewed = default(long?), long? deferred = default(long?), long? returnBounce = default(long?))
+        /// <param name="opensRate">Percentage of recipients who open the email out of your total number of recipients. Depending on your Campaign settings, they may include Apple MPP opens. (required).</param>
+        public GetCampaignStats(long? listId = default(long?), long? uniqueClicks = default(long?), long? clickers = default(long?), long? complaints = default(long?), long? delivered = default(long?), long? sent = default(long?), long? softBounces = default(long?), long? hardBounces = default(long?), long? uniqueViews = default(long?), long? trackableViews = default(long?), float? trackableViewsRate = default(float?), long? estimatedViews = default(long?), long? unsubscriptions = default(long?), long? viewed = default(long?), long? deferred = default(long?), long? returnBounce = default(long?), float? opensRate = default(float?))
         {
             // to ensure "uniqueClicks" is required (not null)
             if (uniqueClicks == null)
@@ -152,6 +153,15 @@ namespace brevo_csharp.Model
             else
             {
                 this.Viewed = viewed;
+            }
+            // to ensure "opensRate" is required (not null)
+            if (opensRate == null)
+            {
+                throw new InvalidDataException("opensRate is a required property for GetCampaignStats and cannot be null");
+            }
+            else
+            {
+                this.OpensRate = opensRate;
             }
             this.ListId = listId;
             this.TrackableViewsRate = trackableViewsRate;
@@ -273,6 +283,13 @@ namespace brevo_csharp.Model
         public long? ReturnBounce { get; set; }
 
         /// <summary>
+        /// Percentage of recipients who open the email out of your total number of recipients. Depending on your Campaign settings, they may include Apple MPP opens.
+        /// </summary>
+        /// <value>Percentage of recipients who open the email out of your total number of recipients. Depending on your Campaign settings, they may include Apple MPP opens.</value>
+        [DataMember(Name="opensRate", EmitDefaultValue=false)]
+        public float? OpensRate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -296,6 +313,7 @@ namespace brevo_csharp.Model
             sb.Append("  Viewed: ").Append(Viewed).Append("\n");
             sb.Append("  Deferred: ").Append(Deferred).Append("\n");
             sb.Append("  ReturnBounce: ").Append(ReturnBounce).Append("\n");
+            sb.Append("  OpensRate: ").Append(OpensRate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -409,6 +427,11 @@ namespace brevo_csharp.Model
                     this.ReturnBounce == input.ReturnBounce ||
                     (this.ReturnBounce != null &&
                     this.ReturnBounce.Equals(input.ReturnBounce))
+                ) && 
+                (
+                    this.OpensRate == input.OpensRate ||
+                    (this.OpensRate != null &&
+                    this.OpensRate.Equals(input.OpensRate))
                 );
         }
 
@@ -453,6 +476,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.Deferred.GetHashCode();
                 if (this.ReturnBounce != null)
                     hashCode = hashCode * 59 + this.ReturnBounce.GetHashCode();
+                if (this.OpensRate != null)
+                    hashCode = hashCode * 59 + this.OpensRate.GetHashCode();
                 return hashCode;
             }
         }

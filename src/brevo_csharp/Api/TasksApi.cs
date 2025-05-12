@@ -34,7 +34,7 @@ namespace brevo_csharp.Api
         /// <param name="filterType">Filter by task type (ID) (optional)</param>
         /// <param name="filterStatus">Filter by task status (optional)</param>
         /// <param name="filterDate">Filter by date (optional)</param>
-        /// <param name="filterAssignTo">Filter by assignTo id (optional)</param>
+        /// <param name="filterAssignTo">Filter by the \&quot;assignTo\&quot; ID. You can utilize account emails for the \&quot;assignTo\&quot; attribute. (optional)</param>
         /// <param name="filterContacts">Filter by contact ids (optional)</param>
         /// <param name="filterDeals">Filter by deals ids (optional)</param>
         /// <param name="filterCompanies">Filter by companies ids (optional)</param>
@@ -57,7 +57,7 @@ namespace brevo_csharp.Api
         /// <param name="filterType">Filter by task type (ID) (optional)</param>
         /// <param name="filterStatus">Filter by task status (optional)</param>
         /// <param name="filterDate">Filter by date (optional)</param>
-        /// <param name="filterAssignTo">Filter by assignTo id (optional)</param>
+        /// <param name="filterAssignTo">Filter by the \&quot;assignTo\&quot; ID. You can utilize account emails for the \&quot;assignTo\&quot; attribute. (optional)</param>
         /// <param name="filterContacts">Filter by contact ids (optional)</param>
         /// <param name="filterDeals">Filter by deals ids (optional)</param>
         /// <param name="filterCompanies">Filter by companies ids (optional)</param>
@@ -121,7 +121,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated task details.</param>
         /// <returns></returns>
-        void CrmTasksIdPatch (string id, Body10 body);
+        void CrmTasksIdPatch (string id, Body14 body);
 
         /// <summary>
         /// Update a task
@@ -133,7 +133,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated task details.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CrmTasksIdPatchWithHttpInfo (string id, Body10 body);
+        ApiResponse<Object> CrmTasksIdPatchWithHttpInfo (string id, Body14 body);
         /// <summary>
         /// Create a task
         /// </summary>
@@ -143,7 +143,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Task name.</param>
         /// <returns>InlineResponse2012</returns>
-        InlineResponse2012 CrmTasksPost (Body9 body);
+        InlineResponse2012 CrmTasksPost (Body13 body);
 
         /// <summary>
         /// Create a task
@@ -154,7 +154,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Task name.</param>
         /// <returns>ApiResponse of InlineResponse2012</returns>
-        ApiResponse<InlineResponse2012> CrmTasksPostWithHttpInfo (Body9 body);
+        ApiResponse<InlineResponse2012> CrmTasksPostWithHttpInfo (Body13 body);
         /// <summary>
         /// Get all task types
         /// </summary>
@@ -186,7 +186,7 @@ namespace brevo_csharp.Api
         /// <param name="filterType">Filter by task type (ID) (optional)</param>
         /// <param name="filterStatus">Filter by task status (optional)</param>
         /// <param name="filterDate">Filter by date (optional)</param>
-        /// <param name="filterAssignTo">Filter by assignTo id (optional)</param>
+        /// <param name="filterAssignTo">Filter by the \&quot;assignTo\&quot; ID. You can utilize account emails for the \&quot;assignTo\&quot; attribute. (optional)</param>
         /// <param name="filterContacts">Filter by contact ids (optional)</param>
         /// <param name="filterDeals">Filter by deals ids (optional)</param>
         /// <param name="filterCompanies">Filter by companies ids (optional)</param>
@@ -209,7 +209,7 @@ namespace brevo_csharp.Api
         /// <param name="filterType">Filter by task type (ID) (optional)</param>
         /// <param name="filterStatus">Filter by task status (optional)</param>
         /// <param name="filterDate">Filter by date (optional)</param>
-        /// <param name="filterAssignTo">Filter by assignTo id (optional)</param>
+        /// <param name="filterAssignTo">Filter by the \&quot;assignTo\&quot; ID. You can utilize account emails for the \&quot;assignTo\&quot; attribute. (optional)</param>
         /// <param name="filterContacts">Filter by contact ids (optional)</param>
         /// <param name="filterDeals">Filter by deals ids (optional)</param>
         /// <param name="filterCompanies">Filter by companies ids (optional)</param>
@@ -273,7 +273,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated task details.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CrmTasksIdPatchAsync (string id, Body10 body);
+        System.Threading.Tasks.Task CrmTasksIdPatchAsync (string id, Body14 body);
 
         /// <summary>
         /// Update a task
@@ -285,7 +285,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated task details.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CrmTasksIdPatchAsyncWithHttpInfo (string id, Body10 body);
+        System.Threading.Tasks.Task<ApiResponse<Object>> CrmTasksIdPatchAsyncWithHttpInfo (string id, Body14 body);
         /// <summary>
         /// Create a task
         /// </summary>
@@ -295,7 +295,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Task name.</param>
         /// <returns>Task of InlineResponse2012</returns>
-        System.Threading.Tasks.Task<InlineResponse2012> CrmTasksPostAsync (Body9 body);
+        System.Threading.Tasks.Task<InlineResponse2012> CrmTasksPostAsync (Body13 body);
 
         /// <summary>
         /// Create a task
@@ -306,7 +306,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Task name.</param>
         /// <returns>Task of ApiResponse (InlineResponse2012)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2012>> CrmTasksPostAsyncWithHttpInfo (Body9 body);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2012>> CrmTasksPostAsyncWithHttpInfo (Body13 body);
         /// <summary>
         /// Get all task types
         /// </summary>
@@ -433,7 +433,7 @@ namespace brevo_csharp.Api
         /// <param name="filterType">Filter by task type (ID) (optional)</param>
         /// <param name="filterStatus">Filter by task status (optional)</param>
         /// <param name="filterDate">Filter by date (optional)</param>
-        /// <param name="filterAssignTo">Filter by assignTo id (optional)</param>
+        /// <param name="filterAssignTo">Filter by the \&quot;assignTo\&quot; ID. You can utilize account emails for the \&quot;assignTo\&quot; attribute. (optional)</param>
         /// <param name="filterContacts">Filter by contact ids (optional)</param>
         /// <param name="filterDeals">Filter by deals ids (optional)</param>
         /// <param name="filterCompanies">Filter by companies ids (optional)</param>
@@ -457,7 +457,7 @@ namespace brevo_csharp.Api
         /// <param name="filterType">Filter by task type (ID) (optional)</param>
         /// <param name="filterStatus">Filter by task status (optional)</param>
         /// <param name="filterDate">Filter by date (optional)</param>
-        /// <param name="filterAssignTo">Filter by assignTo id (optional)</param>
+        /// <param name="filterAssignTo">Filter by the \&quot;assignTo\&quot; ID. You can utilize account emails for the \&quot;assignTo\&quot; attribute. (optional)</param>
         /// <param name="filterContacts">Filter by contact ids (optional)</param>
         /// <param name="filterDeals">Filter by deals ids (optional)</param>
         /// <param name="filterCompanies">Filter by companies ids (optional)</param>
@@ -543,7 +543,7 @@ namespace brevo_csharp.Api
         /// <param name="filterType">Filter by task type (ID) (optional)</param>
         /// <param name="filterStatus">Filter by task status (optional)</param>
         /// <param name="filterDate">Filter by date (optional)</param>
-        /// <param name="filterAssignTo">Filter by assignTo id (optional)</param>
+        /// <param name="filterAssignTo">Filter by the \&quot;assignTo\&quot; ID. You can utilize account emails for the \&quot;assignTo\&quot; attribute. (optional)</param>
         /// <param name="filterContacts">Filter by contact ids (optional)</param>
         /// <param name="filterDeals">Filter by deals ids (optional)</param>
         /// <param name="filterCompanies">Filter by companies ids (optional)</param>
@@ -568,7 +568,7 @@ namespace brevo_csharp.Api
         /// <param name="filterType">Filter by task type (ID) (optional)</param>
         /// <param name="filterStatus">Filter by task status (optional)</param>
         /// <param name="filterDate">Filter by date (optional)</param>
-        /// <param name="filterAssignTo">Filter by assignTo id (optional)</param>
+        /// <param name="filterAssignTo">Filter by the \&quot;assignTo\&quot; ID. You can utilize account emails for the \&quot;assignTo\&quot; attribute. (optional)</param>
         /// <param name="filterContacts">Filter by contact ids (optional)</param>
         /// <param name="filterDeals">Filter by deals ids (optional)</param>
         /// <param name="filterCompanies">Filter by companies ids (optional)</param>
@@ -962,7 +962,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated task details.</param>
         /// <returns></returns>
-        public void CrmTasksIdPatch (string id, Body10 body)
+        public void CrmTasksIdPatch (string id, Body14 body)
         {
              CrmTasksIdPatchWithHttpInfo(id, body);
         }
@@ -974,7 +974,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated task details.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CrmTasksIdPatchWithHttpInfo (string id, Body10 body)
+        public ApiResponse<Object> CrmTasksIdPatchWithHttpInfo (string id, Body14 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1051,7 +1051,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated task details.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CrmTasksIdPatchAsync (string id, Body10 body)
+        public async System.Threading.Tasks.Task CrmTasksIdPatchAsync (string id, Body14 body)
         {
              await CrmTasksIdPatchAsyncWithHttpInfo(id, body);
 
@@ -1064,7 +1064,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated task details.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmTasksIdPatchAsyncWithHttpInfo (string id, Body10 body)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmTasksIdPatchAsyncWithHttpInfo (string id, Body14 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1140,7 +1140,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Task name.</param>
         /// <returns>InlineResponse2012</returns>
-        public InlineResponse2012 CrmTasksPost (Body9 body)
+        public InlineResponse2012 CrmTasksPost (Body13 body)
         {
              ApiResponse<InlineResponse2012> localVarResponse = CrmTasksPostWithHttpInfo(body);
              return localVarResponse.Data;
@@ -1152,7 +1152,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Task name.</param>
         /// <returns>ApiResponse of InlineResponse2012</returns>
-        public ApiResponse< InlineResponse2012 > CrmTasksPostWithHttpInfo (Body9 body)
+        public ApiResponse< InlineResponse2012 > CrmTasksPostWithHttpInfo (Body13 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1224,7 +1224,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Task name.</param>
         /// <returns>Task of InlineResponse2012</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2012> CrmTasksPostAsync (Body9 body)
+        public async System.Threading.Tasks.Task<InlineResponse2012> CrmTasksPostAsync (Body13 body)
         {
              ApiResponse<InlineResponse2012> localVarResponse = await CrmTasksPostAsyncWithHttpInfo(body);
              return localVarResponse.Data;
@@ -1237,7 +1237,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Task name.</param>
         /// <returns>Task of ApiResponse (InlineResponse2012)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2012>> CrmTasksPostAsyncWithHttpInfo (Body9 body)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2012>> CrmTasksPostAsyncWithHttpInfo (Body13 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)

@@ -58,13 +58,7 @@ namespace brevo_csharp.Model
             /// Enum Sms for value: sms
             /// </summary>
             [EnumMember(Value = "sms")]
-            Sms = 4,
-            
-            /// <summary>
-            /// Enum Reseller for value: reseller
-            /// </summary>
-            [EnumMember(Value = "reseller")]
-            Reseller = 5
+            Sms = 4
         }
 
         /// <summary>
@@ -105,10 +99,9 @@ namespace brevo_csharp.Model
         /// <param name="type">Displays the plan type of the user (required).</param>
         /// <param name="creditsType">This is the type of the credit, \&quot;Send Limit\&quot; is one of the possible types of credit of a user. \&quot;Send Limit\&quot; implies the total number of emails you can send to the subscribers in your account. (required).</param>
         /// <param name="credits">Remaining credits of the user (required).</param>
-        /// <param name="startDate">Date of the period from which the plan will start (only available for \&quot;subscription\&quot; and \&quot;reseller\&quot; plan type).</param>
-        /// <param name="endDate">Date of the period from which the plan will end (only available for \&quot;subscription\&quot; and \&quot;reseller\&quot; plan type).</param>
-        /// <param name="userLimit">Only in case of reseller account. It implies the total number of child accounts you can add to your account..</param>
-        public GetAccountPlan(TypeEnum type = default(TypeEnum), CreditsTypeEnum creditsType = default(CreditsTypeEnum), float? credits = default(float?), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? userLimit = default(int?))
+        /// <param name="startDate">Date of the period from which the plan will start (only available for \&quot;subscription\&quot; plan type).</param>
+        /// <param name="endDate">Date of the period from which the plan will end (only available for \&quot;subscription\&quot; plan type).</param>
+        public GetAccountPlan(TypeEnum type = default(TypeEnum), CreditsTypeEnum creditsType = default(CreditsTypeEnum), float? credits = default(float?), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -139,7 +132,6 @@ namespace brevo_csharp.Model
             }
             this.StartDate = startDate;
             this.EndDate = endDate;
-            this.UserLimit = userLimit;
         }
         
 
@@ -152,27 +144,20 @@ namespace brevo_csharp.Model
         public float? Credits { get; set; }
 
         /// <summary>
-        /// Date of the period from which the plan will start (only available for \&quot;subscription\&quot; and \&quot;reseller\&quot; plan type)
+        /// Date of the period from which the plan will start (only available for \&quot;subscription\&quot; plan type)
         /// </summary>
-        /// <value>Date of the period from which the plan will start (only available for \&quot;subscription\&quot; and \&quot;reseller\&quot; plan type)</value>
+        /// <value>Date of the period from which the plan will start (only available for \&quot;subscription\&quot; plan type)</value>
         [DataMember(Name="startDate", EmitDefaultValue=false)]
         [JsonConverter(typeof(SwaggerDateConverter))]
         public DateTime? StartDate { get; set; }
 
         /// <summary>
-        /// Date of the period from which the plan will end (only available for \&quot;subscription\&quot; and \&quot;reseller\&quot; plan type)
+        /// Date of the period from which the plan will end (only available for \&quot;subscription\&quot; plan type)
         /// </summary>
-        /// <value>Date of the period from which the plan will end (only available for \&quot;subscription\&quot; and \&quot;reseller\&quot; plan type)</value>
+        /// <value>Date of the period from which the plan will end (only available for \&quot;subscription\&quot; plan type)</value>
         [DataMember(Name="endDate", EmitDefaultValue=false)]
         [JsonConverter(typeof(SwaggerDateConverter))]
         public DateTime? EndDate { get; set; }
-
-        /// <summary>
-        /// Only in case of reseller account. It implies the total number of child accounts you can add to your account.
-        /// </summary>
-        /// <value>Only in case of reseller account. It implies the total number of child accounts you can add to your account.</value>
-        [DataMember(Name="userLimit", EmitDefaultValue=false)]
-        public int? UserLimit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -187,7 +172,6 @@ namespace brevo_csharp.Model
             sb.Append("  Credits: ").Append(Credits).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
-            sb.Append("  UserLimit: ").Append(UserLimit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -246,11 +230,6 @@ namespace brevo_csharp.Model
                     this.EndDate == input.EndDate ||
                     (this.EndDate != null &&
                     this.EndDate.Equals(input.EndDate))
-                ) && 
-                (
-                    this.UserLimit == input.UserLimit ||
-                    (this.UserLimit != null &&
-                    this.UserLimit.Equals(input.UserLimit))
                 );
         }
 
@@ -273,8 +252,6 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.StartDate.GetHashCode();
                 if (this.EndDate != null)
                     hashCode = hashCode * 59 + this.EndDate.GetHashCode();
-                if (this.UserLimit != null)
-                    hashCode = hashCode * 59 + this.UserLimit.GetHashCode();
                 return hashCode;
             }
         }

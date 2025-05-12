@@ -44,10 +44,11 @@ namespace brevo_csharp.Model
         /// <param name="price">Price of the product.</param>
         /// <param name="categories">Category ID-s of the product.</param>
         /// <param name="parentId">Parent product id of the product.</param>
-        /// <param name="metaInfo">Meta data of product such as description, vendor, producer, stock level. The size of cumulative metaInfo shall not exceed **1000 KB**. Maximum length of metaInfo object can be 10..</param>
+        /// <param name="metaInfo">Meta data of product such as description, vendor, producer, stock level. The size of cumulative metaInfo shall not exceed **1000 KB**. Maximum length of metaInfo object can be 20..</param>
         /// <param name="updateEnabled">Facilitate to update the existing category in the same request (updateEnabled &#x3D; true) (default to false).</param>
         /// <param name="deletedAt">UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) of the product deleted from the shop&#39;s database.</param>
-        public CreateUpdateProduct(string id = default(string), string name = default(string), string url = default(string), string imageUrl = default(string), string sku = default(string), float? price = default(float?), List<string> categories = default(List<string>), string parentId = default(string), Dictionary<string, string> metaInfo = default(Dictionary<string, string>), bool? updateEnabled = false, string deletedAt = default(string))
+        /// <param name="isDeleted">product deleted from the shop&#39;s database.</param>
+        public CreateUpdateProduct(string id = default(string), string name = default(string), string url = default(string), string imageUrl = default(string), string sku = default(string), float? price = default(float?), List<string> categories = default(List<string>), string parentId = default(string), Dictionary<string, string> metaInfo = default(Dictionary<string, string>), bool? updateEnabled = false, string deletedAt = default(string), bool? isDeleted = default(bool?))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -84,6 +85,7 @@ namespace brevo_csharp.Model
                 this.UpdateEnabled = updateEnabled;
             }
             this.DeletedAt = deletedAt;
+            this.IsDeleted = isDeleted;
         }
         
         /// <summary>
@@ -143,9 +145,9 @@ namespace brevo_csharp.Model
         public string ParentId { get; set; }
 
         /// <summary>
-        /// Meta data of product such as description, vendor, producer, stock level. The size of cumulative metaInfo shall not exceed **1000 KB**. Maximum length of metaInfo object can be 10.
+        /// Meta data of product such as description, vendor, producer, stock level. The size of cumulative metaInfo shall not exceed **1000 KB**. Maximum length of metaInfo object can be 20.
         /// </summary>
-        /// <value>Meta data of product such as description, vendor, producer, stock level. The size of cumulative metaInfo shall not exceed **1000 KB**. Maximum length of metaInfo object can be 10.</value>
+        /// <value>Meta data of product such as description, vendor, producer, stock level. The size of cumulative metaInfo shall not exceed **1000 KB**. Maximum length of metaInfo object can be 20.</value>
         [DataMember(Name="metaInfo", EmitDefaultValue=false)]
         public Dictionary<string, string> MetaInfo { get; set; }
 
@@ -162,6 +164,13 @@ namespace brevo_csharp.Model
         /// <value>UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) of the product deleted from the shop&#39;s database</value>
         [DataMember(Name="deletedAt", EmitDefaultValue=false)]
         public string DeletedAt { get; set; }
+
+        /// <summary>
+        /// product deleted from the shop&#39;s database
+        /// </summary>
+        /// <value>product deleted from the shop&#39;s database</value>
+        [DataMember(Name="isDeleted", EmitDefaultValue=false)]
+        public bool? IsDeleted { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -182,6 +191,7 @@ namespace brevo_csharp.Model
             sb.Append("  MetaInfo: ").Append(MetaInfo).Append("\n");
             sb.Append("  UpdateEnabled: ").Append(UpdateEnabled).Append("\n");
             sb.Append("  DeletedAt: ").Append(DeletedAt).Append("\n");
+            sb.Append("  IsDeleted: ").Append(IsDeleted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -270,6 +280,11 @@ namespace brevo_csharp.Model
                     this.DeletedAt == input.DeletedAt ||
                     (this.DeletedAt != null &&
                     this.DeletedAt.Equals(input.DeletedAt))
+                ) && 
+                (
+                    this.IsDeleted == input.IsDeleted ||
+                    (this.IsDeleted != null &&
+                    this.IsDeleted.Equals(input.IsDeleted))
                 );
         }
 
@@ -304,6 +319,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.UpdateEnabled.GetHashCode();
                 if (this.DeletedAt != null)
                     hashCode = hashCode * 59 + this.DeletedAt.GetHashCode();
+                if (this.IsDeleted != null)
+                    hashCode = hashCode * 59 + this.IsDeleted.GetHashCode();
                 return hashCode;
             }
         }

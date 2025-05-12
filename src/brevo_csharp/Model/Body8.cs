@@ -31,45 +31,45 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Body8" /> class.
         /// </summary>
-        /// <param name="linkContactIds">Contact ids for contacts to be linked with deal.</param>
-        /// <param name="unlinkContactIds">Contact ids for contacts to be unlinked from deal.</param>
-        /// <param name="linkCompanyIds">Company ids to be linked with deal.</param>
-        /// <param name="unlinkCompanyIds">Company ids to be unlinked from deal.</param>
-        public Body8(List<long?> linkContactIds = default(List<long?>), List<long?> unlinkContactIds = default(List<long?>), List<string> linkCompanyIds = default(List<string>), List<string> unlinkCompanyIds = default(List<string>))
+        /// <param name="linkContactIds">Contact ids for contacts to be linked with company.</param>
+        /// <param name="unlinkContactIds">Contact ids for contacts to be unlinked from company.</param>
+        /// <param name="linkDealsIds">Deals ids for deals to be linked with company.</param>
+        /// <param name="unlinkDealsIds">Deals ids for deals to be unlinked from company.</param>
+        public Body8(List<long?> linkContactIds = default(List<long?>), List<long?> unlinkContactIds = default(List<long?>), List<string> linkDealsIds = default(List<string>), List<string> unlinkDealsIds = default(List<string>))
         {
             this.LinkContactIds = linkContactIds;
             this.UnlinkContactIds = unlinkContactIds;
-            this.LinkCompanyIds = linkCompanyIds;
-            this.UnlinkCompanyIds = unlinkCompanyIds;
+            this.LinkDealsIds = linkDealsIds;
+            this.UnlinkDealsIds = unlinkDealsIds;
         }
         
         /// <summary>
-        /// Contact ids for contacts to be linked with deal
+        /// Contact ids for contacts to be linked with company
         /// </summary>
-        /// <value>Contact ids for contacts to be linked with deal</value>
+        /// <value>Contact ids for contacts to be linked with company</value>
         [DataMember(Name="linkContactIds", EmitDefaultValue=false)]
         public List<long?> LinkContactIds { get; set; }
 
         /// <summary>
-        /// Contact ids for contacts to be unlinked from deal
+        /// Contact ids for contacts to be unlinked from company
         /// </summary>
-        /// <value>Contact ids for contacts to be unlinked from deal</value>
+        /// <value>Contact ids for contacts to be unlinked from company</value>
         [DataMember(Name="unlinkContactIds", EmitDefaultValue=false)]
         public List<long?> UnlinkContactIds { get; set; }
 
         /// <summary>
-        /// Company ids to be linked with deal
+        /// Deals ids for deals to be linked with company
         /// </summary>
-        /// <value>Company ids to be linked with deal</value>
-        [DataMember(Name="linkCompanyIds", EmitDefaultValue=false)]
-        public List<string> LinkCompanyIds { get; set; }
+        /// <value>Deals ids for deals to be linked with company</value>
+        [DataMember(Name="linkDealsIds", EmitDefaultValue=false)]
+        public List<string> LinkDealsIds { get; set; }
 
         /// <summary>
-        /// Company ids to be unlinked from deal
+        /// Deals ids for deals to be unlinked from company
         /// </summary>
-        /// <value>Company ids to be unlinked from deal</value>
-        [DataMember(Name="unlinkCompanyIds", EmitDefaultValue=false)]
-        public List<string> UnlinkCompanyIds { get; set; }
+        /// <value>Deals ids for deals to be unlinked from company</value>
+        [DataMember(Name="unlinkDealsIds", EmitDefaultValue=false)]
+        public List<string> UnlinkDealsIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -81,8 +81,8 @@ namespace brevo_csharp.Model
             sb.Append("class Body8 {\n");
             sb.Append("  LinkContactIds: ").Append(LinkContactIds).Append("\n");
             sb.Append("  UnlinkContactIds: ").Append(UnlinkContactIds).Append("\n");
-            sb.Append("  LinkCompanyIds: ").Append(LinkCompanyIds).Append("\n");
-            sb.Append("  UnlinkCompanyIds: ").Append(UnlinkCompanyIds).Append("\n");
+            sb.Append("  LinkDealsIds: ").Append(LinkDealsIds).Append("\n");
+            sb.Append("  UnlinkDealsIds: ").Append(UnlinkDealsIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -128,14 +128,14 @@ namespace brevo_csharp.Model
                     this.UnlinkContactIds.SequenceEqual(input.UnlinkContactIds)
                 ) && 
                 (
-                    this.LinkCompanyIds == input.LinkCompanyIds ||
-                    this.LinkCompanyIds != null &&
-                    this.LinkCompanyIds.SequenceEqual(input.LinkCompanyIds)
+                    this.LinkDealsIds == input.LinkDealsIds ||
+                    this.LinkDealsIds != null &&
+                    this.LinkDealsIds.SequenceEqual(input.LinkDealsIds)
                 ) && 
                 (
-                    this.UnlinkCompanyIds == input.UnlinkCompanyIds ||
-                    this.UnlinkCompanyIds != null &&
-                    this.UnlinkCompanyIds.SequenceEqual(input.UnlinkCompanyIds)
+                    this.UnlinkDealsIds == input.UnlinkDealsIds ||
+                    this.UnlinkDealsIds != null &&
+                    this.UnlinkDealsIds.SequenceEqual(input.UnlinkDealsIds)
                 );
         }
 
@@ -152,10 +152,10 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.LinkContactIds.GetHashCode();
                 if (this.UnlinkContactIds != null)
                     hashCode = hashCode * 59 + this.UnlinkContactIds.GetHashCode();
-                if (this.LinkCompanyIds != null)
-                    hashCode = hashCode * 59 + this.LinkCompanyIds.GetHashCode();
-                if (this.UnlinkCompanyIds != null)
-                    hashCode = hashCode * 59 + this.UnlinkCompanyIds.GetHashCode();
+                if (this.LinkDealsIds != null)
+                    hashCode = hashCode * 59 + this.LinkDealsIds.GetHashCode();
+                if (this.UnlinkDealsIds != null)
+                    hashCode = hashCode * 59 + this.UnlinkDealsIds.GetHashCode();
                 return hashCode;
             }
         }

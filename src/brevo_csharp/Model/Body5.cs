@@ -31,45 +31,47 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Body5" /> class.
         /// </summary>
-        /// <param name="linkContactIds">Contact ids for contacts to be linked with company.</param>
-        /// <param name="unlinkContactIds">Contact ids for contacts to be unlinked from company.</param>
-        /// <param name="linkDealsIds">Deals ids for deals to be linked with company.</param>
-        /// <param name="unlinkDealsIds">Deals ids for deals to be unlinked from company.</param>
-        public Body5(List<long?> linkContactIds = default(List<long?>), List<long?> unlinkContactIds = default(List<long?>), List<string> linkDealsIds = default(List<string>), List<string> unlinkDealsIds = default(List<string>))
+        [JsonConstructorAttribute]
+        protected Body5() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Body5" /> class.
+        /// </summary>
+        /// <param name="allFeaturesAccess">All access to the features (required).</param>
+        /// <param name="privileges">privileges (required).</param>
+        public Body5(bool? allFeaturesAccess = default(bool?), List<CorporateuseremailpermissionsPrivileges> privileges = default(List<CorporateuseremailpermissionsPrivileges>))
         {
-            this.LinkContactIds = linkContactIds;
-            this.UnlinkContactIds = unlinkContactIds;
-            this.LinkDealsIds = linkDealsIds;
-            this.UnlinkDealsIds = unlinkDealsIds;
+            // to ensure "allFeaturesAccess" is required (not null)
+            if (allFeaturesAccess == null)
+            {
+                throw new InvalidDataException("allFeaturesAccess is a required property for Body5 and cannot be null");
+            }
+            else
+            {
+                this.AllFeaturesAccess = allFeaturesAccess;
+            }
+            // to ensure "privileges" is required (not null)
+            if (privileges == null)
+            {
+                throw new InvalidDataException("privileges is a required property for Body5 and cannot be null");
+            }
+            else
+            {
+                this.Privileges = privileges;
+            }
         }
         
         /// <summary>
-        /// Contact ids for contacts to be linked with company
+        /// All access to the features
         /// </summary>
-        /// <value>Contact ids for contacts to be linked with company</value>
-        [DataMember(Name="linkContactIds", EmitDefaultValue=false)]
-        public List<long?> LinkContactIds { get; set; }
+        /// <value>All access to the features</value>
+        [DataMember(Name="all_features_access", EmitDefaultValue=false)]
+        public bool? AllFeaturesAccess { get; set; }
 
         /// <summary>
-        /// Contact ids for contacts to be unlinked from company
+        /// Gets or Sets Privileges
         /// </summary>
-        /// <value>Contact ids for contacts to be unlinked from company</value>
-        [DataMember(Name="unlinkContactIds", EmitDefaultValue=false)]
-        public List<long?> UnlinkContactIds { get; set; }
-
-        /// <summary>
-        /// Deals ids for deals to be linked with company
-        /// </summary>
-        /// <value>Deals ids for deals to be linked with company</value>
-        [DataMember(Name="linkDealsIds", EmitDefaultValue=false)]
-        public List<string> LinkDealsIds { get; set; }
-
-        /// <summary>
-        /// Deals ids for deals to be unlinked from company
-        /// </summary>
-        /// <value>Deals ids for deals to be unlinked from company</value>
-        [DataMember(Name="unlinkDealsIds", EmitDefaultValue=false)]
-        public List<string> UnlinkDealsIds { get; set; }
+        [DataMember(Name="privileges", EmitDefaultValue=false)]
+        public List<CorporateuseremailpermissionsPrivileges> Privileges { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -79,10 +81,8 @@ namespace brevo_csharp.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Body5 {\n");
-            sb.Append("  LinkContactIds: ").Append(LinkContactIds).Append("\n");
-            sb.Append("  UnlinkContactIds: ").Append(UnlinkContactIds).Append("\n");
-            sb.Append("  LinkDealsIds: ").Append(LinkDealsIds).Append("\n");
-            sb.Append("  UnlinkDealsIds: ").Append(UnlinkDealsIds).Append("\n");
+            sb.Append("  AllFeaturesAccess: ").Append(AllFeaturesAccess).Append("\n");
+            sb.Append("  Privileges: ").Append(Privileges).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,24 +118,14 @@ namespace brevo_csharp.Model
 
             return 
                 (
-                    this.LinkContactIds == input.LinkContactIds ||
-                    this.LinkContactIds != null &&
-                    this.LinkContactIds.SequenceEqual(input.LinkContactIds)
+                    this.AllFeaturesAccess == input.AllFeaturesAccess ||
+                    (this.AllFeaturesAccess != null &&
+                    this.AllFeaturesAccess.Equals(input.AllFeaturesAccess))
                 ) && 
                 (
-                    this.UnlinkContactIds == input.UnlinkContactIds ||
-                    this.UnlinkContactIds != null &&
-                    this.UnlinkContactIds.SequenceEqual(input.UnlinkContactIds)
-                ) && 
-                (
-                    this.LinkDealsIds == input.LinkDealsIds ||
-                    this.LinkDealsIds != null &&
-                    this.LinkDealsIds.SequenceEqual(input.LinkDealsIds)
-                ) && 
-                (
-                    this.UnlinkDealsIds == input.UnlinkDealsIds ||
-                    this.UnlinkDealsIds != null &&
-                    this.UnlinkDealsIds.SequenceEqual(input.UnlinkDealsIds)
+                    this.Privileges == input.Privileges ||
+                    this.Privileges != null &&
+                    this.Privileges.SequenceEqual(input.Privileges)
                 );
         }
 
@@ -148,14 +138,10 @@ namespace brevo_csharp.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.LinkContactIds != null)
-                    hashCode = hashCode * 59 + this.LinkContactIds.GetHashCode();
-                if (this.UnlinkContactIds != null)
-                    hashCode = hashCode * 59 + this.UnlinkContactIds.GetHashCode();
-                if (this.LinkDealsIds != null)
-                    hashCode = hashCode * 59 + this.LinkDealsIds.GetHashCode();
-                if (this.UnlinkDealsIds != null)
-                    hashCode = hashCode * 59 + this.UnlinkDealsIds.GetHashCode();
+                if (this.AllFeaturesAccess != null)
+                    hashCode = hashCode * 59 + this.AllFeaturesAccess.GetHashCode();
+                if (this.Privileges != null)
+                    hashCode = hashCode * 59 + this.Privileges.GetHashCode();
                 return hashCode;
             }
         }

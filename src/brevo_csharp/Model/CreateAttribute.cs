@@ -29,9 +29,9 @@ namespace brevo_csharp.Model
     public partial class CreateAttribute :  IEquatable<CreateAttribute>
     {
         /// <summary>
-        /// Type of the attribute. Use only if the attribute&#39;s category is &#39;normal&#39;, &#39;category&#39; or &#39;transactional&#39; ( type &#39;boolean&#39; is only available if the category is &#39;normal&#39; attribute, type &#39;id&#39; is only available if the category is &#39;transactional&#39; attribute &amp; type &#39;category&#39; is only available if the category is &#39;category&#39; attribute )
+        /// Type of the attribute. Use only if the attribute&#39;s category is &#39;normal&#39;, &#39;category&#39; or &#39;transactional&#39; ( type &#39;user&#39; and &#39;multiple-choice&#39; is only available if the category is &#39;normal&#39; attribute, type &#39;id&#39; is only available if the category is &#39;transactional&#39; attribute &amp; type &#39;category&#39; is only available if the category is &#39;category&#39; attribute )
         /// </summary>
-        /// <value>Type of the attribute. Use only if the attribute&#39;s category is &#39;normal&#39;, &#39;category&#39; or &#39;transactional&#39; ( type &#39;boolean&#39; is only available if the category is &#39;normal&#39; attribute, type &#39;id&#39; is only available if the category is &#39;transactional&#39; attribute &amp; type &#39;category&#39; is only available if the category is &#39;category&#39; attribute )</value>
+        /// <value>Type of the attribute. Use only if the attribute&#39;s category is &#39;normal&#39;, &#39;category&#39; or &#39;transactional&#39; ( type &#39;user&#39; and &#39;multiple-choice&#39; is only available if the category is &#39;normal&#39; attribute, type &#39;id&#39; is only available if the category is &#39;transactional&#39; attribute &amp; type &#39;category&#39; is only available if the category is &#39;category&#39; attribute )</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -70,13 +70,19 @@ namespace brevo_csharp.Model
             /// Enum Category for value: category
             /// </summary>
             [EnumMember(Value = "category")]
-            Category = 6
+            Category = 6,
+            
+            /// <summary>
+            /// Enum MultipleChoice for value: multiple-choice
+            /// </summary>
+            [EnumMember(Value = "multiple-choice")]
+            MultipleChoice = 7
         }
 
         /// <summary>
-        /// Type of the attribute. Use only if the attribute&#39;s category is &#39;normal&#39;, &#39;category&#39; or &#39;transactional&#39; ( type &#39;boolean&#39; is only available if the category is &#39;normal&#39; attribute, type &#39;id&#39; is only available if the category is &#39;transactional&#39; attribute &amp; type &#39;category&#39; is only available if the category is &#39;category&#39; attribute )
+        /// Type of the attribute. Use only if the attribute&#39;s category is &#39;normal&#39;, &#39;category&#39; or &#39;transactional&#39; ( type &#39;user&#39; and &#39;multiple-choice&#39; is only available if the category is &#39;normal&#39; attribute, type &#39;id&#39; is only available if the category is &#39;transactional&#39; attribute &amp; type &#39;category&#39; is only available if the category is &#39;category&#39; attribute )
         /// </summary>
-        /// <value>Type of the attribute. Use only if the attribute&#39;s category is &#39;normal&#39;, &#39;category&#39; or &#39;transactional&#39; ( type &#39;boolean&#39; is only available if the category is &#39;normal&#39; attribute, type &#39;id&#39; is only available if the category is &#39;transactional&#39; attribute &amp; type &#39;category&#39; is only available if the category is &#39;category&#39; attribute )</value>
+        /// <value>Type of the attribute. Use only if the attribute&#39;s category is &#39;normal&#39;, &#39;category&#39; or &#39;transactional&#39; ( type &#39;user&#39; and &#39;multiple-choice&#39; is only available if the category is &#39;normal&#39; attribute, type &#39;id&#39; is only available if the category is &#39;transactional&#39; attribute &amp; type &#39;category&#39; is only available if the category is &#39;category&#39; attribute )</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
@@ -85,12 +91,14 @@ namespace brevo_csharp.Model
         /// <param name="value">Value of the attribute. Use only if the attribute&#39;s category is &#39;calculated&#39; or &#39;global&#39;.</param>
         /// <param name="isRecurring">Type of the attribute. Use only if the attribute&#39;s category is &#39;calculated&#39; or &#39;global&#39;.</param>
         /// <param name="enumeration">List of values and labels that the attribute can take. Use only if the attribute&#39;s category is \&quot;category\&quot;. For example, [{\&quot;value\&quot;:1, \&quot;label\&quot;:\&quot;male\&quot;}, {\&quot;value\&quot;:2, \&quot;label\&quot;:\&quot;female\&quot;}].</param>
-        /// <param name="type">Type of the attribute. Use only if the attribute&#39;s category is &#39;normal&#39;, &#39;category&#39; or &#39;transactional&#39; ( type &#39;boolean&#39; is only available if the category is &#39;normal&#39; attribute, type &#39;id&#39; is only available if the category is &#39;transactional&#39; attribute &amp; type &#39;category&#39; is only available if the category is &#39;category&#39; attribute ).</param>
-        public CreateAttribute(string value = default(string), bool? isRecurring = default(bool?), List<CreateAttributeEnumeration> enumeration = default(List<CreateAttributeEnumeration>), TypeEnum? type = default(TypeEnum?))
+        /// <param name="multiCategoryOptions">List of options you want to add for multiple-choice attribute. **Use only if the attribute&#39;s category is \&quot;normal\&quot; and attribute&#39;s type is \&quot;multiple-choice\&quot;.** For example: **[\&quot;USA\&quot;,\&quot;INDIA\&quot;]** .</param>
+        /// <param name="type">Type of the attribute. Use only if the attribute&#39;s category is &#39;normal&#39;, &#39;category&#39; or &#39;transactional&#39; ( type &#39;user&#39; and &#39;multiple-choice&#39; is only available if the category is &#39;normal&#39; attribute, type &#39;id&#39; is only available if the category is &#39;transactional&#39; attribute &amp; type &#39;category&#39; is only available if the category is &#39;category&#39; attribute ).</param>
+        public CreateAttribute(string value = default(string), bool? isRecurring = default(bool?), List<CreateAttributeEnumeration> enumeration = default(List<CreateAttributeEnumeration>), List<string> multiCategoryOptions = default(List<string>), TypeEnum? type = default(TypeEnum?))
         {
             this.Value = value;
             this.IsRecurring = isRecurring;
             this.Enumeration = enumeration;
+            this.MultiCategoryOptions = multiCategoryOptions;
             this.Type = type;
         }
         
@@ -115,6 +123,13 @@ namespace brevo_csharp.Model
         [DataMember(Name="enumeration", EmitDefaultValue=false)]
         public List<CreateAttributeEnumeration> Enumeration { get; set; }
 
+        /// <summary>
+        /// List of options you want to add for multiple-choice attribute. **Use only if the attribute&#39;s category is \&quot;normal\&quot; and attribute&#39;s type is \&quot;multiple-choice\&quot;.** For example: **[\&quot;USA\&quot;,\&quot;INDIA\&quot;]** 
+        /// </summary>
+        /// <value>List of options you want to add for multiple-choice attribute. **Use only if the attribute&#39;s category is \&quot;normal\&quot; and attribute&#39;s type is \&quot;multiple-choice\&quot;.** For example: **[\&quot;USA\&quot;,\&quot;INDIA\&quot;]** </value>
+        [DataMember(Name="multiCategoryOptions", EmitDefaultValue=false)]
+        public List<string> MultiCategoryOptions { get; set; }
+
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -127,6 +142,7 @@ namespace brevo_csharp.Model
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  IsRecurring: ").Append(IsRecurring).Append("\n");
             sb.Append("  Enumeration: ").Append(Enumeration).Append("\n");
+            sb.Append("  MultiCategoryOptions: ").Append(MultiCategoryOptions).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -178,6 +194,11 @@ namespace brevo_csharp.Model
                     this.Enumeration.SequenceEqual(input.Enumeration)
                 ) && 
                 (
+                    this.MultiCategoryOptions == input.MultiCategoryOptions ||
+                    this.MultiCategoryOptions != null &&
+                    this.MultiCategoryOptions.SequenceEqual(input.MultiCategoryOptions)
+                ) && 
+                (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
@@ -199,6 +220,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.IsRecurring.GetHashCode();
                 if (this.Enumeration != null)
                     hashCode = hashCode * 59 + this.Enumeration.GetHashCode();
+                if (this.MultiCategoryOptions != null)
+                    hashCode = hashCode * 59 + this.MultiCategoryOptions.GetHashCode();
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;

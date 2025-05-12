@@ -31,27 +31,54 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Body7" /> class.
         /// </summary>
-        /// <param name="name">Name of deal.</param>
-        /// <param name="attributes">Attributes for deal update  If you wish to update the pipeline of a deal you need to provide the &#x60;pipeline&#x60; and the &#x60;deal_stage&#x60;.  Pipeline and deal_stage are ids you can fetch using this endpoint &#x60;/crm/pipeline/details/{pipelineID}&#x60; .</param>
-        public Body7(string name = default(string), Object attributes = default(Object))
+        /// <param name="name">Name of company.</param>
+        /// <param name="attributes">Attributes for company update.</param>
+        /// <param name="countryCode">Country code if phone_number is passed in attributes..</param>
+        /// <param name="linkedContactsIds">Warning - Using PATCH on linkedContactIds replaces the list of linked contacts. Omitted IDs will be removed..</param>
+        /// <param name="linkedDealsIds">Warning - Using PATCH on linkedDealsIds replaces the list of linked contacts. Omitted IDs will be removed..</param>
+        public Body7(string name = default(string), Object attributes = default(Object), long? countryCode = default(long?), List<long?> linkedContactsIds = default(List<long?>), List<string> linkedDealsIds = default(List<string>))
         {
             this.Name = name;
             this.Attributes = attributes;
+            this.CountryCode = countryCode;
+            this.LinkedContactsIds = linkedContactsIds;
+            this.LinkedDealsIds = linkedDealsIds;
         }
         
         /// <summary>
-        /// Name of deal
+        /// Name of company
         /// </summary>
-        /// <value>Name of deal</value>
+        /// <value>Name of company</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Attributes for deal update  If you wish to update the pipeline of a deal you need to provide the &#x60;pipeline&#x60; and the &#x60;deal_stage&#x60;.  Pipeline and deal_stage are ids you can fetch using this endpoint &#x60;/crm/pipeline/details/{pipelineID}&#x60; 
+        /// Attributes for company update
         /// </summary>
-        /// <value>Attributes for deal update  If you wish to update the pipeline of a deal you need to provide the &#x60;pipeline&#x60; and the &#x60;deal_stage&#x60;.  Pipeline and deal_stage are ids you can fetch using this endpoint &#x60;/crm/pipeline/details/{pipelineID}&#x60; </value>
+        /// <value>Attributes for company update</value>
         [DataMember(Name="attributes", EmitDefaultValue=false)]
         public Object Attributes { get; set; }
+
+        /// <summary>
+        /// Country code if phone_number is passed in attributes.
+        /// </summary>
+        /// <value>Country code if phone_number is passed in attributes.</value>
+        [DataMember(Name="countryCode", EmitDefaultValue=false)]
+        public long? CountryCode { get; set; }
+
+        /// <summary>
+        /// Warning - Using PATCH on linkedContactIds replaces the list of linked contacts. Omitted IDs will be removed.
+        /// </summary>
+        /// <value>Warning - Using PATCH on linkedContactIds replaces the list of linked contacts. Omitted IDs will be removed.</value>
+        [DataMember(Name="linkedContactsIds", EmitDefaultValue=false)]
+        public List<long?> LinkedContactsIds { get; set; }
+
+        /// <summary>
+        /// Warning - Using PATCH on linkedDealsIds replaces the list of linked contacts. Omitted IDs will be removed.
+        /// </summary>
+        /// <value>Warning - Using PATCH on linkedDealsIds replaces the list of linked contacts. Omitted IDs will be removed.</value>
+        [DataMember(Name="linkedDealsIds", EmitDefaultValue=false)]
+        public List<string> LinkedDealsIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,6 +90,9 @@ namespace brevo_csharp.Model
             sb.Append("class Body7 {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
+            sb.Append("  LinkedContactsIds: ").Append(LinkedContactsIds).Append("\n");
+            sb.Append("  LinkedDealsIds: ").Append(LinkedDealsIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,6 +136,21 @@ namespace brevo_csharp.Model
                     this.Attributes == input.Attributes ||
                     (this.Attributes != null &&
                     this.Attributes.Equals(input.Attributes))
+                ) && 
+                (
+                    this.CountryCode == input.CountryCode ||
+                    (this.CountryCode != null &&
+                    this.CountryCode.Equals(input.CountryCode))
+                ) && 
+                (
+                    this.LinkedContactsIds == input.LinkedContactsIds ||
+                    this.LinkedContactsIds != null &&
+                    this.LinkedContactsIds.SequenceEqual(input.LinkedContactsIds)
+                ) && 
+                (
+                    this.LinkedDealsIds == input.LinkedDealsIds ||
+                    this.LinkedDealsIds != null &&
+                    this.LinkedDealsIds.SequenceEqual(input.LinkedDealsIds)
                 );
         }
 
@@ -122,6 +167,12 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                if (this.CountryCode != null)
+                    hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
+                if (this.LinkedContactsIds != null)
+                    hashCode = hashCode * 59 + this.LinkedContactsIds.GetHashCode();
+                if (this.LinkedDealsIds != null)
+                    hashCode = hashCode * 59 + this.LinkedDealsIds.GetHashCode();
                 return hashCode;
             }
         }

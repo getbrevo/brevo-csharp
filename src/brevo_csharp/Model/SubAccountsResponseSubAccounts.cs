@@ -40,7 +40,8 @@ namespace brevo_csharp.Model
         /// <param name="companyName">Name of the sub-account company (required).</param>
         /// <param name="active">Whether the sub-account is active or not (required).</param>
         /// <param name="createdAt">Timestamp when the sub-account was created (required).</param>
-        public SubAccountsResponseSubAccounts(long? id = default(long?), string companyName = default(string), bool? active = default(bool?), long? createdAt = default(long?))
+        /// <param name="groups">Group details (required).</param>
+        public SubAccountsResponseSubAccounts(long? id = default(long?), string companyName = default(string), bool? active = default(bool?), long? createdAt = default(long?), List<SubAccountsResponseGroups> groups = default(List<SubAccountsResponseGroups>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -78,6 +79,15 @@ namespace brevo_csharp.Model
             {
                 this.CreatedAt = createdAt;
             }
+            // to ensure "groups" is required (not null)
+            if (groups == null)
+            {
+                throw new InvalidDataException("groups is a required property for SubAccountsResponseSubAccounts and cannot be null");
+            }
+            else
+            {
+                this.Groups = groups;
+            }
         }
         
         /// <summary>
@@ -109,6 +119,13 @@ namespace brevo_csharp.Model
         public long? CreatedAt { get; set; }
 
         /// <summary>
+        /// Group details
+        /// </summary>
+        /// <value>Group details</value>
+        [DataMember(Name="groups", EmitDefaultValue=false)]
+        public List<SubAccountsResponseGroups> Groups { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -120,6 +137,7 @@ namespace brevo_csharp.Model
             sb.Append("  CompanyName: ").Append(CompanyName).Append("\n");
             sb.Append("  Active: ").Append(Active).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  Groups: ").Append(Groups).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -173,6 +191,11 @@ namespace brevo_csharp.Model
                     this.CreatedAt == input.CreatedAt ||
                     (this.CreatedAt != null &&
                     this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.Groups == input.Groups ||
+                    this.Groups != null &&
+                    this.Groups.SequenceEqual(input.Groups)
                 );
         }
 
@@ -193,6 +216,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.Active.GetHashCode();
                 if (this.CreatedAt != null)
                     hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                if (this.Groups != null)
+                    hashCode = hashCode * 59 + this.Groups.GetHashCode();
                 return hashCode;
             }
         }

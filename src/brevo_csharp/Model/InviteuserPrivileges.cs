@@ -237,70 +237,88 @@ namespace brevo_csharp.Model
             Configure = 16,
             
             /// <summary>
-            /// Enum Manageowneddealstaskscompanies for value: manage_owned_deals_tasks_companies
+            /// Enum Createeditdeals for value: create_edit_deals
             /// </summary>
-            [EnumMember(Value = "manage_owned_deals_tasks_companies")]
-            Manageowneddealstaskscompanies = 17,
+            [EnumMember(Value = "create_edit_deals")]
+            Createeditdeals = 17,
             
             /// <summary>
-            /// Enum Manageothersdealstaskscompanies for value: manage_others_deals_tasks_companies
+            /// Enum Deletedeals for value: delete_deals
             /// </summary>
-            [EnumMember(Value = "manage_others_deals_tasks_companies")]
-            Manageothersdealstaskscompanies = 18,
+            [EnumMember(Value = "delete_deals")]
+            Deletedeals = 18,
+            
+            /// <summary>
+            /// Enum Manageothersdealstasks for value: manage_others_deals_tasks
+            /// </summary>
+            [EnumMember(Value = "manage_others_deals_tasks")]
+            Manageothersdealstasks = 19,
+            
+            /// <summary>
+            /// Enum Manageownedcompanies for value: manage_owned_companies
+            /// </summary>
+            [EnumMember(Value = "manage_owned_companies")]
+            Manageownedcompanies = 20,
+            
+            /// <summary>
+            /// Enum Manageotherscompanies for value: manage_others_companies
+            /// </summary>
+            [EnumMember(Value = "manage_others_companies")]
+            Manageotherscompanies = 21,
             
             /// <summary>
             /// Enum Reports for value: reports
             /// </summary>
             [EnumMember(Value = "reports")]
-            Reports = 19,
+            Reports = 22,
             
             /// <summary>
             /// Enum Sendersmanagement for value: senders_management
             /// </summary>
             [EnumMember(Value = "senders_management")]
-            Sendersmanagement = 20,
+            Sendersmanagement = 23,
             
             /// <summary>
             /// Enum Domainsmanagement for value: domains_management
             /// </summary>
             [EnumMember(Value = "domains_management")]
-            Domainsmanagement = 21,
+            Domainsmanagement = 24,
             
             /// <summary>
             /// Enum Dedicatedipsmanagement for value: dedicated_ips_management
             /// </summary>
             [EnumMember(Value = "dedicated_ips_management")]
-            Dedicatedipsmanagement = 22,
+            Dedicatedipsmanagement = 25,
             
             /// <summary>
             /// Enum Send for value: send
             /// </summary>
             [EnumMember(Value = "send")]
-            Send = 23,
+            Send = 26,
             
             /// <summary>
             /// Enum Smtp for value: smtp
             /// </summary>
             [EnumMember(Value = "smtp")]
-            Smtp = 24,
+            Smtp = 27,
             
             /// <summary>
             /// Enum Apikeys for value: api_keys
             /// </summary>
             [EnumMember(Value = "api_keys")]
-            Apikeys = 25,
+            Apikeys = 28,
             
             /// <summary>
             /// Enum Authorizedips for value: authorized_ips
             /// </summary>
             [EnumMember(Value = "authorized_ips")]
-            Authorizedips = 26,
+            Authorizedips = 29,
             
             /// <summary>
             /// Enum None for value: none
             /// </summary>
             [EnumMember(Value = "none")]
-            None = 27
+            None = 30
         }
 
 

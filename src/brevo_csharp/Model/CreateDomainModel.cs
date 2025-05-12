@@ -38,9 +38,10 @@ namespace brevo_csharp.Model
         /// </summary>
         /// <param name="id">ID of the Domain created (required).</param>
         /// <param name="domainName">Domain.</param>
+        /// <param name="domainProvider">Domain Provider.</param>
         /// <param name="message">Success message.</param>
         /// <param name="dnsRecords">dnsRecords.</param>
-        public CreateDomainModel(long? id = default(long?), string domainName = default(string), string message = default(string), CreateDomainModelDnsRecords dnsRecords = default(CreateDomainModelDnsRecords))
+        public CreateDomainModel(long? id = default(long?), string domainName = default(string), string domainProvider = default(string), string message = default(string), CreateDomainModelDnsRecords dnsRecords = default(CreateDomainModelDnsRecords))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -52,6 +53,7 @@ namespace brevo_csharp.Model
                 this.Id = id;
             }
             this.DomainName = domainName;
+            this.DomainProvider = domainProvider;
             this.Message = message;
             this.DnsRecords = dnsRecords;
         }
@@ -69,6 +71,13 @@ namespace brevo_csharp.Model
         /// <value>Domain</value>
         [DataMember(Name="domain_name", EmitDefaultValue=false)]
         public string DomainName { get; set; }
+
+        /// <summary>
+        /// Domain Provider
+        /// </summary>
+        /// <value>Domain Provider</value>
+        [DataMember(Name="domain_provider", EmitDefaultValue=false)]
+        public string DomainProvider { get; set; }
 
         /// <summary>
         /// Success message
@@ -93,6 +102,7 @@ namespace brevo_csharp.Model
             sb.Append("class CreateDomainModel {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  DomainName: ").Append(DomainName).Append("\n");
+            sb.Append("  DomainProvider: ").Append(DomainProvider).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  DnsRecords: ").Append(DnsRecords).Append("\n");
             sb.Append("}\n");
@@ -140,6 +150,11 @@ namespace brevo_csharp.Model
                     this.DomainName.Equals(input.DomainName))
                 ) && 
                 (
+                    this.DomainProvider == input.DomainProvider ||
+                    (this.DomainProvider != null &&
+                    this.DomainProvider.Equals(input.DomainProvider))
+                ) && 
+                (
                     this.Message == input.Message ||
                     (this.Message != null &&
                     this.Message.Equals(input.Message))
@@ -164,6 +179,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.DomainName != null)
                     hashCode = hashCode * 59 + this.DomainName.GetHashCode();
+                if (this.DomainProvider != null)
+                    hashCode = hashCode * 59 + this.DomainProvider.GetHashCode();
                 if (this.Message != null)
                     hashCode = hashCode * 59 + this.Message.GetHashCode();
                 if (this.DnsRecords != null)

@@ -36,9 +36,12 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Body6" /> class.
         /// </summary>
-        /// <param name="name">Name of deal (required).</param>
-        /// <param name="attributes">Attributes for deal creation  If you want to create a deal on a specific pipeline and stage you can use the following attributes &#x60;pipeline&#x60; and &#x60;deal_stage&#x60;.  Pipeline and deal_stage are ids you can fetch using this endpoint &#x60;/crm/pipeline/details/{pipelineID}&#x60; .</param>
-        public Body6(string name = default(string), Object attributes = default(Object))
+        /// <param name="name">Name of company (required).</param>
+        /// <param name="attributes">Attributes for company creation.</param>
+        /// <param name="countryCode">Country code if phone_number is passed in attributes..</param>
+        /// <param name="linkedContactsIds">Contact ids to be linked with company.</param>
+        /// <param name="linkedDealsIds">Deal ids to be linked with company.</param>
+        public Body6(string name = default(string), Object attributes = default(Object), long? countryCode = default(long?), List<long?> linkedContactsIds = default(List<long?>), List<string> linkedDealsIds = default(List<string>))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -50,21 +53,45 @@ namespace brevo_csharp.Model
                 this.Name = name;
             }
             this.Attributes = attributes;
+            this.CountryCode = countryCode;
+            this.LinkedContactsIds = linkedContactsIds;
+            this.LinkedDealsIds = linkedDealsIds;
         }
         
         /// <summary>
-        /// Name of deal
+        /// Name of company
         /// </summary>
-        /// <value>Name of deal</value>
+        /// <value>Name of company</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Attributes for deal creation  If you want to create a deal on a specific pipeline and stage you can use the following attributes &#x60;pipeline&#x60; and &#x60;deal_stage&#x60;.  Pipeline and deal_stage are ids you can fetch using this endpoint &#x60;/crm/pipeline/details/{pipelineID}&#x60; 
+        /// Attributes for company creation
         /// </summary>
-        /// <value>Attributes for deal creation  If you want to create a deal on a specific pipeline and stage you can use the following attributes &#x60;pipeline&#x60; and &#x60;deal_stage&#x60;.  Pipeline and deal_stage are ids you can fetch using this endpoint &#x60;/crm/pipeline/details/{pipelineID}&#x60; </value>
+        /// <value>Attributes for company creation</value>
         [DataMember(Name="attributes", EmitDefaultValue=false)]
         public Object Attributes { get; set; }
+
+        /// <summary>
+        /// Country code if phone_number is passed in attributes.
+        /// </summary>
+        /// <value>Country code if phone_number is passed in attributes.</value>
+        [DataMember(Name="countryCode", EmitDefaultValue=false)]
+        public long? CountryCode { get; set; }
+
+        /// <summary>
+        /// Contact ids to be linked with company
+        /// </summary>
+        /// <value>Contact ids to be linked with company</value>
+        [DataMember(Name="linkedContactsIds", EmitDefaultValue=false)]
+        public List<long?> LinkedContactsIds { get; set; }
+
+        /// <summary>
+        /// Deal ids to be linked with company
+        /// </summary>
+        /// <value>Deal ids to be linked with company</value>
+        [DataMember(Name="linkedDealsIds", EmitDefaultValue=false)]
+        public List<string> LinkedDealsIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,6 +103,9 @@ namespace brevo_csharp.Model
             sb.Append("class Body6 {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
+            sb.Append("  LinkedContactsIds: ").Append(LinkedContactsIds).Append("\n");
+            sb.Append("  LinkedDealsIds: ").Append(LinkedDealsIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,6 +149,21 @@ namespace brevo_csharp.Model
                     this.Attributes == input.Attributes ||
                     (this.Attributes != null &&
                     this.Attributes.Equals(input.Attributes))
+                ) && 
+                (
+                    this.CountryCode == input.CountryCode ||
+                    (this.CountryCode != null &&
+                    this.CountryCode.Equals(input.CountryCode))
+                ) && 
+                (
+                    this.LinkedContactsIds == input.LinkedContactsIds ||
+                    this.LinkedContactsIds != null &&
+                    this.LinkedContactsIds.SequenceEqual(input.LinkedContactsIds)
+                ) && 
+                (
+                    this.LinkedDealsIds == input.LinkedDealsIds ||
+                    this.LinkedDealsIds != null &&
+                    this.LinkedDealsIds.SequenceEqual(input.LinkedDealsIds)
                 );
         }
 
@@ -135,6 +180,12 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                if (this.CountryCode != null)
+                    hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
+                if (this.LinkedContactsIds != null)
+                    hashCode = hashCode * 59 + this.LinkedContactsIds.GetHashCode();
+                if (this.LinkedDealsIds != null)
+                    hashCode = hashCode * 59 + this.LinkedDealsIds.GetHashCode();
                 return hashCode;
             }
         }

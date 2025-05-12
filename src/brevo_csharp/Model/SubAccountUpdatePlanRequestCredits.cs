@@ -31,18 +31,54 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubAccountUpdatePlanRequestCredits" /> class.
         /// </summary>
-        /// <param name="email">Number of email credits.</param>
-        public SubAccountUpdatePlanRequestCredits(long? email = default(long?))
+        /// <param name="email">Number of email credits | Pass the value -1 for unlimited emails in ENTv2 only.</param>
+        /// <param name="sms">Number of SMS credits | Pass the value -1 for unlimited SMS in ENTv2 only.</param>
+        /// <param name="wpSubscribers">Number of Push credits, possible value is 0 and -1 | available in ENT-v2 only.</param>
+        /// <param name="externalFeeds">Number of externalFeeds credits, possible values are 0 or 1 |available in ENTv2 only.</param>
+        /// <param name="whatsapp">Number of whatsapp credits | Pass the value -1 for unlimited whatsapp in ENTv2 only.</param>
+        public SubAccountUpdatePlanRequestCredits(long? email = default(long?), float? sms = default(float?), long? wpSubscribers = default(long?), decimal? externalFeeds = default(decimal?), float? whatsapp = default(float?))
         {
             this.Email = email;
+            this.Sms = sms;
+            this.WpSubscribers = wpSubscribers;
+            this.ExternalFeeds = externalFeeds;
+            this.Whatsapp = whatsapp;
         }
         
         /// <summary>
-        /// Number of email credits
+        /// Number of email credits | Pass the value -1 for unlimited emails in ENTv2 only
         /// </summary>
-        /// <value>Number of email credits</value>
+        /// <value>Number of email credits | Pass the value -1 for unlimited emails in ENTv2 only</value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public long? Email { get; set; }
+
+        /// <summary>
+        /// Number of SMS credits | Pass the value -1 for unlimited SMS in ENTv2 only
+        /// </summary>
+        /// <value>Number of SMS credits | Pass the value -1 for unlimited SMS in ENTv2 only</value>
+        [DataMember(Name="sms", EmitDefaultValue=false)]
+        public float? Sms { get; set; }
+
+        /// <summary>
+        /// Number of Push credits, possible value is 0 and -1 | available in ENT-v2 only
+        /// </summary>
+        /// <value>Number of Push credits, possible value is 0 and -1 | available in ENT-v2 only</value>
+        [DataMember(Name="wpSubscribers", EmitDefaultValue=false)]
+        public long? WpSubscribers { get; set; }
+
+        /// <summary>
+        /// Number of externalFeeds credits, possible values are 0 or 1 |available in ENTv2 only
+        /// </summary>
+        /// <value>Number of externalFeeds credits, possible values are 0 or 1 |available in ENTv2 only</value>
+        [DataMember(Name="externalFeeds", EmitDefaultValue=false)]
+        public decimal? ExternalFeeds { get; set; }
+
+        /// <summary>
+        /// Number of whatsapp credits | Pass the value -1 for unlimited whatsapp in ENTv2 only
+        /// </summary>
+        /// <value>Number of whatsapp credits | Pass the value -1 for unlimited whatsapp in ENTv2 only</value>
+        [DataMember(Name="whatsapp", EmitDefaultValue=false)]
+        public float? Whatsapp { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,6 +89,10 @@ namespace brevo_csharp.Model
             var sb = new StringBuilder();
             sb.Append("class SubAccountUpdatePlanRequestCredits {\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  Sms: ").Append(Sms).Append("\n");
+            sb.Append("  WpSubscribers: ").Append(WpSubscribers).Append("\n");
+            sb.Append("  ExternalFeeds: ").Append(ExternalFeeds).Append("\n");
+            sb.Append("  Whatsapp: ").Append(Whatsapp).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,6 +131,26 @@ namespace brevo_csharp.Model
                     this.Email == input.Email ||
                     (this.Email != null &&
                     this.Email.Equals(input.Email))
+                ) && 
+                (
+                    this.Sms == input.Sms ||
+                    (this.Sms != null &&
+                    this.Sms.Equals(input.Sms))
+                ) && 
+                (
+                    this.WpSubscribers == input.WpSubscribers ||
+                    (this.WpSubscribers != null &&
+                    this.WpSubscribers.Equals(input.WpSubscribers))
+                ) && 
+                (
+                    this.ExternalFeeds == input.ExternalFeeds ||
+                    (this.ExternalFeeds != null &&
+                    this.ExternalFeeds.Equals(input.ExternalFeeds))
+                ) && 
+                (
+                    this.Whatsapp == input.Whatsapp ||
+                    (this.Whatsapp != null &&
+                    this.Whatsapp.Equals(input.Whatsapp))
                 );
         }
 
@@ -105,6 +165,14 @@ namespace brevo_csharp.Model
                 int hashCode = 41;
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
+                if (this.Sms != null)
+                    hashCode = hashCode * 59 + this.Sms.GetHashCode();
+                if (this.WpSubscribers != null)
+                    hashCode = hashCode * 59 + this.WpSubscribers.GetHashCode();
+                if (this.ExternalFeeds != null)
+                    hashCode = hashCode * 59 + this.ExternalFeeds.GetHashCode();
+                if (this.Whatsapp != null)
+                    hashCode = hashCode * 59 + this.Whatsapp.GetHashCode();
                 return hashCode;
             }
         }
