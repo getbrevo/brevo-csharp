@@ -91,7 +91,8 @@ namespace brevo_csharp.Model
         /// <param name="email">Email address for the organization (required).</param>
         /// <param name="language">Set the language of the sub-account.</param>
         /// <param name="timezone">Set the timezone of the sub-account.</param>
-        public CreateSubAccount(string companyName = default(string), string email = default(string), LanguageEnum? language = default(LanguageEnum?), string timezone = default(string))
+        /// <param name="groupIds">Set the group(s) for the sub-account.</param>
+        public CreateSubAccount(string companyName = default(string), string email = default(string), LanguageEnum? language = default(LanguageEnum?), string timezone = default(string), List<string> groupIds = default(List<string>))
         {
             // to ensure "companyName" is required (not null)
             if (companyName == null)
@@ -113,6 +114,7 @@ namespace brevo_csharp.Model
             }
             this.Language = language;
             this.Timezone = timezone;
+            this.GroupIds = groupIds;
         }
         
         /// <summary>
@@ -138,6 +140,13 @@ namespace brevo_csharp.Model
         public string Timezone { get; set; }
 
         /// <summary>
+        /// Set the group(s) for the sub-account
+        /// </summary>
+        /// <value>Set the group(s) for the sub-account</value>
+        [DataMember(Name="groupIds", EmitDefaultValue=false)]
+        public List<string> GroupIds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -149,6 +158,7 @@ namespace brevo_csharp.Model
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Language: ").Append(Language).Append("\n");
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
+            sb.Append("  GroupIds: ").Append(GroupIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -202,6 +212,11 @@ namespace brevo_csharp.Model
                     this.Timezone == input.Timezone ||
                     (this.Timezone != null &&
                     this.Timezone.Equals(input.Timezone))
+                ) && 
+                (
+                    this.GroupIds == input.GroupIds ||
+                    this.GroupIds != null &&
+                    this.GroupIds.SequenceEqual(input.GroupIds)
                 );
         }
 
@@ -222,6 +237,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.Language.GetHashCode();
                 if (this.Timezone != null)
                     hashCode = hashCode * 59 + this.Timezone.GetHashCode();
+                if (this.GroupIds != null)
+                    hashCode = hashCode * 59 + this.GroupIds.GetHashCode();
                 return hashCode;
             }
         }

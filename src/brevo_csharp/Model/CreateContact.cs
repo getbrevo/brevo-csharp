@@ -31,15 +31,15 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateContact" /> class.
         /// </summary>
-        /// <param name="email">Email address of the user. Mandatory if \&quot;SMS\&quot; field is not passed in \&quot;attributes\&quot; parameter. Mobile Number in \&quot;SMS\&quot; field should be passed with proper country code. For example {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;}.</param>
+        /// <param name="email">Email address of the user. **Mandatory if \&quot;ext_id\&quot;  &amp; \&quot;SMS\&quot; field is not passed.**.</param>
         /// <param name="extId">Pass your own Id to create a contact..</param>
-        /// <param name="attributes">Pass the set of attributes and their values. The attribute&#39;s parameter should be passed in capital letter while creating a contact. Values that don&#39;t match the attribute type (e.g. text or string in a date attribute) will be ignored.These attributes must be present in your Brevo account. For eg. {\&quot;FNAME\&quot;:\&quot;Elly\&quot;, \&quot;LNAME\&quot;:\&quot;Roger\&quot;}.</param>
+        /// <param name="attributes">Pass the set of attributes and their values. These attributes must be present in your Brevo account. For eg. {&#39;FNAME&#39;:&#39;Elly&#39;, &#39;LNAME&#39;:&#39;Roger&#39;, &#39;COUNTRIES&#39;:[&#39;India&#39;,&#39;China&#39;]}.</param>
         /// <param name="emailBlacklisted">Set this field to blacklist the contact for emails (emailBlacklisted &#x3D; true).</param>
         /// <param name="smsBlacklisted">Set this field to blacklist the contact for SMS (smsBlacklisted &#x3D; true).</param>
         /// <param name="listIds">Ids of the lists to add the contact to.</param>
         /// <param name="updateEnabled">Facilitate to update the existing contact in the same request (updateEnabled &#x3D; true) (default to false).</param>
         /// <param name="smtpBlacklistSender">transactional email forbidden sender for contact. Use only for email Contact ( only available if updateEnabled &#x3D; true ).</param>
-        public CreateContact(string email = default(string), string extId = default(string), Object attributes = default(Object), bool? emailBlacklisted = default(bool?), bool? smsBlacklisted = default(bool?), List<long?> listIds = default(List<long?>), bool? updateEnabled = false, List<string> smtpBlacklistSender = default(List<string>))
+        public CreateContact(string email = default(string), string extId = default(string), Dictionary<string, Object> attributes = default(Dictionary<string, Object>), bool? emailBlacklisted = default(bool?), bool? smsBlacklisted = default(bool?), List<long?> listIds = default(List<long?>), bool? updateEnabled = false, List<string> smtpBlacklistSender = default(List<string>))
         {
             this.Email = email;
             this.ExtId = extId;
@@ -60,9 +60,9 @@ namespace brevo_csharp.Model
         }
         
         /// <summary>
-        /// Email address of the user. Mandatory if \&quot;SMS\&quot; field is not passed in \&quot;attributes\&quot; parameter. Mobile Number in \&quot;SMS\&quot; field should be passed with proper country code. For example {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;}
+        /// Email address of the user. **Mandatory if \&quot;ext_id\&quot;  &amp; \&quot;SMS\&quot; field is not passed.**
         /// </summary>
-        /// <value>Email address of the user. Mandatory if \&quot;SMS\&quot; field is not passed in \&quot;attributes\&quot; parameter. Mobile Number in \&quot;SMS\&quot; field should be passed with proper country code. For example {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;}</value>
+        /// <value>Email address of the user. **Mandatory if \&quot;ext_id\&quot;  &amp; \&quot;SMS\&quot; field is not passed.**</value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
 
@@ -74,11 +74,11 @@ namespace brevo_csharp.Model
         public string ExtId { get; set; }
 
         /// <summary>
-        /// Pass the set of attributes and their values. The attribute&#39;s parameter should be passed in capital letter while creating a contact. Values that don&#39;t match the attribute type (e.g. text or string in a date attribute) will be ignored.These attributes must be present in your Brevo account. For eg. {\&quot;FNAME\&quot;:\&quot;Elly\&quot;, \&quot;LNAME\&quot;:\&quot;Roger\&quot;}
+        /// Pass the set of attributes and their values. These attributes must be present in your Brevo account. For eg. {&#39;FNAME&#39;:&#39;Elly&#39;, &#39;LNAME&#39;:&#39;Roger&#39;, &#39;COUNTRIES&#39;:[&#39;India&#39;,&#39;China&#39;]}
         /// </summary>
-        /// <value>Pass the set of attributes and their values. The attribute&#39;s parameter should be passed in capital letter while creating a contact. Values that don&#39;t match the attribute type (e.g. text or string in a date attribute) will be ignored.These attributes must be present in your Brevo account. For eg. {\&quot;FNAME\&quot;:\&quot;Elly\&quot;, \&quot;LNAME\&quot;:\&quot;Roger\&quot;}</value>
+        /// <value>Pass the set of attributes and their values. These attributes must be present in your Brevo account. For eg. {&#39;FNAME&#39;:&#39;Elly&#39;, &#39;LNAME&#39;:&#39;Roger&#39;, &#39;COUNTRIES&#39;:[&#39;India&#39;,&#39;China&#39;]}</value>
         [DataMember(Name="attributes", EmitDefaultValue=false)]
-        public Object Attributes { get; set; }
+        public Dictionary<string, Object> Attributes { get; set; }
 
         /// <summary>
         /// Set this field to blacklist the contact for emails (emailBlacklisted &#x3D; true)
@@ -177,8 +177,8 @@ namespace brevo_csharp.Model
                 ) && 
                 (
                     this.Attributes == input.Attributes ||
-                    (this.Attributes != null &&
-                    this.Attributes.Equals(input.Attributes))
+                    this.Attributes != null &&
+                    this.Attributes.SequenceEqual(input.Attributes)
                 ) && 
                 (
                     this.EmailBlacklisted == input.EmailBlacklisted ||

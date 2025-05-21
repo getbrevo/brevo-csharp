@@ -181,10 +181,8 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="ids">Filter by category ids (optional)</param>
         /// <param name="name">Filter by category name (optional)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
         /// <returns>GetCategories</returns>
-        GetCategories GetCategories (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null);
+        GetCategories GetCategories (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null);
 
         /// <summary>
         /// Return all your categories
@@ -198,10 +196,8 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="ids">Filter by category ids (optional)</param>
         /// <param name="name">Filter by category name (optional)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
         /// <returns>ApiResponse of GetCategories</returns>
-        ApiResponse<GetCategories> GetCategoriesWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null);
+        ApiResponse<GetCategories> GetCategoriesWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null);
         /// <summary>
         /// Get a category details
         /// </summary>
@@ -479,10 +475,8 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="ids">Filter by category ids (optional)</param>
         /// <param name="name">Filter by category name (optional)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
         /// <returns>Task of GetCategories</returns>
-        System.Threading.Tasks.Task<GetCategories> GetCategoriesAsync (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null);
+        System.Threading.Tasks.Task<GetCategories> GetCategoriesAsync (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null);
 
         /// <summary>
         /// Return all your categories
@@ -496,10 +490,8 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="ids">Filter by category ids (optional)</param>
         /// <param name="name">Filter by category name (optional)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
         /// <returns>Task of ApiResponse (GetCategories)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetCategories>> GetCategoriesAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null);
+        System.Threading.Tasks.Task<ApiResponse<GetCategories>> GetCategoriesAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null);
         /// <summary>
         /// Get a category details
         /// </summary>
@@ -1878,12 +1870,10 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="ids">Filter by category ids (optional)</param>
         /// <param name="name">Filter by category name (optional)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
         /// <returns>GetCategories</returns>
-        public GetCategories GetCategories (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null)
+        public GetCategories GetCategories (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null)
         {
-             ApiResponse<GetCategories> localVarResponse = GetCategoriesWithHttpInfo(limit, offset, sort, ids, name, modifiedSince, createdSince);
+             ApiResponse<GetCategories> localVarResponse = GetCategoriesWithHttpInfo(limit, offset, sort, ids, name);
              return localVarResponse.Data;
         }
 
@@ -1896,10 +1886,8 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="ids">Filter by category ids (optional)</param>
         /// <param name="name">Filter by category name (optional)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
         /// <returns>ApiResponse of GetCategories</returns>
-        public ApiResponse< GetCategories > GetCategoriesWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null)
+        public ApiResponse< GetCategories > GetCategoriesWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null)
         {
 
             var localVarPath = "./categories";
@@ -1929,8 +1917,6 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
             if (ids != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "ids", ids)); // query parameter
             if (name != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "name", name)); // query parameter
-            if (modifiedSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "modifiedSince", modifiedSince)); // query parameter
-            if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
 
             // authentication (api-key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
@@ -1970,12 +1956,10 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="ids">Filter by category ids (optional)</param>
         /// <param name="name">Filter by category name (optional)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
         /// <returns>Task of GetCategories</returns>
-        public async System.Threading.Tasks.Task<GetCategories> GetCategoriesAsync (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null)
+        public async System.Threading.Tasks.Task<GetCategories> GetCategoriesAsync (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null)
         {
-             ApiResponse<GetCategories> localVarResponse = await GetCategoriesAsyncWithHttpInfo(limit, offset, sort, ids, name, modifiedSince, createdSince);
+             ApiResponse<GetCategories> localVarResponse = await GetCategoriesAsyncWithHttpInfo(limit, offset, sort, ids, name);
              return localVarResponse.Data;
 
         }
@@ -1989,10 +1973,8 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="ids">Filter by category ids (optional)</param>
         /// <param name="name">Filter by category name (optional)</param>
-        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
-        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional)</param>
         /// <returns>Task of ApiResponse (GetCategories)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetCategories>> GetCategoriesAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetCategories>> GetCategoriesAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null)
         {
 
             var localVarPath = "./categories";
@@ -2022,8 +2004,6 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
             if (ids != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "ids", ids)); // query parameter
             if (name != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "name", name)); // query parameter
-            if (modifiedSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "modifiedSince", modifiedSince)); // query parameter
-            if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
 
             // authentication (api-key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))

@@ -76,7 +76,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the group</param>
         /// <param name="body">Group details to be updated.</param>
         /// <returns></returns>
-        void CorporateGroupIdPut (string id, Body1 body);
+        void CorporateGroupIdPut (string id, Body3 body);
 
         /// <summary>
         /// Update a group of sub-accounts
@@ -88,7 +88,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the group</param>
         /// <param name="body">Group details to be updated.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CorporateGroupIdPutWithHttpInfo (string id, Body1 body);
+        ApiResponse<Object> CorporateGroupIdPutWithHttpInfo (string id, Body3 body);
         /// <summary>
         /// Create a new group of sub-accounts
         /// </summary>
@@ -120,7 +120,7 @@ namespace brevo_csharp.Api
         /// <param name="groupId">Id of the group</param>
         /// <param name="body">List of sub-account ids</param>
         /// <returns></returns>
-        void CorporateGroupUnlinkGroupIdSubAccountsPut (string groupId, Body2 body);
+        void CorporateGroupUnlinkGroupIdSubAccountsPut (string groupId, Body4 body);
 
         /// <summary>
         /// Delete sub-account from group
@@ -132,7 +132,26 @@ namespace brevo_csharp.Api
         /// <param name="groupId">Id of the group</param>
         /// <param name="body">List of sub-account ids</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CorporateGroupUnlinkGroupIdSubAccountsPutWithHttpInfo (string groupId, Body2 body);
+        ApiResponse<Object> CorporateGroupUnlinkGroupIdSubAccountsPutWithHttpInfo (string groupId, Body4 body);
+        /// <summary>
+        /// List of all IPs
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows you to retrieve the list of active IPs on your Admin account
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        void CorporateIpGet ();
+
+        /// <summary>
+        /// List of all IPs
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows you to retrieve the list of active IPs on your Admin account
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> CorporateIpGetWithHttpInfo ();
         /// <summary>
         /// Get the details of requested master account
         /// </summary>
@@ -152,6 +171,27 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of MasterDetailsResponse</returns>
         ApiResponse<MasterDetailsResponse> CorporateMasterAccountGetWithHttpInfo ();
+        /// <summary>
+        /// Generate SSO token to access admin account
+        /// </summary>
+        /// <remarks>
+        /// This endpoint generates an SSO token to authenticate and access the admin account using the endpoint https://account-app.brevo.com/account/login/corporate/sso/[token], where [token] will be replaced by the actual token.
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ssoTokenRequestCorporate">User email of admin account</param>
+        /// <returns>GetSsoToken</returns>
+        GetSsoToken CorporateSsoTokenPost (SsoTokenRequestCorporate ssoTokenRequestCorporate);
+
+        /// <summary>
+        /// Generate SSO token to access admin account
+        /// </summary>
+        /// <remarks>
+        /// This endpoint generates an SSO token to authenticate and access the admin account using the endpoint https://account-app.brevo.com/account/login/corporate/sso/[token], where [token] will be replaced by the actual token.
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ssoTokenRequestCorporate">User email of admin account</param>
+        /// <returns>ApiResponse of GetSsoToken</returns>
+        ApiResponse<GetSsoToken> CorporateSsoTokenPostWithHttpInfo (SsoTokenRequestCorporate ssoTokenRequestCorporate);
         /// <summary>
         /// Get the list of all the sub-accounts of the master account.
         /// </summary>
@@ -244,7 +284,7 @@ namespace brevo_csharp.Api
         /// Update sub-account plan
         /// </summary>
         /// <remarks>
-        /// This endpoint will update the sub-account plan
+        /// This endpoint will update the sub-account plan. On the Corporate solution new version v2, you can set an unlimited number of credits in your sub-organization. Please pass the value “-1\&quot; to set the consumable in unlimited mode.
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the sub-account organization</param>
@@ -256,13 +296,55 @@ namespace brevo_csharp.Api
         /// Update sub-account plan
         /// </summary>
         /// <remarks>
-        /// This endpoint will update the sub-account plan
+        /// This endpoint will update the sub-account plan. On the Corporate solution new version v2, you can set an unlimited number of credits in your sub-organization. Please pass the value “-1\&quot; to set the consumable in unlimited mode.
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the sub-account organization</param>
         /// <param name="updatePlanDetails">Values to update a sub-account plan</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CorporateSubAccountIdPlanPutWithHttpInfo (long? id, SubAccountUpdatePlanRequest updatePlanDetails);
+        /// <summary>
+        /// Associate an IP to sub-accounts
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows to associate an IP to sub-accounts
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Ip address association details</param>
+        /// <returns>Object</returns>
+        Object CorporateSubAccountIpAssociatePost (Body1 body);
+
+        /// <summary>
+        /// Associate an IP to sub-accounts
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows to associate an IP to sub-accounts
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Ip address association details</param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> CorporateSubAccountIpAssociatePostWithHttpInfo (Body1 body);
+        /// <summary>
+        /// Dissociate an IP from sub-accounts
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows to dissociate an IP from sub-accounts
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Ip address dissociation details</param>
+        /// <returns></returns>
+        void CorporateSubAccountIpDissociatePut (Body2 body);
+
+        /// <summary>
+        /// Dissociate an IP from sub-accounts
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows to dissociate an IP from sub-accounts
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Ip address dissociation details</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> CorporateSubAccountIpDissociatePutWithHttpInfo (Body2 body);
         /// <summary>
         /// Create an API key for a sub-account
         /// </summary>
@@ -306,7 +388,7 @@ namespace brevo_csharp.Api
         /// <returns>ApiResponse of CreateSubAccountResponse</returns>
         ApiResponse<CreateSubAccountResponse> CorporateSubAccountPostWithHttpInfo (CreateSubAccount subAccountCreate);
         /// <summary>
-        /// Generate SSO token to access Brevo
+        /// Generate SSO token to access sub-account
         /// </summary>
         /// <remarks>
         /// This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.brevo.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
@@ -317,7 +399,7 @@ namespace brevo_csharp.Api
         GetSsoToken CorporateSubAccountSsoTokenPost (SsoTokenRequest ssoTokenRequest);
 
         /// <summary>
-        /// Generate SSO token to access Brevo
+        /// Generate SSO token to access sub-account
         /// </summary>
         /// <remarks>
         /// This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.brevo.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
@@ -327,10 +409,54 @@ namespace brevo_csharp.Api
         /// <returns>ApiResponse of GetSsoToken</returns>
         ApiResponse<GetSsoToken> CorporateSubAccountSsoTokenPostWithHttpInfo (SsoTokenRequest ssoTokenRequest);
         /// <summary>
+        /// Update sub-accounts plan
+        /// </summary>
+        /// <remarks>
+        /// This endpoint will update multiple sub-accounts plan. On the Corporate solution new version v2, you can set an unlimited number of credits in your sub-organization. Please pass the value “-1\&quot; to set the consumable in unlimited mode.
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updatePlanDetails">Values to update sub-accounts plan</param>
+        /// <returns></returns>
+        void CorporateSubAccountsPlanPut (SubAccountsUpdatePlanRequest updatePlanDetails);
+
+        /// <summary>
+        /// Update sub-accounts plan
+        /// </summary>
+        /// <remarks>
+        /// This endpoint will update multiple sub-accounts plan. On the Corporate solution new version v2, you can set an unlimited number of credits in your sub-organization. Please pass the value “-1\&quot; to set the consumable in unlimited mode.
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updatePlanDetails">Values to update sub-accounts plan</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> CorporateSubAccountsPlanPutWithHttpInfo (SubAccountsUpdatePlanRequest updatePlanDetails);
+        /// <summary>
+        /// Change admin user permissions
+        /// </summary>
+        /// <remarks>
+        /// This endpoint will allow you to change the permissions of Admin users of your Admin account
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">Email address of Admin user</param>
+        /// <param name="body">Values to update an admin user permissions</param>
+        /// <returns></returns>
+        void CorporateUserEmailPermissionsPut (string email, Body5 body);
+
+        /// <summary>
+        /// Change admin user permissions
+        /// </summary>
+        /// <remarks>
+        /// This endpoint will allow you to change the permissions of Admin users of your Admin account
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">Email address of Admin user</param>
+        /// <param name="body">Values to update an admin user permissions</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> CorporateUserEmailPermissionsPutWithHttpInfo (string email, Body5 body);
+        /// <summary>
         /// Resend / cancel admin user invitation
         /// </summary>
         /// <remarks>
-        /// This endpoint will allow the user to:  - Resend an admin user invitation - Cancel an admin user invitation 
+        /// This endpoint will allow the user to: - Resend an admin user invitation - Cancel an admin user invitation 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="action">Action to be performed (cancel / resend)</param>
@@ -342,7 +468,7 @@ namespace brevo_csharp.Api
         /// Resend / cancel admin user invitation
         /// </summary>
         /// <remarks>
-        /// This endpoint will allow the user to:  - Resend an admin user invitation - Cancel an admin user invitation 
+        /// This endpoint will allow the user to: - Resend an admin user invitation - Cancel an admin user invitation 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="action">Action to be performed (cancel / resend)</param>
@@ -379,10 +505,11 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
+        /// <param name="email">Enter the user&#39;s email address to filter their activity in the account. (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>GetAccountActivity</returns>
-        GetAccountActivity GetAccountActivity (string startDate = null, string endDate = null, long? limit = null, long? offset = null);
+        GetAccountActivity GetAccountActivity (string startDate = null, string endDate = null, string email = null, long? limit = null, long? offset = null);
 
         /// <summary>
         /// Get user activity logs
@@ -393,10 +520,11 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
+        /// <param name="email">Enter the user&#39;s email address to filter their activity in the account. (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>ApiResponse of GetAccountActivity</returns>
-        ApiResponse<GetAccountActivity> GetAccountActivityWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null);
+        ApiResponse<GetAccountActivity> GetAccountActivityWithHttpInfo (string startDate = null, string endDate = null, string email = null, long? limit = null, long? offset = null);
         /// <summary>
         /// Get the list of all admin users
         /// </summary>
@@ -416,6 +544,27 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of GetCorporateInvitedUsersList</returns>
         ApiResponse<GetCorporateInvitedUsersList> GetCorporateInvitedUsersListWithHttpInfo ();
+        /// <summary>
+        /// Check admin user permissions
+        /// </summary>
+        /// <remarks>
+        /// This endpoint will provide the list of admin user permissions
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">Email of the invited user</param>
+        /// <returns>GetCorporateUserPermission</returns>
+        GetCorporateUserPermission GetCorporateUserPermission (string email);
+
+        /// <summary>
+        /// Check admin user permissions
+        /// </summary>
+        /// <remarks>
+        /// This endpoint will provide the list of admin user permissions
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">Email of the invited user</param>
+        /// <returns>ApiResponse of GetCorporateUserPermission</returns>
+        ApiResponse<GetCorporateUserPermission> GetCorporateUserPermissionWithHttpInfo (string email);
         /// <summary>
         /// Get the list of groups
         /// </summary>
@@ -439,7 +588,7 @@ namespace brevo_csharp.Api
         /// Send invitation to an admin user
         /// </summary>
         /// <remarks>
-        /// &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
+        /// &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot; - &#x60;sub_organization_groups&#x60;   - \&quot;create\&quot;   - \&quot;edit_delete\&quot; - &#x60;create_sub_organizations&#x60;   - \&quot;all\&quot; - &#x60;manage_sub_organizations&#x60;   - \&quot;all\&quot; - &#x60;analytics&#x60;   - \&quot;download_data\&quot;   - \&quot;create_alerts\&quot;   - \&quot;my_looks\&quot;   - \&quot;explore_create\&quot; - &#x60;security&#x60;   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendInvitation">Payload to send an invitation</param>
@@ -450,7 +599,7 @@ namespace brevo_csharp.Api
         /// Send invitation to an admin user
         /// </summary>
         /// <remarks>
-        /// &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
+        /// &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot; - &#x60;sub_organization_groups&#x60;   - \&quot;create\&quot;   - \&quot;edit_delete\&quot; - &#x60;create_sub_organizations&#x60;   - \&quot;all\&quot; - &#x60;manage_sub_organizations&#x60;   - \&quot;all\&quot; - &#x60;analytics&#x60;   - \&quot;download_data\&quot;   - \&quot;create_alerts\&quot;   - \&quot;my_looks\&quot;   - \&quot;explore_create\&quot; - &#x60;security&#x60;   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendInvitation">Payload to send an invitation</param>
@@ -510,7 +659,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the group</param>
         /// <param name="body">Group details to be updated.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CorporateGroupIdPutAsync (string id, Body1 body);
+        System.Threading.Tasks.Task CorporateGroupIdPutAsync (string id, Body3 body);
 
         /// <summary>
         /// Update a group of sub-accounts
@@ -522,7 +671,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the group</param>
         /// <param name="body">Group details to be updated.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CorporateGroupIdPutAsyncWithHttpInfo (string id, Body1 body);
+        System.Threading.Tasks.Task<ApiResponse<Object>> CorporateGroupIdPutAsyncWithHttpInfo (string id, Body3 body);
         /// <summary>
         /// Create a new group of sub-accounts
         /// </summary>
@@ -554,7 +703,7 @@ namespace brevo_csharp.Api
         /// <param name="groupId">Id of the group</param>
         /// <param name="body">List of sub-account ids</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CorporateGroupUnlinkGroupIdSubAccountsPutAsync (string groupId, Body2 body);
+        System.Threading.Tasks.Task CorporateGroupUnlinkGroupIdSubAccountsPutAsync (string groupId, Body4 body);
 
         /// <summary>
         /// Delete sub-account from group
@@ -566,7 +715,26 @@ namespace brevo_csharp.Api
         /// <param name="groupId">Id of the group</param>
         /// <param name="body">List of sub-account ids</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CorporateGroupUnlinkGroupIdSubAccountsPutAsyncWithHttpInfo (string groupId, Body2 body);
+        System.Threading.Tasks.Task<ApiResponse<Object>> CorporateGroupUnlinkGroupIdSubAccountsPutAsyncWithHttpInfo (string groupId, Body4 body);
+        /// <summary>
+        /// List of all IPs
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows you to retrieve the list of active IPs on your Admin account
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task CorporateIpGetAsync ();
+
+        /// <summary>
+        /// List of all IPs
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows you to retrieve the list of active IPs on your Admin account
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> CorporateIpGetAsyncWithHttpInfo ();
         /// <summary>
         /// Get the details of requested master account
         /// </summary>
@@ -586,6 +754,27 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (MasterDetailsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<MasterDetailsResponse>> CorporateMasterAccountGetAsyncWithHttpInfo ();
+        /// <summary>
+        /// Generate SSO token to access admin account
+        /// </summary>
+        /// <remarks>
+        /// This endpoint generates an SSO token to authenticate and access the admin account using the endpoint https://account-app.brevo.com/account/login/corporate/sso/[token], where [token] will be replaced by the actual token.
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ssoTokenRequestCorporate">User email of admin account</param>
+        /// <returns>Task of GetSsoToken</returns>
+        System.Threading.Tasks.Task<GetSsoToken> CorporateSsoTokenPostAsync (SsoTokenRequestCorporate ssoTokenRequestCorporate);
+
+        /// <summary>
+        /// Generate SSO token to access admin account
+        /// </summary>
+        /// <remarks>
+        /// This endpoint generates an SSO token to authenticate and access the admin account using the endpoint https://account-app.brevo.com/account/login/corporate/sso/[token], where [token] will be replaced by the actual token.
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ssoTokenRequestCorporate">User email of admin account</param>
+        /// <returns>Task of ApiResponse (GetSsoToken)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetSsoToken>> CorporateSsoTokenPostAsyncWithHttpInfo (SsoTokenRequestCorporate ssoTokenRequestCorporate);
         /// <summary>
         /// Get the list of all the sub-accounts of the master account.
         /// </summary>
@@ -678,7 +867,7 @@ namespace brevo_csharp.Api
         /// Update sub-account plan
         /// </summary>
         /// <remarks>
-        /// This endpoint will update the sub-account plan
+        /// This endpoint will update the sub-account plan. On the Corporate solution new version v2, you can set an unlimited number of credits in your sub-organization. Please pass the value “-1\&quot; to set the consumable in unlimited mode.
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the sub-account organization</param>
@@ -690,13 +879,55 @@ namespace brevo_csharp.Api
         /// Update sub-account plan
         /// </summary>
         /// <remarks>
-        /// This endpoint will update the sub-account plan
+        /// This endpoint will update the sub-account plan. On the Corporate solution new version v2, you can set an unlimited number of credits in your sub-organization. Please pass the value “-1\&quot; to set the consumable in unlimited mode.
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the sub-account organization</param>
         /// <param name="updatePlanDetails">Values to update a sub-account plan</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> CorporateSubAccountIdPlanPutAsyncWithHttpInfo (long? id, SubAccountUpdatePlanRequest updatePlanDetails);
+        /// <summary>
+        /// Associate an IP to sub-accounts
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows to associate an IP to sub-accounts
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Ip address association details</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> CorporateSubAccountIpAssociatePostAsync (Body1 body);
+
+        /// <summary>
+        /// Associate an IP to sub-accounts
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows to associate an IP to sub-accounts
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Ip address association details</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> CorporateSubAccountIpAssociatePostAsyncWithHttpInfo (Body1 body);
+        /// <summary>
+        /// Dissociate an IP from sub-accounts
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows to dissociate an IP from sub-accounts
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Ip address dissociation details</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task CorporateSubAccountIpDissociatePutAsync (Body2 body);
+
+        /// <summary>
+        /// Dissociate an IP from sub-accounts
+        /// </summary>
+        /// <remarks>
+        /// This endpoint allows to dissociate an IP from sub-accounts
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Ip address dissociation details</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> CorporateSubAccountIpDissociatePutAsyncWithHttpInfo (Body2 body);
         /// <summary>
         /// Create an API key for a sub-account
         /// </summary>
@@ -740,7 +971,7 @@ namespace brevo_csharp.Api
         /// <returns>Task of ApiResponse (CreateSubAccountResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CreateSubAccountResponse>> CorporateSubAccountPostAsyncWithHttpInfo (CreateSubAccount subAccountCreate);
         /// <summary>
-        /// Generate SSO token to access Brevo
+        /// Generate SSO token to access sub-account
         /// </summary>
         /// <remarks>
         /// This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.brevo.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
@@ -751,7 +982,7 @@ namespace brevo_csharp.Api
         System.Threading.Tasks.Task<GetSsoToken> CorporateSubAccountSsoTokenPostAsync (SsoTokenRequest ssoTokenRequest);
 
         /// <summary>
-        /// Generate SSO token to access Brevo
+        /// Generate SSO token to access sub-account
         /// </summary>
         /// <remarks>
         /// This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.brevo.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
@@ -761,10 +992,54 @@ namespace brevo_csharp.Api
         /// <returns>Task of ApiResponse (GetSsoToken)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetSsoToken>> CorporateSubAccountSsoTokenPostAsyncWithHttpInfo (SsoTokenRequest ssoTokenRequest);
         /// <summary>
+        /// Update sub-accounts plan
+        /// </summary>
+        /// <remarks>
+        /// This endpoint will update multiple sub-accounts plan. On the Corporate solution new version v2, you can set an unlimited number of credits in your sub-organization. Please pass the value “-1\&quot; to set the consumable in unlimited mode.
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updatePlanDetails">Values to update sub-accounts plan</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task CorporateSubAccountsPlanPutAsync (SubAccountsUpdatePlanRequest updatePlanDetails);
+
+        /// <summary>
+        /// Update sub-accounts plan
+        /// </summary>
+        /// <remarks>
+        /// This endpoint will update multiple sub-accounts plan. On the Corporate solution new version v2, you can set an unlimited number of credits in your sub-organization. Please pass the value “-1\&quot; to set the consumable in unlimited mode.
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updatePlanDetails">Values to update sub-accounts plan</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> CorporateSubAccountsPlanPutAsyncWithHttpInfo (SubAccountsUpdatePlanRequest updatePlanDetails);
+        /// <summary>
+        /// Change admin user permissions
+        /// </summary>
+        /// <remarks>
+        /// This endpoint will allow you to change the permissions of Admin users of your Admin account
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">Email address of Admin user</param>
+        /// <param name="body">Values to update an admin user permissions</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task CorporateUserEmailPermissionsPutAsync (string email, Body5 body);
+
+        /// <summary>
+        /// Change admin user permissions
+        /// </summary>
+        /// <remarks>
+        /// This endpoint will allow you to change the permissions of Admin users of your Admin account
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">Email address of Admin user</param>
+        /// <param name="body">Values to update an admin user permissions</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> CorporateUserEmailPermissionsPutAsyncWithHttpInfo (string email, Body5 body);
+        /// <summary>
         /// Resend / cancel admin user invitation
         /// </summary>
         /// <remarks>
-        /// This endpoint will allow the user to:  - Resend an admin user invitation - Cancel an admin user invitation 
+        /// This endpoint will allow the user to: - Resend an admin user invitation - Cancel an admin user invitation 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="action">Action to be performed (cancel / resend)</param>
@@ -776,7 +1051,7 @@ namespace brevo_csharp.Api
         /// Resend / cancel admin user invitation
         /// </summary>
         /// <remarks>
-        /// This endpoint will allow the user to:  - Resend an admin user invitation - Cancel an admin user invitation 
+        /// This endpoint will allow the user to: - Resend an admin user invitation - Cancel an admin user invitation 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="action">Action to be performed (cancel / resend)</param>
@@ -813,10 +1088,11 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
+        /// <param name="email">Enter the user&#39;s email address to filter their activity in the account. (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>Task of GetAccountActivity</returns>
-        System.Threading.Tasks.Task<GetAccountActivity> GetAccountActivityAsync (string startDate = null, string endDate = null, long? limit = null, long? offset = null);
+        System.Threading.Tasks.Task<GetAccountActivity> GetAccountActivityAsync (string startDate = null, string endDate = null, string email = null, long? limit = null, long? offset = null);
 
         /// <summary>
         /// Get user activity logs
@@ -827,10 +1103,11 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
+        /// <param name="email">Enter the user&#39;s email address to filter their activity in the account. (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (GetAccountActivity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetAccountActivity>> GetAccountActivityAsyncWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null);
+        System.Threading.Tasks.Task<ApiResponse<GetAccountActivity>> GetAccountActivityAsyncWithHttpInfo (string startDate = null, string endDate = null, string email = null, long? limit = null, long? offset = null);
         /// <summary>
         /// Get the list of all admin users
         /// </summary>
@@ -850,6 +1127,27 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (GetCorporateInvitedUsersList)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetCorporateInvitedUsersList>> GetCorporateInvitedUsersListAsyncWithHttpInfo ();
+        /// <summary>
+        /// Check admin user permissions
+        /// </summary>
+        /// <remarks>
+        /// This endpoint will provide the list of admin user permissions
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">Email of the invited user</param>
+        /// <returns>Task of GetCorporateUserPermission</returns>
+        System.Threading.Tasks.Task<GetCorporateUserPermission> GetCorporateUserPermissionAsync (string email);
+
+        /// <summary>
+        /// Check admin user permissions
+        /// </summary>
+        /// <remarks>
+        /// This endpoint will provide the list of admin user permissions
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">Email of the invited user</param>
+        /// <returns>Task of ApiResponse (GetCorporateUserPermission)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetCorporateUserPermission>> GetCorporateUserPermissionAsyncWithHttpInfo (string email);
         /// <summary>
         /// Get the list of groups
         /// </summary>
@@ -873,7 +1171,7 @@ namespace brevo_csharp.Api
         /// Send invitation to an admin user
         /// </summary>
         /// <remarks>
-        /// &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
+        /// &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot; - &#x60;sub_organization_groups&#x60;   - \&quot;create\&quot;   - \&quot;edit_delete\&quot; - &#x60;create_sub_organizations&#x60;   - \&quot;all\&quot; - &#x60;manage_sub_organizations&#x60;   - \&quot;all\&quot; - &#x60;analytics&#x60;   - \&quot;download_data\&quot;   - \&quot;create_alerts\&quot;   - \&quot;my_looks\&quot;   - \&quot;explore_create\&quot; - &#x60;security&#x60;   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendInvitation">Payload to send an invitation</param>
@@ -884,7 +1182,7 @@ namespace brevo_csharp.Api
         /// Send invitation to an admin user
         /// </summary>
         /// <remarks>
-        /// &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
+        /// &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot; - &#x60;sub_organization_groups&#x60;   - \&quot;create\&quot;   - \&quot;edit_delete\&quot; - &#x60;create_sub_organizations&#x60;   - \&quot;all\&quot; - &#x60;manage_sub_organizations&#x60;   - \&quot;all\&quot; - &#x60;analytics&#x60;   - \&quot;download_data\&quot;   - \&quot;create_alerts\&quot;   - \&quot;my_looks\&quot;   - \&quot;explore_create\&quot; - &#x60;security&#x60;   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendInvitation">Payload to send an invitation</param>
@@ -1305,7 +1603,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the group</param>
         /// <param name="body">Group details to be updated.</param>
         /// <returns></returns>
-        public void CorporateGroupIdPut (string id, Body1 body)
+        public void CorporateGroupIdPut (string id, Body3 body)
         {
              CorporateGroupIdPutWithHttpInfo(id, body);
         }
@@ -1317,7 +1615,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the group</param>
         /// <param name="body">Group details to be updated.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CorporateGroupIdPutWithHttpInfo (string id, Body1 body)
+        public ApiResponse<Object> CorporateGroupIdPutWithHttpInfo (string id, Body3 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1394,7 +1692,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the group</param>
         /// <param name="body">Group details to be updated.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CorporateGroupIdPutAsync (string id, Body1 body)
+        public async System.Threading.Tasks.Task CorporateGroupIdPutAsync (string id, Body3 body)
         {
              await CorporateGroupIdPutAsyncWithHttpInfo(id, body);
 
@@ -1407,7 +1705,7 @@ namespace brevo_csharp.Api
         /// <param name="id">Id of the group</param>
         /// <param name="body">Group details to be updated.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateGroupIdPutAsyncWithHttpInfo (string id, Body1 body)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateGroupIdPutAsyncWithHttpInfo (string id, Body3 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1653,7 +1951,7 @@ namespace brevo_csharp.Api
         /// <param name="groupId">Id of the group</param>
         /// <param name="body">List of sub-account ids</param>
         /// <returns></returns>
-        public void CorporateGroupUnlinkGroupIdSubAccountsPut (string groupId, Body2 body)
+        public void CorporateGroupUnlinkGroupIdSubAccountsPut (string groupId, Body4 body)
         {
              CorporateGroupUnlinkGroupIdSubAccountsPutWithHttpInfo(groupId, body);
         }
@@ -1665,7 +1963,7 @@ namespace brevo_csharp.Api
         /// <param name="groupId">Id of the group</param>
         /// <param name="body">List of sub-account ids</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CorporateGroupUnlinkGroupIdSubAccountsPutWithHttpInfo (string groupId, Body2 body)
+        public ApiResponse<Object> CorporateGroupUnlinkGroupIdSubAccountsPutWithHttpInfo (string groupId, Body4 body)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -1742,7 +2040,7 @@ namespace brevo_csharp.Api
         /// <param name="groupId">Id of the group</param>
         /// <param name="body">List of sub-account ids</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CorporateGroupUnlinkGroupIdSubAccountsPutAsync (string groupId, Body2 body)
+        public async System.Threading.Tasks.Task CorporateGroupUnlinkGroupIdSubAccountsPutAsync (string groupId, Body4 body)
         {
              await CorporateGroupUnlinkGroupIdSubAccountsPutAsyncWithHttpInfo(groupId, body);
 
@@ -1755,7 +2053,7 @@ namespace brevo_csharp.Api
         /// <param name="groupId">Id of the group</param>
         /// <param name="body">List of sub-account ids</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateGroupUnlinkGroupIdSubAccountsPutAsyncWithHttpInfo (string groupId, Body2 body)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateGroupUnlinkGroupIdSubAccountsPutAsyncWithHttpInfo (string groupId, Body4 body)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -1817,6 +2115,147 @@ namespace brevo_csharp.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CorporateGroupUnlinkGroupIdSubAccountsPut", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// List of all IPs This endpoint allows you to retrieve the list of active IPs on your Admin account
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        public void CorporateIpGet ()
+        {
+             CorporateIpGetWithHttpInfo();
+        }
+
+        /// <summary>
+        /// List of all IPs This endpoint allows you to retrieve the list of active IPs on your Admin account
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> CorporateIpGetWithHttpInfo ()
+        {
+
+            var localVarPath = "./corporate/ip";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CorporateIpGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// List of all IPs This endpoint allows you to retrieve the list of active IPs on your Admin account
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task CorporateIpGetAsync ()
+        {
+             await CorporateIpGetAsyncWithHttpInfo();
+
+        }
+
+        /// <summary>
+        /// List of all IPs This endpoint allows you to retrieve the list of active IPs on your Admin account
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateIpGetAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "./corporate/ip";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CorporateIpGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1966,6 +2405,175 @@ namespace brevo_csharp.Api
             return new ApiResponse<MasterDetailsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (MasterDetailsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MasterDetailsResponse)));
+        }
+
+        /// <summary>
+        /// Generate SSO token to access admin account This endpoint generates an SSO token to authenticate and access the admin account using the endpoint https://account-app.brevo.com/account/login/corporate/sso/[token], where [token] will be replaced by the actual token.
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ssoTokenRequestCorporate">User email of admin account</param>
+        /// <returns>GetSsoToken</returns>
+        public GetSsoToken CorporateSsoTokenPost (SsoTokenRequestCorporate ssoTokenRequestCorporate)
+        {
+             ApiResponse<GetSsoToken> localVarResponse = CorporateSsoTokenPostWithHttpInfo(ssoTokenRequestCorporate);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate SSO token to access admin account This endpoint generates an SSO token to authenticate and access the admin account using the endpoint https://account-app.brevo.com/account/login/corporate/sso/[token], where [token] will be replaced by the actual token.
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ssoTokenRequestCorporate">User email of admin account</param>
+        /// <returns>ApiResponse of GetSsoToken</returns>
+        public ApiResponse< GetSsoToken > CorporateSsoTokenPostWithHttpInfo (SsoTokenRequestCorporate ssoTokenRequestCorporate)
+        {
+            // verify the required parameter 'ssoTokenRequestCorporate' is set
+            if (ssoTokenRequestCorporate == null)
+                throw new ApiException(400, "Missing required parameter 'ssoTokenRequestCorporate' when calling MasterAccountApi->CorporateSsoTokenPost");
+
+            var localVarPath = "./corporate/ssoToken";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (ssoTokenRequestCorporate != null && ssoTokenRequestCorporate.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(ssoTokenRequestCorporate); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = ssoTokenRequestCorporate; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CorporateSsoTokenPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GetSsoToken>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (GetSsoToken) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSsoToken)));
+        }
+
+        /// <summary>
+        /// Generate SSO token to access admin account This endpoint generates an SSO token to authenticate and access the admin account using the endpoint https://account-app.brevo.com/account/login/corporate/sso/[token], where [token] will be replaced by the actual token.
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ssoTokenRequestCorporate">User email of admin account</param>
+        /// <returns>Task of GetSsoToken</returns>
+        public async System.Threading.Tasks.Task<GetSsoToken> CorporateSsoTokenPostAsync (SsoTokenRequestCorporate ssoTokenRequestCorporate)
+        {
+             ApiResponse<GetSsoToken> localVarResponse = await CorporateSsoTokenPostAsyncWithHttpInfo(ssoTokenRequestCorporate);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Generate SSO token to access admin account This endpoint generates an SSO token to authenticate and access the admin account using the endpoint https://account-app.brevo.com/account/login/corporate/sso/[token], where [token] will be replaced by the actual token.
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ssoTokenRequestCorporate">User email of admin account</param>
+        /// <returns>Task of ApiResponse (GetSsoToken)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GetSsoToken>> CorporateSsoTokenPostAsyncWithHttpInfo (SsoTokenRequestCorporate ssoTokenRequestCorporate)
+        {
+            // verify the required parameter 'ssoTokenRequestCorporate' is set
+            if (ssoTokenRequestCorporate == null)
+                throw new ApiException(400, "Missing required parameter 'ssoTokenRequestCorporate' when calling MasterAccountApi->CorporateSsoTokenPost");
+
+            var localVarPath = "./corporate/ssoToken";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (ssoTokenRequestCorporate != null && ssoTokenRequestCorporate.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(ssoTokenRequestCorporate); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = ssoTokenRequestCorporate; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CorporateSsoTokenPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GetSsoToken>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (GetSsoToken) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSsoToken)));
         }
 
         /// <summary>
@@ -2623,7 +3231,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Update sub-account plan This endpoint will update the sub-account plan
+        /// Update sub-account plan This endpoint will update the sub-account plan. On the Corporate solution new version v2, you can set an unlimited number of credits in your sub-organization. Please pass the value “-1\&quot; to set the consumable in unlimited mode.
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the sub-account organization</param>
@@ -2635,7 +3243,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Update sub-account plan This endpoint will update the sub-account plan
+        /// Update sub-account plan This endpoint will update the sub-account plan. On the Corporate solution new version v2, you can set an unlimited number of credits in your sub-organization. Please pass the value “-1\&quot; to set the consumable in unlimited mode.
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the sub-account organization</param>
@@ -2712,7 +3320,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Update sub-account plan This endpoint will update the sub-account plan
+        /// Update sub-account plan This endpoint will update the sub-account plan. On the Corporate solution new version v2, you can set an unlimited number of credits in your sub-organization. Please pass the value “-1\&quot; to set the consumable in unlimited mode.
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the sub-account organization</param>
@@ -2725,7 +3333,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Update sub-account plan This endpoint will update the sub-account plan
+        /// Update sub-account plan This endpoint will update the sub-account plan. On the Corporate solution new version v2, you can set an unlimited number of credits in your sub-organization. Please pass the value “-1\&quot; to set the consumable in unlimited mode.
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the sub-account organization</param>
@@ -2793,6 +3401,342 @@ namespace brevo_csharp.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CorporateSubAccountIdPlanPut", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Associate an IP to sub-accounts This endpoint allows to associate an IP to sub-accounts
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Ip address association details</param>
+        /// <returns>Object</returns>
+        public Object CorporateSubAccountIpAssociatePost (Body1 body)
+        {
+             ApiResponse<Object> localVarResponse = CorporateSubAccountIpAssociatePostWithHttpInfo(body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Associate an IP to sub-accounts This endpoint allows to associate an IP to sub-accounts
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Ip address association details</param>
+        /// <returns>ApiResponse of Object</returns>
+        public ApiResponse< Object > CorporateSubAccountIpAssociatePostWithHttpInfo (Body1 body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling MasterAccountApi->CorporateSubAccountIpAssociatePost");
+
+            var localVarPath = "./corporate/subAccount/ip/associate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CorporateSubAccountIpAssociatePost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (Object) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+        }
+
+        /// <summary>
+        /// Associate an IP to sub-accounts This endpoint allows to associate an IP to sub-accounts
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Ip address association details</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> CorporateSubAccountIpAssociatePostAsync (Body1 body)
+        {
+             ApiResponse<Object> localVarResponse = await CorporateSubAccountIpAssociatePostAsyncWithHttpInfo(body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Associate an IP to sub-accounts This endpoint allows to associate an IP to sub-accounts
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Ip address association details</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateSubAccountIpAssociatePostAsyncWithHttpInfo (Body1 body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling MasterAccountApi->CorporateSubAccountIpAssociatePost");
+
+            var localVarPath = "./corporate/subAccount/ip/associate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CorporateSubAccountIpAssociatePost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (Object) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+        }
+
+        /// <summary>
+        /// Dissociate an IP from sub-accounts This endpoint allows to dissociate an IP from sub-accounts
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Ip address dissociation details</param>
+        /// <returns></returns>
+        public void CorporateSubAccountIpDissociatePut (Body2 body)
+        {
+             CorporateSubAccountIpDissociatePutWithHttpInfo(body);
+        }
+
+        /// <summary>
+        /// Dissociate an IP from sub-accounts This endpoint allows to dissociate an IP from sub-accounts
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Ip address dissociation details</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> CorporateSubAccountIpDissociatePutWithHttpInfo (Body2 body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling MasterAccountApi->CorporateSubAccountIpDissociatePut");
+
+            var localVarPath = "./corporate/subAccount/ip/dissociate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CorporateSubAccountIpDissociatePut", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Dissociate an IP from sub-accounts This endpoint allows to dissociate an IP from sub-accounts
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Ip address dissociation details</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task CorporateSubAccountIpDissociatePutAsync (Body2 body)
+        {
+             await CorporateSubAccountIpDissociatePutAsyncWithHttpInfo(body);
+
+        }
+
+        /// <summary>
+        /// Dissociate an IP from sub-accounts This endpoint allows to dissociate an IP from sub-accounts
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Ip address dissociation details</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateSubAccountIpDissociatePutAsyncWithHttpInfo (Body2 body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling MasterAccountApi->CorporateSubAccountIpDissociatePut");
+
+            var localVarPath = "./corporate/subAccount/ip/dissociate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CorporateSubAccountIpDissociatePut", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -3140,7 +4084,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Generate SSO token to access Brevo This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.brevo.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
+        /// Generate SSO token to access sub-account This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.brevo.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ssoTokenRequest">Values to generate SSO token for sub-account</param>
@@ -3152,7 +4096,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Generate SSO token to access Brevo This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.brevo.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
+        /// Generate SSO token to access sub-account This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.brevo.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ssoTokenRequest">Values to generate SSO token for sub-account</param>
@@ -3224,7 +4168,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Generate SSO token to access Brevo This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.brevo.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
+        /// Generate SSO token to access sub-account This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.brevo.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ssoTokenRequest">Values to generate SSO token for sub-account</param>
@@ -3237,7 +4181,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Generate SSO token to access Brevo This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.brevo.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
+        /// Generate SSO token to access sub-account This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.brevo.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ssoTokenRequest">Values to generate SSO token for sub-account</param>
@@ -3309,7 +4253,353 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Resend / cancel admin user invitation This endpoint will allow the user to:  - Resend an admin user invitation - Cancel an admin user invitation 
+        /// Update sub-accounts plan This endpoint will update multiple sub-accounts plan. On the Corporate solution new version v2, you can set an unlimited number of credits in your sub-organization. Please pass the value “-1\&quot; to set the consumable in unlimited mode.
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updatePlanDetails">Values to update sub-accounts plan</param>
+        /// <returns></returns>
+        public void CorporateSubAccountsPlanPut (SubAccountsUpdatePlanRequest updatePlanDetails)
+        {
+             CorporateSubAccountsPlanPutWithHttpInfo(updatePlanDetails);
+        }
+
+        /// <summary>
+        /// Update sub-accounts plan This endpoint will update multiple sub-accounts plan. On the Corporate solution new version v2, you can set an unlimited number of credits in your sub-organization. Please pass the value “-1\&quot; to set the consumable in unlimited mode.
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updatePlanDetails">Values to update sub-accounts plan</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> CorporateSubAccountsPlanPutWithHttpInfo (SubAccountsUpdatePlanRequest updatePlanDetails)
+        {
+            // verify the required parameter 'updatePlanDetails' is set
+            if (updatePlanDetails == null)
+                throw new ApiException(400, "Missing required parameter 'updatePlanDetails' when calling MasterAccountApi->CorporateSubAccountsPlanPut");
+
+            var localVarPath = "./corporate/subAccounts/plan";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (updatePlanDetails != null && updatePlanDetails.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(updatePlanDetails); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = updatePlanDetails; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CorporateSubAccountsPlanPut", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Update sub-accounts plan This endpoint will update multiple sub-accounts plan. On the Corporate solution new version v2, you can set an unlimited number of credits in your sub-organization. Please pass the value “-1\&quot; to set the consumable in unlimited mode.
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updatePlanDetails">Values to update sub-accounts plan</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task CorporateSubAccountsPlanPutAsync (SubAccountsUpdatePlanRequest updatePlanDetails)
+        {
+             await CorporateSubAccountsPlanPutAsyncWithHttpInfo(updatePlanDetails);
+
+        }
+
+        /// <summary>
+        /// Update sub-accounts plan This endpoint will update multiple sub-accounts plan. On the Corporate solution new version v2, you can set an unlimited number of credits in your sub-organization. Please pass the value “-1\&quot; to set the consumable in unlimited mode.
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updatePlanDetails">Values to update sub-accounts plan</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateSubAccountsPlanPutAsyncWithHttpInfo (SubAccountsUpdatePlanRequest updatePlanDetails)
+        {
+            // verify the required parameter 'updatePlanDetails' is set
+            if (updatePlanDetails == null)
+                throw new ApiException(400, "Missing required parameter 'updatePlanDetails' when calling MasterAccountApi->CorporateSubAccountsPlanPut");
+
+            var localVarPath = "./corporate/subAccounts/plan";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (updatePlanDetails != null && updatePlanDetails.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(updatePlanDetails); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = updatePlanDetails; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CorporateSubAccountsPlanPut", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Change admin user permissions This endpoint will allow you to change the permissions of Admin users of your Admin account
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">Email address of Admin user</param>
+        /// <param name="body">Values to update an admin user permissions</param>
+        /// <returns></returns>
+        public void CorporateUserEmailPermissionsPut (string email, Body5 body)
+        {
+             CorporateUserEmailPermissionsPutWithHttpInfo(email, body);
+        }
+
+        /// <summary>
+        /// Change admin user permissions This endpoint will allow you to change the permissions of Admin users of your Admin account
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">Email address of Admin user</param>
+        /// <param name="body">Values to update an admin user permissions</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> CorporateUserEmailPermissionsPutWithHttpInfo (string email, Body5 body)
+        {
+            // verify the required parameter 'email' is set
+            if (email == null)
+                throw new ApiException(400, "Missing required parameter 'email' when calling MasterAccountApi->CorporateUserEmailPermissionsPut");
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling MasterAccountApi->CorporateUserEmailPermissionsPut");
+
+            var localVarPath = "./corporate/user/{email}/permissions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (email != null) localVarPathParams.Add("email", this.Configuration.ApiClient.ParameterToString(email)); // path parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CorporateUserEmailPermissionsPut", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Change admin user permissions This endpoint will allow you to change the permissions of Admin users of your Admin account
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">Email address of Admin user</param>
+        /// <param name="body">Values to update an admin user permissions</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task CorporateUserEmailPermissionsPutAsync (string email, Body5 body)
+        {
+             await CorporateUserEmailPermissionsPutAsyncWithHttpInfo(email, body);
+
+        }
+
+        /// <summary>
+        /// Change admin user permissions This endpoint will allow you to change the permissions of Admin users of your Admin account
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">Email address of Admin user</param>
+        /// <param name="body">Values to update an admin user permissions</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CorporateUserEmailPermissionsPutAsyncWithHttpInfo (string email, Body5 body)
+        {
+            // verify the required parameter 'email' is set
+            if (email == null)
+                throw new ApiException(400, "Missing required parameter 'email' when calling MasterAccountApi->CorporateUserEmailPermissionsPut");
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling MasterAccountApi->CorporateUserEmailPermissionsPut");
+
+            var localVarPath = "./corporate/user/{email}/permissions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (email != null) localVarPathParams.Add("email", this.Configuration.ApiClient.ParameterToString(email)); // path parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CorporateUserEmailPermissionsPut", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Resend / cancel admin user invitation This endpoint will allow the user to: - Resend an admin user invitation - Cancel an admin user invitation 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="action">Action to be performed (cancel / resend)</param>
@@ -3322,7 +4612,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Resend / cancel admin user invitation This endpoint will allow the user to:  - Resend an admin user invitation - Cancel an admin user invitation 
+        /// Resend / cancel admin user invitation This endpoint will allow the user to: - Resend an admin user invitation - Cancel an admin user invitation 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="action">Action to be performed (cancel / resend)</param>
@@ -3392,7 +4682,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Resend / cancel admin user invitation This endpoint will allow the user to:  - Resend an admin user invitation - Cancel an admin user invitation 
+        /// Resend / cancel admin user invitation This endpoint will allow the user to: - Resend an admin user invitation - Cancel an admin user invitation 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="action">Action to be performed (cancel / resend)</param>
@@ -3406,7 +4696,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Resend / cancel admin user invitation This endpoint will allow the user to:  - Resend an admin user invitation - Cancel an admin user invitation 
+        /// Resend / cancel admin user invitation This endpoint will allow the user to: - Resend an admin user invitation - Cancel an admin user invitation 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="action">Action to be performed (cancel / resend)</param>
@@ -3634,12 +4924,13 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
+        /// <param name="email">Enter the user&#39;s email address to filter their activity in the account. (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>GetAccountActivity</returns>
-        public GetAccountActivity GetAccountActivity (string startDate = null, string endDate = null, long? limit = null, long? offset = null)
+        public GetAccountActivity GetAccountActivity (string startDate = null, string endDate = null, string email = null, long? limit = null, long? offset = null)
         {
-             ApiResponse<GetAccountActivity> localVarResponse = GetAccountActivityWithHttpInfo(startDate, endDate, limit, offset);
+             ApiResponse<GetAccountActivity> localVarResponse = GetAccountActivityWithHttpInfo(startDate, endDate, email, limit, offset);
              return localVarResponse.Data;
         }
 
@@ -3649,10 +4940,11 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
+        /// <param name="email">Enter the user&#39;s email address to filter their activity in the account. (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>ApiResponse of GetAccountActivity</returns>
-        public ApiResponse< GetAccountActivity > GetAccountActivityWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null)
+        public ApiResponse< GetAccountActivity > GetAccountActivityWithHttpInfo (string startDate = null, string endDate = null, string email = null, long? limit = null, long? offset = null)
         {
 
             var localVarPath = "./organization/activities";
@@ -3679,6 +4971,7 @@ namespace brevo_csharp.Api
 
             if (startDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "startDate", startDate)); // query parameter
             if (endDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "endDate", endDate)); // query parameter
+            if (email != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "email", email)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
 
@@ -3717,12 +5010,13 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
+        /// <param name="email">Enter the user&#39;s email address to filter their activity in the account. (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>Task of GetAccountActivity</returns>
-        public async System.Threading.Tasks.Task<GetAccountActivity> GetAccountActivityAsync (string startDate = null, string endDate = null, long? limit = null, long? offset = null)
+        public async System.Threading.Tasks.Task<GetAccountActivity> GetAccountActivityAsync (string startDate = null, string endDate = null, string email = null, long? limit = null, long? offset = null)
         {
-             ApiResponse<GetAccountActivity> localVarResponse = await GetAccountActivityAsyncWithHttpInfo(startDate, endDate, limit, offset);
+             ApiResponse<GetAccountActivity> localVarResponse = await GetAccountActivityAsyncWithHttpInfo(startDate, endDate, email, limit, offset);
              return localVarResponse.Data;
 
         }
@@ -3733,10 +5027,11 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startDate">Mandatory if endDate is used. Enter start date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. Additionally, you can retrieve activity logs from the past 12 months from the date of your search. (optional)</param>
         /// <param name="endDate">Mandatory if startDate is used. Enter end date in UTC date (YYYY-MM-DD) format to filter the activity in your account. Maximum time period that can be selected is one month. (optional)</param>
+        /// <param name="email">Enter the user&#39;s email address to filter their activity in the account. (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 10)</param>
         /// <param name="offset">Index of the first document in the page. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (GetAccountActivity)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetAccountActivity>> GetAccountActivityAsyncWithHttpInfo (string startDate = null, string endDate = null, long? limit = null, long? offset = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetAccountActivity>> GetAccountActivityAsyncWithHttpInfo (string startDate = null, string endDate = null, string email = null, long? limit = null, long? offset = null)
         {
 
             var localVarPath = "./organization/activities";
@@ -3763,6 +5058,7 @@ namespace brevo_csharp.Api
 
             if (startDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "startDate", startDate)); // query parameter
             if (endDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "endDate", endDate)); // query parameter
+            if (email != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "email", email)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
 
@@ -3939,6 +5235,161 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
+        /// Check admin user permissions This endpoint will provide the list of admin user permissions
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">Email of the invited user</param>
+        /// <returns>GetCorporateUserPermission</returns>
+        public GetCorporateUserPermission GetCorporateUserPermission (string email)
+        {
+             ApiResponse<GetCorporateUserPermission> localVarResponse = GetCorporateUserPermissionWithHttpInfo(email);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Check admin user permissions This endpoint will provide the list of admin user permissions
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">Email of the invited user</param>
+        /// <returns>ApiResponse of GetCorporateUserPermission</returns>
+        public ApiResponse< GetCorporateUserPermission > GetCorporateUserPermissionWithHttpInfo (string email)
+        {
+            // verify the required parameter 'email' is set
+            if (email == null)
+                throw new ApiException(400, "Missing required parameter 'email' when calling MasterAccountApi->GetCorporateUserPermission");
+
+            var localVarPath = "./corporate/user/{email}/permissions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (email != null) localVarPathParams.Add("email", this.Configuration.ApiClient.ParameterToString(email)); // path parameter
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCorporateUserPermission", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GetCorporateUserPermission>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (GetCorporateUserPermission) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetCorporateUserPermission)));
+        }
+
+        /// <summary>
+        /// Check admin user permissions This endpoint will provide the list of admin user permissions
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">Email of the invited user</param>
+        /// <returns>Task of GetCorporateUserPermission</returns>
+        public async System.Threading.Tasks.Task<GetCorporateUserPermission> GetCorporateUserPermissionAsync (string email)
+        {
+             ApiResponse<GetCorporateUserPermission> localVarResponse = await GetCorporateUserPermissionAsyncWithHttpInfo(email);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Check admin user permissions This endpoint will provide the list of admin user permissions
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">Email of the invited user</param>
+        /// <returns>Task of ApiResponse (GetCorporateUserPermission)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GetCorporateUserPermission>> GetCorporateUserPermissionAsyncWithHttpInfo (string email)
+        {
+            // verify the required parameter 'email' is set
+            if (email == null)
+                throw new ApiException(400, "Missing required parameter 'email' when calling MasterAccountApi->GetCorporateUserPermission");
+
+            var localVarPath = "./corporate/user/{email}/permissions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (email != null) localVarPathParams.Add("email", this.Configuration.ApiClient.ParameterToString(email)); // path parameter
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCorporateUserPermission", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GetCorporateUserPermission>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (GetCorporateUserPermission) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetCorporateUserPermission)));
+        }
+
+        /// <summary>
         /// Get the list of groups This endpoint allows you to list all groups created on your Admin account.
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4082,7 +5533,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Send invitation to an admin user &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
+        /// Send invitation to an admin user &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot; - &#x60;sub_organization_groups&#x60;   - \&quot;create\&quot;   - \&quot;edit_delete\&quot; - &#x60;create_sub_organizations&#x60;   - \&quot;all\&quot; - &#x60;manage_sub_organizations&#x60;   - \&quot;all\&quot; - &#x60;analytics&#x60;   - \&quot;download_data\&quot;   - \&quot;create_alerts\&quot;   - \&quot;my_looks\&quot;   - \&quot;explore_create\&quot; - &#x60;security&#x60;   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendInvitation">Payload to send an invitation</param>
@@ -4094,7 +5545,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Send invitation to an admin user &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
+        /// Send invitation to an admin user &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot; - &#x60;sub_organization_groups&#x60;   - \&quot;create\&quot;   - \&quot;edit_delete\&quot; - &#x60;create_sub_organizations&#x60;   - \&quot;all\&quot; - &#x60;manage_sub_organizations&#x60;   - \&quot;all\&quot; - &#x60;analytics&#x60;   - \&quot;download_data\&quot;   - \&quot;create_alerts\&quot;   - \&quot;my_looks\&quot;   - \&quot;explore_create\&quot; - &#x60;security&#x60;   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendInvitation">Payload to send an invitation</param>
@@ -4166,7 +5617,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Send invitation to an admin user &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
+        /// Send invitation to an admin user &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot; - &#x60;sub_organization_groups&#x60;   - \&quot;create\&quot;   - \&quot;edit_delete\&quot; - &#x60;create_sub_organizations&#x60;   - \&quot;all\&quot; - &#x60;manage_sub_organizations&#x60;   - \&quot;all\&quot; - &#x60;analytics&#x60;   - \&quot;download_data\&quot;   - \&quot;create_alerts\&quot;   - \&quot;my_looks\&quot;   - \&quot;explore_create\&quot; - &#x60;security&#x60;   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendInvitation">Payload to send an invitation</param>
@@ -4179,7 +5630,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Send invitation to an admin user &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
+        /// Send invitation to an admin user &#x60;This endpoint allows you to invite a member to manage the Admin account  Features and their respective permissions are as below:  - &#x60;my_plan&#x60;:   - \&quot;all\&quot; - &#x60;api&#x60;:   - \&quot;none\&quot; - &#x60;user_management&#x60;:   - \&quot;all\&quot; - &#x60;app_management&#x60; | Not available in ENTv2:   - \&quot;all\&quot; - &#x60;sub_organization_groups&#x60;   - \&quot;create\&quot;   - \&quot;edit_delete\&quot; - &#x60;create_sub_organizations&#x60;   - \&quot;all\&quot; - &#x60;manage_sub_organizations&#x60;   - \&quot;all\&quot; - &#x60;analytics&#x60;   - \&quot;download_data\&quot;   - \&quot;create_alerts\&quot;   - \&quot;my_looks\&quot;   - \&quot;explore_create\&quot; - &#x60;security&#x60;   - \&quot;all\&quot;  **Note**: - If &#x60;all_features_access: false&#x60; then only privileges are required otherwise if &#x60;true&#x60; then it&#39;s assumed that all permissions will be there for the invited admin user. 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sendInvitation">Payload to send an invitation</param>

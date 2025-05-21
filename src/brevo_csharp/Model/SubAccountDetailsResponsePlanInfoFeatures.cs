@@ -34,11 +34,13 @@ namespace brevo_csharp.Model
         /// <param name="inbox">inbox.</param>
         /// <param name="landingPage">landingPage.</param>
         /// <param name="users">users.</param>
-        public SubAccountDetailsResponsePlanInfoFeatures(SubAccountDetailsResponsePlanInfoFeaturesInbox inbox = default(SubAccountDetailsResponsePlanInfoFeaturesInbox), SubAccountDetailsResponsePlanInfoFeaturesLandingPage landingPage = default(SubAccountDetailsResponsePlanInfoFeaturesLandingPage), SubAccountDetailsResponsePlanInfoFeaturesUsers users = default(SubAccountDetailsResponsePlanInfoFeaturesUsers))
+        /// <param name="salesUsers">salesUsers.</param>
+        public SubAccountDetailsResponsePlanInfoFeatures(SubAccountDetailsResponsePlanInfoFeaturesInbox inbox = default(SubAccountDetailsResponsePlanInfoFeaturesInbox), SubAccountDetailsResponsePlanInfoFeaturesLandingPage landingPage = default(SubAccountDetailsResponsePlanInfoFeaturesLandingPage), SubAccountDetailsResponsePlanInfoFeaturesUsers users = default(SubAccountDetailsResponsePlanInfoFeaturesUsers), SubAccountDetailsResponsePlanInfoFeaturesSalesUsers salesUsers = default(SubAccountDetailsResponsePlanInfoFeaturesSalesUsers))
         {
             this.Inbox = inbox;
             this.LandingPage = landingPage;
             this.Users = users;
+            this.SalesUsers = salesUsers;
         }
         
         /// <summary>
@@ -60,6 +62,12 @@ namespace brevo_csharp.Model
         public SubAccountDetailsResponsePlanInfoFeaturesUsers Users { get; set; }
 
         /// <summary>
+        /// Gets or Sets SalesUsers
+        /// </summary>
+        [DataMember(Name="salesUsers", EmitDefaultValue=false)]
+        public SubAccountDetailsResponsePlanInfoFeaturesSalesUsers SalesUsers { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -70,6 +78,7 @@ namespace brevo_csharp.Model
             sb.Append("  Inbox: ").Append(Inbox).Append("\n");
             sb.Append("  LandingPage: ").Append(LandingPage).Append("\n");
             sb.Append("  Users: ").Append(Users).Append("\n");
+            sb.Append("  SalesUsers: ").Append(SalesUsers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,6 +127,11 @@ namespace brevo_csharp.Model
                     this.Users == input.Users ||
                     (this.Users != null &&
                     this.Users.Equals(input.Users))
+                ) && 
+                (
+                    this.SalesUsers == input.SalesUsers ||
+                    (this.SalesUsers != null &&
+                    this.SalesUsers.Equals(input.SalesUsers))
                 );
         }
 
@@ -136,6 +150,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.LandingPage.GetHashCode();
                 if (this.Users != null)
                     hashCode = hashCode * 59 + this.Users.GetHashCode();
+                if (this.SalesUsers != null)
+                    hashCode = hashCode * 59 + this.SalesUsers.GetHashCode();
                 return hashCode;
             }
         }

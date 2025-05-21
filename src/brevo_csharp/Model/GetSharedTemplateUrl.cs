@@ -36,7 +36,7 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetSharedTemplateUrl" /> class.
         /// </summary>
-        /// <param name="sharedUrl">A unique URL for the email campaign or transactional template. This URL can be shared with other Brevo users. (required).</param>
+        /// <param name="sharedUrl">A unique URL for the email campaign or transactional template. This URL can be shared with other Sendinblue users. (required).</param>
         public GetSharedTemplateUrl(string sharedUrl = default(string))
         {
             // to ensure "sharedUrl" is required (not null)
@@ -51,9 +51,9 @@ namespace brevo_csharp.Model
         }
         
         /// <summary>
-        /// A unique URL for the email campaign or transactional template. This URL can be shared with other Brevo users.
+        /// A unique URL for the email campaign or transactional template. This URL can be shared with other Sendinblue users.
         /// </summary>
-        /// <value>A unique URL for the email campaign or transactional template. This URL can be shared with other Brevo users.</value>
+        /// <value>A unique URL for the email campaign or transactional template. This URL can be shared with other Sendinblue users.</value>
         [DataMember(Name="sharedUrl", EmitDefaultValue=false)]
         public string SharedUrl { get; set; }
 

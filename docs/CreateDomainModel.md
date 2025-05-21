@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **long?** | ID of the Domain created | 
 **DomainName** | **string** | Domain | [optional] 
+**DomainProvider** | **string** | Domain Provider | [optional] 
 **Message** | **string** | Success message | [optional] 
 **DnsRecords** | [**CreateDomainModelDnsRecords**](CreateDomainModelDnsRecords.md) |  | [optional] 
 

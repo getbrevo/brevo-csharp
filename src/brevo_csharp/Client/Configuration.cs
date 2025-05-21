@@ -29,7 +29,7 @@ namespace brevo_csharp.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.0.0";
+        public const string Version = "1.1.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format

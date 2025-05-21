@@ -37,12 +37,12 @@ namespace brevo_csharp.Model
         /// Initializes a new instance of the <see cref="CreateDoiContact" /> class.
         /// </summary>
         /// <param name="email">Email address where the confirmation email will be sent. This email address will be the identifier for all other contact attributes. (required).</param>
-        /// <param name="attributes">Pass the set of attributes and their values. These attributes must be present in your Brevo account. For eg. {&#39;FNAME&#39;:&#39;Elly&#39;, &#39;LNAME&#39;:&#39;Roger&#39;}.</param>
+        /// <param name="attributes">Pass the set of attributes and their values. These attributes must be present in your Brevo account. For eg. {&#39;FNAME&#39;:&#39;Elly&#39;, &#39;LNAME&#39;:&#39;Roger&#39;, &#39;COUNTRIES&#39;:[&#39;India&#39;,&#39;China&#39;]}.</param>
         /// <param name="includeListIds">Lists under user account where contact should be added (required).</param>
         /// <param name="excludeListIds">Lists under user account where contact should not be added.</param>
         /// <param name="templateId">Id of the Double opt-in (DOI) template (required).</param>
         /// <param name="redirectionUrl">URL of the web page that user will be redirected to after clicking on the double opt in URL. When editing your DOI template you can reference this URL by using the tag {{ params.DOIurl }}. (required).</param>
-        public CreateDoiContact(string email = default(string), Object attributes = default(Object), List<long?> includeListIds = default(List<long?>), List<long?> excludeListIds = default(List<long?>), long? templateId = default(long?), string redirectionUrl = default(string))
+        public CreateDoiContact(string email = default(string), Dictionary<string, Object> attributes = default(Dictionary<string, Object>), List<long?> includeListIds = default(List<long?>), List<long?> excludeListIds = default(List<long?>), long? templateId = default(long?), string redirectionUrl = default(string))
         {
             // to ensure "email" is required (not null)
             if (email == null)
@@ -92,11 +92,11 @@ namespace brevo_csharp.Model
         public string Email { get; set; }
 
         /// <summary>
-        /// Pass the set of attributes and their values. These attributes must be present in your Brevo account. For eg. {&#39;FNAME&#39;:&#39;Elly&#39;, &#39;LNAME&#39;:&#39;Roger&#39;}
+        /// Pass the set of attributes and their values. These attributes must be present in your Brevo account. For eg. {&#39;FNAME&#39;:&#39;Elly&#39;, &#39;LNAME&#39;:&#39;Roger&#39;, &#39;COUNTRIES&#39;:[&#39;India&#39;,&#39;China&#39;]}
         /// </summary>
-        /// <value>Pass the set of attributes and their values. These attributes must be present in your Brevo account. For eg. {&#39;FNAME&#39;:&#39;Elly&#39;, &#39;LNAME&#39;:&#39;Roger&#39;}</value>
+        /// <value>Pass the set of attributes and their values. These attributes must be present in your Brevo account. For eg. {&#39;FNAME&#39;:&#39;Elly&#39;, &#39;LNAME&#39;:&#39;Roger&#39;, &#39;COUNTRIES&#39;:[&#39;India&#39;,&#39;China&#39;]}</value>
         [DataMember(Name="attributes", EmitDefaultValue=false)]
-        public Object Attributes { get; set; }
+        public Dictionary<string, Object> Attributes { get; set; }
 
         /// <summary>
         /// Lists under user account where contact should be added
@@ -181,8 +181,8 @@ namespace brevo_csharp.Model
                 ) && 
                 (
                     this.Attributes == input.Attributes ||
-                    (this.Attributes != null &&
-                    this.Attributes.Equals(input.Attributes))
+                    this.Attributes != null &&
+                    this.Attributes.SequenceEqual(input.Attributes)
                 ) && 
                 (
                     this.IncludeListIds == input.IncludeListIds ||

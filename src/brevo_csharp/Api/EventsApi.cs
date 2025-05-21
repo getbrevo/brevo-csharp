@@ -33,7 +33,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_event"></param>
         /// <returns></returns>
-        void CreateUnifiedEvent (ModelEvent _event);
+        void CreateEvent (ModelEvent _event);
 
         /// <summary>
         /// Create an event
@@ -44,7 +44,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_event"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateUnifiedEventWithHttpInfo (ModelEvent _event);
+        ApiResponse<Object> CreateEventWithHttpInfo (ModelEvent _event);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -56,7 +56,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_event"></param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateUnifiedEventAsync (ModelEvent _event);
+        System.Threading.Tasks.Task CreateEventAsync (ModelEvent _event);
 
         /// <summary>
         /// Create an event
@@ -67,7 +67,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_event"></param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateUnifiedEventAsyncWithHttpInfo (ModelEvent _event);
+        System.Threading.Tasks.Task<ApiResponse<Object>> CreateEventAsyncWithHttpInfo (ModelEvent _event);
         #endregion Asynchronous Operations
     }
 
@@ -174,9 +174,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_event"></param>
         /// <returns></returns>
-        public void CreateUnifiedEvent (ModelEvent _event)
+        public void CreateEvent (ModelEvent _event)
         {
-             CreateUnifiedEventWithHttpInfo(_event);
+             CreateEventWithHttpInfo(_event);
         }
 
         /// <summary>
@@ -185,11 +185,11 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_event"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CreateUnifiedEventWithHttpInfo (ModelEvent _event)
+        public ApiResponse<Object> CreateEventWithHttpInfo (ModelEvent _event)
         {
             // verify the required parameter '_event' is set
             if (_event == null)
-                throw new ApiException(400, "Missing required parameter '_event' when calling EventsApi->CreateUnifiedEvent");
+                throw new ApiException(400, "Missing required parameter '_event' when calling EventsApi->CreateEvent");
 
             var localVarPath = "./events";
             var localVarPathParams = new Dictionary<String, String>();
@@ -242,7 +242,7 @@ namespace brevo_csharp.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateUnifiedEvent", localVarResponse);
+                Exception exception = ExceptionFactory("CreateEvent", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -257,9 +257,9 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_event"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateUnifiedEventAsync (ModelEvent _event)
+        public async System.Threading.Tasks.Task CreateEventAsync (ModelEvent _event)
         {
-             await CreateUnifiedEventAsyncWithHttpInfo(_event);
+             await CreateEventAsyncWithHttpInfo(_event);
 
         }
 
@@ -269,11 +269,11 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="_event"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateUnifiedEventAsyncWithHttpInfo (ModelEvent _event)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateEventAsyncWithHttpInfo (ModelEvent _event)
         {
             // verify the required parameter '_event' is set
             if (_event == null)
-                throw new ApiException(400, "Missing required parameter '_event' when calling EventsApi->CreateUnifiedEvent");
+                throw new ApiException(400, "Missing required parameter '_event' when calling EventsApi->CreateEvent");
 
             var localVarPath = "./events";
             var localVarPathParams = new Dictionary<String, String>();
@@ -326,7 +326,7 @@ namespace brevo_csharp.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateUnifiedEvent", localVarResponse);
+                Exception exception = ExceptionFactory("CreateEvent", localVarResponse);
                 if (exception != null) throw exception;
             }
 

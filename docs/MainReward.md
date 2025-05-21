@@ -1,0 +1,48 @@
+# brevo_csharp.Model.MainReward
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**AttributionPerConsumer** | **int?** | Maximum number of times a consumer can be attributed this reward | [optional] 
+**BalanceDefinitionId** | **Guid?** | Unique identifier for the balance definition | [optional] 
+**Code** | **string** | Unique code for the reward | [optional] 
+**CodeCount** | **long?** | Total number of codes generated | [optional] 
+**CodeGeneratorId** | **Guid?** | Unique identifier for the code generator | [optional] 
+**CodePoolId** | **Guid?** | Unique identifier for the code pool | [optional] 
+**Config** | **string** | Configuration settings for the reward | [optional] 
+**CreatedAt** | **DateTime?** | Timestamp when the reward was created | [optional] 
+**DisabledAt** | **DateTime?** | Disabled date of the reward | [optional] 
+**EndDate** | **DateTime?** | End date of the reward validity | [optional] 
+**ExpirationDate** | **DateTime?** | Expiration date of the reward | [optional] 
+**ExpirationModifier** | **string** | Select startOfPeriod to configure rewards expiry on start of day/week/month/year. Select endOfPeriod to configure reward expiry on end of day/week/month/year, else select noModification | [optional] [default to ExpirationModifierEnum.NoModification]
+**ExpirationUnit** | **string** | Unit of time for the rewards&#39;s availability (e.g., day/week/month/year). | [optional] 
+**ExpirationValue** | **int?** | Number of days/weeks/month/year for reward expiry | [optional] 
+**Generator** | **Object** | object | [optional] 
+**Id** | **Guid?** | Unique identifier for the reward | [optional] 
+**Limits** | [**List&lt;MainLimit&gt;**](MainLimit.md) | Attribution / Redeem Limits for the reward | [optional] 
+**LoyaltyProgramId** | **Guid?** | Id of the loyalty program to which the current reward belongs to | [optional] 
+**Meta** | **Dictionary&lt;string, Object&gt;** | Additional data for reward definition | [optional] 
+**Name** | **string** | Name of the reward | [optional] 
+**Products** | [**List&lt;MainProduct&gt;**](MainProduct.md) | Selected products for reward definition | [optional] 
+**PublicDescription** | **string** | Public description for the reward | [optional] 
+**PublicImage** | **string** | Public Image for the reward | [optional] 
+**PublicName** | **string** | Public name for the reward | [optional] 
+**RedeemPerConsumer** | **int?** | Defines the redeem limit for the consumer | [optional] 
+**RedeemRules** | **List&lt;string&gt;** | Rules defined to redeem a reward | [optional] 
+**RewardConfigs** | **Object** | object | [optional] 
+**Rule** | **Object** | Rule to define the reward | [optional] 
+**StartDate** | **DateTime?** | Start date of attribution of the reward | [optional] 
+**SubtractBalanceDefinitionId** | **string** | Id of the selected balance while redeeming / attributing a reward | [optional] 
+**SubtractBalanceStrategy** | **string** | Strategy of the Balance while redeeming / attributing a reward | [optional] 
+**SubtractBalanceValue** | **int?** | Amount of balance to be selected while redeeming / attributing a reward | [optional] 
+**SubtractTotalBalance** | **bool?** | Value to indicate to subtract full balance or not | [optional] 
+**TotalAttribution** | **int?** | Defines the limit to which a consumer can attribute a reward | [optional] 
+**TotalRedeem** | **int?** | Defines the limit to which a consumer can redeem a reward | [optional] 
+**TriggerId** | **string** | Id of the Rule to be updated for that reward | [optional] 
+**Unit** | **string** | Selected unit of the balance | [optional] 
+**UpdatedAt** | **string** | Timestamp for when this reward was last updated. | [optional] 
+**Value** | **decimal?** | Value of metric in selected config for reward definition | [optional] 
+**ValueType** | **string** | Type of config selected for reward definition | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

@@ -9,7 +9,7 @@
     <Company>Brevo</Company>
     <AssemblyTitle>Swagger Library</AssemblyTitle>
     <Description>Official Brevo provided RESTFul API V3 C# Library</Description>
-    <Copyright>Copyright (c) 2024 Brevo</Copyright>
+    <Copyright>Copyright (c) 2025 Brevo</Copyright>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>

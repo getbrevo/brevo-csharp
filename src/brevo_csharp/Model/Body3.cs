@@ -36,44 +36,35 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Body3" /> class.
         /// </summary>
-        /// <param name="name">Name of company (required).</param>
-        /// <param name="attributes">Attributes for company creation.</param>
-        /// <param name="countryCode">Country code if phone_number is passed in attributes..</param>
-        public Body3(string name = default(string), Object attributes = default(Object), long? countryCode = default(long?))
+        /// <param name="groupName">The name of the group of sub-accounts (required).</param>
+        /// <param name="subAccountIds">Pass the list of sub-account Ids to be included in the group.</param>
+        public Body3(string groupName = default(string), List<long?> subAccountIds = default(List<long?>))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
+            // to ensure "groupName" is required (not null)
+            if (groupName == null)
             {
-                throw new InvalidDataException("name is a required property for Body3 and cannot be null");
+                throw new InvalidDataException("groupName is a required property for Body3 and cannot be null");
             }
             else
             {
-                this.Name = name;
+                this.GroupName = groupName;
             }
-            this.Attributes = attributes;
-            this.CountryCode = countryCode;
+            this.SubAccountIds = subAccountIds;
         }
         
         /// <summary>
-        /// Name of company
+        /// The name of the group of sub-accounts
         /// </summary>
-        /// <value>Name of company</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
+        /// <value>The name of the group of sub-accounts</value>
+        [DataMember(Name="groupName", EmitDefaultValue=false)]
+        public string GroupName { get; set; }
 
         /// <summary>
-        /// Attributes for company creation
+        /// Pass the list of sub-account Ids to be included in the group
         /// </summary>
-        /// <value>Attributes for company creation</value>
-        [DataMember(Name="attributes", EmitDefaultValue=false)]
-        public Object Attributes { get; set; }
-
-        /// <summary>
-        /// Country code if phone_number is passed in attributes.
-        /// </summary>
-        /// <value>Country code if phone_number is passed in attributes.</value>
-        [DataMember(Name="countryCode", EmitDefaultValue=false)]
-        public long? CountryCode { get; set; }
+        /// <value>Pass the list of sub-account Ids to be included in the group</value>
+        [DataMember(Name="subAccountIds", EmitDefaultValue=false)]
+        public List<long?> SubAccountIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,9 +74,8 @@ namespace brevo_csharp.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Body3 {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Attributes: ").Append(Attributes).Append("\n");
-            sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
+            sb.Append("  GroupName: ").Append(GroupName).Append("\n");
+            sb.Append("  SubAccountIds: ").Append(SubAccountIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,19 +111,14 @@ namespace brevo_csharp.Model
 
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.GroupName == input.GroupName ||
+                    (this.GroupName != null &&
+                    this.GroupName.Equals(input.GroupName))
                 ) && 
                 (
-                    this.Attributes == input.Attributes ||
-                    (this.Attributes != null &&
-                    this.Attributes.Equals(input.Attributes))
-                ) && 
-                (
-                    this.CountryCode == input.CountryCode ||
-                    (this.CountryCode != null &&
-                    this.CountryCode.Equals(input.CountryCode))
+                    this.SubAccountIds == input.SubAccountIds ||
+                    this.SubAccountIds != null &&
+                    this.SubAccountIds.SequenceEqual(input.SubAccountIds)
                 );
         }
 
@@ -146,12 +131,10 @@ namespace brevo_csharp.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.Attributes != null)
-                    hashCode = hashCode * 59 + this.Attributes.GetHashCode();
-                if (this.CountryCode != null)
-                    hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
+                if (this.GroupName != null)
+                    hashCode = hashCode * 59 + this.GroupName.GetHashCode();
+                if (this.SubAccountIds != null)
+                    hashCode = hashCode * 59 + this.SubAccountIds.GetHashCode();
                 return hashCode;
             }
         }

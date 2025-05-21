@@ -44,21 +44,44 @@ namespace brevo_csharp.Api
         /// <returns>ApiResponse of DealAttributes</returns>
         ApiResponse<DealAttributes> CrmAttributesDealsGetWithHttpInfo ();
         /// <summary>
+        /// Create a deal/company attribute
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Attribute creation data for company</param>
+        /// <returns>InlineResponse2003</returns>
+        InlineResponse2003 CrmAttributesPost (Body9 body);
+
+        /// <summary>
+        /// Create a deal/company attribute
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Attribute creation data for company</param>
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        ApiResponse<InlineResponse2003> CrmAttributesPostWithHttpInfo (Body9 body);
+        /// <summary>
         /// Get all deals
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filtersAttributesDealName">Filter by attributes. If you have filter for owner on your side please send it as &#x60;filters[attributes.deal_owner]&#x60;.\&quot; (optional)</param>
+        /// <param name="filtersAttributesDealName">Filter by attributes. If you have a filter for the owner on your end, please send it as filters[attributes.deal_owner] and utilize the account email for the filtering. (optional)</param>
         /// <param name="filtersLinkedCompaniesIds">Filter by linked companies ids (optional)</param>
         /// <param name="filtersLinkedContactsIds">Filter by linked companies ids (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
         /// <param name="offset">Index of the first document of the page (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>DealsList</returns>
-        DealsList CrmDealsGet (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null);
+        DealsList CrmDealsGet (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, string modifiedSince = null, string createdSince = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null);
 
         /// <summary>
         /// Get all deals
@@ -67,15 +90,17 @@ namespace brevo_csharp.Api
         /// 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filtersAttributesDealName">Filter by attributes. If you have filter for owner on your side please send it as &#x60;filters[attributes.deal_owner]&#x60;.\&quot; (optional)</param>
+        /// <param name="filtersAttributesDealName">Filter by attributes. If you have a filter for the owner on your end, please send it as filters[attributes.deal_owner] and utilize the account email for the filtering. (optional)</param>
         /// <param name="filtersLinkedCompaniesIds">Filter by linked companies ids (optional)</param>
         /// <param name="filtersLinkedContactsIds">Filter by linked companies ids (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
         /// <param name="offset">Index of the first document of the page (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>ApiResponse of DealsList</returns>
-        ApiResponse<DealsList> CrmDealsGetWithHttpInfo (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null);
+        ApiResponse<DealsList> CrmDealsGetWithHttpInfo (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, string modifiedSince = null, string createdSince = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null);
         /// <summary>
         /// Delete a deal
         /// </summary>
@@ -128,7 +153,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated deal details.</param>
         /// <returns></returns>
-        void CrmDealsIdPatch (string id, Body7 body);
+        void CrmDealsIdPatch (string id, Body11 body);
 
         /// <summary>
         /// Update a deal
@@ -140,7 +165,30 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated deal details.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CrmDealsIdPatchWithHttpInfo (string id, Body7 body);
+        ApiResponse<Object> CrmDealsIdPatchWithHttpInfo (string id, Body11 body);
+        /// <summary>
+        /// Import deals(creation and updation)
+        /// </summary>
+        /// <remarks>
+        /// Import deals from a CSV file with mapping options.
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">The CSV file to upload.The file should have the first row as the mapping attribute. Some default attribute names are (a) deal_id [brevo mongoID to update deals] (b) associated_contact (c) associated_company (f) any other attribute with internal name </param>
+        /// <param name="mapping">The mapping options in JSON format.   json    {       \&quot;link_entities\&quot;: true, // Determines whether to link related entities during the import process       \&quot;unlink_entities\&quot;: false, //Determines whether to unlink related entities during the import process.       \&quot;update_existing_records\&quot;: true, // Determines whether to update based on deal ID or treat every row as create       \&quot;unset_empty_attributes\&quot;: false // Determines whether unset a specific attribute during update if values input is blank     } </param>
+        /// <returns>InlineResponse2004</returns>
+        InlineResponse2004 CrmDealsImportPost (System.IO.Stream file, string mapping);
+
+        /// <summary>
+        /// Import deals(creation and updation)
+        /// </summary>
+        /// <remarks>
+        /// Import deals from a CSV file with mapping options.
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">The CSV file to upload.The file should have the first row as the mapping attribute. Some default attribute names are (a) deal_id [brevo mongoID to update deals] (b) associated_contact (c) associated_company (f) any other attribute with internal name </param>
+        /// <param name="mapping">The mapping options in JSON format.   json    {       \&quot;link_entities\&quot;: true, // Determines whether to link related entities during the import process       \&quot;unlink_entities\&quot;: false, //Determines whether to unlink related entities during the import process.       \&quot;update_existing_records\&quot;: true, // Determines whether to update based on deal ID or treat every row as create       \&quot;unset_empty_attributes\&quot;: false // Determines whether unset a specific attribute during update if values input is blank     } </param>
+        /// <returns>ApiResponse of InlineResponse2004</returns>
+        ApiResponse<InlineResponse2004> CrmDealsImportPostWithHttpInfo (System.IO.Stream file, string mapping);
         /// <summary>
         /// Link and Unlink a deal with contacts and companies
         /// </summary>
@@ -151,7 +199,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and companies ids.</param>
         /// <returns></returns>
-        void CrmDealsLinkUnlinkIdPatch (string id, Body8 body);
+        void CrmDealsLinkUnlinkIdPatch (string id, Body12 body);
 
         /// <summary>
         /// Link and Unlink a deal with contacts and companies
@@ -163,7 +211,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and companies ids.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CrmDealsLinkUnlinkIdPatchWithHttpInfo (string id, Body8 body);
+        ApiResponse<Object> CrmDealsLinkUnlinkIdPatchWithHttpInfo (string id, Body12 body);
         /// <summary>
         /// Create a deal
         /// </summary>
@@ -173,7 +221,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Deal create data.</param>
         /// <returns>InlineResponse2011</returns>
-        InlineResponse2011 CrmDealsPost (Body6 body);
+        InlineResponse2011 CrmDealsPost (Body10 body);
 
         /// <summary>
         /// Create a deal
@@ -184,7 +232,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Deal create data.</param>
         /// <returns>ApiResponse of InlineResponse2011</returns>
-        ApiResponse<InlineResponse2011> CrmDealsPostWithHttpInfo (Body6 body);
+        ApiResponse<InlineResponse2011> CrmDealsPostWithHttpInfo (Body10 body);
         /// <summary>
         /// Get all pipelines
         /// </summary>
@@ -266,21 +314,44 @@ namespace brevo_csharp.Api
         /// <returns>Task of ApiResponse (DealAttributes)</returns>
         System.Threading.Tasks.Task<ApiResponse<DealAttributes>> CrmAttributesDealsGetAsyncWithHttpInfo ();
         /// <summary>
+        /// Create a deal/company attribute
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Attribute creation data for company</param>
+        /// <returns>Task of InlineResponse2003</returns>
+        System.Threading.Tasks.Task<InlineResponse2003> CrmAttributesPostAsync (Body9 body);
+
+        /// <summary>
+        /// Create a deal/company attribute
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Attribute creation data for company</param>
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> CrmAttributesPostAsyncWithHttpInfo (Body9 body);
+        /// <summary>
         /// Get all deals
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filtersAttributesDealName">Filter by attributes. If you have filter for owner on your side please send it as &#x60;filters[attributes.deal_owner]&#x60;.\&quot; (optional)</param>
+        /// <param name="filtersAttributesDealName">Filter by attributes. If you have a filter for the owner on your end, please send it as filters[attributes.deal_owner] and utilize the account email for the filtering. (optional)</param>
         /// <param name="filtersLinkedCompaniesIds">Filter by linked companies ids (optional)</param>
         /// <param name="filtersLinkedContactsIds">Filter by linked companies ids (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
         /// <param name="offset">Index of the first document of the page (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>Task of DealsList</returns>
-        System.Threading.Tasks.Task<DealsList> CrmDealsGetAsync (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null);
+        System.Threading.Tasks.Task<DealsList> CrmDealsGetAsync (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, string modifiedSince = null, string createdSince = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null);
 
         /// <summary>
         /// Get all deals
@@ -289,15 +360,17 @@ namespace brevo_csharp.Api
         /// 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filtersAttributesDealName">Filter by attributes. If you have filter for owner on your side please send it as &#x60;filters[attributes.deal_owner]&#x60;.\&quot; (optional)</param>
+        /// <param name="filtersAttributesDealName">Filter by attributes. If you have a filter for the owner on your end, please send it as filters[attributes.deal_owner] and utilize the account email for the filtering. (optional)</param>
         /// <param name="filtersLinkedCompaniesIds">Filter by linked companies ids (optional)</param>
         /// <param name="filtersLinkedContactsIds">Filter by linked companies ids (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
         /// <param name="offset">Index of the first document of the page (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>Task of ApiResponse (DealsList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DealsList>> CrmDealsGetAsyncWithHttpInfo (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null);
+        System.Threading.Tasks.Task<ApiResponse<DealsList>> CrmDealsGetAsyncWithHttpInfo (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, string modifiedSince = null, string createdSince = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null);
         /// <summary>
         /// Delete a deal
         /// </summary>
@@ -350,7 +423,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated deal details.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CrmDealsIdPatchAsync (string id, Body7 body);
+        System.Threading.Tasks.Task CrmDealsIdPatchAsync (string id, Body11 body);
 
         /// <summary>
         /// Update a deal
@@ -362,7 +435,30 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated deal details.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CrmDealsIdPatchAsyncWithHttpInfo (string id, Body7 body);
+        System.Threading.Tasks.Task<ApiResponse<Object>> CrmDealsIdPatchAsyncWithHttpInfo (string id, Body11 body);
+        /// <summary>
+        /// Import deals(creation and updation)
+        /// </summary>
+        /// <remarks>
+        /// Import deals from a CSV file with mapping options.
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">The CSV file to upload.The file should have the first row as the mapping attribute. Some default attribute names are (a) deal_id [brevo mongoID to update deals] (b) associated_contact (c) associated_company (f) any other attribute with internal name </param>
+        /// <param name="mapping">The mapping options in JSON format.   json    {       \&quot;link_entities\&quot;: true, // Determines whether to link related entities during the import process       \&quot;unlink_entities\&quot;: false, //Determines whether to unlink related entities during the import process.       \&quot;update_existing_records\&quot;: true, // Determines whether to update based on deal ID or treat every row as create       \&quot;unset_empty_attributes\&quot;: false // Determines whether unset a specific attribute during update if values input is blank     } </param>
+        /// <returns>Task of InlineResponse2004</returns>
+        System.Threading.Tasks.Task<InlineResponse2004> CrmDealsImportPostAsync (System.IO.Stream file, string mapping);
+
+        /// <summary>
+        /// Import deals(creation and updation)
+        /// </summary>
+        /// <remarks>
+        /// Import deals from a CSV file with mapping options.
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">The CSV file to upload.The file should have the first row as the mapping attribute. Some default attribute names are (a) deal_id [brevo mongoID to update deals] (b) associated_contact (c) associated_company (f) any other attribute with internal name </param>
+        /// <param name="mapping">The mapping options in JSON format.   json    {       \&quot;link_entities\&quot;: true, // Determines whether to link related entities during the import process       \&quot;unlink_entities\&quot;: false, //Determines whether to unlink related entities during the import process.       \&quot;update_existing_records\&quot;: true, // Determines whether to update based on deal ID or treat every row as create       \&quot;unset_empty_attributes\&quot;: false // Determines whether unset a specific attribute during update if values input is blank     } </param>
+        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> CrmDealsImportPostAsyncWithHttpInfo (System.IO.Stream file, string mapping);
         /// <summary>
         /// Link and Unlink a deal with contacts and companies
         /// </summary>
@@ -373,7 +469,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and companies ids.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CrmDealsLinkUnlinkIdPatchAsync (string id, Body8 body);
+        System.Threading.Tasks.Task CrmDealsLinkUnlinkIdPatchAsync (string id, Body12 body);
 
         /// <summary>
         /// Link and Unlink a deal with contacts and companies
@@ -385,7 +481,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and companies ids.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CrmDealsLinkUnlinkIdPatchAsyncWithHttpInfo (string id, Body8 body);
+        System.Threading.Tasks.Task<ApiResponse<Object>> CrmDealsLinkUnlinkIdPatchAsyncWithHttpInfo (string id, Body12 body);
         /// <summary>
         /// Create a deal
         /// </summary>
@@ -395,7 +491,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Deal create data.</param>
         /// <returns>Task of InlineResponse2011</returns>
-        System.Threading.Tasks.Task<InlineResponse2011> CrmDealsPostAsync (Body6 body);
+        System.Threading.Tasks.Task<InlineResponse2011> CrmDealsPostAsync (Body10 body);
 
         /// <summary>
         /// Create a deal
@@ -406,7 +502,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Deal create data.</param>
         /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> CrmDealsPostAsyncWithHttpInfo (Body6 body);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> CrmDealsPostAsyncWithHttpInfo (Body10 body);
         /// <summary>
         /// Get all pipelines
         /// </summary>
@@ -710,20 +806,191 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
+        /// Create a deal/company attribute 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Attribute creation data for company</param>
+        /// <returns>InlineResponse2003</returns>
+        public InlineResponse2003 CrmAttributesPost (Body9 body)
+        {
+             ApiResponse<InlineResponse2003> localVarResponse = CrmAttributesPostWithHttpInfo(body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a deal/company attribute 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Attribute creation data for company</param>
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        public ApiResponse< InlineResponse2003 > CrmAttributesPostWithHttpInfo (Body9 body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling DealsApi->CrmAttributesPost");
+
+            var localVarPath = "./crm/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CrmAttributesPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InlineResponse2003) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003)));
+        }
+
+        /// <summary>
+        /// Create a deal/company attribute 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Attribute creation data for company</param>
+        /// <returns>Task of InlineResponse2003</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2003> CrmAttributesPostAsync (Body9 body)
+        {
+             ApiResponse<InlineResponse2003> localVarResponse = await CrmAttributesPostAsyncWithHttpInfo(body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a deal/company attribute 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Attribute creation data for company</param>
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> CrmAttributesPostAsyncWithHttpInfo (Body9 body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling DealsApi->CrmAttributesPost");
+
+            var localVarPath = "./crm/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CrmAttributesPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InlineResponse2003) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003)));
+        }
+
+        /// <summary>
         /// Get all deals 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filtersAttributesDealName">Filter by attributes. If you have filter for owner on your side please send it as &#x60;filters[attributes.deal_owner]&#x60;.\&quot; (optional)</param>
+        /// <param name="filtersAttributesDealName">Filter by attributes. If you have a filter for the owner on your end, please send it as filters[attributes.deal_owner] and utilize the account email for the filtering. (optional)</param>
         /// <param name="filtersLinkedCompaniesIds">Filter by linked companies ids (optional)</param>
         /// <param name="filtersLinkedContactsIds">Filter by linked companies ids (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
         /// <param name="offset">Index of the first document of the page (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>DealsList</returns>
-        public DealsList CrmDealsGet (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
+        public DealsList CrmDealsGet (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, string modifiedSince = null, string createdSince = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
         {
-             ApiResponse<DealsList> localVarResponse = CrmDealsGetWithHttpInfo(filtersAttributesDealName, filtersLinkedCompaniesIds, filtersLinkedContactsIds, offset, limit, sort, sortBy);
+             ApiResponse<DealsList> localVarResponse = CrmDealsGetWithHttpInfo(filtersAttributesDealName, filtersLinkedCompaniesIds, filtersLinkedContactsIds, modifiedSince, createdSince, offset, limit, sort, sortBy);
              return localVarResponse.Data;
         }
 
@@ -731,15 +998,17 @@ namespace brevo_csharp.Api
         /// Get all deals 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filtersAttributesDealName">Filter by attributes. If you have filter for owner on your side please send it as &#x60;filters[attributes.deal_owner]&#x60;.\&quot; (optional)</param>
+        /// <param name="filtersAttributesDealName">Filter by attributes. If you have a filter for the owner on your end, please send it as filters[attributes.deal_owner] and utilize the account email for the filtering. (optional)</param>
         /// <param name="filtersLinkedCompaniesIds">Filter by linked companies ids (optional)</param>
         /// <param name="filtersLinkedContactsIds">Filter by linked companies ids (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
         /// <param name="offset">Index of the first document of the page (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>ApiResponse of DealsList</returns>
-        public ApiResponse< DealsList > CrmDealsGetWithHttpInfo (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
+        public ApiResponse< DealsList > CrmDealsGetWithHttpInfo (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, string modifiedSince = null, string createdSince = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
         {
 
             var localVarPath = "./crm/deals";
@@ -767,6 +1036,8 @@ namespace brevo_csharp.Api
             if (filtersAttributesDealName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filters[attributes.deal_name]", filtersAttributesDealName)); // query parameter
             if (filtersLinkedCompaniesIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filters[linkedCompaniesIds]", filtersLinkedCompaniesIds)); // query parameter
             if (filtersLinkedContactsIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filters[linkedContactsIds]", filtersLinkedContactsIds)); // query parameter
+            if (modifiedSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "modifiedSince", modifiedSince)); // query parameter
+            if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
@@ -805,17 +1076,19 @@ namespace brevo_csharp.Api
         /// Get all deals 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filtersAttributesDealName">Filter by attributes. If you have filter for owner on your side please send it as &#x60;filters[attributes.deal_owner]&#x60;.\&quot; (optional)</param>
+        /// <param name="filtersAttributesDealName">Filter by attributes. If you have a filter for the owner on your end, please send it as filters[attributes.deal_owner] and utilize the account email for the filtering. (optional)</param>
         /// <param name="filtersLinkedCompaniesIds">Filter by linked companies ids (optional)</param>
         /// <param name="filtersLinkedContactsIds">Filter by linked companies ids (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
         /// <param name="offset">Index of the first document of the page (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>Task of DealsList</returns>
-        public async System.Threading.Tasks.Task<DealsList> CrmDealsGetAsync (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
+        public async System.Threading.Tasks.Task<DealsList> CrmDealsGetAsync (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, string modifiedSince = null, string createdSince = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
         {
-             ApiResponse<DealsList> localVarResponse = await CrmDealsGetAsyncWithHttpInfo(filtersAttributesDealName, filtersLinkedCompaniesIds, filtersLinkedContactsIds, offset, limit, sort, sortBy);
+             ApiResponse<DealsList> localVarResponse = await CrmDealsGetAsyncWithHttpInfo(filtersAttributesDealName, filtersLinkedCompaniesIds, filtersLinkedContactsIds, modifiedSince, createdSince, offset, limit, sort, sortBy);
              return localVarResponse.Data;
 
         }
@@ -824,15 +1097,17 @@ namespace brevo_csharp.Api
         /// Get all deals 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filtersAttributesDealName">Filter by attributes. If you have filter for owner on your side please send it as &#x60;filters[attributes.deal_owner]&#x60;.\&quot; (optional)</param>
+        /// <param name="filtersAttributesDealName">Filter by attributes. If you have a filter for the owner on your end, please send it as filters[attributes.deal_owner] and utilize the account email for the filtering. (optional)</param>
         /// <param name="filtersLinkedCompaniesIds">Filter by linked companies ids (optional)</param>
         /// <param name="filtersLinkedContactsIds">Filter by linked companies ids (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
         /// <param name="offset">Index of the first document of the page (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>Task of ApiResponse (DealsList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DealsList>> CrmDealsGetAsyncWithHttpInfo (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DealsList>> CrmDealsGetAsyncWithHttpInfo (string filtersAttributesDealName = null, string filtersLinkedCompaniesIds = null, string filtersLinkedContactsIds = null, string modifiedSince = null, string createdSince = null, long? offset = null, long? limit = null, string sort = null, string sortBy = null)
         {
 
             var localVarPath = "./crm/deals";
@@ -860,6 +1135,8 @@ namespace brevo_csharp.Api
             if (filtersAttributesDealName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filters[attributes.deal_name]", filtersAttributesDealName)); // query parameter
             if (filtersLinkedCompaniesIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filters[linkedCompaniesIds]", filtersLinkedCompaniesIds)); // query parameter
             if (filtersLinkedContactsIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filters[linkedContactsIds]", filtersLinkedContactsIds)); // query parameter
+            if (modifiedSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "modifiedSince", modifiedSince)); // query parameter
+            if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
@@ -1209,7 +1486,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated deal details.</param>
         /// <returns></returns>
-        public void CrmDealsIdPatch (string id, Body7 body)
+        public void CrmDealsIdPatch (string id, Body11 body)
         {
              CrmDealsIdPatchWithHttpInfo(id, body);
         }
@@ -1221,7 +1498,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated deal details.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CrmDealsIdPatchWithHttpInfo (string id, Body7 body)
+        public ApiResponse<Object> CrmDealsIdPatchWithHttpInfo (string id, Body11 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1298,7 +1575,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated deal details.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CrmDealsIdPatchAsync (string id, Body7 body)
+        public async System.Threading.Tasks.Task CrmDealsIdPatchAsync (string id, Body11 body)
         {
              await CrmDealsIdPatchAsyncWithHttpInfo(id, body);
 
@@ -1311,7 +1588,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated deal details.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmDealsIdPatchAsyncWithHttpInfo (string id, Body7 body)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmDealsIdPatchAsyncWithHttpInfo (string id, Body11 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1382,13 +1659,180 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
+        /// Import deals(creation and updation) Import deals from a CSV file with mapping options.
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">The CSV file to upload.The file should have the first row as the mapping attribute. Some default attribute names are (a) deal_id [brevo mongoID to update deals] (b) associated_contact (c) associated_company (f) any other attribute with internal name </param>
+        /// <param name="mapping">The mapping options in JSON format.   json    {       \&quot;link_entities\&quot;: true, // Determines whether to link related entities during the import process       \&quot;unlink_entities\&quot;: false, //Determines whether to unlink related entities during the import process.       \&quot;update_existing_records\&quot;: true, // Determines whether to update based on deal ID or treat every row as create       \&quot;unset_empty_attributes\&quot;: false // Determines whether unset a specific attribute during update if values input is blank     } </param>
+        /// <returns>InlineResponse2004</returns>
+        public InlineResponse2004 CrmDealsImportPost (System.IO.Stream file, string mapping)
+        {
+             ApiResponse<InlineResponse2004> localVarResponse = CrmDealsImportPostWithHttpInfo(file, mapping);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Import deals(creation and updation) Import deals from a CSV file with mapping options.
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">The CSV file to upload.The file should have the first row as the mapping attribute. Some default attribute names are (a) deal_id [brevo mongoID to update deals] (b) associated_contact (c) associated_company (f) any other attribute with internal name </param>
+        /// <param name="mapping">The mapping options in JSON format.   json    {       \&quot;link_entities\&quot;: true, // Determines whether to link related entities during the import process       \&quot;unlink_entities\&quot;: false, //Determines whether to unlink related entities during the import process.       \&quot;update_existing_records\&quot;: true, // Determines whether to update based on deal ID or treat every row as create       \&quot;unset_empty_attributes\&quot;: false // Determines whether unset a specific attribute during update if values input is blank     } </param>
+        /// <returns>ApiResponse of InlineResponse2004</returns>
+        public ApiResponse< InlineResponse2004 > CrmDealsImportPostWithHttpInfo (System.IO.Stream file, string mapping)
+        {
+            // verify the required parameter 'file' is set
+            if (file == null)
+                throw new ApiException(400, "Missing required parameter 'file' when calling DealsApi->CrmDealsImportPost");
+            // verify the required parameter 'mapping' is set
+            if (mapping == null)
+                throw new ApiException(400, "Missing required parameter 'mapping' when calling DealsApi->CrmDealsImportPost");
+
+            var localVarPath = "./crm/deals/import";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", file));
+            if (mapping != null) localVarFormParams.Add("mapping", this.Configuration.ApiClient.ParameterToString(mapping)); // form parameter
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CrmDealsImportPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InlineResponse2004) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004)));
+        }
+
+        /// <summary>
+        /// Import deals(creation and updation) Import deals from a CSV file with mapping options.
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">The CSV file to upload.The file should have the first row as the mapping attribute. Some default attribute names are (a) deal_id [brevo mongoID to update deals] (b) associated_contact (c) associated_company (f) any other attribute with internal name </param>
+        /// <param name="mapping">The mapping options in JSON format.   json    {       \&quot;link_entities\&quot;: true, // Determines whether to link related entities during the import process       \&quot;unlink_entities\&quot;: false, //Determines whether to unlink related entities during the import process.       \&quot;update_existing_records\&quot;: true, // Determines whether to update based on deal ID or treat every row as create       \&quot;unset_empty_attributes\&quot;: false // Determines whether unset a specific attribute during update if values input is blank     } </param>
+        /// <returns>Task of InlineResponse2004</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2004> CrmDealsImportPostAsync (System.IO.Stream file, string mapping)
+        {
+             ApiResponse<InlineResponse2004> localVarResponse = await CrmDealsImportPostAsyncWithHttpInfo(file, mapping);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Import deals(creation and updation) Import deals from a CSV file with mapping options.
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">The CSV file to upload.The file should have the first row as the mapping attribute. Some default attribute names are (a) deal_id [brevo mongoID to update deals] (b) associated_contact (c) associated_company (f) any other attribute with internal name </param>
+        /// <param name="mapping">The mapping options in JSON format.   json    {       \&quot;link_entities\&quot;: true, // Determines whether to link related entities during the import process       \&quot;unlink_entities\&quot;: false, //Determines whether to unlink related entities during the import process.       \&quot;update_existing_records\&quot;: true, // Determines whether to update based on deal ID or treat every row as create       \&quot;unset_empty_attributes\&quot;: false // Determines whether unset a specific attribute during update if values input is blank     } </param>
+        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> CrmDealsImportPostAsyncWithHttpInfo (System.IO.Stream file, string mapping)
+        {
+            // verify the required parameter 'file' is set
+            if (file == null)
+                throw new ApiException(400, "Missing required parameter 'file' when calling DealsApi->CrmDealsImportPost");
+            // verify the required parameter 'mapping' is set
+            if (mapping == null)
+                throw new ApiException(400, "Missing required parameter 'mapping' when calling DealsApi->CrmDealsImportPost");
+
+            var localVarPath = "./crm/deals/import";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", file));
+            if (mapping != null) localVarFormParams.Add("mapping", this.Configuration.ApiClient.ParameterToString(mapping)); // form parameter
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CrmDealsImportPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InlineResponse2004) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004)));
+        }
+
+        /// <summary>
         /// Link and Unlink a deal with contacts and companies 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and companies ids.</param>
         /// <returns></returns>
-        public void CrmDealsLinkUnlinkIdPatch (string id, Body8 body)
+        public void CrmDealsLinkUnlinkIdPatch (string id, Body12 body)
         {
              CrmDealsLinkUnlinkIdPatchWithHttpInfo(id, body);
         }
@@ -1400,7 +1844,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and companies ids.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CrmDealsLinkUnlinkIdPatchWithHttpInfo (string id, Body8 body)
+        public ApiResponse<Object> CrmDealsLinkUnlinkIdPatchWithHttpInfo (string id, Body12 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1477,7 +1921,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and companies ids.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CrmDealsLinkUnlinkIdPatchAsync (string id, Body8 body)
+        public async System.Threading.Tasks.Task CrmDealsLinkUnlinkIdPatchAsync (string id, Body12 body)
         {
              await CrmDealsLinkUnlinkIdPatchAsyncWithHttpInfo(id, body);
 
@@ -1490,7 +1934,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and companies ids.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmDealsLinkUnlinkIdPatchAsyncWithHttpInfo (string id, Body8 body)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CrmDealsLinkUnlinkIdPatchAsyncWithHttpInfo (string id, Body12 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1566,7 +2010,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Deal create data.</param>
         /// <returns>InlineResponse2011</returns>
-        public InlineResponse2011 CrmDealsPost (Body6 body)
+        public InlineResponse2011 CrmDealsPost (Body10 body)
         {
              ApiResponse<InlineResponse2011> localVarResponse = CrmDealsPostWithHttpInfo(body);
              return localVarResponse.Data;
@@ -1578,7 +2022,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Deal create data.</param>
         /// <returns>ApiResponse of InlineResponse2011</returns>
-        public ApiResponse< InlineResponse2011 > CrmDealsPostWithHttpInfo (Body6 body)
+        public ApiResponse< InlineResponse2011 > CrmDealsPostWithHttpInfo (Body10 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1650,7 +2094,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Deal create data.</param>
         /// <returns>Task of InlineResponse2011</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2011> CrmDealsPostAsync (Body6 body)
+        public async System.Threading.Tasks.Task<InlineResponse2011> CrmDealsPostAsync (Body10 body)
         {
              ApiResponse<InlineResponse2011> localVarResponse = await CrmDealsPostAsyncWithHttpInfo(body);
              return localVarResponse.Data;
@@ -1663,7 +2107,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Deal create data.</param>
         /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> CrmDealsPostAsyncWithHttpInfo (Body6 body)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> CrmDealsPostAsyncWithHttpInfo (Body10 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)

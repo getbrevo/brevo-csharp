@@ -163,15 +163,17 @@ namespace brevo_csharp.Model
         /// <param name="actionForContacts">Mandatory if neither actionForEmailCampaigns nor actionForSmsCampaigns is passed. This will export the contacts on the basis of provided action applied on contacts as per the list id. * allContacts - Fetch the list of all contacts for a particular list. * subscribed &amp; unsubscribed - Fetch the list of subscribed / unsubscribed (blacklisted via any means) contacts for a particular list. * unsubscribedPerList - Fetch the list of contacts that are unsubscribed from a particular list only. .</param>
         /// <param name="actionForEmailCampaigns">Mandatory if neither actionForContacts nor actionForSmsCampaigns is passed. This will export the contacts on the basis of provided action applied on email campaigns. * openers &amp; nonOpeners - emailCampaignId is mandatory. Fetch the list of readers / non-readers for a particular email campaign. * clickers &amp; nonClickers - emailCampaignId is mandatory. Fetch the list of clickers / non-clickers for a particular email campaign. * unsubscribed - emailCampaignId is mandatory. Fetch the list of all unsubscribed (blacklisted via any means) contacts for a particular email campaign. * hardBounces &amp; softBounces - emailCampaignId is optional. Fetch the list of hard bounces / soft bounces for a particular / all email campaign(s). .</param>
         /// <param name="actionForSmsCampaigns">Mandatory if neither actionForContacts nor actionForEmailCampaigns is passed. This will export the contacts on the basis of provided action applied on sms campaigns. * unsubscribed - Fetch the list of all unsubscribed (blacklisted via any means) contacts for all / particular sms campaigns. * hardBounces &amp; softBounces - Fetch the list of hard bounces / soft bounces for all / particular sms campaigns. .</param>
-        /// <param name="listId">Mandatory if actionForContacts is passed, ignored otherwise. Id of the list for which the corresponding action shall be applied in the filter..</param>
+        /// <param name="listId">ID of the list. This is mandatory if actionForContacts is specified and segmentId is not provided. Either segmentId or listId must be included..</param>
+        /// <param name="segmentId">ID of the segment. This is mandatory if actionForContacts is specified and listId is not provided. Either segmentId or listId must be included. .</param>
         /// <param name="emailCampaignId">Considered only if actionForEmailCampaigns is passed, ignored otherwise. Mandatory if action is one of the following - openers, nonOpeners, clickers, nonClickers, unsubscribed. The id of the email campaign for which the corresponding action shall be applied in the filter..</param>
         /// <param name="smsCampaignId">Considered only if actionForSmsCampaigns is passed, ignored otherwise. The id of sms campaign for which the corresponding action shall be applied in the filter..</param>
-        public RequestContactExportCustomContactFilter(ActionForContactsEnum? actionForContacts = default(ActionForContactsEnum?), ActionForEmailCampaignsEnum? actionForEmailCampaigns = default(ActionForEmailCampaignsEnum?), ActionForSmsCampaignsEnum? actionForSmsCampaigns = default(ActionForSmsCampaignsEnum?), long? listId = default(long?), long? emailCampaignId = default(long?), long? smsCampaignId = default(long?))
+        public RequestContactExportCustomContactFilter(ActionForContactsEnum? actionForContacts = default(ActionForContactsEnum?), ActionForEmailCampaignsEnum? actionForEmailCampaigns = default(ActionForEmailCampaignsEnum?), ActionForSmsCampaignsEnum? actionForSmsCampaigns = default(ActionForSmsCampaignsEnum?), long? listId = default(long?), long? segmentId = default(long?), long? emailCampaignId = default(long?), long? smsCampaignId = default(long?))
         {
             this.ActionForContacts = actionForContacts;
             this.ActionForEmailCampaigns = actionForEmailCampaigns;
             this.ActionForSmsCampaigns = actionForSmsCampaigns;
             this.ListId = listId;
+            this.SegmentId = segmentId;
             this.EmailCampaignId = emailCampaignId;
             this.SmsCampaignId = smsCampaignId;
         }
@@ -180,11 +182,18 @@ namespace brevo_csharp.Model
 
 
         /// <summary>
-        /// Mandatory if actionForContacts is passed, ignored otherwise. Id of the list for which the corresponding action shall be applied in the filter.
+        /// ID of the list. This is mandatory if actionForContacts is specified and segmentId is not provided. Either segmentId or listId must be included.
         /// </summary>
-        /// <value>Mandatory if actionForContacts is passed, ignored otherwise. Id of the list for which the corresponding action shall be applied in the filter.</value>
+        /// <value>ID of the list. This is mandatory if actionForContacts is specified and segmentId is not provided. Either segmentId or listId must be included.</value>
         [DataMember(Name="listId", EmitDefaultValue=false)]
         public long? ListId { get; set; }
+
+        /// <summary>
+        /// ID of the segment. This is mandatory if actionForContacts is specified and listId is not provided. Either segmentId or listId must be included. 
+        /// </summary>
+        /// <value>ID of the segment. This is mandatory if actionForContacts is specified and listId is not provided. Either segmentId or listId must be included. </value>
+        [DataMember(Name="segmentId", EmitDefaultValue=false)]
+        public long? SegmentId { get; set; }
 
         /// <summary>
         /// Considered only if actionForEmailCampaigns is passed, ignored otherwise. Mandatory if action is one of the following - openers, nonOpeners, clickers, nonClickers, unsubscribed. The id of the email campaign for which the corresponding action shall be applied in the filter.
@@ -212,6 +221,7 @@ namespace brevo_csharp.Model
             sb.Append("  ActionForEmailCampaigns: ").Append(ActionForEmailCampaigns).Append("\n");
             sb.Append("  ActionForSmsCampaigns: ").Append(ActionForSmsCampaigns).Append("\n");
             sb.Append("  ListId: ").Append(ListId).Append("\n");
+            sb.Append("  SegmentId: ").Append(SegmentId).Append("\n");
             sb.Append("  EmailCampaignId: ").Append(EmailCampaignId).Append("\n");
             sb.Append("  SmsCampaignId: ").Append(SmsCampaignId).Append("\n");
             sb.Append("}\n");
@@ -269,6 +279,11 @@ namespace brevo_csharp.Model
                     this.ListId.Equals(input.ListId))
                 ) && 
                 (
+                    this.SegmentId == input.SegmentId ||
+                    (this.SegmentId != null &&
+                    this.SegmentId.Equals(input.SegmentId))
+                ) && 
+                (
                     this.EmailCampaignId == input.EmailCampaignId ||
                     (this.EmailCampaignId != null &&
                     this.EmailCampaignId.Equals(input.EmailCampaignId))
@@ -297,6 +312,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.ActionForSmsCampaigns.GetHashCode();
                 if (this.ListId != null)
                     hashCode = hashCode * 59 + this.ListId.GetHashCode();
+                if (this.SegmentId != null)
+                    hashCode = hashCode * 59 + this.SegmentId.GetHashCode();
                 if (this.EmailCampaignId != null)
                     hashCode = hashCode * 59 + this.EmailCampaignId.GetHashCode();
                 if (this.SmsCampaignId != null)

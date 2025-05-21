@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 
 <a name="updatecouponcollection"></a>
 # **UpdateCouponCollection**
-> InlineResponse2003 UpdateCouponCollection (string id, UpdateCouponCollection updateCouponCollection)
+> InlineResponse2005 UpdateCouponCollection (string id, UpdateCouponCollection updateCouponCollection)
 
 Update a coupon collection by id
 
@@ -322,7 +322,7 @@ namespace Example
             try
             {
                 // Update a coupon collection by id
-                InlineResponse2003 result = apiInstance.UpdateCouponCollection(id, updateCouponCollection);
+                InlineResponse2005 result = apiInstance.UpdateCouponCollection(id, updateCouponCollection);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 

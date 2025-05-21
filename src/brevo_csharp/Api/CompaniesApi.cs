@@ -25,25 +25,6 @@ namespace brevo_csharp.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get company attributes
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>CompanyAttributes</returns>
-        CompanyAttributes CompaniesAttributesGet ();
-
-        /// <summary>
-        /// Get company attributes
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of CompanyAttributes</returns>
-        ApiResponse<CompanyAttributes> CompaniesAttributesGetWithHttpInfo ();
-        /// <summary>
         /// Get all companies
         /// </summary>
         /// <remarks>
@@ -53,12 +34,14 @@ namespace brevo_csharp.Api
         /// <param name="filters">Filter by attrbutes. If you have filter for owner on your side please send it as {\&quot;attributes.owner\&quot;:\&quot;5b1a17d914b73d35a76ca0c7\&quot;} (optional)</param>
         /// <param name="linkedContactsIds">Filter by linked contacts ids (optional)</param>
         /// <param name="linkedDealsIds">Filter by linked deals ids (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
         /// <param name="page">Index of the first document of the page (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>CompaniesList</returns>
-        CompaniesList CompaniesGet (string filters = null, long? linkedContactsIds = null, string linkedDealsIds = null, long? page = null, long? limit = null, string sort = null, string sortBy = null);
+        CompaniesList CompaniesGet (string filters = null, long? linkedContactsIds = null, string linkedDealsIds = null, string modifiedSince = null, string createdSince = null, long? page = null, long? limit = null, string sort = null, string sortBy = null);
 
         /// <summary>
         /// Get all companies
@@ -70,12 +53,14 @@ namespace brevo_csharp.Api
         /// <param name="filters">Filter by attrbutes. If you have filter for owner on your side please send it as {\&quot;attributes.owner\&quot;:\&quot;5b1a17d914b73d35a76ca0c7\&quot;} (optional)</param>
         /// <param name="linkedContactsIds">Filter by linked contacts ids (optional)</param>
         /// <param name="linkedDealsIds">Filter by linked deals ids (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
         /// <param name="page">Index of the first document of the page (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>ApiResponse of CompaniesList</returns>
-        ApiResponse<CompaniesList> CompaniesGetWithHttpInfo (string filters = null, long? linkedContactsIds = null, string linkedDealsIds = null, long? page = null, long? limit = null, string sort = null, string sortBy = null);
+        ApiResponse<CompaniesList> CompaniesGetWithHttpInfo (string filters = null, long? linkedContactsIds = null, string linkedDealsIds = null, string modifiedSince = null, string createdSince = null, long? page = null, long? limit = null, string sort = null, string sortBy = null);
         /// <summary>
         /// Delete a company
         /// </summary>
@@ -128,7 +113,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated company details.</param>
         /// <returns>Company</returns>
-        Company CompaniesIdPatch (string id, Body4 body);
+        Company CompaniesIdPatch (string id, Body7 body);
 
         /// <summary>
         /// Update a company
@@ -140,7 +125,30 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated company details.</param>
         /// <returns>ApiResponse of Company</returns>
-        ApiResponse<Company> CompaniesIdPatchWithHttpInfo (string id, Body4 body);
+        ApiResponse<Company> CompaniesIdPatchWithHttpInfo (string id, Body7 body);
+        /// <summary>
+        /// Import companies(creation and updation)
+        /// </summary>
+        /// <remarks>
+        /// Import companies from a CSV file with mapping options.
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">The CSV file to upload.The file should have the first row as the mapping attribute. Some default attribute names are (a) company_id [brevo mongoID to update deals] (b) associated_contact (c) associated_deal (f) any other attribute with internal name </param>
+        /// <param name="mapping">The mapping options in JSON format.   json    {       \&quot;link_entities\&quot;: true, // Determines whether to link related entities during the import process       \&quot;unlink_entities\&quot;: false, //Determines whether to unlink related entities during the import process.       \&quot;update_existing_records\&quot;: true, // Determines whether to update based on company ID or treat every row as create       \&quot;unset_empty_attributes\&quot;: false // Determines whether unset a specific attribute during update if values input is blank       \&quot;use_company_identifier\&quot;: false // Determines whether to use company name as identifier     } </param>
+        /// <returns>InlineResponse2004</returns>
+        InlineResponse2004 CompaniesImportPost (System.IO.Stream file, string mapping);
+
+        /// <summary>
+        /// Import companies(creation and updation)
+        /// </summary>
+        /// <remarks>
+        /// Import companies from a CSV file with mapping options.
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">The CSV file to upload.The file should have the first row as the mapping attribute. Some default attribute names are (a) company_id [brevo mongoID to update deals] (b) associated_contact (c) associated_deal (f) any other attribute with internal name </param>
+        /// <param name="mapping">The mapping options in JSON format.   json    {       \&quot;link_entities\&quot;: true, // Determines whether to link related entities during the import process       \&quot;unlink_entities\&quot;: false, //Determines whether to unlink related entities during the import process.       \&quot;update_existing_records\&quot;: true, // Determines whether to update based on company ID or treat every row as create       \&quot;unset_empty_attributes\&quot;: false // Determines whether unset a specific attribute during update if values input is blank       \&quot;use_company_identifier\&quot;: false // Determines whether to use company name as identifier     } </param>
+        /// <returns>ApiResponse of InlineResponse2004</returns>
+        ApiResponse<InlineResponse2004> CompaniesImportPostWithHttpInfo (System.IO.Stream file, string mapping);
         /// <summary>
         /// Link and Unlink company with contacts and deals
         /// </summary>
@@ -151,7 +159,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and deals ids.</param>
         /// <returns></returns>
-        void CompaniesLinkUnlinkIdPatch (string id, Body5 body);
+        void CompaniesLinkUnlinkIdPatch (string id, Body8 body);
 
         /// <summary>
         /// Link and Unlink company with contacts and deals
@@ -163,7 +171,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and deals ids.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CompaniesLinkUnlinkIdPatchWithHttpInfo (string id, Body5 body);
+        ApiResponse<Object> CompaniesLinkUnlinkIdPatchWithHttpInfo (string id, Body8 body);
         /// <summary>
         /// Create a company
         /// </summary>
@@ -173,7 +181,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Company create data.</param>
         /// <returns>InlineResponse2002</returns>
-        InlineResponse2002 CompaniesPost (Body3 body);
+        InlineResponse2002 CompaniesPost (Body6 body);
 
         /// <summary>
         /// Create a company
@@ -184,9 +192,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Company create data.</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        ApiResponse<InlineResponse2002> CompaniesPostWithHttpInfo (Body3 body);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
+        ApiResponse<InlineResponse2002> CompaniesPostWithHttpInfo (Body6 body);
         /// <summary>
         /// Get company attributes
         /// </summary>
@@ -194,8 +200,8 @@ namespace brevo_csharp.Api
         /// 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of CompanyAttributes</returns>
-        System.Threading.Tasks.Task<CompanyAttributes> CompaniesAttributesGetAsync ();
+        /// <returns>CompanyAttributes</returns>
+        CompanyAttributes CrmAttributesCompaniesGet ();
 
         /// <summary>
         /// Get company attributes
@@ -204,8 +210,31 @@ namespace brevo_csharp.Api
         /// 
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (CompanyAttributes)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CompanyAttributes>> CompaniesAttributesGetAsyncWithHttpInfo ();
+        /// <returns>ApiResponse of CompanyAttributes</returns>
+        ApiResponse<CompanyAttributes> CrmAttributesCompaniesGetWithHttpInfo ();
+        /// <summary>
+        /// Create a deal/company attribute
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Attribute creation data for company</param>
+        /// <returns>InlineResponse2003</returns>
+        InlineResponse2003 CrmAttributesPost (Body9 body);
+
+        /// <summary>
+        /// Create a deal/company attribute
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Attribute creation data for company</param>
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        ApiResponse<InlineResponse2003> CrmAttributesPostWithHttpInfo (Body9 body);
+        #endregion Synchronous Operations
+        #region Asynchronous Operations
         /// <summary>
         /// Get all companies
         /// </summary>
@@ -216,12 +245,14 @@ namespace brevo_csharp.Api
         /// <param name="filters">Filter by attrbutes. If you have filter for owner on your side please send it as {\&quot;attributes.owner\&quot;:\&quot;5b1a17d914b73d35a76ca0c7\&quot;} (optional)</param>
         /// <param name="linkedContactsIds">Filter by linked contacts ids (optional)</param>
         /// <param name="linkedDealsIds">Filter by linked deals ids (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
         /// <param name="page">Index of the first document of the page (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>Task of CompaniesList</returns>
-        System.Threading.Tasks.Task<CompaniesList> CompaniesGetAsync (string filters = null, long? linkedContactsIds = null, string linkedDealsIds = null, long? page = null, long? limit = null, string sort = null, string sortBy = null);
+        System.Threading.Tasks.Task<CompaniesList> CompaniesGetAsync (string filters = null, long? linkedContactsIds = null, string linkedDealsIds = null, string modifiedSince = null, string createdSince = null, long? page = null, long? limit = null, string sort = null, string sortBy = null);
 
         /// <summary>
         /// Get all companies
@@ -233,12 +264,14 @@ namespace brevo_csharp.Api
         /// <param name="filters">Filter by attrbutes. If you have filter for owner on your side please send it as {\&quot;attributes.owner\&quot;:\&quot;5b1a17d914b73d35a76ca0c7\&quot;} (optional)</param>
         /// <param name="linkedContactsIds">Filter by linked contacts ids (optional)</param>
         /// <param name="linkedDealsIds">Filter by linked deals ids (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
         /// <param name="page">Index of the first document of the page (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>Task of ApiResponse (CompaniesList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CompaniesList>> CompaniesGetAsyncWithHttpInfo (string filters = null, long? linkedContactsIds = null, string linkedDealsIds = null, long? page = null, long? limit = null, string sort = null, string sortBy = null);
+        System.Threading.Tasks.Task<ApiResponse<CompaniesList>> CompaniesGetAsyncWithHttpInfo (string filters = null, long? linkedContactsIds = null, string linkedDealsIds = null, string modifiedSince = null, string createdSince = null, long? page = null, long? limit = null, string sort = null, string sortBy = null);
         /// <summary>
         /// Delete a company
         /// </summary>
@@ -291,7 +324,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated company details.</param>
         /// <returns>Task of Company</returns>
-        System.Threading.Tasks.Task<Company> CompaniesIdPatchAsync (string id, Body4 body);
+        System.Threading.Tasks.Task<Company> CompaniesIdPatchAsync (string id, Body7 body);
 
         /// <summary>
         /// Update a company
@@ -303,7 +336,30 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated company details.</param>
         /// <returns>Task of ApiResponse (Company)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Company>> CompaniesIdPatchAsyncWithHttpInfo (string id, Body4 body);
+        System.Threading.Tasks.Task<ApiResponse<Company>> CompaniesIdPatchAsyncWithHttpInfo (string id, Body7 body);
+        /// <summary>
+        /// Import companies(creation and updation)
+        /// </summary>
+        /// <remarks>
+        /// Import companies from a CSV file with mapping options.
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">The CSV file to upload.The file should have the first row as the mapping attribute. Some default attribute names are (a) company_id [brevo mongoID to update deals] (b) associated_contact (c) associated_deal (f) any other attribute with internal name </param>
+        /// <param name="mapping">The mapping options in JSON format.   json    {       \&quot;link_entities\&quot;: true, // Determines whether to link related entities during the import process       \&quot;unlink_entities\&quot;: false, //Determines whether to unlink related entities during the import process.       \&quot;update_existing_records\&quot;: true, // Determines whether to update based on company ID or treat every row as create       \&quot;unset_empty_attributes\&quot;: false // Determines whether unset a specific attribute during update if values input is blank       \&quot;use_company_identifier\&quot;: false // Determines whether to use company name as identifier     } </param>
+        /// <returns>Task of InlineResponse2004</returns>
+        System.Threading.Tasks.Task<InlineResponse2004> CompaniesImportPostAsync (System.IO.Stream file, string mapping);
+
+        /// <summary>
+        /// Import companies(creation and updation)
+        /// </summary>
+        /// <remarks>
+        /// Import companies from a CSV file with mapping options.
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">The CSV file to upload.The file should have the first row as the mapping attribute. Some default attribute names are (a) company_id [brevo mongoID to update deals] (b) associated_contact (c) associated_deal (f) any other attribute with internal name </param>
+        /// <param name="mapping">The mapping options in JSON format.   json    {       \&quot;link_entities\&quot;: true, // Determines whether to link related entities during the import process       \&quot;unlink_entities\&quot;: false, //Determines whether to unlink related entities during the import process.       \&quot;update_existing_records\&quot;: true, // Determines whether to update based on company ID or treat every row as create       \&quot;unset_empty_attributes\&quot;: false // Determines whether unset a specific attribute during update if values input is blank       \&quot;use_company_identifier\&quot;: false // Determines whether to use company name as identifier     } </param>
+        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> CompaniesImportPostAsyncWithHttpInfo (System.IO.Stream file, string mapping);
         /// <summary>
         /// Link and Unlink company with contacts and deals
         /// </summary>
@@ -314,7 +370,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and deals ids.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CompaniesLinkUnlinkIdPatchAsync (string id, Body5 body);
+        System.Threading.Tasks.Task CompaniesLinkUnlinkIdPatchAsync (string id, Body8 body);
 
         /// <summary>
         /// Link and Unlink company with contacts and deals
@@ -326,7 +382,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and deals ids.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CompaniesLinkUnlinkIdPatchAsyncWithHttpInfo (string id, Body5 body);
+        System.Threading.Tasks.Task<ApiResponse<Object>> CompaniesLinkUnlinkIdPatchAsyncWithHttpInfo (string id, Body8 body);
         /// <summary>
         /// Create a company
         /// </summary>
@@ -336,7 +392,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Company create data.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        System.Threading.Tasks.Task<InlineResponse2002> CompaniesPostAsync (Body3 body);
+        System.Threading.Tasks.Task<InlineResponse2002> CompaniesPostAsync (Body6 body);
 
         /// <summary>
         /// Create a company
@@ -347,7 +403,47 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Company create data.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> CompaniesPostAsyncWithHttpInfo (Body3 body);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> CompaniesPostAsyncWithHttpInfo (Body6 body);
+        /// <summary>
+        /// Get company attributes
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of CompanyAttributes</returns>
+        System.Threading.Tasks.Task<CompanyAttributes> CrmAttributesCompaniesGetAsync ();
+
+        /// <summary>
+        /// Get company attributes
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (CompanyAttributes)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CompanyAttributes>> CrmAttributesCompaniesGetAsyncWithHttpInfo ();
+        /// <summary>
+        /// Create a deal/company attribute
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Attribute creation data for company</param>
+        /// <returns>Task of InlineResponse2003</returns>
+        System.Threading.Tasks.Task<InlineResponse2003> CrmAttributesPostAsync (Body9 body);
+
+        /// <summary>
+        /// Create a deal/company attribute
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Attribute creation data for company</param>
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> CrmAttributesPostAsyncWithHttpInfo (Body9 body);
         #endregion Asynchronous Operations
     }
 
@@ -449,163 +545,22 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Get company attributes 
-        /// </summary>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>CompanyAttributes</returns>
-        public CompanyAttributes CompaniesAttributesGet ()
-        {
-             ApiResponse<CompanyAttributes> localVarResponse = CompaniesAttributesGetWithHttpInfo();
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get company attributes 
-        /// </summary>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of CompanyAttributes</returns>
-        public ApiResponse< CompanyAttributes > CompaniesAttributesGetWithHttpInfo ()
-        {
-
-            var localVarPath = "./companies/attributes";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-            // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
-            {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
-            }
-            // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
-            {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("CompaniesAttributesGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<CompanyAttributes>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
-                (CompanyAttributes) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CompanyAttributes)));
-        }
-
-        /// <summary>
-        /// Get company attributes 
-        /// </summary>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of CompanyAttributes</returns>
-        public async System.Threading.Tasks.Task<CompanyAttributes> CompaniesAttributesGetAsync ()
-        {
-             ApiResponse<CompanyAttributes> localVarResponse = await CompaniesAttributesGetAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get company attributes 
-        /// </summary>
-        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (CompanyAttributes)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CompanyAttributes>> CompaniesAttributesGetAsyncWithHttpInfo ()
-        {
-
-            var localVarPath = "./companies/attributes";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-            // authentication (api-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
-            {
-                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
-            }
-            // authentication (partner-key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
-            {
-                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("CompaniesAttributesGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<CompanyAttributes>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
-                (CompanyAttributes) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CompanyAttributes)));
-        }
-
-        /// <summary>
         /// Get all companies 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filters">Filter by attrbutes. If you have filter for owner on your side please send it as {\&quot;attributes.owner\&quot;:\&quot;5b1a17d914b73d35a76ca0c7\&quot;} (optional)</param>
         /// <param name="linkedContactsIds">Filter by linked contacts ids (optional)</param>
         /// <param name="linkedDealsIds">Filter by linked deals ids (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
         /// <param name="page">Index of the first document of the page (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>CompaniesList</returns>
-        public CompaniesList CompaniesGet (string filters = null, long? linkedContactsIds = null, string linkedDealsIds = null, long? page = null, long? limit = null, string sort = null, string sortBy = null)
+        public CompaniesList CompaniesGet (string filters = null, long? linkedContactsIds = null, string linkedDealsIds = null, string modifiedSince = null, string createdSince = null, long? page = null, long? limit = null, string sort = null, string sortBy = null)
         {
-             ApiResponse<CompaniesList> localVarResponse = CompaniesGetWithHttpInfo(filters, linkedContactsIds, linkedDealsIds, page, limit, sort, sortBy);
+             ApiResponse<CompaniesList> localVarResponse = CompaniesGetWithHttpInfo(filters, linkedContactsIds, linkedDealsIds, modifiedSince, createdSince, page, limit, sort, sortBy);
              return localVarResponse.Data;
         }
 
@@ -616,12 +571,14 @@ namespace brevo_csharp.Api
         /// <param name="filters">Filter by attrbutes. If you have filter for owner on your side please send it as {\&quot;attributes.owner\&quot;:\&quot;5b1a17d914b73d35a76ca0c7\&quot;} (optional)</param>
         /// <param name="linkedContactsIds">Filter by linked contacts ids (optional)</param>
         /// <param name="linkedDealsIds">Filter by linked deals ids (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
         /// <param name="page">Index of the first document of the page (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>ApiResponse of CompaniesList</returns>
-        public ApiResponse< CompaniesList > CompaniesGetWithHttpInfo (string filters = null, long? linkedContactsIds = null, string linkedDealsIds = null, long? page = null, long? limit = null, string sort = null, string sortBy = null)
+        public ApiResponse< CompaniesList > CompaniesGetWithHttpInfo (string filters = null, long? linkedContactsIds = null, string linkedDealsIds = null, string modifiedSince = null, string createdSince = null, long? page = null, long? limit = null, string sort = null, string sortBy = null)
         {
 
             var localVarPath = "./companies";
@@ -649,6 +606,8 @@ namespace brevo_csharp.Api
             if (filters != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filters", filters)); // query parameter
             if (linkedContactsIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "linkedContactsIds", linkedContactsIds)); // query parameter
             if (linkedDealsIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "linkedDealsIds", linkedDealsIds)); // query parameter
+            if (modifiedSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "modifiedSince", modifiedSince)); // query parameter
+            if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
             if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
@@ -690,14 +649,16 @@ namespace brevo_csharp.Api
         /// <param name="filters">Filter by attrbutes. If you have filter for owner on your side please send it as {\&quot;attributes.owner\&quot;:\&quot;5b1a17d914b73d35a76ca0c7\&quot;} (optional)</param>
         /// <param name="linkedContactsIds">Filter by linked contacts ids (optional)</param>
         /// <param name="linkedDealsIds">Filter by linked deals ids (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
         /// <param name="page">Index of the first document of the page (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>Task of CompaniesList</returns>
-        public async System.Threading.Tasks.Task<CompaniesList> CompaniesGetAsync (string filters = null, long? linkedContactsIds = null, string linkedDealsIds = null, long? page = null, long? limit = null, string sort = null, string sortBy = null)
+        public async System.Threading.Tasks.Task<CompaniesList> CompaniesGetAsync (string filters = null, long? linkedContactsIds = null, string linkedDealsIds = null, string modifiedSince = null, string createdSince = null, long? page = null, long? limit = null, string sort = null, string sortBy = null)
         {
-             ApiResponse<CompaniesList> localVarResponse = await CompaniesGetAsyncWithHttpInfo(filters, linkedContactsIds, linkedDealsIds, page, limit, sort, sortBy);
+             ApiResponse<CompaniesList> localVarResponse = await CompaniesGetAsyncWithHttpInfo(filters, linkedContactsIds, linkedDealsIds, modifiedSince, createdSince, page, limit, sort, sortBy);
              return localVarResponse.Data;
 
         }
@@ -709,12 +670,14 @@ namespace brevo_csharp.Api
         /// <param name="filters">Filter by attrbutes. If you have filter for owner on your side please send it as {\&quot;attributes.owner\&quot;:\&quot;5b1a17d914b73d35a76ca0c7\&quot;} (optional)</param>
         /// <param name="linkedContactsIds">Filter by linked contacts ids (optional)</param>
         /// <param name="linkedDealsIds">Filter by linked deals ids (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the contacts created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)</param>
         /// <param name="page">Index of the first document of the page (optional)</param>
         /// <param name="limit">Number of documents per page (optional, default to 50)</param>
         /// <param name="sort">Sort the results in the ascending/descending order. Default order is **descending** by creation if &#x60;sort&#x60; is not passed (optional)</param>
         /// <param name="sortBy">The field used to sort field names. (optional)</param>
         /// <returns>Task of ApiResponse (CompaniesList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CompaniesList>> CompaniesGetAsyncWithHttpInfo (string filters = null, long? linkedContactsIds = null, string linkedDealsIds = null, long? page = null, long? limit = null, string sort = null, string sortBy = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CompaniesList>> CompaniesGetAsyncWithHttpInfo (string filters = null, long? linkedContactsIds = null, string linkedDealsIds = null, string modifiedSince = null, string createdSince = null, long? page = null, long? limit = null, string sort = null, string sortBy = null)
         {
 
             var localVarPath = "./companies";
@@ -742,6 +705,8 @@ namespace brevo_csharp.Api
             if (filters != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filters", filters)); // query parameter
             if (linkedContactsIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "linkedContactsIds", linkedContactsIds)); // query parameter
             if (linkedDealsIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "linkedDealsIds", linkedDealsIds)); // query parameter
+            if (modifiedSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "modifiedSince", modifiedSince)); // query parameter
+            if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
             if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
@@ -1091,7 +1056,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated company details.</param>
         /// <returns>Company</returns>
-        public Company CompaniesIdPatch (string id, Body4 body)
+        public Company CompaniesIdPatch (string id, Body7 body)
         {
              ApiResponse<Company> localVarResponse = CompaniesIdPatchWithHttpInfo(id, body);
              return localVarResponse.Data;
@@ -1104,7 +1069,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated company details.</param>
         /// <returns>ApiResponse of Company</returns>
-        public ApiResponse< Company > CompaniesIdPatchWithHttpInfo (string id, Body4 body)
+        public ApiResponse< Company > CompaniesIdPatchWithHttpInfo (string id, Body7 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1181,7 +1146,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated company details.</param>
         /// <returns>Task of Company</returns>
-        public async System.Threading.Tasks.Task<Company> CompaniesIdPatchAsync (string id, Body4 body)
+        public async System.Threading.Tasks.Task<Company> CompaniesIdPatchAsync (string id, Body7 body)
         {
              ApiResponse<Company> localVarResponse = await CompaniesIdPatchAsyncWithHttpInfo(id, body);
              return localVarResponse.Data;
@@ -1195,7 +1160,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Updated company details.</param>
         /// <returns>Task of ApiResponse (Company)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Company>> CompaniesIdPatchAsyncWithHttpInfo (string id, Body4 body)
+        public async System.Threading.Tasks.Task<ApiResponse<Company>> CompaniesIdPatchAsyncWithHttpInfo (string id, Body7 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1266,13 +1231,180 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
+        /// Import companies(creation and updation) Import companies from a CSV file with mapping options.
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">The CSV file to upload.The file should have the first row as the mapping attribute. Some default attribute names are (a) company_id [brevo mongoID to update deals] (b) associated_contact (c) associated_deal (f) any other attribute with internal name </param>
+        /// <param name="mapping">The mapping options in JSON format.   json    {       \&quot;link_entities\&quot;: true, // Determines whether to link related entities during the import process       \&quot;unlink_entities\&quot;: false, //Determines whether to unlink related entities during the import process.       \&quot;update_existing_records\&quot;: true, // Determines whether to update based on company ID or treat every row as create       \&quot;unset_empty_attributes\&quot;: false // Determines whether unset a specific attribute during update if values input is blank       \&quot;use_company_identifier\&quot;: false // Determines whether to use company name as identifier     } </param>
+        /// <returns>InlineResponse2004</returns>
+        public InlineResponse2004 CompaniesImportPost (System.IO.Stream file, string mapping)
+        {
+             ApiResponse<InlineResponse2004> localVarResponse = CompaniesImportPostWithHttpInfo(file, mapping);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Import companies(creation and updation) Import companies from a CSV file with mapping options.
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">The CSV file to upload.The file should have the first row as the mapping attribute. Some default attribute names are (a) company_id [brevo mongoID to update deals] (b) associated_contact (c) associated_deal (f) any other attribute with internal name </param>
+        /// <param name="mapping">The mapping options in JSON format.   json    {       \&quot;link_entities\&quot;: true, // Determines whether to link related entities during the import process       \&quot;unlink_entities\&quot;: false, //Determines whether to unlink related entities during the import process.       \&quot;update_existing_records\&quot;: true, // Determines whether to update based on company ID or treat every row as create       \&quot;unset_empty_attributes\&quot;: false // Determines whether unset a specific attribute during update if values input is blank       \&quot;use_company_identifier\&quot;: false // Determines whether to use company name as identifier     } </param>
+        /// <returns>ApiResponse of InlineResponse2004</returns>
+        public ApiResponse< InlineResponse2004 > CompaniesImportPostWithHttpInfo (System.IO.Stream file, string mapping)
+        {
+            // verify the required parameter 'file' is set
+            if (file == null)
+                throw new ApiException(400, "Missing required parameter 'file' when calling CompaniesApi->CompaniesImportPost");
+            // verify the required parameter 'mapping' is set
+            if (mapping == null)
+                throw new ApiException(400, "Missing required parameter 'mapping' when calling CompaniesApi->CompaniesImportPost");
+
+            var localVarPath = "./companies/import";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", file));
+            if (mapping != null) localVarFormParams.Add("mapping", this.Configuration.ApiClient.ParameterToString(mapping)); // form parameter
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CompaniesImportPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InlineResponse2004) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004)));
+        }
+
+        /// <summary>
+        /// Import companies(creation and updation) Import companies from a CSV file with mapping options.
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">The CSV file to upload.The file should have the first row as the mapping attribute. Some default attribute names are (a) company_id [brevo mongoID to update deals] (b) associated_contact (c) associated_deal (f) any other attribute with internal name </param>
+        /// <param name="mapping">The mapping options in JSON format.   json    {       \&quot;link_entities\&quot;: true, // Determines whether to link related entities during the import process       \&quot;unlink_entities\&quot;: false, //Determines whether to unlink related entities during the import process.       \&quot;update_existing_records\&quot;: true, // Determines whether to update based on company ID or treat every row as create       \&quot;unset_empty_attributes\&quot;: false // Determines whether unset a specific attribute during update if values input is blank       \&quot;use_company_identifier\&quot;: false // Determines whether to use company name as identifier     } </param>
+        /// <returns>Task of InlineResponse2004</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2004> CompaniesImportPostAsync (System.IO.Stream file, string mapping)
+        {
+             ApiResponse<InlineResponse2004> localVarResponse = await CompaniesImportPostAsyncWithHttpInfo(file, mapping);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Import companies(creation and updation) Import companies from a CSV file with mapping options.
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">The CSV file to upload.The file should have the first row as the mapping attribute. Some default attribute names are (a) company_id [brevo mongoID to update deals] (b) associated_contact (c) associated_deal (f) any other attribute with internal name </param>
+        /// <param name="mapping">The mapping options in JSON format.   json    {       \&quot;link_entities\&quot;: true, // Determines whether to link related entities during the import process       \&quot;unlink_entities\&quot;: false, //Determines whether to unlink related entities during the import process.       \&quot;update_existing_records\&quot;: true, // Determines whether to update based on company ID or treat every row as create       \&quot;unset_empty_attributes\&quot;: false // Determines whether unset a specific attribute during update if values input is blank       \&quot;use_company_identifier\&quot;: false // Determines whether to use company name as identifier     } </param>
+        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> CompaniesImportPostAsyncWithHttpInfo (System.IO.Stream file, string mapping)
+        {
+            // verify the required parameter 'file' is set
+            if (file == null)
+                throw new ApiException(400, "Missing required parameter 'file' when calling CompaniesApi->CompaniesImportPost");
+            // verify the required parameter 'mapping' is set
+            if (mapping == null)
+                throw new ApiException(400, "Missing required parameter 'mapping' when calling CompaniesApi->CompaniesImportPost");
+
+            var localVarPath = "./companies/import";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", file));
+            if (mapping != null) localVarFormParams.Add("mapping", this.Configuration.ApiClient.ParameterToString(mapping)); // form parameter
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CompaniesImportPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InlineResponse2004) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004)));
+        }
+
+        /// <summary>
         /// Link and Unlink company with contacts and deals 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and deals ids.</param>
         /// <returns></returns>
-        public void CompaniesLinkUnlinkIdPatch (string id, Body5 body)
+        public void CompaniesLinkUnlinkIdPatch (string id, Body8 body)
         {
              CompaniesLinkUnlinkIdPatchWithHttpInfo(id, body);
         }
@@ -1284,7 +1416,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and deals ids.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CompaniesLinkUnlinkIdPatchWithHttpInfo (string id, Body5 body)
+        public ApiResponse<Object> CompaniesLinkUnlinkIdPatchWithHttpInfo (string id, Body8 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1361,7 +1493,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and deals ids.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CompaniesLinkUnlinkIdPatchAsync (string id, Body5 body)
+        public async System.Threading.Tasks.Task CompaniesLinkUnlinkIdPatchAsync (string id, Body8 body)
         {
              await CompaniesLinkUnlinkIdPatchAsyncWithHttpInfo(id, body);
 
@@ -1374,7 +1506,7 @@ namespace brevo_csharp.Api
         /// <param name="id"></param>
         /// <param name="body">Linked / Unlinked contacts and deals ids.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> CompaniesLinkUnlinkIdPatchAsyncWithHttpInfo (string id, Body5 body)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CompaniesLinkUnlinkIdPatchAsyncWithHttpInfo (string id, Body8 body)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1450,7 +1582,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Company create data.</param>
         /// <returns>InlineResponse2002</returns>
-        public InlineResponse2002 CompaniesPost (Body3 body)
+        public InlineResponse2002 CompaniesPost (Body6 body)
         {
              ApiResponse<InlineResponse2002> localVarResponse = CompaniesPostWithHttpInfo(body);
              return localVarResponse.Data;
@@ -1462,7 +1594,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Company create data.</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public ApiResponse< InlineResponse2002 > CompaniesPostWithHttpInfo (Body3 body)
+        public ApiResponse< InlineResponse2002 > CompaniesPostWithHttpInfo (Body6 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1534,7 +1666,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Company create data.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> CompaniesPostAsync (Body3 body)
+        public async System.Threading.Tasks.Task<InlineResponse2002> CompaniesPostAsync (Body6 body)
         {
              ApiResponse<InlineResponse2002> localVarResponse = await CompaniesPostAsyncWithHttpInfo(body);
              return localVarResponse.Data;
@@ -1547,7 +1679,7 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Company create data.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> CompaniesPostAsyncWithHttpInfo (Body3 body)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> CompaniesPostAsyncWithHttpInfo (Body6 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1611,6 +1743,318 @@ namespace brevo_csharp.Api
             return new ApiResponse<InlineResponse2002>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (InlineResponse2002) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2002)));
+        }
+
+        /// <summary>
+        /// Get company attributes 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>CompanyAttributes</returns>
+        public CompanyAttributes CrmAttributesCompaniesGet ()
+        {
+             ApiResponse<CompanyAttributes> localVarResponse = CrmAttributesCompaniesGetWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get company attributes 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of CompanyAttributes</returns>
+        public ApiResponse< CompanyAttributes > CrmAttributesCompaniesGetWithHttpInfo ()
+        {
+
+            var localVarPath = "./crm/attributes/companies";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CrmAttributesCompaniesGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CompanyAttributes>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (CompanyAttributes) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CompanyAttributes)));
+        }
+
+        /// <summary>
+        /// Get company attributes 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of CompanyAttributes</returns>
+        public async System.Threading.Tasks.Task<CompanyAttributes> CrmAttributesCompaniesGetAsync ()
+        {
+             ApiResponse<CompanyAttributes> localVarResponse = await CrmAttributesCompaniesGetAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get company attributes 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (CompanyAttributes)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CompanyAttributes>> CrmAttributesCompaniesGetAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "./crm/attributes/companies";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CrmAttributesCompaniesGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CompanyAttributes>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (CompanyAttributes) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CompanyAttributes)));
+        }
+
+        /// <summary>
+        /// Create a deal/company attribute 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Attribute creation data for company</param>
+        /// <returns>InlineResponse2003</returns>
+        public InlineResponse2003 CrmAttributesPost (Body9 body)
+        {
+             ApiResponse<InlineResponse2003> localVarResponse = CrmAttributesPostWithHttpInfo(body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a deal/company attribute 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Attribute creation data for company</param>
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        public ApiResponse< InlineResponse2003 > CrmAttributesPostWithHttpInfo (Body9 body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling CompaniesApi->CrmAttributesPost");
+
+            var localVarPath = "./crm/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CrmAttributesPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InlineResponse2003) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003)));
+        }
+
+        /// <summary>
+        /// Create a deal/company attribute 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Attribute creation data for company</param>
+        /// <returns>Task of InlineResponse2003</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2003> CrmAttributesPostAsync (Body9 body)
+        {
+             ApiResponse<InlineResponse2003> localVarResponse = await CrmAttributesPostAsyncWithHttpInfo(body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a deal/company attribute 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Attribute creation data for company</param>
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> CrmAttributesPostAsyncWithHttpInfo (Body9 body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling CompaniesApi->CrmAttributesPost");
+
+            var localVarPath = "./crm/attributes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CrmAttributesPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InlineResponse2003) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003)));
         }
 
     }

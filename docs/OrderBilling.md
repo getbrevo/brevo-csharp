@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Address** | **string** | Full billing address. | [optional] 
 **City** | **string** | Exact city of the address. | [optional] 
 **CountryCode** | **string** | Billing country 2-letter ISO code. | [optional] 
+**Country** | **string** | Billing country name. | [optional] 
 **Phone** | **string** | Phone number to contact for further details about the order, Mandatory if &quot;email&quot; field is not passed. | [optional] 
 **PostCode** | **string** | Postcode for delivery and billing. | [optional] 
 **PaymentMethod** | **string** | How the visitor will pay for the item(s), e.g. paypal, check, etc. | [optional] 

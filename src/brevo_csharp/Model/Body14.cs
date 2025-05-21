@@ -31,31 +31,99 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Body14" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Body14() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Body14" /> class.
-        /// </summary>
-        /// <param name="text">edited message text (required).</param>
-        public Body14(string text = default(string))
+        /// <param name="name">Name of task.</param>
+        /// <param name="duration">Duration of task in milliseconds [1 minute &#x3D; 60000 ms].</param>
+        /// <param name="taskTypeId">Id for type of task e.g Call / Email / Meeting etc..</param>
+        /// <param name="date">Task date/time.</param>
+        /// <param name="notes">Notes added to a task.</param>
+        /// <param name="done">Task marked as done.</param>
+        /// <param name="assignToId">To assign a task to a user you can use either the account email or ID..</param>
+        /// <param name="contactsIds">Contact ids for contacts linked to this task.</param>
+        /// <param name="dealsIds">Deal ids for deals a task is linked to.</param>
+        /// <param name="companiesIds">Companies ids for companies a task is linked to.</param>
+        public Body14(string name = default(string), int? duration = default(int?), string taskTypeId = default(string), DateTime? date = default(DateTime?), string notes = default(string), bool? done = default(bool?), string assignToId = default(string), List<int?> contactsIds = default(List<int?>), List<string> dealsIds = default(List<string>), List<string> companiesIds = default(List<string>))
         {
-            // to ensure "text" is required (not null)
-            if (text == null)
-            {
-                throw new InvalidDataException("text is a required property for Body14 and cannot be null");
-            }
-            else
-            {
-                this.Text = text;
-            }
+            this.Name = name;
+            this.Duration = duration;
+            this.TaskTypeId = taskTypeId;
+            this.Date = date;
+            this.Notes = notes;
+            this.Done = done;
+            this.AssignToId = assignToId;
+            this.ContactsIds = contactsIds;
+            this.DealsIds = dealsIds;
+            this.CompaniesIds = companiesIds;
         }
         
         /// <summary>
-        /// edited message text
+        /// Name of task
         /// </summary>
-        /// <value>edited message text</value>
-        [DataMember(Name="text", EmitDefaultValue=false)]
-        public string Text { get; set; }
+        /// <value>Name of task</value>
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Duration of task in milliseconds [1 minute &#x3D; 60000 ms]
+        /// </summary>
+        /// <value>Duration of task in milliseconds [1 minute &#x3D; 60000 ms]</value>
+        [DataMember(Name="duration", EmitDefaultValue=false)]
+        public int? Duration { get; set; }
+
+        /// <summary>
+        /// Id for type of task e.g Call / Email / Meeting etc.
+        /// </summary>
+        /// <value>Id for type of task e.g Call / Email / Meeting etc.</value>
+        [DataMember(Name="taskTypeId", EmitDefaultValue=false)]
+        public string TaskTypeId { get; set; }
+
+        /// <summary>
+        /// Task date/time
+        /// </summary>
+        /// <value>Task date/time</value>
+        [DataMember(Name="date", EmitDefaultValue=false)]
+        public DateTime? Date { get; set; }
+
+        /// <summary>
+        /// Notes added to a task
+        /// </summary>
+        /// <value>Notes added to a task</value>
+        [DataMember(Name="notes", EmitDefaultValue=false)]
+        public string Notes { get; set; }
+
+        /// <summary>
+        /// Task marked as done
+        /// </summary>
+        /// <value>Task marked as done</value>
+        [DataMember(Name="done", EmitDefaultValue=false)]
+        public bool? Done { get; set; }
+
+        /// <summary>
+        /// To assign a task to a user you can use either the account email or ID.
+        /// </summary>
+        /// <value>To assign a task to a user you can use either the account email or ID.</value>
+        [DataMember(Name="assignToId", EmitDefaultValue=false)]
+        public string AssignToId { get; set; }
+
+        /// <summary>
+        /// Contact ids for contacts linked to this task
+        /// </summary>
+        /// <value>Contact ids for contacts linked to this task</value>
+        [DataMember(Name="contactsIds", EmitDefaultValue=false)]
+        public List<int?> ContactsIds { get; set; }
+
+        /// <summary>
+        /// Deal ids for deals a task is linked to
+        /// </summary>
+        /// <value>Deal ids for deals a task is linked to</value>
+        [DataMember(Name="dealsIds", EmitDefaultValue=false)]
+        public List<string> DealsIds { get; set; }
+
+        /// <summary>
+        /// Companies ids for companies a task is linked to
+        /// </summary>
+        /// <value>Companies ids for companies a task is linked to</value>
+        [DataMember(Name="companiesIds", EmitDefaultValue=false)]
+        public List<string> CompaniesIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,7 +133,16 @@ namespace brevo_csharp.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Body14 {\n");
-            sb.Append("  Text: ").Append(Text).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Duration: ").Append(Duration).Append("\n");
+            sb.Append("  TaskTypeId: ").Append(TaskTypeId).Append("\n");
+            sb.Append("  Date: ").Append(Date).Append("\n");
+            sb.Append("  Notes: ").Append(Notes).Append("\n");
+            sb.Append("  Done: ").Append(Done).Append("\n");
+            sb.Append("  AssignToId: ").Append(AssignToId).Append("\n");
+            sb.Append("  ContactsIds: ").Append(ContactsIds).Append("\n");
+            sb.Append("  DealsIds: ").Append(DealsIds).Append("\n");
+            sb.Append("  CompaniesIds: ").Append(CompaniesIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,9 +178,54 @@ namespace brevo_csharp.Model
 
             return 
                 (
-                    this.Text == input.Text ||
-                    (this.Text != null &&
-                    this.Text.Equals(input.Text))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Duration == input.Duration ||
+                    (this.Duration != null &&
+                    this.Duration.Equals(input.Duration))
+                ) && 
+                (
+                    this.TaskTypeId == input.TaskTypeId ||
+                    (this.TaskTypeId != null &&
+                    this.TaskTypeId.Equals(input.TaskTypeId))
+                ) && 
+                (
+                    this.Date == input.Date ||
+                    (this.Date != null &&
+                    this.Date.Equals(input.Date))
+                ) && 
+                (
+                    this.Notes == input.Notes ||
+                    (this.Notes != null &&
+                    this.Notes.Equals(input.Notes))
+                ) && 
+                (
+                    this.Done == input.Done ||
+                    (this.Done != null &&
+                    this.Done.Equals(input.Done))
+                ) && 
+                (
+                    this.AssignToId == input.AssignToId ||
+                    (this.AssignToId != null &&
+                    this.AssignToId.Equals(input.AssignToId))
+                ) && 
+                (
+                    this.ContactsIds == input.ContactsIds ||
+                    this.ContactsIds != null &&
+                    this.ContactsIds.SequenceEqual(input.ContactsIds)
+                ) && 
+                (
+                    this.DealsIds == input.DealsIds ||
+                    this.DealsIds != null &&
+                    this.DealsIds.SequenceEqual(input.DealsIds)
+                ) && 
+                (
+                    this.CompaniesIds == input.CompaniesIds ||
+                    this.CompaniesIds != null &&
+                    this.CompaniesIds.SequenceEqual(input.CompaniesIds)
                 );
         }
 
@@ -116,8 +238,26 @@ namespace brevo_csharp.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Text != null)
-                    hashCode = hashCode * 59 + this.Text.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Duration != null)
+                    hashCode = hashCode * 59 + this.Duration.GetHashCode();
+                if (this.TaskTypeId != null)
+                    hashCode = hashCode * 59 + this.TaskTypeId.GetHashCode();
+                if (this.Date != null)
+                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                if (this.Notes != null)
+                    hashCode = hashCode * 59 + this.Notes.GetHashCode();
+                if (this.Done != null)
+                    hashCode = hashCode * 59 + this.Done.GetHashCode();
+                if (this.AssignToId != null)
+                    hashCode = hashCode * 59 + this.AssignToId.GetHashCode();
+                if (this.ContactsIds != null)
+                    hashCode = hashCode * 59 + this.ContactsIds.GetHashCode();
+                if (this.DealsIds != null)
+                    hashCode = hashCode * 59 + this.DealsIds.GetHashCode();
+                if (this.CompaniesIds != null)
+                    hashCode = hashCode * 59 + this.CompaniesIds.GetHashCode();
                 return hashCode;
             }
         }

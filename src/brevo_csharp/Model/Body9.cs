@@ -29,6 +29,90 @@ namespace brevo_csharp.Model
     public partial class Body9 :  IEquatable<Body9>
     {
         /// <summary>
+        /// The type of attribute (must be one of the defined enums)
+        /// </summary>
+        /// <value>The type of attribute (must be one of the defined enums)</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AttributeTypeEnum
+        {
+            
+            /// <summary>
+            /// Enum Text for value: text
+            /// </summary>
+            [EnumMember(Value = "text")]
+            Text = 1,
+            
+            /// <summary>
+            /// Enum User for value: user
+            /// </summary>
+            [EnumMember(Value = "user")]
+            User = 2,
+            
+            /// <summary>
+            /// Enum Number for value: number
+            /// </summary>
+            [EnumMember(Value = "number")]
+            Number = 3,
+            
+            /// <summary>
+            /// Enum SingleSelect for value: single-select
+            /// </summary>
+            [EnumMember(Value = "single-select")]
+            SingleSelect = 4,
+            
+            /// <summary>
+            /// Enum Date for value: date
+            /// </summary>
+            [EnumMember(Value = "date")]
+            Date = 5,
+            
+            /// <summary>
+            /// Enum Boolean for value: boolean
+            /// </summary>
+            [EnumMember(Value = "boolean")]
+            Boolean = 6,
+            
+            /// <summary>
+            /// Enum MultiChoice for value: multi-choice
+            /// </summary>
+            [EnumMember(Value = "multi-choice")]
+            MultiChoice = 7
+        }
+
+        /// <summary>
+        /// The type of attribute (must be one of the defined enums)
+        /// </summary>
+        /// <value>The type of attribute (must be one of the defined enums)</value>
+        [DataMember(Name="attributeType", EmitDefaultValue=false)]
+        public AttributeTypeEnum AttributeType { get; set; }
+        /// <summary>
+        /// The type of object the attribute belongs to (prefilled with &#x60;companies&#x60;or &#x60;deal&#x60;, mandatory)
+        /// </summary>
+        /// <value>The type of object the attribute belongs to (prefilled with &#x60;companies&#x60;or &#x60;deal&#x60;, mandatory)</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ObjectTypeEnum
+        {
+            
+            /// <summary>
+            /// Enum Companies for value: companies
+            /// </summary>
+            [EnumMember(Value = "companies")]
+            Companies = 1,
+            
+            /// <summary>
+            /// Enum Deals for value: deals
+            /// </summary>
+            [EnumMember(Value = "deals")]
+            Deals = 2
+        }
+
+        /// <summary>
+        /// The type of object the attribute belongs to (prefilled with &#x60;companies&#x60;or &#x60;deal&#x60;, mandatory)
+        /// </summary>
+        /// <value>The type of object the attribute belongs to (prefilled with &#x60;companies&#x60;or &#x60;deal&#x60;, mandatory)</value>
+        [DataMember(Name="objectType", EmitDefaultValue=false)]
+        public ObjectTypeEnum ObjectType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Body9" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -36,131 +120,66 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Body9" /> class.
         /// </summary>
-        /// <param name="name">Name of task (required).</param>
-        /// <param name="duration">Duration of task in milliseconds [1 minute &#x3D; 60000 ms].</param>
-        /// <param name="taskTypeId">Id for type of task e.g Call / Email / Meeting etc. (required).</param>
-        /// <param name="date">Task due date and time (required).</param>
-        /// <param name="notes">Notes added to a task.</param>
-        /// <param name="done">Task marked as done.</param>
-        /// <param name="assignToId">User id to whom task is assigned.</param>
-        /// <param name="contactsIds">Contact ids for contacts linked to this task.</param>
-        /// <param name="dealsIds">Deal ids for deals a task is linked to.</param>
-        /// <param name="companiesIds">Companies ids for companies a task is linked to.</param>
-        /// <param name="reminder">reminder.</param>
-        public Body9(string name = default(string), long? duration = default(long?), string taskTypeId = default(string), DateTime? date = default(DateTime?), string notes = default(string), bool? done = default(bool?), string assignToId = default(string), List<int?> contactsIds = default(List<int?>), List<string> dealsIds = default(List<string>), List<string> companiesIds = default(List<string>), TaskReminder reminder = default(TaskReminder))
+        /// <param name="label">The label for the attribute (max 50 characters, cannot be empty) (required).</param>
+        /// <param name="attributeType">The type of attribute (must be one of the defined enums) (required).</param>
+        /// <param name="description">A description of the attribute.</param>
+        /// <param name="optionsLabels">Options for multi-choice or single-select attributes.</param>
+        /// <param name="objectType">The type of object the attribute belongs to (prefilled with &#x60;companies&#x60;or &#x60;deal&#x60;, mandatory) (required).</param>
+        public Body9(string label = default(string), AttributeTypeEnum attributeType = default(AttributeTypeEnum), string description = default(string), List<string> optionsLabels = default(List<string>), ObjectTypeEnum objectType = default(ObjectTypeEnum))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
+            // to ensure "label" is required (not null)
+            if (label == null)
             {
-                throw new InvalidDataException("name is a required property for Body9 and cannot be null");
+                throw new InvalidDataException("label is a required property for Body9 and cannot be null");
             }
             else
             {
-                this.Name = name;
+                this.Label = label;
             }
-            // to ensure "taskTypeId" is required (not null)
-            if (taskTypeId == null)
+            // to ensure "attributeType" is required (not null)
+            if (attributeType == null)
             {
-                throw new InvalidDataException("taskTypeId is a required property for Body9 and cannot be null");
+                throw new InvalidDataException("attributeType is a required property for Body9 and cannot be null");
             }
             else
             {
-                this.TaskTypeId = taskTypeId;
+                this.AttributeType = attributeType;
             }
-            // to ensure "date" is required (not null)
-            if (date == null)
+            // to ensure "objectType" is required (not null)
+            if (objectType == null)
             {
-                throw new InvalidDataException("date is a required property for Body9 and cannot be null");
+                throw new InvalidDataException("objectType is a required property for Body9 and cannot be null");
             }
             else
             {
-                this.Date = date;
+                this.ObjectType = objectType;
             }
-            this.Duration = duration;
-            this.Notes = notes;
-            this.Done = done;
-            this.AssignToId = assignToId;
-            this.ContactsIds = contactsIds;
-            this.DealsIds = dealsIds;
-            this.CompaniesIds = companiesIds;
-            this.Reminder = reminder;
+            this.Description = description;
+            this.OptionsLabels = optionsLabels;
         }
         
         /// <summary>
-        /// Name of task
+        /// The label for the attribute (max 50 characters, cannot be empty)
         /// </summary>
-        /// <value>Name of task</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
+        /// <value>The label for the attribute (max 50 characters, cannot be empty)</value>
+        [DataMember(Name="label", EmitDefaultValue=false)]
+        public string Label { get; set; }
+
 
         /// <summary>
-        /// Duration of task in milliseconds [1 minute &#x3D; 60000 ms]
+        /// A description of the attribute
         /// </summary>
-        /// <value>Duration of task in milliseconds [1 minute &#x3D; 60000 ms]</value>
-        [DataMember(Name="duration", EmitDefaultValue=false)]
-        public long? Duration { get; set; }
+        /// <value>A description of the attribute</value>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
 
         /// <summary>
-        /// Id for type of task e.g Call / Email / Meeting etc.
+        /// Options for multi-choice or single-select attributes
         /// </summary>
-        /// <value>Id for type of task e.g Call / Email / Meeting etc.</value>
-        [DataMember(Name="taskTypeId", EmitDefaultValue=false)]
-        public string TaskTypeId { get; set; }
+        /// <value>Options for multi-choice or single-select attributes</value>
+        [DataMember(Name="optionsLabels", EmitDefaultValue=false)]
+        public List<string> OptionsLabels { get; set; }
 
-        /// <summary>
-        /// Task due date and time
-        /// </summary>
-        /// <value>Task due date and time</value>
-        [DataMember(Name="date", EmitDefaultValue=false)]
-        public DateTime? Date { get; set; }
-
-        /// <summary>
-        /// Notes added to a task
-        /// </summary>
-        /// <value>Notes added to a task</value>
-        [DataMember(Name="notes", EmitDefaultValue=false)]
-        public string Notes { get; set; }
-
-        /// <summary>
-        /// Task marked as done
-        /// </summary>
-        /// <value>Task marked as done</value>
-        [DataMember(Name="done", EmitDefaultValue=false)]
-        public bool? Done { get; set; }
-
-        /// <summary>
-        /// User id to whom task is assigned
-        /// </summary>
-        /// <value>User id to whom task is assigned</value>
-        [DataMember(Name="assignToId", EmitDefaultValue=false)]
-        public string AssignToId { get; set; }
-
-        /// <summary>
-        /// Contact ids for contacts linked to this task
-        /// </summary>
-        /// <value>Contact ids for contacts linked to this task</value>
-        [DataMember(Name="contactsIds", EmitDefaultValue=false)]
-        public List<int?> ContactsIds { get; set; }
-
-        /// <summary>
-        /// Deal ids for deals a task is linked to
-        /// </summary>
-        /// <value>Deal ids for deals a task is linked to</value>
-        [DataMember(Name="dealsIds", EmitDefaultValue=false)]
-        public List<string> DealsIds { get; set; }
-
-        /// <summary>
-        /// Companies ids for companies a task is linked to
-        /// </summary>
-        /// <value>Companies ids for companies a task is linked to</value>
-        [DataMember(Name="companiesIds", EmitDefaultValue=false)]
-        public List<string> CompaniesIds { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Reminder
-        /// </summary>
-        [DataMember(Name="reminder", EmitDefaultValue=false)]
-        public TaskReminder Reminder { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -170,17 +189,11 @@ namespace brevo_csharp.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Body9 {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Duration: ").Append(Duration).Append("\n");
-            sb.Append("  TaskTypeId: ").Append(TaskTypeId).Append("\n");
-            sb.Append("  Date: ").Append(Date).Append("\n");
-            sb.Append("  Notes: ").Append(Notes).Append("\n");
-            sb.Append("  Done: ").Append(Done).Append("\n");
-            sb.Append("  AssignToId: ").Append(AssignToId).Append("\n");
-            sb.Append("  ContactsIds: ").Append(ContactsIds).Append("\n");
-            sb.Append("  DealsIds: ").Append(DealsIds).Append("\n");
-            sb.Append("  CompaniesIds: ").Append(CompaniesIds).Append("\n");
-            sb.Append("  Reminder: ").Append(Reminder).Append("\n");
+            sb.Append("  Label: ").Append(Label).Append("\n");
+            sb.Append("  AttributeType: ").Append(AttributeType).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  OptionsLabels: ").Append(OptionsLabels).Append("\n");
+            sb.Append("  ObjectType: ").Append(ObjectType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -216,59 +229,29 @@ namespace brevo_csharp.Model
 
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.Label == input.Label ||
+                    (this.Label != null &&
+                    this.Label.Equals(input.Label))
                 ) && 
                 (
-                    this.Duration == input.Duration ||
-                    (this.Duration != null &&
-                    this.Duration.Equals(input.Duration))
+                    this.AttributeType == input.AttributeType ||
+                    (this.AttributeType != null &&
+                    this.AttributeType.Equals(input.AttributeType))
                 ) && 
                 (
-                    this.TaskTypeId == input.TaskTypeId ||
-                    (this.TaskTypeId != null &&
-                    this.TaskTypeId.Equals(input.TaskTypeId))
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.Date == input.Date ||
-                    (this.Date != null &&
-                    this.Date.Equals(input.Date))
+                    this.OptionsLabels == input.OptionsLabels ||
+                    this.OptionsLabels != null &&
+                    this.OptionsLabels.SequenceEqual(input.OptionsLabels)
                 ) && 
                 (
-                    this.Notes == input.Notes ||
-                    (this.Notes != null &&
-                    this.Notes.Equals(input.Notes))
-                ) && 
-                (
-                    this.Done == input.Done ||
-                    (this.Done != null &&
-                    this.Done.Equals(input.Done))
-                ) && 
-                (
-                    this.AssignToId == input.AssignToId ||
-                    (this.AssignToId != null &&
-                    this.AssignToId.Equals(input.AssignToId))
-                ) && 
-                (
-                    this.ContactsIds == input.ContactsIds ||
-                    this.ContactsIds != null &&
-                    this.ContactsIds.SequenceEqual(input.ContactsIds)
-                ) && 
-                (
-                    this.DealsIds == input.DealsIds ||
-                    this.DealsIds != null &&
-                    this.DealsIds.SequenceEqual(input.DealsIds)
-                ) && 
-                (
-                    this.CompaniesIds == input.CompaniesIds ||
-                    this.CompaniesIds != null &&
-                    this.CompaniesIds.SequenceEqual(input.CompaniesIds)
-                ) && 
-                (
-                    this.Reminder == input.Reminder ||
-                    (this.Reminder != null &&
-                    this.Reminder.Equals(input.Reminder))
+                    this.ObjectType == input.ObjectType ||
+                    (this.ObjectType != null &&
+                    this.ObjectType.Equals(input.ObjectType))
                 );
         }
 
@@ -281,28 +264,16 @@ namespace brevo_csharp.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.Duration != null)
-                    hashCode = hashCode * 59 + this.Duration.GetHashCode();
-                if (this.TaskTypeId != null)
-                    hashCode = hashCode * 59 + this.TaskTypeId.GetHashCode();
-                if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
-                if (this.Notes != null)
-                    hashCode = hashCode * 59 + this.Notes.GetHashCode();
-                if (this.Done != null)
-                    hashCode = hashCode * 59 + this.Done.GetHashCode();
-                if (this.AssignToId != null)
-                    hashCode = hashCode * 59 + this.AssignToId.GetHashCode();
-                if (this.ContactsIds != null)
-                    hashCode = hashCode * 59 + this.ContactsIds.GetHashCode();
-                if (this.DealsIds != null)
-                    hashCode = hashCode * 59 + this.DealsIds.GetHashCode();
-                if (this.CompaniesIds != null)
-                    hashCode = hashCode * 59 + this.CompaniesIds.GetHashCode();
-                if (this.Reminder != null)
-                    hashCode = hashCode * 59 + this.Reminder.GetHashCode();
+                if (this.Label != null)
+                    hashCode = hashCode * 59 + this.Label.GetHashCode();
+                if (this.AttributeType != null)
+                    hashCode = hashCode * 59 + this.AttributeType.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.OptionsLabels != null)
+                    hashCode = hashCode * 59 + this.OptionsLabels.GetHashCode();
+                if (this.ObjectType != null)
+                    hashCode = hashCode * 59 + this.ObjectType.GetHashCode();
                 return hashCode;
             }
         }

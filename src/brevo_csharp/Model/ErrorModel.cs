@@ -73,64 +73,58 @@ namespace brevo_csharp.Model
             Documentnotfound = 6,
             
             /// <summary>
-            /// Enum Resellerpermissiondenied for value: reseller_permission_denied
-            /// </summary>
-            [EnumMember(Value = "reseller_permission_denied")]
-            Resellerpermissiondenied = 7,
-            
-            /// <summary>
             /// Enum Notenoughcredits for value: not_enough_credits
             /// </summary>
             [EnumMember(Value = "not_enough_credits")]
-            Notenoughcredits = 8,
+            Notenoughcredits = 7,
             
             /// <summary>
             /// Enum Permissiondenied for value: permission_denied
             /// </summary>
             [EnumMember(Value = "permission_denied")]
-            Permissiondenied = 9,
+            Permissiondenied = 8,
             
             /// <summary>
             /// Enum Duplicateparameter for value: duplicate_parameter
             /// </summary>
             [EnumMember(Value = "duplicate_parameter")]
-            Duplicateparameter = 10,
+            Duplicateparameter = 9,
             
             /// <summary>
             /// Enum Duplicaterequest for value: duplicate_request
             /// </summary>
             [EnumMember(Value = "duplicate_request")]
-            Duplicaterequest = 11,
+            Duplicaterequest = 10,
             
             /// <summary>
             /// Enum Methodnotallowed for value: method_not_allowed
             /// </summary>
             [EnumMember(Value = "method_not_allowed")]
-            Methodnotallowed = 12,
+            Methodnotallowed = 11,
             
             /// <summary>
             /// Enum Unauthorized for value: unauthorized
             /// </summary>
             [EnumMember(Value = "unauthorized")]
-            Unauthorized = 13,
+            Unauthorized = 12,
             
             /// <summary>
             /// Enum Accountundervalidation for value: account_under_validation
             /// </summary>
             [EnumMember(Value = "account_under_validation")]
-            Accountundervalidation = 14,
+            Accountundervalidation = 13,
             
             /// <summary>
             /// Enum Notacceptable for value: not_acceptable
             /// </summary>
             [EnumMember(Value = "not_acceptable")]
-            Notacceptable = 15,
+            Notacceptable = 14,
             
             /// <summary>
             /// Enum Badrequest for value: bad_request
             /// </summary>
             [EnumMember(Value = "bad_request")]
-            Badrequest = 16
+            Badrequest = 15
         }
 
         /// <summary>

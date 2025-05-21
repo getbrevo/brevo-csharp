@@ -23,7 +23,7 @@ using SwaggerDateConverter = brevo_csharp.Client.SwaggerDateConverter;
 namespace brevo_csharp.Model
 {
     /// <summary>
-    /// Identifies the contact associated with the event.
+    /// Identifies the contact associated with the event. At least one identifier is required.
     /// </summary>
     [DataContract]
     public partial class EventIdentifiers :  IEquatable<EventIdentifiers>
@@ -31,23 +31,18 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EventIdentifiers" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected EventIdentifiers() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="EventIdentifiers" /> class.
-        /// </summary>
-        /// <param name="emailId">Email Id associated with the event (required).</param>
-        public EventIdentifiers(string emailId = default(string))
+        /// <param name="emailId">Email Id associated with the event.</param>
+        /// <param name="phoneId">SMS associated with the event.</param>
+        /// <param name="whatsappId">whatsapp associated with the event.</param>
+        /// <param name="landlineNumberId">landline_number associated with the event.</param>
+        /// <param name="extId">ext_id associated with the event.</param>
+        public EventIdentifiers(string emailId = default(string), string phoneId = default(string), string whatsappId = default(string), string landlineNumberId = default(string), string extId = default(string))
         {
-            // to ensure "emailId" is required (not null)
-            if (emailId == null)
-            {
-                throw new InvalidDataException("emailId is a required property for EventIdentifiers and cannot be null");
-            }
-            else
-            {
-                this.EmailId = emailId;
-            }
+            this.EmailId = emailId;
+            this.PhoneId = phoneId;
+            this.WhatsappId = whatsappId;
+            this.LandlineNumberId = landlineNumberId;
+            this.ExtId = extId;
         }
         
         /// <summary>
@@ -58,6 +53,34 @@ namespace brevo_csharp.Model
         public string EmailId { get; set; }
 
         /// <summary>
+        /// SMS associated with the event
+        /// </summary>
+        /// <value>SMS associated with the event</value>
+        [DataMember(Name="phone_id", EmitDefaultValue=false)]
+        public string PhoneId { get; set; }
+
+        /// <summary>
+        /// whatsapp associated with the event
+        /// </summary>
+        /// <value>whatsapp associated with the event</value>
+        [DataMember(Name="whatsapp_id", EmitDefaultValue=false)]
+        public string WhatsappId { get; set; }
+
+        /// <summary>
+        /// landline_number associated with the event
+        /// </summary>
+        /// <value>landline_number associated with the event</value>
+        [DataMember(Name="landline_number_id", EmitDefaultValue=false)]
+        public string LandlineNumberId { get; set; }
+
+        /// <summary>
+        /// ext_id associated with the event
+        /// </summary>
+        /// <value>ext_id associated with the event</value>
+        [DataMember(Name="ext_id", EmitDefaultValue=false)]
+        public string ExtId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -66,6 +89,10 @@ namespace brevo_csharp.Model
             var sb = new StringBuilder();
             sb.Append("class EventIdentifiers {\n");
             sb.Append("  EmailId: ").Append(EmailId).Append("\n");
+            sb.Append("  PhoneId: ").Append(PhoneId).Append("\n");
+            sb.Append("  WhatsappId: ").Append(WhatsappId).Append("\n");
+            sb.Append("  LandlineNumberId: ").Append(LandlineNumberId).Append("\n");
+            sb.Append("  ExtId: ").Append(ExtId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,6 +131,26 @@ namespace brevo_csharp.Model
                     this.EmailId == input.EmailId ||
                     (this.EmailId != null &&
                     this.EmailId.Equals(input.EmailId))
+                ) && 
+                (
+                    this.PhoneId == input.PhoneId ||
+                    (this.PhoneId != null &&
+                    this.PhoneId.Equals(input.PhoneId))
+                ) && 
+                (
+                    this.WhatsappId == input.WhatsappId ||
+                    (this.WhatsappId != null &&
+                    this.WhatsappId.Equals(input.WhatsappId))
+                ) && 
+                (
+                    this.LandlineNumberId == input.LandlineNumberId ||
+                    (this.LandlineNumberId != null &&
+                    this.LandlineNumberId.Equals(input.LandlineNumberId))
+                ) && 
+                (
+                    this.ExtId == input.ExtId ||
+                    (this.ExtId != null &&
+                    this.ExtId.Equals(input.ExtId))
                 );
         }
 
@@ -118,6 +165,14 @@ namespace brevo_csharp.Model
                 int hashCode = 41;
                 if (this.EmailId != null)
                     hashCode = hashCode * 59 + this.EmailId.GetHashCode();
+                if (this.PhoneId != null)
+                    hashCode = hashCode * 59 + this.PhoneId.GetHashCode();
+                if (this.WhatsappId != null)
+                    hashCode = hashCode * 59 + this.WhatsappId.GetHashCode();
+                if (this.LandlineNumberId != null)
+                    hashCode = hashCode * 59 + this.LandlineNumberId.GetHashCode();
+                if (this.ExtId != null)
+                    hashCode = hashCode * 59 + this.ExtId.GetHashCode();
                 return hashCode;
             }
         }

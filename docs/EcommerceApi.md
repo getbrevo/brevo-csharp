@@ -495,7 +495,7 @@ void (empty response body)
 
 <a name="getcategories"></a>
 # **GetCategories**
-> GetCategories GetCategories (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null)
+> GetCategories GetCategories (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null)
 
 Return all your categories
 
@@ -528,13 +528,11 @@ namespace Example
             var sort = sort_example;  // string | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed (optional)  (default to desc)
             var ids = new List<string>(); // List<string> | Filter by category ids (optional) 
             var name = name_example;  // string | Filter by category name (optional) 
-            var modifiedSince = modifiedSince_example;  // string | Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional) 
-            var createdSince = createdSince_example;  // string | Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          (optional) 
 
             try
             {
                 // Return all your categories
-                GetCategories result = apiInstance.GetCategories(limit, offset, sort, ids, name, modifiedSince, createdSince);
+                GetCategories result = apiInstance.GetCategories(limit, offset, sort, ids, name);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -555,8 +553,6 @@ Name | Type | Description  | Notes
  **sort** | **string**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc]
  **ids** | [**List&lt;string&gt;**](string.md)| Filter by category ids | [optional] 
  **name** | **string**| Filter by category name | [optional] 
- **modifiedSince** | **string**| Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          | [optional] 
- **createdSince** | **string**| Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**          | [optional] 
 
 ### Return type
 

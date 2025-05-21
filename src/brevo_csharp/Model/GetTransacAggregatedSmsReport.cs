@@ -39,9 +39,10 @@ namespace brevo_csharp.Model
         /// <param name="blocked">Number of blocked contact for the timeframe.</param>
         /// <param name="unsubscribed">Number of unsubscription for the timeframe.</param>
         /// <param name="replied">Number of answered SMS for the timeframe.</param>
-        /// <param name="accepted">Number of accepted for the timeframe.</param>
-        /// <param name="rejected">Number of rejected for the timeframe.</param>
-        public GetTransacAggregatedSmsReport(string range = default(string), long? requests = default(long?), long? delivered = default(long?), long? hardBounces = default(long?), long? softBounces = default(long?), long? blocked = default(long?), long? unsubscribed = default(long?), long? replied = default(long?), long? accepted = default(long?), long? rejected = default(long?))
+        /// <param name="accepted">Number of accepted SMS for the timeframe.</param>
+        /// <param name="rejected">Number of rejected SMS for the timeframe.</param>
+        /// <param name="skipped">Number of skipped SMS for the timeframe.</param>
+        public GetTransacAggregatedSmsReport(string range = default(string), long? requests = default(long?), long? delivered = default(long?), long? hardBounces = default(long?), long? softBounces = default(long?), long? blocked = default(long?), long? unsubscribed = default(long?), long? replied = default(long?), long? accepted = default(long?), long? rejected = default(long?), long? skipped = default(long?))
         {
             this.Range = range;
             this.Requests = requests;
@@ -53,6 +54,7 @@ namespace brevo_csharp.Model
             this.Replied = replied;
             this.Accepted = accepted;
             this.Rejected = rejected;
+            this.Skipped = skipped;
         }
         
         /// <summary>
@@ -112,18 +114,25 @@ namespace brevo_csharp.Model
         public long? Replied { get; set; }
 
         /// <summary>
-        /// Number of accepted for the timeframe
+        /// Number of accepted SMS for the timeframe
         /// </summary>
-        /// <value>Number of accepted for the timeframe</value>
+        /// <value>Number of accepted SMS for the timeframe</value>
         [DataMember(Name="accepted", EmitDefaultValue=false)]
         public long? Accepted { get; set; }
 
         /// <summary>
-        /// Number of rejected for the timeframe
+        /// Number of rejected SMS for the timeframe
         /// </summary>
-        /// <value>Number of rejected for the timeframe</value>
+        /// <value>Number of rejected SMS for the timeframe</value>
         [DataMember(Name="rejected", EmitDefaultValue=false)]
         public long? Rejected { get; set; }
+
+        /// <summary>
+        /// Number of skipped SMS for the timeframe
+        /// </summary>
+        /// <value>Number of skipped SMS for the timeframe</value>
+        [DataMember(Name="skipped", EmitDefaultValue=false)]
+        public long? Skipped { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -143,6 +152,7 @@ namespace brevo_csharp.Model
             sb.Append("  Replied: ").Append(Replied).Append("\n");
             sb.Append("  Accepted: ").Append(Accepted).Append("\n");
             sb.Append("  Rejected: ").Append(Rejected).Append("\n");
+            sb.Append("  Skipped: ").Append(Skipped).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -226,6 +236,11 @@ namespace brevo_csharp.Model
                     this.Rejected == input.Rejected ||
                     (this.Rejected != null &&
                     this.Rejected.Equals(input.Rejected))
+                ) && 
+                (
+                    this.Skipped == input.Skipped ||
+                    (this.Skipped != null &&
+                    this.Skipped.Equals(input.Skipped))
                 );
         }
 
@@ -258,6 +273,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.Accepted.GetHashCode();
                 if (this.Rejected != null)
                     hashCode = hashCode * 59 + this.Rejected.GetHashCode();
+                if (this.Skipped != null)
+                    hashCode = hashCode * 59 + this.Skipped.GetHashCode();
                 return hashCode;
             }
         }

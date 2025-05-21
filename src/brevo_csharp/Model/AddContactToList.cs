@@ -31,27 +31,36 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AddContactToList" /> class.
         /// </summary>
-        /// <param name="emails">Mandatory if IDs are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api..</param>
-        /// <param name="ids">Mandatory if Emails are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api..</param>
-        public AddContactToList(List<string> emails = default(List<string>), List<long?> ids = default(List<long?>))
+        /// <param name="emails">Mandatory if IDs, EXT_ID attributes are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api..</param>
+        /// <param name="ids">Mandatory if Emails, EXT_ID attributes are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 ids for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api..</param>
+        /// <param name="extIds">Mandatory if Emails, IDs are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 extIds for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api..</param>
+        public AddContactToList(List<string> emails = default(List<string>), List<long?> ids = default(List<long?>), List<string> extIds = default(List<string>))
         {
             this.Emails = emails;
             this.Ids = ids;
+            this.ExtIds = extIds;
         }
         
         /// <summary>
-        /// Mandatory if IDs are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.
+        /// Mandatory if IDs, EXT_ID attributes are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.
         /// </summary>
-        /// <value>Mandatory if IDs are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.</value>
+        /// <value>Mandatory if IDs, EXT_ID attributes are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.</value>
         [DataMember(Name="emails", EmitDefaultValue=false)]
         public List<string> Emails { get; set; }
 
         /// <summary>
-        /// Mandatory if Emails are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.
+        /// Mandatory if Emails, EXT_ID attributes are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 ids for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.
         /// </summary>
-        /// <value>Mandatory if Emails are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.</value>
+        /// <value>Mandatory if Emails, EXT_ID attributes are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 ids for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.</value>
         [DataMember(Name="ids", EmitDefaultValue=false)]
         public List<long?> Ids { get; set; }
+
+        /// <summary>
+        /// Mandatory if Emails, IDs are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 extIds for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.
+        /// </summary>
+        /// <value>Mandatory if Emails, IDs are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 extIds for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.</value>
+        [DataMember(Name="extIds", EmitDefaultValue=false)]
+        public List<string> ExtIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,6 +72,7 @@ namespace brevo_csharp.Model
             sb.Append("class AddContactToList {\n");
             sb.Append("  Emails: ").Append(Emails).Append("\n");
             sb.Append("  Ids: ").Append(Ids).Append("\n");
+            sb.Append("  ExtIds: ").Append(ExtIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,6 +116,11 @@ namespace brevo_csharp.Model
                     this.Ids == input.Ids ||
                     this.Ids != null &&
                     this.Ids.SequenceEqual(input.Ids)
+                ) && 
+                (
+                    this.ExtIds == input.ExtIds ||
+                    this.ExtIds != null &&
+                    this.ExtIds.SequenceEqual(input.ExtIds)
                 );
         }
 
@@ -122,6 +137,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.Emails.GetHashCode();
                 if (this.Ids != null)
                     hashCode = hashCode * 59 + this.Ids.GetHashCode();
+                if (this.ExtIds != null)
+                    hashCode = hashCode * 59 + this.ExtIds.GetHashCode();
                 return hashCode;
             }
         }

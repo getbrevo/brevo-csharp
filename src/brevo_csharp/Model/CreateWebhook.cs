@@ -140,9 +140,9 @@ namespace brevo_csharp.Model
 
 
         /// <summary>
-        /// - Events triggering the webhook. Possible values for **Transactional** type webhook: #### &#x60;sent&#x60; OR &#x60;request&#x60;, &#x60;delivered&#x60;, &#x60;hardBounce&#x60;, &#x60;softBounce&#x60;, &#x60;blocked&#x60;, &#x60;spam&#x60;, &#x60;invalid&#x60;, &#x60;deferred&#x60;, &#x60;click&#x60;, &#x60;opened&#x60;, &#x60;uniqueOpened&#x60; and &#x60;unsubscribed&#x60; - Possible values for **Marketing** type webhook: #### &#x60;spam&#x60;, &#x60;opened&#x60;, &#x60;click&#x60;, &#x60;hardBounce&#x60;, &#x60;softBounce&#x60;, &#x60;unsubscribed&#x60;, &#x60;listAddition&#x60; &amp; &#x60;delivered&#x60; - Possible values for **Inbound** type webhook: #### &#x60;inboundEmailProcessed&#x60; 
+        /// - Events triggering the webhook. Possible values for **Transactional** type webhook: #### &#x60;sent&#x60; OR &#x60;request&#x60;, &#x60;delivered&#x60;, &#x60;hardBounce&#x60;, &#x60;softBounce&#x60;, &#x60;blocked&#x60;, &#x60;spam&#x60;, &#x60;invalid&#x60;, &#x60;deferred&#x60;, &#x60;click&#x60;, &#x60;opened&#x60;, &#x60;uniqueOpened&#x60; and &#x60;unsubscribed&#x60; - Possible values for **Marketing** type webhook: #### &#x60;spam&#x60;, &#x60;opened&#x60;, &#x60;click&#x60;, &#x60;hardBounce&#x60;, &#x60;softBounce&#x60;, &#x60;unsubscribed&#x60;, &#x60;listAddition&#x60; &amp; &#x60;delivered&#x60; - Possible values for **Inbound** type webhook: #### &#x60;inboundEmailProcessed&#x60; - Possible values for type **Transactional** and channel **SMS** #### &#x60;accepted&#x60;,&#x60;delivered&#x60;,&#x60;softBounce&#x60;,&#x60;hardBounce&#x60;,&#x60;unsubscribe&#x60;,&#x60;reply&#x60;, &#x60;subscribe&#x60;,&#x60;sent&#x60;,&#x60;blacklisted&#x60;,&#x60;skip&#x60; - Possible values for type **Marketing**  channel **SMS** #### &#x60;sent&#x60;,&#x60;delivered&#x60;,&#x60;softBounce&#x60;,&#x60;hardBounce&#x60;,&#x60;unsubscribe&#x60;,&#x60;reply&#x60;, &#x60;subscribe&#x60;,&#x60;skip&#x60; 
         /// </summary>
-        /// <value>- Events triggering the webhook. Possible values for **Transactional** type webhook: #### &#x60;sent&#x60; OR &#x60;request&#x60;, &#x60;delivered&#x60;, &#x60;hardBounce&#x60;, &#x60;softBounce&#x60;, &#x60;blocked&#x60;, &#x60;spam&#x60;, &#x60;invalid&#x60;, &#x60;deferred&#x60;, &#x60;click&#x60;, &#x60;opened&#x60;, &#x60;uniqueOpened&#x60; and &#x60;unsubscribed&#x60; - Possible values for **Marketing** type webhook: #### &#x60;spam&#x60;, &#x60;opened&#x60;, &#x60;click&#x60;, &#x60;hardBounce&#x60;, &#x60;softBounce&#x60;, &#x60;unsubscribed&#x60;, &#x60;listAddition&#x60; &amp; &#x60;delivered&#x60; - Possible values for **Inbound** type webhook: #### &#x60;inboundEmailProcessed&#x60; </value>
+        /// <value>- Events triggering the webhook. Possible values for **Transactional** type webhook: #### &#x60;sent&#x60; OR &#x60;request&#x60;, &#x60;delivered&#x60;, &#x60;hardBounce&#x60;, &#x60;softBounce&#x60;, &#x60;blocked&#x60;, &#x60;spam&#x60;, &#x60;invalid&#x60;, &#x60;deferred&#x60;, &#x60;click&#x60;, &#x60;opened&#x60;, &#x60;uniqueOpened&#x60; and &#x60;unsubscribed&#x60; - Possible values for **Marketing** type webhook: #### &#x60;spam&#x60;, &#x60;opened&#x60;, &#x60;click&#x60;, &#x60;hardBounce&#x60;, &#x60;softBounce&#x60;, &#x60;unsubscribed&#x60;, &#x60;listAddition&#x60; &amp; &#x60;delivered&#x60; - Possible values for **Inbound** type webhook: #### &#x60;inboundEmailProcessed&#x60; - Possible values for type **Transactional** and channel **SMS** #### &#x60;accepted&#x60;,&#x60;delivered&#x60;,&#x60;softBounce&#x60;,&#x60;hardBounce&#x60;,&#x60;unsubscribe&#x60;,&#x60;reply&#x60;, &#x60;subscribe&#x60;,&#x60;sent&#x60;,&#x60;blacklisted&#x60;,&#x60;skip&#x60; - Possible values for type **Marketing**  channel **SMS** #### &#x60;sent&#x60;,&#x60;delivered&#x60;,&#x60;softBounce&#x60;,&#x60;hardBounce&#x60;,&#x60;unsubscribe&#x60;,&#x60;reply&#x60;, &#x60;subscribe&#x60;,&#x60;skip&#x60; </value>
         [DataMember(Name="events", EmitDefaultValue=false)]
         public List<EventsEnum> Events { get; set; }
         /// <summary>
@@ -179,6 +179,33 @@ namespace brevo_csharp.Model
         [DataMember(Name="type", EmitDefaultValue=false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
+        /// channel of webhook
+        /// </summary>
+        /// <value>channel of webhook</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ChannelEnum
+        {
+            
+            /// <summary>
+            /// Enum Sms for value: sms
+            /// </summary>
+            [EnumMember(Value = "sms")]
+            Sms = 1,
+            
+            /// <summary>
+            /// Enum Email for value: email
+            /// </summary>
+            [EnumMember(Value = "email")]
+            Email = 2
+        }
+
+        /// <summary>
+        /// channel of webhook
+        /// </summary>
+        /// <value>channel of webhook</value>
+        [DataMember(Name="channel", EmitDefaultValue=false)]
+        public ChannelEnum? Channel { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="CreateWebhook" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -188,13 +215,14 @@ namespace brevo_csharp.Model
         /// </summary>
         /// <param name="url">URL of the webhook (required).</param>
         /// <param name="description">Description of the webhook.</param>
-        /// <param name="events">- Events triggering the webhook. Possible values for **Transactional** type webhook: #### &#x60;sent&#x60; OR &#x60;request&#x60;, &#x60;delivered&#x60;, &#x60;hardBounce&#x60;, &#x60;softBounce&#x60;, &#x60;blocked&#x60;, &#x60;spam&#x60;, &#x60;invalid&#x60;, &#x60;deferred&#x60;, &#x60;click&#x60;, &#x60;opened&#x60;, &#x60;uniqueOpened&#x60; and &#x60;unsubscribed&#x60; - Possible values for **Marketing** type webhook: #### &#x60;spam&#x60;, &#x60;opened&#x60;, &#x60;click&#x60;, &#x60;hardBounce&#x60;, &#x60;softBounce&#x60;, &#x60;unsubscribed&#x60;, &#x60;listAddition&#x60; &amp; &#x60;delivered&#x60; - Possible values for **Inbound** type webhook: #### &#x60;inboundEmailProcessed&#x60;  (required).</param>
+        /// <param name="events">- Events triggering the webhook. Possible values for **Transactional** type webhook: #### &#x60;sent&#x60; OR &#x60;request&#x60;, &#x60;delivered&#x60;, &#x60;hardBounce&#x60;, &#x60;softBounce&#x60;, &#x60;blocked&#x60;, &#x60;spam&#x60;, &#x60;invalid&#x60;, &#x60;deferred&#x60;, &#x60;click&#x60;, &#x60;opened&#x60;, &#x60;uniqueOpened&#x60; and &#x60;unsubscribed&#x60; - Possible values for **Marketing** type webhook: #### &#x60;spam&#x60;, &#x60;opened&#x60;, &#x60;click&#x60;, &#x60;hardBounce&#x60;, &#x60;softBounce&#x60;, &#x60;unsubscribed&#x60;, &#x60;listAddition&#x60; &amp; &#x60;delivered&#x60; - Possible values for **Inbound** type webhook: #### &#x60;inboundEmailProcessed&#x60; - Possible values for type **Transactional** and channel **SMS** #### &#x60;accepted&#x60;,&#x60;delivered&#x60;,&#x60;softBounce&#x60;,&#x60;hardBounce&#x60;,&#x60;unsubscribe&#x60;,&#x60;reply&#x60;, &#x60;subscribe&#x60;,&#x60;sent&#x60;,&#x60;blacklisted&#x60;,&#x60;skip&#x60; - Possible values for type **Marketing**  channel **SMS** #### &#x60;sent&#x60;,&#x60;delivered&#x60;,&#x60;softBounce&#x60;,&#x60;hardBounce&#x60;,&#x60;unsubscribe&#x60;,&#x60;reply&#x60;, &#x60;subscribe&#x60;,&#x60;skip&#x60;  (required).</param>
         /// <param name="type">Type of the webhook (default to TypeEnum.Transactional).</param>
+        /// <param name="channel">channel of webhook (default to ChannelEnum.Email).</param>
         /// <param name="domain">Inbound domain of webhook, required in case of event type &#x60;inbound&#x60;.</param>
         /// <param name="batched">To send batched webhooks.</param>
         /// <param name="auth">auth.</param>
         /// <param name="headers">Custom headers to be send with webhooks.</param>
-        public CreateWebhook(string url = default(string), string description = default(string), List<EventsEnum> events = default(List<EventsEnum>), TypeEnum? type = TypeEnum.Transactional, string domain = default(string), bool? batched = default(bool?), GetWebhookAuth auth = default(GetWebhookAuth), List<GetWebhookHeaders> headers = default(List<GetWebhookHeaders>))
+        public CreateWebhook(string url = default(string), string description = default(string), List<EventsEnum> events = default(List<EventsEnum>), TypeEnum? type = TypeEnum.Transactional, ChannelEnum? channel = ChannelEnum.Email, string domain = default(string), bool? batched = default(bool?), GetWebhookAuth auth = default(GetWebhookAuth), List<GetWebhookHeaders> headers = default(List<GetWebhookHeaders>))
         {
             // to ensure "url" is required (not null)
             if (url == null)
@@ -224,6 +252,15 @@ namespace brevo_csharp.Model
             {
                 this.Type = type;
             }
+            // use default value if no "channel" provided
+            if (channel == null)
+            {
+                this.Channel = ChannelEnum.Email;
+            }
+            else
+            {
+                this.Channel = channel;
+            }
             this.Domain = domain;
             this.Batched = batched;
             this.Auth = auth;
@@ -243,6 +280,7 @@ namespace brevo_csharp.Model
         /// <value>Description of the webhook</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
+
 
 
 
@@ -285,6 +323,7 @@ namespace brevo_csharp.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Events: ").Append(Events).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Channel: ").Append(Channel).Append("\n");
             sb.Append("  Domain: ").Append(Domain).Append("\n");
             sb.Append("  Batched: ").Append(Batched).Append("\n");
             sb.Append("  Auth: ").Append(Auth).Append("\n");
@@ -344,6 +383,11 @@ namespace brevo_csharp.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
+                    this.Channel == input.Channel ||
+                    (this.Channel != null &&
+                    this.Channel.Equals(input.Channel))
+                ) && 
+                (
                     this.Domain == input.Domain ||
                     (this.Domain != null &&
                     this.Domain.Equals(input.Domain))
@@ -382,6 +426,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.Events.GetHashCode();
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Channel != null)
+                    hashCode = hashCode * 59 + this.Channel.GetHashCode();
                 if (this.Domain != null)
                     hashCode = hashCode * 59 + this.Domain.GetHashCode();
                 if (this.Batched != null)

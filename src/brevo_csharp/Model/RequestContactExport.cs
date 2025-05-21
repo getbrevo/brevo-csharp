@@ -36,10 +36,14 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RequestContactExport" /> class.
         /// </summary>
-        /// <param name="exportAttributes">List of all the attributes that you want to export. These attributes must be present in your contact database. For example, [&#39;fname&#39;, &#39;lname&#39;, &#39;email&#39;]..</param>
+        /// <param name="exportAttributes">List of all the attributes that you want to export. These attributes must be present in your contact database. It is required if exportMandatoryAttributes is set false. For example, [&#39;fname&#39;, &#39;lname&#39;, &#39;email&#39;]..</param>
         /// <param name="customContactFilter">customContactFilter (required).</param>
         /// <param name="notifyUrl">Webhook that will be called once the export process is finished. For reference, https://help.brevo.com/hc/en-us/articles/360007666479.</param>
-        public RequestContactExport(List<string> exportAttributes = default(List<string>), RequestContactExportCustomContactFilter customContactFilter = default(RequestContactExportCustomContactFilter), string notifyUrl = default(string))
+        /// <param name="disableNotification">To avoid generating the email notification upon contact export, pass **true** (default to false).</param>
+        /// <param name="exportMandatoryAttributes">To export mandatory attributes like EMAIL, ADDED_TIME, MODIFIED_TIME (default to true).</param>
+        /// <param name="exportSubscriptionStatus">Export subscription status of contacts for email &amp; sms marketting. Pass email_marketing to obtain the marketing email subscription status &amp; sms_marketing to retrieve the marketing SMS status of the contact..</param>
+        /// <param name="exportMetadata">Export metadata of contacts such as _listIds, ADDED_TIME, MODIFIED_TIME..</param>
+        public RequestContactExport(List<string> exportAttributes = default(List<string>), RequestContactExportCustomContactFilter customContactFilter = default(RequestContactExportCustomContactFilter), string notifyUrl = default(string), bool? disableNotification = false, bool? exportMandatoryAttributes = true, List<string> exportSubscriptionStatus = default(List<string>), List<string> exportMetadata = default(List<string>))
         {
             // to ensure "customContactFilter" is required (not null)
             if (customContactFilter == null)
@@ -52,12 +56,32 @@ namespace brevo_csharp.Model
             }
             this.ExportAttributes = exportAttributes;
             this.NotifyUrl = notifyUrl;
+            // use default value if no "disableNotification" provided
+            if (disableNotification == null)
+            {
+                this.DisableNotification = false;
+            }
+            else
+            {
+                this.DisableNotification = disableNotification;
+            }
+            // use default value if no "exportMandatoryAttributes" provided
+            if (exportMandatoryAttributes == null)
+            {
+                this.ExportMandatoryAttributes = true;
+            }
+            else
+            {
+                this.ExportMandatoryAttributes = exportMandatoryAttributes;
+            }
+            this.ExportSubscriptionStatus = exportSubscriptionStatus;
+            this.ExportMetadata = exportMetadata;
         }
         
         /// <summary>
-        /// List of all the attributes that you want to export. These attributes must be present in your contact database. For example, [&#39;fname&#39;, &#39;lname&#39;, &#39;email&#39;].
+        /// List of all the attributes that you want to export. These attributes must be present in your contact database. It is required if exportMandatoryAttributes is set false. For example, [&#39;fname&#39;, &#39;lname&#39;, &#39;email&#39;].
         /// </summary>
-        /// <value>List of all the attributes that you want to export. These attributes must be present in your contact database. For example, [&#39;fname&#39;, &#39;lname&#39;, &#39;email&#39;].</value>
+        /// <value>List of all the attributes that you want to export. These attributes must be present in your contact database. It is required if exportMandatoryAttributes is set false. For example, [&#39;fname&#39;, &#39;lname&#39;, &#39;email&#39;].</value>
         [DataMember(Name="exportAttributes", EmitDefaultValue=false)]
         public List<string> ExportAttributes { get; set; }
 
@@ -75,6 +99,34 @@ namespace brevo_csharp.Model
         public string NotifyUrl { get; set; }
 
         /// <summary>
+        /// To avoid generating the email notification upon contact export, pass **true**
+        /// </summary>
+        /// <value>To avoid generating the email notification upon contact export, pass **true**</value>
+        [DataMember(Name="disableNotification", EmitDefaultValue=false)]
+        public bool? DisableNotification { get; set; }
+
+        /// <summary>
+        /// To export mandatory attributes like EMAIL, ADDED_TIME, MODIFIED_TIME
+        /// </summary>
+        /// <value>To export mandatory attributes like EMAIL, ADDED_TIME, MODIFIED_TIME</value>
+        [DataMember(Name="exportMandatoryAttributes", EmitDefaultValue=false)]
+        public bool? ExportMandatoryAttributes { get; set; }
+
+        /// <summary>
+        /// Export subscription status of contacts for email &amp; sms marketting. Pass email_marketing to obtain the marketing email subscription status &amp; sms_marketing to retrieve the marketing SMS status of the contact.
+        /// </summary>
+        /// <value>Export subscription status of contacts for email &amp; sms marketting. Pass email_marketing to obtain the marketing email subscription status &amp; sms_marketing to retrieve the marketing SMS status of the contact.</value>
+        [DataMember(Name="exportSubscriptionStatus", EmitDefaultValue=false)]
+        public List<string> ExportSubscriptionStatus { get; set; }
+
+        /// <summary>
+        /// Export metadata of contacts such as _listIds, ADDED_TIME, MODIFIED_TIME.
+        /// </summary>
+        /// <value>Export metadata of contacts such as _listIds, ADDED_TIME, MODIFIED_TIME.</value>
+        [DataMember(Name="exportMetadata", EmitDefaultValue=false)]
+        public List<string> ExportMetadata { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +137,10 @@ namespace brevo_csharp.Model
             sb.Append("  ExportAttributes: ").Append(ExportAttributes).Append("\n");
             sb.Append("  CustomContactFilter: ").Append(CustomContactFilter).Append("\n");
             sb.Append("  NotifyUrl: ").Append(NotifyUrl).Append("\n");
+            sb.Append("  DisableNotification: ").Append(DisableNotification).Append("\n");
+            sb.Append("  ExportMandatoryAttributes: ").Append(ExportMandatoryAttributes).Append("\n");
+            sb.Append("  ExportSubscriptionStatus: ").Append(ExportSubscriptionStatus).Append("\n");
+            sb.Append("  ExportMetadata: ").Append(ExportMetadata).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -133,6 +189,26 @@ namespace brevo_csharp.Model
                     this.NotifyUrl == input.NotifyUrl ||
                     (this.NotifyUrl != null &&
                     this.NotifyUrl.Equals(input.NotifyUrl))
+                ) && 
+                (
+                    this.DisableNotification == input.DisableNotification ||
+                    (this.DisableNotification != null &&
+                    this.DisableNotification.Equals(input.DisableNotification))
+                ) && 
+                (
+                    this.ExportMandatoryAttributes == input.ExportMandatoryAttributes ||
+                    (this.ExportMandatoryAttributes != null &&
+                    this.ExportMandatoryAttributes.Equals(input.ExportMandatoryAttributes))
+                ) && 
+                (
+                    this.ExportSubscriptionStatus == input.ExportSubscriptionStatus ||
+                    this.ExportSubscriptionStatus != null &&
+                    this.ExportSubscriptionStatus.SequenceEqual(input.ExportSubscriptionStatus)
+                ) && 
+                (
+                    this.ExportMetadata == input.ExportMetadata ||
+                    this.ExportMetadata != null &&
+                    this.ExportMetadata.SequenceEqual(input.ExportMetadata)
                 );
         }
 
@@ -151,6 +227,14 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.CustomContactFilter.GetHashCode();
                 if (this.NotifyUrl != null)
                     hashCode = hashCode * 59 + this.NotifyUrl.GetHashCode();
+                if (this.DisableNotification != null)
+                    hashCode = hashCode * 59 + this.DisableNotification.GetHashCode();
+                if (this.ExportMandatoryAttributes != null)
+                    hashCode = hashCode * 59 + this.ExportMandatoryAttributes.GetHashCode();
+                if (this.ExportSubscriptionStatus != null)
+                    hashCode = hashCode * 59 + this.ExportSubscriptionStatus.GetHashCode();
+                if (this.ExportMetadata != null)
+                    hashCode = hashCode * 59 + this.ExportMetadata.GetHashCode();
                 return hashCode;
             }
         }

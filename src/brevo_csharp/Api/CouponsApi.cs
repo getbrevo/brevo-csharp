@@ -121,8 +121,8 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to update</param>
         /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>InlineResponse2003</returns>
-        InlineResponse2003 UpdateCouponCollection (string id, UpdateCouponCollection updateCouponCollection);
+        /// <returns>InlineResponse2005</returns>
+        InlineResponse2005 UpdateCouponCollection (string id, UpdateCouponCollection updateCouponCollection);
 
         /// <summary>
         /// Update a coupon collection by id
@@ -133,8 +133,8 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to update</param>
         /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        ApiResponse<InlineResponse2003> UpdateCouponCollectionWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection);
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        ApiResponse<InlineResponse2005> UpdateCouponCollectionWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -234,8 +234,8 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to update</param>
         /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>Task of InlineResponse2003</returns>
-        System.Threading.Tasks.Task<InlineResponse2003> UpdateCouponCollectionAsync (string id, UpdateCouponCollection updateCouponCollection);
+        /// <returns>Task of InlineResponse2005</returns>
+        System.Threading.Tasks.Task<InlineResponse2005> UpdateCouponCollectionAsync (string id, UpdateCouponCollection updateCouponCollection);
 
         /// <summary>
         /// Update a coupon collection by id
@@ -246,8 +246,8 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to update</param>
         /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> UpdateCouponCollectionAsyncWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection);
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> UpdateCouponCollectionAsyncWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection);
         #endregion Asynchronous Operations
     }
 
@@ -1006,10 +1006,10 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to update</param>
         /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>InlineResponse2003</returns>
-        public InlineResponse2003 UpdateCouponCollection (string id, UpdateCouponCollection updateCouponCollection)
+        /// <returns>InlineResponse2005</returns>
+        public InlineResponse2005 UpdateCouponCollection (string id, UpdateCouponCollection updateCouponCollection)
         {
-             ApiResponse<InlineResponse2003> localVarResponse = UpdateCouponCollectionWithHttpInfo(id, updateCouponCollection);
+             ApiResponse<InlineResponse2005> localVarResponse = UpdateCouponCollectionWithHttpInfo(id, updateCouponCollection);
              return localVarResponse.Data;
         }
 
@@ -1019,8 +1019,8 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to update</param>
         /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        public ApiResponse< InlineResponse2003 > UpdateCouponCollectionWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection)
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        public ApiResponse< InlineResponse2005 > UpdateCouponCollectionWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1085,9 +1085,9 @@ namespace brevo_csharp.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
-                (InlineResponse2003) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003)));
+                (InlineResponse2005) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005)));
         }
 
         /// <summary>
@@ -1096,10 +1096,10 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to update</param>
         /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> UpdateCouponCollectionAsync (string id, UpdateCouponCollection updateCouponCollection)
+        /// <returns>Task of InlineResponse2005</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2005> UpdateCouponCollectionAsync (string id, UpdateCouponCollection updateCouponCollection)
         {
-             ApiResponse<InlineResponse2003> localVarResponse = await UpdateCouponCollectionAsyncWithHttpInfo(id, updateCouponCollection);
+             ApiResponse<InlineResponse2005> localVarResponse = await UpdateCouponCollectionAsyncWithHttpInfo(id, updateCouponCollection);
              return localVarResponse.Data;
 
         }
@@ -1110,8 +1110,8 @@ namespace brevo_csharp.Api
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to update</param>
         /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> UpdateCouponCollectionAsyncWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection)
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> UpdateCouponCollectionAsyncWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1176,9 +1176,9 @@ namespace brevo_csharp.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
-                (InlineResponse2003) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003)));
+                (InlineResponse2005) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005)));
         }
 
     }

@@ -35,12 +35,22 @@ namespace brevo_csharp.Model
         /// <param name="apiKeys">Api keys accessiblity..</param>
         /// <param name="myPlan">My plan accessiblity..</param>
         /// <param name="appsManagement">Apps management accessiblity | Not available in ENTv2.</param>
-        public GetCorporateInvitedUsersListFeatureAccess(List<string> userManagement = default(List<string>), List<string> apiKeys = default(List<string>), List<string> myPlan = default(List<string>), List<string> appsManagement = default(List<string>))
+        /// <param name="subOrganizationGroups">Group creation, modification or deletion accessibility.</param>
+        /// <param name="createSubOrganizations">Authorization to create sub-organization in the admin account. If the user creating the sub-organization, belongs to a group, the user must choose a group at the sub-organization creation..</param>
+        /// <param name="manageSubOrganizations">Authorization to manage and access sub-organizations in the admin account..</param>
+        /// <param name="analytics">Analytics dashboard accessibility.</param>
+        /// <param name="security">Security page accessibility.</param>
+        public GetCorporateInvitedUsersListFeatureAccess(List<string> userManagement = default(List<string>), List<string> apiKeys = default(List<string>), List<string> myPlan = default(List<string>), List<string> appsManagement = default(List<string>), List<string> subOrganizationGroups = default(List<string>), List<string> createSubOrganizations = default(List<string>), List<string> manageSubOrganizations = default(List<string>), List<string> analytics = default(List<string>), List<string> security = default(List<string>))
         {
             this.UserManagement = userManagement;
             this.ApiKeys = apiKeys;
             this.MyPlan = myPlan;
             this.AppsManagement = appsManagement;
+            this.SubOrganizationGroups = subOrganizationGroups;
+            this.CreateSubOrganizations = createSubOrganizations;
+            this.ManageSubOrganizations = manageSubOrganizations;
+            this.Analytics = analytics;
+            this.Security = security;
         }
         
         /// <summary>
@@ -72,6 +82,41 @@ namespace brevo_csharp.Model
         public List<string> AppsManagement { get; set; }
 
         /// <summary>
+        /// Group creation, modification or deletion accessibility
+        /// </summary>
+        /// <value>Group creation, modification or deletion accessibility</value>
+        [DataMember(Name="sub_organization_groups", EmitDefaultValue=false)]
+        public List<string> SubOrganizationGroups { get; set; }
+
+        /// <summary>
+        /// Authorization to create sub-organization in the admin account. If the user creating the sub-organization, belongs to a group, the user must choose a group at the sub-organization creation.
+        /// </summary>
+        /// <value>Authorization to create sub-organization in the admin account. If the user creating the sub-organization, belongs to a group, the user must choose a group at the sub-organization creation.</value>
+        [DataMember(Name="create_sub_organizations", EmitDefaultValue=false)]
+        public List<string> CreateSubOrganizations { get; set; }
+
+        /// <summary>
+        /// Authorization to manage and access sub-organizations in the admin account.
+        /// </summary>
+        /// <value>Authorization to manage and access sub-organizations in the admin account.</value>
+        [DataMember(Name="manage_sub_organizations", EmitDefaultValue=false)]
+        public List<string> ManageSubOrganizations { get; set; }
+
+        /// <summary>
+        /// Analytics dashboard accessibility
+        /// </summary>
+        /// <value>Analytics dashboard accessibility</value>
+        [DataMember(Name="analytics", EmitDefaultValue=false)]
+        public List<string> Analytics { get; set; }
+
+        /// <summary>
+        /// Security page accessibility
+        /// </summary>
+        /// <value>Security page accessibility</value>
+        [DataMember(Name="security", EmitDefaultValue=false)]
+        public List<string> Security { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +128,11 @@ namespace brevo_csharp.Model
             sb.Append("  ApiKeys: ").Append(ApiKeys).Append("\n");
             sb.Append("  MyPlan: ").Append(MyPlan).Append("\n");
             sb.Append("  AppsManagement: ").Append(AppsManagement).Append("\n");
+            sb.Append("  SubOrganizationGroups: ").Append(SubOrganizationGroups).Append("\n");
+            sb.Append("  CreateSubOrganizations: ").Append(CreateSubOrganizations).Append("\n");
+            sb.Append("  ManageSubOrganizations: ").Append(ManageSubOrganizations).Append("\n");
+            sb.Append("  Analytics: ").Append(Analytics).Append("\n");
+            sb.Append("  Security: ").Append(Security).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +186,31 @@ namespace brevo_csharp.Model
                     this.AppsManagement == input.AppsManagement ||
                     this.AppsManagement != null &&
                     this.AppsManagement.SequenceEqual(input.AppsManagement)
+                ) && 
+                (
+                    this.SubOrganizationGroups == input.SubOrganizationGroups ||
+                    this.SubOrganizationGroups != null &&
+                    this.SubOrganizationGroups.SequenceEqual(input.SubOrganizationGroups)
+                ) && 
+                (
+                    this.CreateSubOrganizations == input.CreateSubOrganizations ||
+                    this.CreateSubOrganizations != null &&
+                    this.CreateSubOrganizations.SequenceEqual(input.CreateSubOrganizations)
+                ) && 
+                (
+                    this.ManageSubOrganizations == input.ManageSubOrganizations ||
+                    this.ManageSubOrganizations != null &&
+                    this.ManageSubOrganizations.SequenceEqual(input.ManageSubOrganizations)
+                ) && 
+                (
+                    this.Analytics == input.Analytics ||
+                    this.Analytics != null &&
+                    this.Analytics.SequenceEqual(input.Analytics)
+                ) && 
+                (
+                    this.Security == input.Security ||
+                    this.Security != null &&
+                    this.Security.SequenceEqual(input.Security)
                 );
         }
 
@@ -156,6 +231,16 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.MyPlan.GetHashCode();
                 if (this.AppsManagement != null)
                     hashCode = hashCode * 59 + this.AppsManagement.GetHashCode();
+                if (this.SubOrganizationGroups != null)
+                    hashCode = hashCode * 59 + this.SubOrganizationGroups.GetHashCode();
+                if (this.CreateSubOrganizations != null)
+                    hashCode = hashCode * 59 + this.CreateSubOrganizations.GetHashCode();
+                if (this.ManageSubOrganizations != null)
+                    hashCode = hashCode * 59 + this.ManageSubOrganizations.GetHashCode();
+                if (this.Analytics != null)
+                    hashCode = hashCode * 59 + this.Analytics.GetHashCode();
+                if (this.Security != null)
+                    hashCode = hashCode * 59 + this.Security.GetHashCode();
                 return hashCode;
             }
         }

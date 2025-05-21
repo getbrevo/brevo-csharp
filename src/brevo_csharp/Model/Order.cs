@@ -41,11 +41,14 @@ namespace brevo_csharp.Model
         /// <param name="updatedAt">Event updated UTC date-time (YYYY-MM-DDTHH:mm:ssZ), when the status of the order is actually changed/updated. (required).</param>
         /// <param name="status">State of the order. (required).</param>
         /// <param name="amount">Total amount of the order, including all shipping expenses, tax and the price of items. (required).</param>
+        /// <param name="storeId">ID of store where the order is placed.</param>
+        /// <param name="identifiers">identifiers.</param>
         /// <param name="products">products (required).</param>
         /// <param name="email">Email of the contact, Mandatory if \&quot;phone\&quot; field is not passed in \&quot;billing\&quot; parameter..</param>
         /// <param name="billing">billing.</param>
         /// <param name="coupons">Coupons applied to the order. Stored case insensitive..</param>
-        public Order(string id = default(string), string createdAt = default(string), string updatedAt = default(string), string status = default(string), decimal? amount = default(decimal?), List<OrderProducts> products = default(List<OrderProducts>), string email = default(string), OrderBilling billing = default(OrderBilling), List<string> coupons = default(List<string>))
+        /// <param name="metaInfo">Meta data of order to store additional detal such as custom message, customer type, source..</param>
+        public Order(string id = default(string), string createdAt = default(string), string updatedAt = default(string), string status = default(string), decimal? amount = default(decimal?), string storeId = default(string), OrderIdentifiers identifiers = default(OrderIdentifiers), List<OrderProducts> products = default(List<OrderProducts>), string email = default(string), OrderBilling billing = default(OrderBilling), List<string> coupons = default(List<string>), Dictionary<string, Object> metaInfo = default(Dictionary<string, Object>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -101,9 +104,12 @@ namespace brevo_csharp.Model
             {
                 this.Products = products;
             }
+            this.StoreId = storeId;
+            this.Identifiers = identifiers;
             this.Email = email;
             this.Billing = billing;
             this.Coupons = coupons;
+            this.MetaInfo = metaInfo;
         }
         
         /// <summary>
@@ -142,6 +148,19 @@ namespace brevo_csharp.Model
         public decimal? Amount { get; set; }
 
         /// <summary>
+        /// ID of store where the order is placed
+        /// </summary>
+        /// <value>ID of store where the order is placed</value>
+        [DataMember(Name="storeId", EmitDefaultValue=false)]
+        public string StoreId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Identifiers
+        /// </summary>
+        [DataMember(Name="identifiers", EmitDefaultValue=false)]
+        public OrderIdentifiers Identifiers { get; set; }
+
+        /// <summary>
         /// Gets or Sets Products
         /// </summary>
         [DataMember(Name="products", EmitDefaultValue=false)]
@@ -168,6 +187,13 @@ namespace brevo_csharp.Model
         public List<string> Coupons { get; set; }
 
         /// <summary>
+        /// Meta data of order to store additional detal such as custom message, customer type, source.
+        /// </summary>
+        /// <value>Meta data of order to store additional detal such as custom message, customer type, source.</value>
+        [DataMember(Name="metaInfo", EmitDefaultValue=false)]
+        public Dictionary<string, Object> MetaInfo { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -180,10 +206,13 @@ namespace brevo_csharp.Model
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  StoreId: ").Append(StoreId).Append("\n");
+            sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  Products: ").Append(Products).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Billing: ").Append(Billing).Append("\n");
             sb.Append("  Coupons: ").Append(Coupons).Append("\n");
+            sb.Append("  MetaInfo: ").Append(MetaInfo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -244,6 +273,16 @@ namespace brevo_csharp.Model
                     this.Amount.Equals(input.Amount))
                 ) && 
                 (
+                    this.StoreId == input.StoreId ||
+                    (this.StoreId != null &&
+                    this.StoreId.Equals(input.StoreId))
+                ) && 
+                (
+                    this.Identifiers == input.Identifiers ||
+                    (this.Identifiers != null &&
+                    this.Identifiers.Equals(input.Identifiers))
+                ) && 
+                (
                     this.Products == input.Products ||
                     this.Products != null &&
                     this.Products.SequenceEqual(input.Products)
@@ -262,6 +301,11 @@ namespace brevo_csharp.Model
                     this.Coupons == input.Coupons ||
                     this.Coupons != null &&
                     this.Coupons.SequenceEqual(input.Coupons)
+                ) && 
+                (
+                    this.MetaInfo == input.MetaInfo ||
+                    this.MetaInfo != null &&
+                    this.MetaInfo.SequenceEqual(input.MetaInfo)
                 );
         }
 
@@ -284,6 +328,10 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.Amount != null)
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
+                if (this.StoreId != null)
+                    hashCode = hashCode * 59 + this.StoreId.GetHashCode();
+                if (this.Identifiers != null)
+                    hashCode = hashCode * 59 + this.Identifiers.GetHashCode();
                 if (this.Products != null)
                     hashCode = hashCode * 59 + this.Products.GetHashCode();
                 if (this.Email != null)
@@ -292,6 +340,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.Billing.GetHashCode();
                 if (this.Coupons != null)
                     hashCode = hashCode * 59 + this.Coupons.GetHashCode();
+                if (this.MetaInfo != null)
+                    hashCode = hashCode * 59 + this.MetaInfo.GetHashCode();
                 return hashCode;
             }
         }

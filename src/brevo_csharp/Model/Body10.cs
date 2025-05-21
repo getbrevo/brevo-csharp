@@ -31,99 +31,58 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Body10" /> class.
         /// </summary>
-        /// <param name="name">Name of task.</param>
-        /// <param name="duration">Duration of task in milliseconds [1 minute &#x3D; 60000 ms].</param>
-        /// <param name="taskTypeId">Id for type of task e.g Call / Email / Meeting etc..</param>
-        /// <param name="date">Task date/time.</param>
-        /// <param name="notes">Notes added to a task.</param>
-        /// <param name="done">Task marked as done.</param>
-        /// <param name="assignToId">User id to whom task is assigned.</param>
-        /// <param name="contactsIds">Contact ids for contacts linked to this task.</param>
-        /// <param name="dealsIds">Deal ids for deals a task is linked to.</param>
-        /// <param name="companiesIds">Companies ids for companies a task is linked to.</param>
-        public Body10(string name = default(string), int? duration = default(int?), string taskTypeId = default(string), DateTime? date = default(DateTime?), string notes = default(string), bool? done = default(bool?), string assignToId = default(string), List<int?> contactsIds = default(List<int?>), List<string> dealsIds = default(List<string>), List<string> companiesIds = default(List<string>))
+        [JsonConstructorAttribute]
+        protected Body10() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Body10" /> class.
+        /// </summary>
+        /// <param name="name">Name of deal (required).</param>
+        /// <param name="attributes">Attributes for deal creation  To assign owner of a Deal you can send attributes.deal_owner and utilize the account email or ID.  If you want to create a deal on a specific pipeline and stage you can use the following attributes &#x60;pipeline&#x60; and &#x60;deal_stage&#x60;.  Pipeline and deal_stage are ids you can fetch using this endpoint &#x60;/crm/pipeline/details/{pipelineID}&#x60; .</param>
+        /// <param name="linkedContactsIds">Contact ids to be linked with deal.</param>
+        /// <param name="linkedCompaniesIds">Company ids to be linked with deal.</param>
+        public Body10(string name = default(string), Object attributes = default(Object), List<long?> linkedContactsIds = default(List<long?>), List<string> linkedCompaniesIds = default(List<string>))
         {
-            this.Name = name;
-            this.Duration = duration;
-            this.TaskTypeId = taskTypeId;
-            this.Date = date;
-            this.Notes = notes;
-            this.Done = done;
-            this.AssignToId = assignToId;
-            this.ContactsIds = contactsIds;
-            this.DealsIds = dealsIds;
-            this.CompaniesIds = companiesIds;
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new InvalidDataException("name is a required property for Body10 and cannot be null");
+            }
+            else
+            {
+                this.Name = name;
+            }
+            this.Attributes = attributes;
+            this.LinkedContactsIds = linkedContactsIds;
+            this.LinkedCompaniesIds = linkedCompaniesIds;
         }
         
         /// <summary>
-        /// Name of task
+        /// Name of deal
         /// </summary>
-        /// <value>Name of task</value>
+        /// <value>Name of deal</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Duration of task in milliseconds [1 minute &#x3D; 60000 ms]
+        /// Attributes for deal creation  To assign owner of a Deal you can send attributes.deal_owner and utilize the account email or ID.  If you want to create a deal on a specific pipeline and stage you can use the following attributes &#x60;pipeline&#x60; and &#x60;deal_stage&#x60;.  Pipeline and deal_stage are ids you can fetch using this endpoint &#x60;/crm/pipeline/details/{pipelineID}&#x60; 
         /// </summary>
-        /// <value>Duration of task in milliseconds [1 minute &#x3D; 60000 ms]</value>
-        [DataMember(Name="duration", EmitDefaultValue=false)]
-        public int? Duration { get; set; }
+        /// <value>Attributes for deal creation  To assign owner of a Deal you can send attributes.deal_owner and utilize the account email or ID.  If you want to create a deal on a specific pipeline and stage you can use the following attributes &#x60;pipeline&#x60; and &#x60;deal_stage&#x60;.  Pipeline and deal_stage are ids you can fetch using this endpoint &#x60;/crm/pipeline/details/{pipelineID}&#x60; </value>
+        [DataMember(Name="attributes", EmitDefaultValue=false)]
+        public Object Attributes { get; set; }
 
         /// <summary>
-        /// Id for type of task e.g Call / Email / Meeting etc.
+        /// Contact ids to be linked with deal
         /// </summary>
-        /// <value>Id for type of task e.g Call / Email / Meeting etc.</value>
-        [DataMember(Name="taskTypeId", EmitDefaultValue=false)]
-        public string TaskTypeId { get; set; }
+        /// <value>Contact ids to be linked with deal</value>
+        [DataMember(Name="linkedContactsIds", EmitDefaultValue=false)]
+        public List<long?> LinkedContactsIds { get; set; }
 
         /// <summary>
-        /// Task date/time
+        /// Company ids to be linked with deal
         /// </summary>
-        /// <value>Task date/time</value>
-        [DataMember(Name="date", EmitDefaultValue=false)]
-        public DateTime? Date { get; set; }
-
-        /// <summary>
-        /// Notes added to a task
-        /// </summary>
-        /// <value>Notes added to a task</value>
-        [DataMember(Name="notes", EmitDefaultValue=false)]
-        public string Notes { get; set; }
-
-        /// <summary>
-        /// Task marked as done
-        /// </summary>
-        /// <value>Task marked as done</value>
-        [DataMember(Name="done", EmitDefaultValue=false)]
-        public bool? Done { get; set; }
-
-        /// <summary>
-        /// User id to whom task is assigned
-        /// </summary>
-        /// <value>User id to whom task is assigned</value>
-        [DataMember(Name="assignToId", EmitDefaultValue=false)]
-        public string AssignToId { get; set; }
-
-        /// <summary>
-        /// Contact ids for contacts linked to this task
-        /// </summary>
-        /// <value>Contact ids for contacts linked to this task</value>
-        [DataMember(Name="contactsIds", EmitDefaultValue=false)]
-        public List<int?> ContactsIds { get; set; }
-
-        /// <summary>
-        /// Deal ids for deals a task is linked to
-        /// </summary>
-        /// <value>Deal ids for deals a task is linked to</value>
-        [DataMember(Name="dealsIds", EmitDefaultValue=false)]
-        public List<string> DealsIds { get; set; }
-
-        /// <summary>
-        /// Companies ids for companies a task is linked to
-        /// </summary>
-        /// <value>Companies ids for companies a task is linked to</value>
-        [DataMember(Name="companiesIds", EmitDefaultValue=false)]
-        public List<string> CompaniesIds { get; set; }
+        /// <value>Company ids to be linked with deal</value>
+        [DataMember(Name="linkedCompaniesIds", EmitDefaultValue=false)]
+        public List<string> LinkedCompaniesIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -134,15 +93,9 @@ namespace brevo_csharp.Model
             var sb = new StringBuilder();
             sb.Append("class Body10 {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Duration: ").Append(Duration).Append("\n");
-            sb.Append("  TaskTypeId: ").Append(TaskTypeId).Append("\n");
-            sb.Append("  Date: ").Append(Date).Append("\n");
-            sb.Append("  Notes: ").Append(Notes).Append("\n");
-            sb.Append("  Done: ").Append(Done).Append("\n");
-            sb.Append("  AssignToId: ").Append(AssignToId).Append("\n");
-            sb.Append("  ContactsIds: ").Append(ContactsIds).Append("\n");
-            sb.Append("  DealsIds: ").Append(DealsIds).Append("\n");
-            sb.Append("  CompaniesIds: ").Append(CompaniesIds).Append("\n");
+            sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("  LinkedContactsIds: ").Append(LinkedContactsIds).Append("\n");
+            sb.Append("  LinkedCompaniesIds: ").Append(LinkedCompaniesIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -183,49 +136,19 @@ namespace brevo_csharp.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.Duration == input.Duration ||
-                    (this.Duration != null &&
-                    this.Duration.Equals(input.Duration))
+                    this.Attributes == input.Attributes ||
+                    (this.Attributes != null &&
+                    this.Attributes.Equals(input.Attributes))
                 ) && 
                 (
-                    this.TaskTypeId == input.TaskTypeId ||
-                    (this.TaskTypeId != null &&
-                    this.TaskTypeId.Equals(input.TaskTypeId))
+                    this.LinkedContactsIds == input.LinkedContactsIds ||
+                    this.LinkedContactsIds != null &&
+                    this.LinkedContactsIds.SequenceEqual(input.LinkedContactsIds)
                 ) && 
                 (
-                    this.Date == input.Date ||
-                    (this.Date != null &&
-                    this.Date.Equals(input.Date))
-                ) && 
-                (
-                    this.Notes == input.Notes ||
-                    (this.Notes != null &&
-                    this.Notes.Equals(input.Notes))
-                ) && 
-                (
-                    this.Done == input.Done ||
-                    (this.Done != null &&
-                    this.Done.Equals(input.Done))
-                ) && 
-                (
-                    this.AssignToId == input.AssignToId ||
-                    (this.AssignToId != null &&
-                    this.AssignToId.Equals(input.AssignToId))
-                ) && 
-                (
-                    this.ContactsIds == input.ContactsIds ||
-                    this.ContactsIds != null &&
-                    this.ContactsIds.SequenceEqual(input.ContactsIds)
-                ) && 
-                (
-                    this.DealsIds == input.DealsIds ||
-                    this.DealsIds != null &&
-                    this.DealsIds.SequenceEqual(input.DealsIds)
-                ) && 
-                (
-                    this.CompaniesIds == input.CompaniesIds ||
-                    this.CompaniesIds != null &&
-                    this.CompaniesIds.SequenceEqual(input.CompaniesIds)
+                    this.LinkedCompaniesIds == input.LinkedCompaniesIds ||
+                    this.LinkedCompaniesIds != null &&
+                    this.LinkedCompaniesIds.SequenceEqual(input.LinkedCompaniesIds)
                 );
         }
 
@@ -240,24 +163,12 @@ namespace brevo_csharp.Model
                 int hashCode = 41;
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.Duration != null)
-                    hashCode = hashCode * 59 + this.Duration.GetHashCode();
-                if (this.TaskTypeId != null)
-                    hashCode = hashCode * 59 + this.TaskTypeId.GetHashCode();
-                if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
-                if (this.Notes != null)
-                    hashCode = hashCode * 59 + this.Notes.GetHashCode();
-                if (this.Done != null)
-                    hashCode = hashCode * 59 + this.Done.GetHashCode();
-                if (this.AssignToId != null)
-                    hashCode = hashCode * 59 + this.AssignToId.GetHashCode();
-                if (this.ContactsIds != null)
-                    hashCode = hashCode * 59 + this.ContactsIds.GetHashCode();
-                if (this.DealsIds != null)
-                    hashCode = hashCode * 59 + this.DealsIds.GetHashCode();
-                if (this.CompaniesIds != null)
-                    hashCode = hashCode * 59 + this.CompaniesIds.GetHashCode();
+                if (this.Attributes != null)
+                    hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                if (this.LinkedContactsIds != null)
+                    hashCode = hashCode * 59 + this.LinkedContactsIds.GetHashCode();
+                if (this.LinkedCompaniesIds != null)
+                    hashCode = hashCode * 59 + this.LinkedCompaniesIds.GetHashCode();
                 return hashCode;
             }
         }

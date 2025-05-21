@@ -45,7 +45,7 @@ namespace Example
             var filterType = filterType_example;  // string | Filter by task type (ID) (optional) 
             var filterStatus = filterStatus_example;  // string | Filter by task status (optional) 
             var filterDate = filterDate_example;  // string | Filter by date (optional) 
-            var filterAssignTo = filterAssignTo_example;  // string | Filter by assignTo id (optional) 
+            var filterAssignTo = filterAssignTo_example;  // string | Filter by the \"assignTo\" ID. You can utilize account emails for the \"assignTo\" attribute. (optional) 
             var filterContacts = filterContacts_example;  // string | Filter by contact ids (optional) 
             var filterDeals = filterDeals_example;  // string | Filter by deals ids (optional) 
             var filterCompanies = filterCompanies_example;  // string | Filter by companies ids (optional) 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
  **filterType** | **string**| Filter by task type (ID) | [optional] 
  **filterStatus** | **string**| Filter by task status | [optional] 
  **filterDate** | **string**| Filter by date | [optional] 
- **filterAssignTo** | **string**| Filter by assignTo id | [optional] 
+ **filterAssignTo** | **string**| Filter by the &quot;assignTo&quot; ID. You can utilize account emails for the &quot;assignTo&quot; attribute. | [optional] 
  **filterContacts** | **string**| Filter by contact ids | [optional] 
  **filterDeals** | **string**| Filter by deals ids | [optional] 
  **filterCompanies** | **string**| Filter by companies ids | [optional] 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 <a name="crmtasksidpatch"></a>
 # **CrmTasksIdPatch**
-> void CrmTasksIdPatch (string id, Body10 body)
+> void CrmTasksIdPatch (string id, Body14 body)
 
 Update a task
 
@@ -270,7 +270,7 @@ namespace Example
 
             var apiInstance = new TasksApi();
             var id = id_example;  // string | 
-            var body = new Body10(); // Body10 | Updated task details.
+            var body = new Body14(); // Body14 | Updated task details.
 
             try
             {
@@ -291,7 +291,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**|  | 
- **body** | [**Body10**](Body10.md)| Updated task details. | 
+ **body** | [**Body14**](Body14.md)| Updated task details. | 
 
 ### Return type
 
@@ -310,7 +310,7 @@ void (empty response body)
 
 <a name="crmtaskspost"></a>
 # **CrmTasksPost**
-> InlineResponse2012 CrmTasksPost (Body9 body)
+> InlineResponse2012 CrmTasksPost (Body13 body)
 
 Create a task
 
@@ -338,7 +338,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("partner-key", "Bearer");
 
             var apiInstance = new TasksApi();
-            var body = new Body9(); // Body9 | Task name.
+            var body = new Body13(); // Body13 | Task name.
 
             try
             {
@@ -359,7 +359,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Body9**](Body9.md)| Task name. | 
+ **body** | [**Body13**](Body13.md)| Task name. | 
 
 ### Return type
 

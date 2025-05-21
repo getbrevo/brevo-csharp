@@ -34,15 +34,17 @@ namespace brevo_csharp.Model
         /// <param name="address">Full billing address..</param>
         /// <param name="city">Exact city of the address..</param>
         /// <param name="countryCode">Billing country 2-letter ISO code..</param>
+        /// <param name="country">Billing country name..</param>
         /// <param name="phone">Phone number to contact for further details about the order, Mandatory if \&quot;email\&quot; field is not passed..</param>
         /// <param name="postCode">Postcode for delivery and billing..</param>
         /// <param name="paymentMethod">How the visitor will pay for the item(s), e.g. paypal, check, etc..</param>
         /// <param name="region">Exact region (state/province) for delivery and billing..</param>
-        public OrderBilling(string address = default(string), string city = default(string), string countryCode = default(string), string phone = default(string), string postCode = default(string), string paymentMethod = default(string), string region = default(string))
+        public OrderBilling(string address = default(string), string city = default(string), string countryCode = default(string), string country = default(string), string phone = default(string), string postCode = default(string), string paymentMethod = default(string), string region = default(string))
         {
             this.Address = address;
             this.City = city;
             this.CountryCode = countryCode;
+            this.Country = country;
             this.Phone = phone;
             this.PostCode = postCode;
             this.PaymentMethod = paymentMethod;
@@ -69,6 +71,13 @@ namespace brevo_csharp.Model
         /// <value>Billing country 2-letter ISO code.</value>
         [DataMember(Name="countryCode", EmitDefaultValue=false)]
         public string CountryCode { get; set; }
+
+        /// <summary>
+        /// Billing country name.
+        /// </summary>
+        /// <value>Billing country name.</value>
+        [DataMember(Name="country", EmitDefaultValue=false)]
+        public string Country { get; set; }
 
         /// <summary>
         /// Phone number to contact for further details about the order, Mandatory if \&quot;email\&quot; field is not passed.
@@ -109,6 +118,7 @@ namespace brevo_csharp.Model
             sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  City: ").Append(City).Append("\n");
             sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
+            sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  PostCode: ").Append(PostCode).Append("\n");
             sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
@@ -163,6 +173,11 @@ namespace brevo_csharp.Model
                     this.CountryCode.Equals(input.CountryCode))
                 ) && 
                 (
+                    this.Country == input.Country ||
+                    (this.Country != null &&
+                    this.Country.Equals(input.Country))
+                ) && 
+                (
                     this.Phone == input.Phone ||
                     (this.Phone != null &&
                     this.Phone.Equals(input.Phone))
@@ -199,6 +214,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.City.GetHashCode();
                 if (this.CountryCode != null)
                     hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
+                if (this.Country != null)
+                    hashCode = hashCode * 59 + this.Country.GetHashCode();
                 if (this.Phone != null)
                     hashCode = hashCode * 59 + this.Phone.GetHashCode();
                 if (this.PostCode != null)

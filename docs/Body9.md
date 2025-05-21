@@ -3,17 +3,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Name of task | 
-**Duration** | **long?** | Duration of task in milliseconds [1 minute &#x3D; 60000 ms] | [optional] 
-**TaskTypeId** | **string** | Id for type of task e.g Call / Email / Meeting etc. | 
-**Date** | **DateTime?** | Task due date and time | 
-**Notes** | **string** | Notes added to a task | [optional] 
-**Done** | **bool?** | Task marked as done | [optional] 
-**AssignToId** | **string** | User id to whom task is assigned | [optional] 
-**ContactsIds** | **List&lt;int?&gt;** | Contact ids for contacts linked to this task | [optional] 
-**DealsIds** | **List&lt;string&gt;** | Deal ids for deals a task is linked to | [optional] 
-**CompaniesIds** | **List&lt;string&gt;** | Companies ids for companies a task is linked to | [optional] 
-**Reminder** | [**TaskReminder**](TaskReminder.md) |  | [optional] 
+**Label** | **string** | The label for the attribute (max 50 characters, cannot be empty) | 
+**AttributeType** | **string** | The type of attribute (must be one of the defined enums) | 
+**Description** | **string** | A description of the attribute | [optional] 
+**OptionsLabels** | **List&lt;string&gt;** | Options for multi-choice or single-select attributes | [optional] 
+**ObjectType** | **string** | The type of object the attribute belongs to (prefilled with &#x60;companies&#x60;or &#x60;deal&#x60;, mandatory) | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

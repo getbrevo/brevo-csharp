@@ -128,6 +128,10 @@ namespace brevo_csharp.Model
         /// <param name="winnerCriteria">Criteria for the winning version. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60;.</param>
         /// <param name="winnerDelay">The duration of the test in hours at the end of which the winning version will be sent. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60;.</param>
         /// <param name="sendAtBestTime">It is true if you have chosen to send your campaign at best time, otherwise it is false.</param>
+        /// <param name="utmCampaignValue">utm parameter associated with campaign.</param>
+        /// <param name="utmSource">source of utm parameter.</param>
+        /// <param name="utmMedium">medium parameter.</param>
+        /// <param name="utmIDActive">utm id activate.</param>
         /// <param name="testSent">Retrieved the status of test email sending. (true&#x3D;Test email has been sent  false&#x3D;Test email has not been sent) (required).</param>
         /// <param name="header">Header of the campaign (required).</param>
         /// <param name="footer">Footer of the campaign (required).</param>
@@ -146,7 +150,7 @@ namespace brevo_csharp.Model
         /// <param name="returnBounce">Total number of non-delivered campaigns for a particular campaign id..</param>
         /// <param name="recipients">recipients (required).</param>
         /// <param name="statistics">statistics (required).</param>
-        public GetEmailCampaign(long? id = default(long?), string name = default(string), string subject = default(string), string previewText = default(string), TypeEnum type = default(TypeEnum), StatusEnum status = default(StatusEnum), string scheduledAt = default(string), bool? abTesting = default(bool?), string subjectA = default(string), string subjectB = default(string), int? splitRule = default(int?), string winnerCriteria = default(string), int? winnerDelay = default(int?), bool? sendAtBestTime = default(bool?), bool? testSent = default(bool?), string header = default(string), string footer = default(string), GetExtendedCampaignOverviewSender sender = default(GetExtendedCampaignOverviewSender), string replyTo = default(string), string toField = default(string), string htmlContent = default(string), string shareLink = default(string), string tag = default(string), string createdAt = default(string), string modifiedAt = default(string), bool? inlineImageActivation = default(bool?), bool? mirrorActive = default(bool?), bool? recurring = default(bool?), string sentDate = default(string), long? returnBounce = default(long?), Object recipients = default(Object), Object statistics = default(Object))
+        public GetEmailCampaign(long? id = default(long?), string name = default(string), string subject = default(string), string previewText = default(string), TypeEnum type = default(TypeEnum), StatusEnum status = default(StatusEnum), string scheduledAt = default(string), bool? abTesting = default(bool?), string subjectA = default(string), string subjectB = default(string), int? splitRule = default(int?), string winnerCriteria = default(string), int? winnerDelay = default(int?), bool? sendAtBestTime = default(bool?), string utmCampaignValue = default(string), string utmSource = default(string), string utmMedium = default(string), bool? utmIDActive = default(bool?), bool? testSent = default(bool?), string header = default(string), string footer = default(string), GetExtendedCampaignOverviewSender sender = default(GetExtendedCampaignOverviewSender), string replyTo = default(string), string toField = default(string), string htmlContent = default(string), string shareLink = default(string), string tag = default(string), string createdAt = default(string), string modifiedAt = default(string), bool? inlineImageActivation = default(bool?), bool? mirrorActive = default(bool?), bool? recurring = default(bool?), string sentDate = default(string), long? returnBounce = default(long?), Object recipients = default(Object), Object statistics = default(Object))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -284,6 +288,10 @@ namespace brevo_csharp.Model
             this.WinnerCriteria = winnerCriteria;
             this.WinnerDelay = winnerDelay;
             this.SendAtBestTime = sendAtBestTime;
+            this.UtmCampaignValue = utmCampaignValue;
+            this.UtmSource = utmSource;
+            this.UtmMedium = utmMedium;
+            this.UtmIDActive = utmIDActive;
             this.ToField = toField;
             this.ShareLink = shareLink;
             this.Tag = tag;
@@ -379,6 +387,34 @@ namespace brevo_csharp.Model
         /// <value>It is true if you have chosen to send your campaign at best time, otherwise it is false</value>
         [DataMember(Name="sendAtBestTime", EmitDefaultValue=false)]
         public bool? SendAtBestTime { get; set; }
+
+        /// <summary>
+        /// utm parameter associated with campaign
+        /// </summary>
+        /// <value>utm parameter associated with campaign</value>
+        [DataMember(Name="utmCampaignValue", EmitDefaultValue=false)]
+        public string UtmCampaignValue { get; set; }
+
+        /// <summary>
+        /// source of utm parameter
+        /// </summary>
+        /// <value>source of utm parameter</value>
+        [DataMember(Name="utmSource", EmitDefaultValue=false)]
+        public string UtmSource { get; set; }
+
+        /// <summary>
+        /// medium parameter
+        /// </summary>
+        /// <value>medium parameter</value>
+        [DataMember(Name="utmMedium", EmitDefaultValue=false)]
+        public string UtmMedium { get; set; }
+
+        /// <summary>
+        /// utm id activate
+        /// </summary>
+        /// <value>utm id activate</value>
+        [DataMember(Name="utmIDActive", EmitDefaultValue=false)]
+        public bool? UtmIDActive { get; set; }
 
         /// <summary>
         /// Retrieved the status of test email sending. (true&#x3D;Test email has been sent  false&#x3D;Test email has not been sent)
@@ -525,6 +561,10 @@ namespace brevo_csharp.Model
             sb.Append("  WinnerCriteria: ").Append(WinnerCriteria).Append("\n");
             sb.Append("  WinnerDelay: ").Append(WinnerDelay).Append("\n");
             sb.Append("  SendAtBestTime: ").Append(SendAtBestTime).Append("\n");
+            sb.Append("  UtmCampaignValue: ").Append(UtmCampaignValue).Append("\n");
+            sb.Append("  UtmSource: ").Append(UtmSource).Append("\n");
+            sb.Append("  UtmMedium: ").Append(UtmMedium).Append("\n");
+            sb.Append("  UtmIDActive: ").Append(UtmIDActive).Append("\n");
             sb.Append("  TestSent: ").Append(TestSent).Append("\n");
             sb.Append("  Header: ").Append(Header).Append("\n");
             sb.Append("  Footer: ").Append(Footer).Append("\n");
@@ -646,6 +686,26 @@ namespace brevo_csharp.Model
                     this.SendAtBestTime == input.SendAtBestTime ||
                     (this.SendAtBestTime != null &&
                     this.SendAtBestTime.Equals(input.SendAtBestTime))
+                ) && 
+                (
+                    this.UtmCampaignValue == input.UtmCampaignValue ||
+                    (this.UtmCampaignValue != null &&
+                    this.UtmCampaignValue.Equals(input.UtmCampaignValue))
+                ) && 
+                (
+                    this.UtmSource == input.UtmSource ||
+                    (this.UtmSource != null &&
+                    this.UtmSource.Equals(input.UtmSource))
+                ) && 
+                (
+                    this.UtmMedium == input.UtmMedium ||
+                    (this.UtmMedium != null &&
+                    this.UtmMedium.Equals(input.UtmMedium))
+                ) && 
+                (
+                    this.UtmIDActive == input.UtmIDActive ||
+                    (this.UtmIDActive != null &&
+                    this.UtmIDActive.Equals(input.UtmIDActive))
                 ) && 
                 (
                     this.TestSent == input.TestSent ||
@@ -776,6 +836,14 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.WinnerDelay.GetHashCode();
                 if (this.SendAtBestTime != null)
                     hashCode = hashCode * 59 + this.SendAtBestTime.GetHashCode();
+                if (this.UtmCampaignValue != null)
+                    hashCode = hashCode * 59 + this.UtmCampaignValue.GetHashCode();
+                if (this.UtmSource != null)
+                    hashCode = hashCode * 59 + this.UtmSource.GetHashCode();
+                if (this.UtmMedium != null)
+                    hashCode = hashCode * 59 + this.UtmMedium.GetHashCode();
+                if (this.UtmIDActive != null)
+                    hashCode = hashCode * 59 + this.UtmIDActive.GetHashCode();
                 if (this.TestSent != null)
                     hashCode = hashCode * 59 + this.TestSent.GetHashCode();
                 if (this.Header != null)

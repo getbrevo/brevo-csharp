@@ -32,13 +32,15 @@ namespace brevo_csharp.Model
         /// Initializes a new instance of the <see cref="SubAccountUpdatePlanRequestFeatures" /> class.
         /// </summary>
         /// <param name="users">Number of multi-users.</param>
-        /// <param name="landingPage">Number of landing pages / Not required on ENTv2.</param>
+        /// <param name="landingPage">Number of landing pages.</param>
         /// <param name="inbox">Number of inboxes / Not required on ENTv2.</param>
-        public SubAccountUpdatePlanRequestFeatures(long? users = default(long?), long? landingPage = default(long?), long? inbox = default(long?))
+        /// <param name="salesUsers">Number of sales users.</param>
+        public SubAccountUpdatePlanRequestFeatures(long? users = default(long?), long? landingPage = default(long?), long? inbox = default(long?), long? salesUsers = default(long?))
         {
             this.Users = users;
             this.LandingPage = landingPage;
             this.Inbox = inbox;
+            this.SalesUsers = salesUsers;
         }
         
         /// <summary>
@@ -49,9 +51,9 @@ namespace brevo_csharp.Model
         public long? Users { get; set; }
 
         /// <summary>
-        /// Number of landing pages / Not required on ENTv2
+        /// Number of landing pages
         /// </summary>
-        /// <value>Number of landing pages / Not required on ENTv2</value>
+        /// <value>Number of landing pages</value>
         [DataMember(Name="landingPage", EmitDefaultValue=false)]
         public long? LandingPage { get; set; }
 
@@ -61,6 +63,13 @@ namespace brevo_csharp.Model
         /// <value>Number of inboxes / Not required on ENTv2</value>
         [DataMember(Name="inbox", EmitDefaultValue=false)]
         public long? Inbox { get; set; }
+
+        /// <summary>
+        /// Number of sales users
+        /// </summary>
+        /// <value>Number of sales users</value>
+        [DataMember(Name="salesUsers", EmitDefaultValue=false)]
+        public long? SalesUsers { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,6 +82,7 @@ namespace brevo_csharp.Model
             sb.Append("  Users: ").Append(Users).Append("\n");
             sb.Append("  LandingPage: ").Append(LandingPage).Append("\n");
             sb.Append("  Inbox: ").Append(Inbox).Append("\n");
+            sb.Append("  SalesUsers: ").Append(SalesUsers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,6 +131,11 @@ namespace brevo_csharp.Model
                     this.Inbox == input.Inbox ||
                     (this.Inbox != null &&
                     this.Inbox.Equals(input.Inbox))
+                ) && 
+                (
+                    this.SalesUsers == input.SalesUsers ||
+                    (this.SalesUsers != null &&
+                    this.SalesUsers.Equals(input.SalesUsers))
                 );
         }
 
@@ -139,6 +154,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.LandingPage.GetHashCode();
                 if (this.Inbox != null)
                     hashCode = hashCode * 59 + this.Inbox.GetHashCode();
+                if (this.SalesUsers != null)
+                    hashCode = hashCode * 59 + this.SalesUsers.GetHashCode();
                 return hashCode;
             }
         }
