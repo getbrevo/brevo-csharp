@@ -1,7 +1,7 @@
 /* 
  * Brevo API
  *
- * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
+ * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  |   | 422  | Error. Unprocessable Entity | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@brevo.com
@@ -42,7 +42,9 @@ namespace brevo_csharp.Model
         /// <param name="cc">List of email addresses and names (optional) of the recipients in cc.</param>
         /// <param name="replyTo">replyTo.</param>
         /// <param name="subject">Custom subject specific to message version .</param>
-        public SendSmtpEmailMessageVersions(List<SendSmtpEmailTo1> to = default(List<SendSmtpEmailTo1>), Dictionary<string, Object> _params = default(Dictionary<string, Object>), List<SendSmtpEmailBcc> bcc = default(List<SendSmtpEmailBcc>), List<SendSmtpEmailCc> cc = default(List<SendSmtpEmailCc>), SendSmtpEmailReplyTo1 replyTo = default(SendSmtpEmailReplyTo1), string subject = default(string))
+        /// <param name="htmlContent">HTML body of the message. **Mandatory if &#39;templateId&#39; is not passed, ignored if &#39;templateId&#39; is passed** .</param>
+        /// <param name="textContent">Plain Text body of the message. **Ignored if &#39;templateId&#39; is passed** .</param>
+        public SendSmtpEmailMessageVersions(List<SendSmtpEmailTo1> to = default(List<SendSmtpEmailTo1>), Dictionary<string, Object> _params = default(Dictionary<string, Object>), List<SendSmtpEmailBcc> bcc = default(List<SendSmtpEmailBcc>), List<SendSmtpEmailCc> cc = default(List<SendSmtpEmailCc>), SendSmtpEmailReplyTo1 replyTo = default(SendSmtpEmailReplyTo1), string subject = default(string), string htmlContent = default(string), string textContent = default(string))
         {
             // to ensure "to" is required (not null)
             if (to == null)
@@ -58,6 +60,8 @@ namespace brevo_csharp.Model
             this.Cc = cc;
             this.ReplyTo = replyTo;
             this.Subject = subject;
+            this.HtmlContent = htmlContent;
+            this.TextContent = textContent;
         }
         
         /// <summary>
@@ -102,6 +106,20 @@ namespace brevo_csharp.Model
         public string Subject { get; set; }
 
         /// <summary>
+        /// HTML body of the message. **Mandatory if &#39;templateId&#39; is not passed, ignored if &#39;templateId&#39; is passed** 
+        /// </summary>
+        /// <value>HTML body of the message. **Mandatory if &#39;templateId&#39; is not passed, ignored if &#39;templateId&#39; is passed** </value>
+        [DataMember(Name="htmlContent", EmitDefaultValue=false)]
+        public string HtmlContent { get; set; }
+
+        /// <summary>
+        /// Plain Text body of the message. **Ignored if &#39;templateId&#39; is passed** 
+        /// </summary>
+        /// <value>Plain Text body of the message. **Ignored if &#39;templateId&#39; is passed** </value>
+        [DataMember(Name="textContent", EmitDefaultValue=false)]
+        public string TextContent { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,6 +133,8 @@ namespace brevo_csharp.Model
             sb.Append("  Cc: ").Append(Cc).Append("\n");
             sb.Append("  ReplyTo: ").Append(ReplyTo).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
+            sb.Append("  HtmlContent: ").Append(HtmlContent).Append("\n");
+            sb.Append("  TextContent: ").Append(TextContent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -178,6 +198,16 @@ namespace brevo_csharp.Model
                     this.Subject == input.Subject ||
                     (this.Subject != null &&
                     this.Subject.Equals(input.Subject))
+                ) && 
+                (
+                    this.HtmlContent == input.HtmlContent ||
+                    (this.HtmlContent != null &&
+                    this.HtmlContent.Equals(input.HtmlContent))
+                ) && 
+                (
+                    this.TextContent == input.TextContent ||
+                    (this.TextContent != null &&
+                    this.TextContent.Equals(input.TextContent))
                 );
         }
 
@@ -202,6 +232,10 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.ReplyTo.GetHashCode();
                 if (this.Subject != null)
                     hashCode = hashCode * 59 + this.Subject.GetHashCode();
+                if (this.HtmlContent != null)
+                    hashCode = hashCode * 59 + this.HtmlContent.GetHashCode();
+                if (this.TextContent != null)
+                    hashCode = hashCode * 59 + this.TextContent.GetHashCode();
                 return hashCode;
             }
         }

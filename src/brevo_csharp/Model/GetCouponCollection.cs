@@ -1,7 +1,7 @@
 /* 
  * Brevo API
  *
- * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
+ * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  |   | 422  | Error. Unprocessable Entity | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@brevo.com
@@ -36,13 +36,16 @@ namespace brevo_csharp.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetCouponCollection" /> class.
         /// </summary>
-        /// <param name="id">The id of the collection (required).</param>
-        /// <param name="name">The name of the collection (required).</param>
-        /// <param name="defaultCoupon">The default coupon of the collection (required).</param>
-        /// <param name="createdAt">Datetime on which the collection was created (required).</param>
-        /// <param name="totalCoupons">Total coupons in the collection (required).</param>
-        /// <param name="remainingCoupons">Not sent coupons in the collection (required).</param>
-        public GetCouponCollection(string id = default(string), string name = default(string), string defaultCoupon = default(string), DateTime? createdAt = default(DateTime?), long? totalCoupons = default(long?), long? remainingCoupons = default(long?))
+        /// <param name="id">The id of the collection. (required).</param>
+        /// <param name="name">The name of the collection. (required).</param>
+        /// <param name="defaultCoupon">The default coupon of the collection. (required).</param>
+        /// <param name="createdAt">Datetime on which the collection was created. (required).</param>
+        /// <param name="totalCoupons">Total number of coupons in the collection. (required).</param>
+        /// <param name="remainingCoupons">Number of coupons that have not been sent yet. (required).</param>
+        /// <param name="expirationDate">Expiration date for the coupon collection in RFC3339 format..</param>
+        /// <param name="remainingDaysAlert">If present, an email notification is going to be sent the defined amount of days before the expiration date..</param>
+        /// <param name="remainingCouponsAlert">If present, an email notification is going to be sent when the total number of available coupons falls below the defined threshold..</param>
+        public GetCouponCollection(string id = default(string), string name = default(string), string defaultCoupon = default(string), DateTime? createdAt = default(DateTime?), long? totalCoupons = default(long?), long? remainingCoupons = default(long?), DateTime? expirationDate = default(DateTime?), int? remainingDaysAlert = default(int?), int? remainingCouponsAlert = default(int?))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -98,49 +101,73 @@ namespace brevo_csharp.Model
             {
                 this.RemainingCoupons = remainingCoupons;
             }
+            this.ExpirationDate = expirationDate;
+            this.RemainingDaysAlert = remainingDaysAlert;
+            this.RemainingCouponsAlert = remainingCouponsAlert;
         }
         
         /// <summary>
-        /// The id of the collection
+        /// The id of the collection.
         /// </summary>
-        /// <value>The id of the collection</value>
+        /// <value>The id of the collection.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The name of the collection
+        /// The name of the collection.
         /// </summary>
-        /// <value>The name of the collection</value>
+        /// <value>The name of the collection.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The default coupon of the collection
+        /// The default coupon of the collection.
         /// </summary>
-        /// <value>The default coupon of the collection</value>
+        /// <value>The default coupon of the collection.</value>
         [DataMember(Name="defaultCoupon", EmitDefaultValue=false)]
         public string DefaultCoupon { get; set; }
 
         /// <summary>
-        /// Datetime on which the collection was created
+        /// Datetime on which the collection was created.
         /// </summary>
-        /// <value>Datetime on which the collection was created</value>
+        /// <value>Datetime on which the collection was created.</value>
         [DataMember(Name="createdAt", EmitDefaultValue=false)]
         public DateTime? CreatedAt { get; set; }
 
         /// <summary>
-        /// Total coupons in the collection
+        /// Total number of coupons in the collection.
         /// </summary>
-        /// <value>Total coupons in the collection</value>
+        /// <value>Total number of coupons in the collection.</value>
         [DataMember(Name="totalCoupons", EmitDefaultValue=false)]
         public long? TotalCoupons { get; set; }
 
         /// <summary>
-        /// Not sent coupons in the collection
+        /// Number of coupons that have not been sent yet.
         /// </summary>
-        /// <value>Not sent coupons in the collection</value>
+        /// <value>Number of coupons that have not been sent yet.</value>
         [DataMember(Name="remainingCoupons", EmitDefaultValue=false)]
         public long? RemainingCoupons { get; set; }
+
+        /// <summary>
+        /// Expiration date for the coupon collection in RFC3339 format.
+        /// </summary>
+        /// <value>Expiration date for the coupon collection in RFC3339 format.</value>
+        [DataMember(Name="expirationDate", EmitDefaultValue=false)]
+        public DateTime? ExpirationDate { get; set; }
+
+        /// <summary>
+        /// If present, an email notification is going to be sent the defined amount of days before the expiration date.
+        /// </summary>
+        /// <value>If present, an email notification is going to be sent the defined amount of days before the expiration date.</value>
+        [DataMember(Name="remainingDaysAlert", EmitDefaultValue=false)]
+        public int? RemainingDaysAlert { get; set; }
+
+        /// <summary>
+        /// If present, an email notification is going to be sent when the total number of available coupons falls below the defined threshold.
+        /// </summary>
+        /// <value>If present, an email notification is going to be sent when the total number of available coupons falls below the defined threshold.</value>
+        [DataMember(Name="remainingCouponsAlert", EmitDefaultValue=false)]
+        public int? RemainingCouponsAlert { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -156,6 +183,9 @@ namespace brevo_csharp.Model
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  TotalCoupons: ").Append(TotalCoupons).Append("\n");
             sb.Append("  RemainingCoupons: ").Append(RemainingCoupons).Append("\n");
+            sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
+            sb.Append("  RemainingDaysAlert: ").Append(RemainingDaysAlert).Append("\n");
+            sb.Append("  RemainingCouponsAlert: ").Append(RemainingCouponsAlert).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -219,6 +249,21 @@ namespace brevo_csharp.Model
                     this.RemainingCoupons == input.RemainingCoupons ||
                     (this.RemainingCoupons != null &&
                     this.RemainingCoupons.Equals(input.RemainingCoupons))
+                ) && 
+                (
+                    this.ExpirationDate == input.ExpirationDate ||
+                    (this.ExpirationDate != null &&
+                    this.ExpirationDate.Equals(input.ExpirationDate))
+                ) && 
+                (
+                    this.RemainingDaysAlert == input.RemainingDaysAlert ||
+                    (this.RemainingDaysAlert != null &&
+                    this.RemainingDaysAlert.Equals(input.RemainingDaysAlert))
+                ) && 
+                (
+                    this.RemainingCouponsAlert == input.RemainingCouponsAlert ||
+                    (this.RemainingCouponsAlert != null &&
+                    this.RemainingCouponsAlert.Equals(input.RemainingCouponsAlert))
                 );
         }
 
@@ -243,6 +288,12 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.TotalCoupons.GetHashCode();
                 if (this.RemainingCoupons != null)
                     hashCode = hashCode * 59 + this.RemainingCoupons.GetHashCode();
+                if (this.ExpirationDate != null)
+                    hashCode = hashCode * 59 + this.ExpirationDate.GetHashCode();
+                if (this.RemainingDaysAlert != null)
+                    hashCode = hashCode * 59 + this.RemainingDaysAlert.GetHashCode();
+                if (this.RemainingCouponsAlert != null)
+                    hashCode = hashCode * 59 + this.RemainingCouponsAlert.GetHashCode();
                 return hashCode;
             }
         }

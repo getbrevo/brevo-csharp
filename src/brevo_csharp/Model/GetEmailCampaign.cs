@@ -1,7 +1,7 @@
 /* 
  * Brevo API
  *
- * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
+ * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  |   | 422  | Error. Unprocessable Entity | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@brevo.com
@@ -131,7 +131,7 @@ namespace brevo_csharp.Model
         /// <param name="utmCampaignValue">utm parameter associated with campaign.</param>
         /// <param name="utmSource">source of utm parameter.</param>
         /// <param name="utmMedium">medium parameter.</param>
-        /// <param name="utmIDActive">utm id activate.</param>
+        /// <param name="utmID">utm id.</param>
         /// <param name="testSent">Retrieved the status of test email sending. (true&#x3D;Test email has been sent  false&#x3D;Test email has not been sent) (required).</param>
         /// <param name="header">Header of the campaign (required).</param>
         /// <param name="footer">Footer of the campaign (required).</param>
@@ -150,7 +150,7 @@ namespace brevo_csharp.Model
         /// <param name="returnBounce">Total number of non-delivered campaigns for a particular campaign id..</param>
         /// <param name="recipients">recipients (required).</param>
         /// <param name="statistics">statistics (required).</param>
-        public GetEmailCampaign(long? id = default(long?), string name = default(string), string subject = default(string), string previewText = default(string), TypeEnum type = default(TypeEnum), StatusEnum status = default(StatusEnum), string scheduledAt = default(string), bool? abTesting = default(bool?), string subjectA = default(string), string subjectB = default(string), int? splitRule = default(int?), string winnerCriteria = default(string), int? winnerDelay = default(int?), bool? sendAtBestTime = default(bool?), string utmCampaignValue = default(string), string utmSource = default(string), string utmMedium = default(string), bool? utmIDActive = default(bool?), bool? testSent = default(bool?), string header = default(string), string footer = default(string), GetExtendedCampaignOverviewSender sender = default(GetExtendedCampaignOverviewSender), string replyTo = default(string), string toField = default(string), string htmlContent = default(string), string shareLink = default(string), string tag = default(string), string createdAt = default(string), string modifiedAt = default(string), bool? inlineImageActivation = default(bool?), bool? mirrorActive = default(bool?), bool? recurring = default(bool?), string sentDate = default(string), long? returnBounce = default(long?), Object recipients = default(Object), Object statistics = default(Object))
+        public GetEmailCampaign(long? id = default(long?), string name = default(string), string subject = default(string), string previewText = default(string), TypeEnum type = default(TypeEnum), StatusEnum status = default(StatusEnum), string scheduledAt = default(string), bool? abTesting = default(bool?), string subjectA = default(string), string subjectB = default(string), int? splitRule = default(int?), string winnerCriteria = default(string), int? winnerDelay = default(int?), bool? sendAtBestTime = default(bool?), string utmCampaignValue = default(string), string utmSource = default(string), string utmMedium = default(string), int? utmID = default(int?), bool? testSent = default(bool?), string header = default(string), string footer = default(string), GetExtendedCampaignOverviewSender sender = default(GetExtendedCampaignOverviewSender), string replyTo = default(string), string toField = default(string), string htmlContent = default(string), string shareLink = default(string), string tag = default(string), string createdAt = default(string), string modifiedAt = default(string), bool? inlineImageActivation = default(bool?), bool? mirrorActive = default(bool?), bool? recurring = default(bool?), string sentDate = default(string), long? returnBounce = default(long?), Object recipients = default(Object), Object statistics = default(Object))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -291,7 +291,7 @@ namespace brevo_csharp.Model
             this.UtmCampaignValue = utmCampaignValue;
             this.UtmSource = utmSource;
             this.UtmMedium = utmMedium;
-            this.UtmIDActive = utmIDActive;
+            this.UtmID = utmID;
             this.ToField = toField;
             this.ShareLink = shareLink;
             this.Tag = tag;
@@ -410,11 +410,11 @@ namespace brevo_csharp.Model
         public string UtmMedium { get; set; }
 
         /// <summary>
-        /// utm id activate
+        /// utm id
         /// </summary>
-        /// <value>utm id activate</value>
-        [DataMember(Name="utmIDActive", EmitDefaultValue=false)]
-        public bool? UtmIDActive { get; set; }
+        /// <value>utm id</value>
+        [DataMember(Name="utmID", EmitDefaultValue=false)]
+        public int? UtmID { get; set; }
 
         /// <summary>
         /// Retrieved the status of test email sending. (true&#x3D;Test email has been sent  false&#x3D;Test email has not been sent)
@@ -564,7 +564,7 @@ namespace brevo_csharp.Model
             sb.Append("  UtmCampaignValue: ").Append(UtmCampaignValue).Append("\n");
             sb.Append("  UtmSource: ").Append(UtmSource).Append("\n");
             sb.Append("  UtmMedium: ").Append(UtmMedium).Append("\n");
-            sb.Append("  UtmIDActive: ").Append(UtmIDActive).Append("\n");
+            sb.Append("  UtmID: ").Append(UtmID).Append("\n");
             sb.Append("  TestSent: ").Append(TestSent).Append("\n");
             sb.Append("  Header: ").Append(Header).Append("\n");
             sb.Append("  Footer: ").Append(Footer).Append("\n");
@@ -703,9 +703,9 @@ namespace brevo_csharp.Model
                     this.UtmMedium.Equals(input.UtmMedium))
                 ) && 
                 (
-                    this.UtmIDActive == input.UtmIDActive ||
-                    (this.UtmIDActive != null &&
-                    this.UtmIDActive.Equals(input.UtmIDActive))
+                    this.UtmID == input.UtmID ||
+                    (this.UtmID != null &&
+                    this.UtmID.Equals(input.UtmID))
                 ) && 
                 (
                     this.TestSent == input.TestSent ||
@@ -842,8 +842,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.UtmSource.GetHashCode();
                 if (this.UtmMedium != null)
                     hashCode = hashCode * 59 + this.UtmMedium.GetHashCode();
-                if (this.UtmIDActive != null)
-                    hashCode = hashCode * 59 + this.UtmIDActive.GetHashCode();
+                if (this.UtmID != null)
+                    hashCode = hashCode * 59 + this.UtmID.GetHashCode();
                 if (this.TestSent != null)
                     hashCode = hashCode * 59 + this.TestSent.GetHashCode();
                 if (this.Header != null)

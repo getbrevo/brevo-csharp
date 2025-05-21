@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **StoreId** | **string** | ID of store where the order is placed | [optional] 
 **Identifiers** | [**OrderIdentifiers**](OrderIdentifiers.md) |  | [optional] 
 **Products** | [**List&lt;OrderProducts&gt;**](OrderProducts.md) |  | 
-**Email** | **string** | Email of the contact, Mandatory if &quot;phone&quot; field is not passed in &quot;billing&quot; parameter. | [optional] 
 **Billing** | [**OrderBilling**](OrderBilling.md) |  | [optional] 
 **Coupons** | **List&lt;string&gt;** | Coupons applied to the order. Stored case insensitive. | [optional] 
 **MetaInfo** | **Dictionary&lt;string, Object&gt;** | Meta data of order to store additional detal such as custom message, customer type, source. | [optional] 

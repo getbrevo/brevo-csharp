@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **UtmCampaignValue** | **string** | utm parameter associated with campaign | [optional] 
 **UtmSource** | **string** | source of utm parameter | [optional] 
 **UtmMedium** | **string** | medium parameter | [optional] 
-**UtmIDActive** | **bool?** | utm id activate | [optional] 
+**UtmID** | **int?** | utm id | [optional] 
 **TestSent** | **bool?** | Retrieved the status of test email sending. (true&#x3D;Test email has been sent  false&#x3D;Test email has not been sent) | 
 **Header** | **string** | Header of the campaign | 
 **Footer** | **string** | Footer of the campaign | 

@@ -1,7 +1,7 @@
 /* 
  * Brevo API
  *
- * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
+ * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  |   | 422  | Error. Unprocessable Entity | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@brevo.com
@@ -53,7 +53,7 @@ namespace brevo_csharp.Api
         /// Create a tier
         /// </summary>
         /// <remarks>
-        /// Creates a new tier in a loyalty program tier group.
+        /// Creates a new tier in a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -66,7 +66,7 @@ namespace brevo_csharp.Api
         /// Create a tier
         /// </summary>
         /// <remarks>
-        /// Creates a new tier in a loyalty program tier group.
+        /// Creates a new tier in a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -78,7 +78,7 @@ namespace brevo_csharp.Api
         /// Create a tier group
         /// </summary>
         /// <remarks>
-        /// Creates a new tier group in a loyalty program.
+        /// Creates a new tier group in a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -90,7 +90,7 @@ namespace brevo_csharp.Api
         /// Create a tier group
         /// </summary>
         /// <remarks>
-        /// Creates a new tier group in a loyalty program.
+        /// Creates a new tier group in a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -101,7 +101,7 @@ namespace brevo_csharp.Api
         /// Delete tier
         /// </summary>
         /// <remarks>
-        /// Deletes a tier from a loyalty program tier group.
+        /// Deletes a tier from a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -113,7 +113,7 @@ namespace brevo_csharp.Api
         /// Delete tier
         /// </summary>
         /// <remarks>
-        /// Deletes a tier from a loyalty program tier group.
+        /// Deletes a tier from a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -124,7 +124,7 @@ namespace brevo_csharp.Api
         /// Delete tier group
         /// </summary>
         /// <remarks>
-        /// Deletes a tier group from a loyalty program.
+        /// Deletes a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -136,7 +136,7 @@ namespace brevo_csharp.Api
         /// Delete tier group
         /// </summary>
         /// <remarks>
-        /// Deletes a tier group from a loyalty program.
+        /// Deletes a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -218,7 +218,7 @@ namespace brevo_csharp.Api
         /// Update tier
         /// </summary>
         /// <remarks>
-        /// Modifies an existing tier for the specified tier group.
+        /// Modifies an existing tier for the specified tier group *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -231,7 +231,7 @@ namespace brevo_csharp.Api
         /// Update tier
         /// </summary>
         /// <remarks>
-        /// Modifies an existing tier for the specified tier group.
+        /// Modifies an existing tier for the specified tier group *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -243,7 +243,7 @@ namespace brevo_csharp.Api
         /// Update tier group
         /// </summary>
         /// <remarks>
-        /// Updates a tier group from a loyalty program.
+        /// Updates a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -256,7 +256,7 @@ namespace brevo_csharp.Api
         /// Update tier group
         /// </summary>
         /// <remarks>
-        /// Updates a tier group from a loyalty program.
+        /// Updates a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -295,7 +295,7 @@ namespace brevo_csharp.Api
         /// Create a tier
         /// </summary>
         /// <remarks>
-        /// Creates a new tier in a loyalty program tier group.
+        /// Creates a new tier in a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -308,7 +308,7 @@ namespace brevo_csharp.Api
         /// Create a tier
         /// </summary>
         /// <remarks>
-        /// Creates a new tier in a loyalty program tier group.
+        /// Creates a new tier in a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -320,7 +320,7 @@ namespace brevo_csharp.Api
         /// Create a tier group
         /// </summary>
         /// <remarks>
-        /// Creates a new tier group in a loyalty program.
+        /// Creates a new tier group in a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -332,7 +332,7 @@ namespace brevo_csharp.Api
         /// Create a tier group
         /// </summary>
         /// <remarks>
-        /// Creates a new tier group in a loyalty program.
+        /// Creates a new tier group in a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -343,7 +343,7 @@ namespace brevo_csharp.Api
         /// Delete tier
         /// </summary>
         /// <remarks>
-        /// Deletes a tier from a loyalty program tier group.
+        /// Deletes a tier from a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -355,7 +355,7 @@ namespace brevo_csharp.Api
         /// Delete tier
         /// </summary>
         /// <remarks>
-        /// Deletes a tier from a loyalty program tier group.
+        /// Deletes a tier from a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -366,7 +366,7 @@ namespace brevo_csharp.Api
         /// Delete tier group
         /// </summary>
         /// <remarks>
-        /// Deletes a tier group from a loyalty program.
+        /// Deletes a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -378,7 +378,7 @@ namespace brevo_csharp.Api
         /// Delete tier group
         /// </summary>
         /// <remarks>
-        /// Deletes a tier group from a loyalty program.
+        /// Deletes a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -460,7 +460,7 @@ namespace brevo_csharp.Api
         /// Update tier
         /// </summary>
         /// <remarks>
-        /// Modifies an existing tier for the specified tier group.
+        /// Modifies an existing tier for the specified tier group *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -473,7 +473,7 @@ namespace brevo_csharp.Api
         /// Update tier
         /// </summary>
         /// <remarks>
-        /// Modifies an existing tier for the specified tier group.
+        /// Modifies an existing tier for the specified tier group *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -485,7 +485,7 @@ namespace brevo_csharp.Api
         /// Update tier group
         /// </summary>
         /// <remarks>
-        /// Updates a tier group from a loyalty program.
+        /// Updates a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -498,7 +498,7 @@ namespace brevo_csharp.Api
         /// Update tier group
         /// </summary>
         /// <remarks>
-        /// Updates a tier group from a loyalty program.
+        /// Updates a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -786,7 +786,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Create a tier Creates a new tier in a loyalty program tier group.
+        /// Create a tier Creates a new tier in a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -800,7 +800,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Create a tier Creates a new tier in a loyalty program tier group.
+        /// Create a tier Creates a new tier in a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -882,7 +882,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Create a tier Creates a new tier in a loyalty program tier group.
+        /// Create a tier Creates a new tier in a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -897,7 +897,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Create a tier Creates a new tier in a loyalty program tier group.
+        /// Create a tier Creates a new tier in a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -979,7 +979,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Create a tier group Creates a new tier group in a loyalty program.
+        /// Create a tier group Creates a new tier group in a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -992,7 +992,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Create a tier group Creates a new tier group in a loyalty program.
+        /// Create a tier group Creates a new tier group in a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -1069,7 +1069,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Create a tier group Creates a new tier group in a loyalty program.
+        /// Create a tier group Creates a new tier group in a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -1083,7 +1083,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Create a tier group Creates a new tier group in a loyalty program.
+        /// Create a tier group Creates a new tier group in a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -1160,7 +1160,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Delete tier Deletes a tier from a loyalty program tier group.
+        /// Delete tier Deletes a tier from a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -1173,7 +1173,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Delete tier Deletes a tier from a loyalty program tier group.
+        /// Delete tier Deletes a tier from a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -1243,7 +1243,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Delete tier Deletes a tier from a loyalty program tier group.
+        /// Delete tier Deletes a tier from a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -1257,7 +1257,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Delete tier Deletes a tier from a loyalty program tier group.
+        /// Delete tier Deletes a tier from a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -1327,7 +1327,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Delete tier group Deletes a tier group from a loyalty program.
+        /// Delete tier group Deletes a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -1340,7 +1340,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Delete tier group Deletes a tier group from a loyalty program.
+        /// Delete tier group Deletes a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -1410,7 +1410,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Delete tier group Deletes a tier group from a loyalty program.
+        /// Delete tier group Deletes a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -1424,7 +1424,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Delete tier group Deletes a tier group from a loyalty program.
+        /// Delete tier group Deletes a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -1989,7 +1989,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Update tier Modifies an existing tier for the specified tier group.
+        /// Update tier Modifies an existing tier for the specified tier group *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -2003,7 +2003,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Update tier Modifies an existing tier for the specified tier group.
+        /// Update tier Modifies an existing tier for the specified tier group *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -2085,7 +2085,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Update tier Modifies an existing tier for the specified tier group.
+        /// Update tier Modifies an existing tier for the specified tier group *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -2100,7 +2100,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Update tier Modifies an existing tier for the specified tier group.
+        /// Update tier Modifies an existing tier for the specified tier group *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -2182,7 +2182,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Update tier group Updates a tier group from a loyalty program.
+        /// Update tier group Updates a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -2196,7 +2196,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Update tier group Updates a tier group from a loyalty program.
+        /// Update tier group Updates a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -2278,7 +2278,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Update tier group Updates a tier group from a loyalty program.
+        /// Update tier group Updates a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>
@@ -2293,7 +2293,7 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
-        /// Update tier group Updates a tier group from a loyalty program.
+        /// Update tier group Updates a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pid">Loyalty Program ID</param>

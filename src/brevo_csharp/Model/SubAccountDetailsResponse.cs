@@ -1,7 +1,7 @@
 /* 
  * Brevo API
  *
- * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
+ * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  |   | 422  | Error. Unprocessable Entity | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@brevo.com
@@ -34,12 +34,14 @@ namespace brevo_csharp.Model
         /// <param name="name">Name of the sub-account user.</param>
         /// <param name="email">Email id of the sub-account organization.</param>
         /// <param name="companyName">Sub-account company name.</param>
+        /// <param name="groups">List of group(s) associated with the sub-account.</param>
         /// <param name="planInfo">planInfo.</param>
-        public SubAccountDetailsResponse(string name = default(string), string email = default(string), string companyName = default(string), SubAccountDetailsResponsePlanInfo planInfo = default(SubAccountDetailsResponsePlanInfo))
+        public SubAccountDetailsResponse(string name = default(string), string email = default(string), string companyName = default(string), List<SubAccountDetailsResponseGroups> groups = default(List<SubAccountDetailsResponseGroups>), SubAccountDetailsResponsePlanInfo planInfo = default(SubAccountDetailsResponsePlanInfo))
         {
             this.Name = name;
             this.Email = email;
             this.CompanyName = companyName;
+            this.Groups = groups;
             this.PlanInfo = planInfo;
         }
         
@@ -65,6 +67,13 @@ namespace brevo_csharp.Model
         public string CompanyName { get; set; }
 
         /// <summary>
+        /// List of group(s) associated with the sub-account
+        /// </summary>
+        /// <value>List of group(s) associated with the sub-account</value>
+        [DataMember(Name="groups", EmitDefaultValue=false)]
+        public List<SubAccountDetailsResponseGroups> Groups { get; set; }
+
+        /// <summary>
         /// Gets or Sets PlanInfo
         /// </summary>
         [DataMember(Name="planInfo", EmitDefaultValue=false)]
@@ -81,6 +90,7 @@ namespace brevo_csharp.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  CompanyName: ").Append(CompanyName).Append("\n");
+            sb.Append("  Groups: ").Append(Groups).Append("\n");
             sb.Append("  PlanInfo: ").Append(PlanInfo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -132,6 +142,11 @@ namespace brevo_csharp.Model
                     this.CompanyName.Equals(input.CompanyName))
                 ) && 
                 (
+                    this.Groups == input.Groups ||
+                    this.Groups != null &&
+                    this.Groups.SequenceEqual(input.Groups)
+                ) && 
+                (
                     this.PlanInfo == input.PlanInfo ||
                     (this.PlanInfo != null &&
                     this.PlanInfo.Equals(input.PlanInfo))
@@ -153,6 +168,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.CompanyName != null)
                     hashCode = hashCode * 59 + this.CompanyName.GetHashCode();
+                if (this.Groups != null)
+                    hashCode = hashCode * 59 + this.Groups.GetHashCode();
                 if (this.PlanInfo != null)
                     hashCode = hashCode * 59 + this.PlanInfo.GetHashCode();
                 return hashCode;

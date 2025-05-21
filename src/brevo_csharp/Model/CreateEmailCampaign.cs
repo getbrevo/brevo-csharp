@@ -1,7 +1,7 @@
 /* 
  * Brevo API
  *
- * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
+ * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  |   | 422  | Error. Unprocessable Entity | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@brevo.com
@@ -94,7 +94,8 @@ namespace brevo_csharp.Model
         /// <param name="increaseRate">Mandatory if ipWarmupEnable is set to true. Set a percentage increase rate for warming up your ip. We recommend you set the increase rate to 30% per day. If you want to send the same number of emails every day, set the daily increase value to 0%..</param>
         /// <param name="unsubscriptionPageId">Enter an unsubscription page id. The page id is a 24 digit alphanumeric id that can be found in the URL when editing the page. If not entered, then the default unsubscription page will be used..</param>
         /// <param name="updateFormId">Mandatory if templateId is used containing the {{ update_profile }} tag. Enter an update profile form id. The form id is a 24 digit alphanumeric id that can be found in the URL when editing the form. If not entered, then the default update profile form will be used..</param>
-        public CreateEmailCampaign(string tag = default(string), CreateEmailCampaignSender sender = default(CreateEmailCampaignSender), string name = default(string), string htmlContent = default(string), string htmlUrl = default(string), long? templateId = default(long?), string scheduledAt = default(string), string subject = default(string), string previewText = default(string), string replyTo = default(string), string toField = default(string), CreateEmailCampaignRecipients recipients = default(CreateEmailCampaignRecipients), string attachmentUrl = default(string), bool? inlineImageActivation = false, bool? mirrorActive = default(bool?), string footer = default(string), string header = default(string), string utmCampaign = default(string), Object _params = default(Object), bool? sendAtBestTime = false, bool? abTesting = false, string subjectA = default(string), string subjectB = default(string), long? splitRule = default(long?), WinnerCriteriaEnum? winnerCriteria = default(WinnerCriteriaEnum?), long? winnerDelay = default(long?), bool? ipWarmupEnable = false, long? initialQuota = default(long?), long? increaseRate = default(long?), string unsubscriptionPageId = default(string), string updateFormId = default(string))
+        /// <param name="emailExpirationDate">emailExpirationDate.</param>
+        public CreateEmailCampaign(string tag = default(string), CreateEmailCampaignSender sender = default(CreateEmailCampaignSender), string name = default(string), string htmlContent = default(string), string htmlUrl = default(string), long? templateId = default(long?), string scheduledAt = default(string), string subject = default(string), string previewText = default(string), string replyTo = default(string), string toField = default(string), CreateEmailCampaignRecipients recipients = default(CreateEmailCampaignRecipients), string attachmentUrl = default(string), bool? inlineImageActivation = false, bool? mirrorActive = default(bool?), string footer = default(string), string header = default(string), string utmCampaign = default(string), Object _params = default(Object), bool? sendAtBestTime = false, bool? abTesting = false, string subjectA = default(string), string subjectB = default(string), long? splitRule = default(long?), WinnerCriteriaEnum? winnerCriteria = default(WinnerCriteriaEnum?), long? winnerDelay = default(long?), bool? ipWarmupEnable = false, long? initialQuota = default(long?), long? increaseRate = default(long?), string unsubscriptionPageId = default(string), string updateFormId = default(string), CreateEmailCampaignEmailExpirationDate emailExpirationDate = default(CreateEmailCampaignEmailExpirationDate))
         {
             // to ensure "sender" is required (not null)
             if (sender == null)
@@ -175,6 +176,7 @@ namespace brevo_csharp.Model
             this.IncreaseRate = increaseRate;
             this.UnsubscriptionPageId = unsubscriptionPageId;
             this.UpdateFormId = updateFormId;
+            this.EmailExpirationDate = emailExpirationDate;
         }
         
         /// <summary>
@@ -387,6 +389,12 @@ namespace brevo_csharp.Model
         public string UpdateFormId { get; set; }
 
         /// <summary>
+        /// Gets or Sets EmailExpirationDate
+        /// </summary>
+        [DataMember(Name="emailExpirationDate", EmitDefaultValue=false)]
+        public CreateEmailCampaignEmailExpirationDate EmailExpirationDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -425,6 +433,7 @@ namespace brevo_csharp.Model
             sb.Append("  IncreaseRate: ").Append(IncreaseRate).Append("\n");
             sb.Append("  UnsubscriptionPageId: ").Append(UnsubscriptionPageId).Append("\n");
             sb.Append("  UpdateFormId: ").Append(UpdateFormId).Append("\n");
+            sb.Append("  EmailExpirationDate: ").Append(EmailExpirationDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -613,6 +622,11 @@ namespace brevo_csharp.Model
                     this.UpdateFormId == input.UpdateFormId ||
                     (this.UpdateFormId != null &&
                     this.UpdateFormId.Equals(input.UpdateFormId))
+                ) && 
+                (
+                    this.EmailExpirationDate == input.EmailExpirationDate ||
+                    (this.EmailExpirationDate != null &&
+                    this.EmailExpirationDate.Equals(input.EmailExpirationDate))
                 );
         }
 
@@ -687,6 +701,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.UnsubscriptionPageId.GetHashCode();
                 if (this.UpdateFormId != null)
                     hashCode = hashCode * 59 + this.UpdateFormId.GetHashCode();
+                if (this.EmailExpirationDate != null)
+                    hashCode = hashCode * 59 + this.EmailExpirationDate.GetHashCode();
                 return hashCode;
             }
         }

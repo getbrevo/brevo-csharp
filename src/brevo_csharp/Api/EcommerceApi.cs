@@ -1,7 +1,7 @@
 /* 
  * Brevo API
  *
- * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
+ * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  |   | 422  | Error. Unprocessable Entity | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@brevo.com
@@ -170,6 +170,102 @@ namespace brevo_csharp.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> EcommerceActivatePostWithHttpInfo ();
         /// <summary>
+        /// Get detailed attribution metrics for a single Brevo campaign or workflow
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversionSource">The Brevo campaign type or workflow type for which data will be retrieved</param>
+        /// <param name="conversionSourceId">The Brevo campaign or automation workflow id for which data will be retrieved</param>
+        /// <returns>InlineResponse2007</returns>
+        InlineResponse2007 EcommerceAttributionMetricsConversionSourceConversionSourceIdGet (string conversionSource, string conversionSourceId);
+
+        /// <summary>
+        /// Get detailed attribution metrics for a single Brevo campaign or workflow
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversionSource">The Brevo campaign type or workflow type for which data will be retrieved</param>
+        /// <param name="conversionSourceId">The Brevo campaign or automation workflow id for which data will be retrieved</param>
+        /// <returns>ApiResponse of InlineResponse2007</returns>
+        ApiResponse<InlineResponse2007> EcommerceAttributionMetricsConversionSourceConversionSourceIdGetWithHttpInfo (string conversionSource, string conversionSourceId);
+        /// <summary>
+        /// Get attribution metrics for one or more Brevo campaigns or workflows
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="periodFrom">When getting metrics for a specific period, define the starting datetime in RFC3339 format (optional)</param>
+        /// <param name="periodTo">When getting metrics for a specific period, define the end datetime in RFC3339 format (optional)</param>
+        /// <param name="emailCampaignId">The email campaign ID(s) to get metrics for (optional)</param>
+        /// <param name="smsCampaignId">The SMS campaign ID(s) to get metrics for (optional)</param>
+        /// <param name="automationWorkflowEmailId">The automation workflow ID(s) to get email attribution metrics for (optional)</param>
+        /// <param name="automationWorkflowSmsId">The automation workflow ID(s) to get SMS attribution metrics for (optional)</param>
+        /// <returns>InlineResponse2006</returns>
+        InlineResponse2006 EcommerceAttributionMetricsGet (DateTime? periodFrom = null, DateTime? periodTo = null, List<string> emailCampaignId = null, List<string> smsCampaignId = null, List<string> automationWorkflowEmailId = null, List<string> automationWorkflowSmsId = null);
+
+        /// <summary>
+        /// Get attribution metrics for one or more Brevo campaigns or workflows
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="periodFrom">When getting metrics for a specific period, define the starting datetime in RFC3339 format (optional)</param>
+        /// <param name="periodTo">When getting metrics for a specific period, define the end datetime in RFC3339 format (optional)</param>
+        /// <param name="emailCampaignId">The email campaign ID(s) to get metrics for (optional)</param>
+        /// <param name="smsCampaignId">The SMS campaign ID(s) to get metrics for (optional)</param>
+        /// <param name="automationWorkflowEmailId">The automation workflow ID(s) to get email attribution metrics for (optional)</param>
+        /// <param name="automationWorkflowSmsId">The automation workflow ID(s) to get SMS attribution metrics for (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2006</returns>
+        ApiResponse<InlineResponse2006> EcommerceAttributionMetricsGetWithHttpInfo (DateTime? periodFrom = null, DateTime? periodTo = null, List<string> emailCampaignId = null, List<string> smsCampaignId = null, List<string> automationWorkflowEmailId = null, List<string> automationWorkflowSmsId = null);
+        /// <summary>
+        /// Get attributed product sales for a single Brevo campaign or workflow
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversionSource">The Brevo campaign or automation workflow type for which data will be retrieved</param>
+        /// <param name="conversionSourceId">The Brevo campaign or automation workflow id for which data will be retrieved</param>
+        /// <returns>InlineResponse2008</returns>
+        InlineResponse2008 EcommerceAttributionProductsConversionSourceConversionSourceIdGet (string conversionSource, string conversionSourceId);
+
+        /// <summary>
+        /// Get attributed product sales for a single Brevo campaign or workflow
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversionSource">The Brevo campaign or automation workflow type for which data will be retrieved</param>
+        /// <param name="conversionSourceId">The Brevo campaign or automation workflow id for which data will be retrieved</param>
+        /// <returns>ApiResponse of InlineResponse2008</returns>
+        ApiResponse<InlineResponse2008> EcommerceAttributionProductsConversionSourceConversionSourceIdGetWithHttpInfo (string conversionSource, string conversionSourceId);
+        /// <summary>
+        /// Get the ISO 4217 compliant display currency code for your Brevo account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>InlineResponse2005</returns>
+        InlineResponse2005 EcommerceConfigDisplayCurrencyGet ();
+
+        /// <summary>
+        /// Get the ISO 4217 compliant display currency code for your Brevo account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        ApiResponse<InlineResponse2005> EcommerceConfigDisplayCurrencyGetWithHttpInfo ();
+        /// <summary>
         /// Return all your categories
         /// </summary>
         /// <remarks>
@@ -181,8 +277,10 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="ids">Filter by category ids (optional)</param>
         /// <param name="name">Filter by category name (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>GetCategories</returns>
-        GetCategories GetCategories (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null);
+        GetCategories GetCategories (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null);
 
         /// <summary>
         /// Return all your categories
@@ -196,8 +294,10 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="ids">Filter by category ids (optional)</param>
         /// <param name="name">Filter by category name (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>ApiResponse of GetCategories</returns>
-        ApiResponse<GetCategories> GetCategoriesWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null);
+        ApiResponse<GetCategories> GetCategoriesWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null);
         /// <summary>
         /// Get a category details
         /// </summary>
@@ -316,6 +416,27 @@ namespace brevo_csharp.Api
         /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>ApiResponse of GetProducts</returns>
         ApiResponse<GetProducts> GetProductsWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, decimal? priceLte = null, decimal? priceGte = null, decimal? priceLt = null, decimal? priceGt = null, decimal? priceEq = null, decimal? priceNe = null, List<string> categories = null, string modifiedSince = null, string createdSince = null);
+        /// <summary>
+        /// Set the ISO 4217 compliant display currency code for your Brevo account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setConfigDisplayCurrency">set ISO 4217 compliant display currency code payload</param>
+        /// <returns>SetConfigDisplayCurrency</returns>
+        SetConfigDisplayCurrency SetConfigDisplayCurrency (SetConfigDisplayCurrency setConfigDisplayCurrency);
+
+        /// <summary>
+        /// Set the ISO 4217 compliant display currency code for your Brevo account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setConfigDisplayCurrency">set ISO 4217 compliant display currency code payload</param>
+        /// <returns>ApiResponse of SetConfigDisplayCurrency</returns>
+        ApiResponse<SetConfigDisplayCurrency> SetConfigDisplayCurrencyWithHttpInfo (SetConfigDisplayCurrency setConfigDisplayCurrency);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -464,6 +585,102 @@ namespace brevo_csharp.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> EcommerceActivatePostAsyncWithHttpInfo ();
         /// <summary>
+        /// Get detailed attribution metrics for a single Brevo campaign or workflow
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversionSource">The Brevo campaign type or workflow type for which data will be retrieved</param>
+        /// <param name="conversionSourceId">The Brevo campaign or automation workflow id for which data will be retrieved</param>
+        /// <returns>Task of InlineResponse2007</returns>
+        System.Threading.Tasks.Task<InlineResponse2007> EcommerceAttributionMetricsConversionSourceConversionSourceIdGetAsync (string conversionSource, string conversionSourceId);
+
+        /// <summary>
+        /// Get detailed attribution metrics for a single Brevo campaign or workflow
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversionSource">The Brevo campaign type or workflow type for which data will be retrieved</param>
+        /// <param name="conversionSourceId">The Brevo campaign or automation workflow id for which data will be retrieved</param>
+        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> EcommerceAttributionMetricsConversionSourceConversionSourceIdGetAsyncWithHttpInfo (string conversionSource, string conversionSourceId);
+        /// <summary>
+        /// Get attribution metrics for one or more Brevo campaigns or workflows
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="periodFrom">When getting metrics for a specific period, define the starting datetime in RFC3339 format (optional)</param>
+        /// <param name="periodTo">When getting metrics for a specific period, define the end datetime in RFC3339 format (optional)</param>
+        /// <param name="emailCampaignId">The email campaign ID(s) to get metrics for (optional)</param>
+        /// <param name="smsCampaignId">The SMS campaign ID(s) to get metrics for (optional)</param>
+        /// <param name="automationWorkflowEmailId">The automation workflow ID(s) to get email attribution metrics for (optional)</param>
+        /// <param name="automationWorkflowSmsId">The automation workflow ID(s) to get SMS attribution metrics for (optional)</param>
+        /// <returns>Task of InlineResponse2006</returns>
+        System.Threading.Tasks.Task<InlineResponse2006> EcommerceAttributionMetricsGetAsync (DateTime? periodFrom = null, DateTime? periodTo = null, List<string> emailCampaignId = null, List<string> smsCampaignId = null, List<string> automationWorkflowEmailId = null, List<string> automationWorkflowSmsId = null);
+
+        /// <summary>
+        /// Get attribution metrics for one or more Brevo campaigns or workflows
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="periodFrom">When getting metrics for a specific period, define the starting datetime in RFC3339 format (optional)</param>
+        /// <param name="periodTo">When getting metrics for a specific period, define the end datetime in RFC3339 format (optional)</param>
+        /// <param name="emailCampaignId">The email campaign ID(s) to get metrics for (optional)</param>
+        /// <param name="smsCampaignId">The SMS campaign ID(s) to get metrics for (optional)</param>
+        /// <param name="automationWorkflowEmailId">The automation workflow ID(s) to get email attribution metrics for (optional)</param>
+        /// <param name="automationWorkflowSmsId">The automation workflow ID(s) to get SMS attribution metrics for (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> EcommerceAttributionMetricsGetAsyncWithHttpInfo (DateTime? periodFrom = null, DateTime? periodTo = null, List<string> emailCampaignId = null, List<string> smsCampaignId = null, List<string> automationWorkflowEmailId = null, List<string> automationWorkflowSmsId = null);
+        /// <summary>
+        /// Get attributed product sales for a single Brevo campaign or workflow
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversionSource">The Brevo campaign or automation workflow type for which data will be retrieved</param>
+        /// <param name="conversionSourceId">The Brevo campaign or automation workflow id for which data will be retrieved</param>
+        /// <returns>Task of InlineResponse2008</returns>
+        System.Threading.Tasks.Task<InlineResponse2008> EcommerceAttributionProductsConversionSourceConversionSourceIdGetAsync (string conversionSource, string conversionSourceId);
+
+        /// <summary>
+        /// Get attributed product sales for a single Brevo campaign or workflow
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversionSource">The Brevo campaign or automation workflow type for which data will be retrieved</param>
+        /// <param name="conversionSourceId">The Brevo campaign or automation workflow id for which data will be retrieved</param>
+        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> EcommerceAttributionProductsConversionSourceConversionSourceIdGetAsyncWithHttpInfo (string conversionSource, string conversionSourceId);
+        /// <summary>
+        /// Get the ISO 4217 compliant display currency code for your Brevo account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of InlineResponse2005</returns>
+        System.Threading.Tasks.Task<InlineResponse2005> EcommerceConfigDisplayCurrencyGetAsync ();
+
+        /// <summary>
+        /// Get the ISO 4217 compliant display currency code for your Brevo account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> EcommerceConfigDisplayCurrencyGetAsyncWithHttpInfo ();
+        /// <summary>
         /// Return all your categories
         /// </summary>
         /// <remarks>
@@ -475,8 +692,10 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="ids">Filter by category ids (optional)</param>
         /// <param name="name">Filter by category name (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>Task of GetCategories</returns>
-        System.Threading.Tasks.Task<GetCategories> GetCategoriesAsync (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null);
+        System.Threading.Tasks.Task<GetCategories> GetCategoriesAsync (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null);
 
         /// <summary>
         /// Return all your categories
@@ -490,8 +709,10 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="ids">Filter by category ids (optional)</param>
         /// <param name="name">Filter by category name (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>Task of ApiResponse (GetCategories)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetCategories>> GetCategoriesAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null);
+        System.Threading.Tasks.Task<ApiResponse<GetCategories>> GetCategoriesAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null);
         /// <summary>
         /// Get a category details
         /// </summary>
@@ -610,6 +831,27 @@ namespace brevo_csharp.Api
         /// <param name="createdSince">Filter (urlencoded) the orders created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>Task of ApiResponse (GetProducts)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetProducts>> GetProductsAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, decimal? priceLte = null, decimal? priceGte = null, decimal? priceLt = null, decimal? priceGt = null, decimal? priceEq = null, decimal? priceNe = null, List<string> categories = null, string modifiedSince = null, string createdSince = null);
+        /// <summary>
+        /// Set the ISO 4217 compliant display currency code for your Brevo account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setConfigDisplayCurrency">set ISO 4217 compliant display currency code payload</param>
+        /// <returns>Task of SetConfigDisplayCurrency</returns>
+        System.Threading.Tasks.Task<SetConfigDisplayCurrency> SetConfigDisplayCurrencyAsync (SetConfigDisplayCurrency setConfigDisplayCurrency);
+
+        /// <summary>
+        /// Set the ISO 4217 compliant display currency code for your Brevo account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setConfigDisplayCurrency">set ISO 4217 compliant display currency code payload</param>
+        /// <returns>Task of ApiResponse (SetConfigDisplayCurrency)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SetConfigDisplayCurrency>> SetConfigDisplayCurrencyAsyncWithHttpInfo (SetConfigDisplayCurrency setConfigDisplayCurrency);
         #endregion Asynchronous Operations
     }
 
@@ -1862,6 +2104,662 @@ namespace brevo_csharp.Api
         }
 
         /// <summary>
+        /// Get detailed attribution metrics for a single Brevo campaign or workflow 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversionSource">The Brevo campaign type or workflow type for which data will be retrieved</param>
+        /// <param name="conversionSourceId">The Brevo campaign or automation workflow id for which data will be retrieved</param>
+        /// <returns>InlineResponse2007</returns>
+        public InlineResponse2007 EcommerceAttributionMetricsConversionSourceConversionSourceIdGet (string conversionSource, string conversionSourceId)
+        {
+             ApiResponse<InlineResponse2007> localVarResponse = EcommerceAttributionMetricsConversionSourceConversionSourceIdGetWithHttpInfo(conversionSource, conversionSourceId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get detailed attribution metrics for a single Brevo campaign or workflow 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversionSource">The Brevo campaign type or workflow type for which data will be retrieved</param>
+        /// <param name="conversionSourceId">The Brevo campaign or automation workflow id for which data will be retrieved</param>
+        /// <returns>ApiResponse of InlineResponse2007</returns>
+        public ApiResponse< InlineResponse2007 > EcommerceAttributionMetricsConversionSourceConversionSourceIdGetWithHttpInfo (string conversionSource, string conversionSourceId)
+        {
+            // verify the required parameter 'conversionSource' is set
+            if (conversionSource == null)
+                throw new ApiException(400, "Missing required parameter 'conversionSource' when calling EcommerceApi->EcommerceAttributionMetricsConversionSourceConversionSourceIdGet");
+            // verify the required parameter 'conversionSourceId' is set
+            if (conversionSourceId == null)
+                throw new ApiException(400, "Missing required parameter 'conversionSourceId' when calling EcommerceApi->EcommerceAttributionMetricsConversionSourceConversionSourceIdGet");
+
+            var localVarPath = "./ecommerce/attribution/metrics/{conversionSource}/{conversionSourceId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversionSource != null) localVarPathParams.Add("conversionSource", this.Configuration.ApiClient.ParameterToString(conversionSource)); // path parameter
+            if (conversionSourceId != null) localVarPathParams.Add("conversionSourceId", this.Configuration.ApiClient.ParameterToString(conversionSourceId)); // path parameter
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EcommerceAttributionMetricsConversionSourceConversionSourceIdGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2007>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InlineResponse2007) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007)));
+        }
+
+        /// <summary>
+        /// Get detailed attribution metrics for a single Brevo campaign or workflow 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversionSource">The Brevo campaign type or workflow type for which data will be retrieved</param>
+        /// <param name="conversionSourceId">The Brevo campaign or automation workflow id for which data will be retrieved</param>
+        /// <returns>Task of InlineResponse2007</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2007> EcommerceAttributionMetricsConversionSourceConversionSourceIdGetAsync (string conversionSource, string conversionSourceId)
+        {
+             ApiResponse<InlineResponse2007> localVarResponse = await EcommerceAttributionMetricsConversionSourceConversionSourceIdGetAsyncWithHttpInfo(conversionSource, conversionSourceId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get detailed attribution metrics for a single Brevo campaign or workflow 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversionSource">The Brevo campaign type or workflow type for which data will be retrieved</param>
+        /// <param name="conversionSourceId">The Brevo campaign or automation workflow id for which data will be retrieved</param>
+        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> EcommerceAttributionMetricsConversionSourceConversionSourceIdGetAsyncWithHttpInfo (string conversionSource, string conversionSourceId)
+        {
+            // verify the required parameter 'conversionSource' is set
+            if (conversionSource == null)
+                throw new ApiException(400, "Missing required parameter 'conversionSource' when calling EcommerceApi->EcommerceAttributionMetricsConversionSourceConversionSourceIdGet");
+            // verify the required parameter 'conversionSourceId' is set
+            if (conversionSourceId == null)
+                throw new ApiException(400, "Missing required parameter 'conversionSourceId' when calling EcommerceApi->EcommerceAttributionMetricsConversionSourceConversionSourceIdGet");
+
+            var localVarPath = "./ecommerce/attribution/metrics/{conversionSource}/{conversionSourceId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversionSource != null) localVarPathParams.Add("conversionSource", this.Configuration.ApiClient.ParameterToString(conversionSource)); // path parameter
+            if (conversionSourceId != null) localVarPathParams.Add("conversionSourceId", this.Configuration.ApiClient.ParameterToString(conversionSourceId)); // path parameter
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EcommerceAttributionMetricsConversionSourceConversionSourceIdGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2007>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InlineResponse2007) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007)));
+        }
+
+        /// <summary>
+        /// Get attribution metrics for one or more Brevo campaigns or workflows 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="periodFrom">When getting metrics for a specific period, define the starting datetime in RFC3339 format (optional)</param>
+        /// <param name="periodTo">When getting metrics for a specific period, define the end datetime in RFC3339 format (optional)</param>
+        /// <param name="emailCampaignId">The email campaign ID(s) to get metrics for (optional)</param>
+        /// <param name="smsCampaignId">The SMS campaign ID(s) to get metrics for (optional)</param>
+        /// <param name="automationWorkflowEmailId">The automation workflow ID(s) to get email attribution metrics for (optional)</param>
+        /// <param name="automationWorkflowSmsId">The automation workflow ID(s) to get SMS attribution metrics for (optional)</param>
+        /// <returns>InlineResponse2006</returns>
+        public InlineResponse2006 EcommerceAttributionMetricsGet (DateTime? periodFrom = null, DateTime? periodTo = null, List<string> emailCampaignId = null, List<string> smsCampaignId = null, List<string> automationWorkflowEmailId = null, List<string> automationWorkflowSmsId = null)
+        {
+             ApiResponse<InlineResponse2006> localVarResponse = EcommerceAttributionMetricsGetWithHttpInfo(periodFrom, periodTo, emailCampaignId, smsCampaignId, automationWorkflowEmailId, automationWorkflowSmsId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get attribution metrics for one or more Brevo campaigns or workflows 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="periodFrom">When getting metrics for a specific period, define the starting datetime in RFC3339 format (optional)</param>
+        /// <param name="periodTo">When getting metrics for a specific period, define the end datetime in RFC3339 format (optional)</param>
+        /// <param name="emailCampaignId">The email campaign ID(s) to get metrics for (optional)</param>
+        /// <param name="smsCampaignId">The SMS campaign ID(s) to get metrics for (optional)</param>
+        /// <param name="automationWorkflowEmailId">The automation workflow ID(s) to get email attribution metrics for (optional)</param>
+        /// <param name="automationWorkflowSmsId">The automation workflow ID(s) to get SMS attribution metrics for (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2006</returns>
+        public ApiResponse< InlineResponse2006 > EcommerceAttributionMetricsGetWithHttpInfo (DateTime? periodFrom = null, DateTime? periodTo = null, List<string> emailCampaignId = null, List<string> smsCampaignId = null, List<string> automationWorkflowEmailId = null, List<string> automationWorkflowSmsId = null)
+        {
+
+            var localVarPath = "./ecommerce/attribution/metrics";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (periodFrom != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "periodFrom", periodFrom)); // query parameter
+            if (periodTo != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "periodTo", periodTo)); // query parameter
+            if (emailCampaignId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "emailCampaignId[]", emailCampaignId)); // query parameter
+            if (smsCampaignId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "smsCampaignId[]", smsCampaignId)); // query parameter
+            if (automationWorkflowEmailId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "automationWorkflowEmailId[]", automationWorkflowEmailId)); // query parameter
+            if (automationWorkflowSmsId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "automationWorkflowSmsId[]", automationWorkflowSmsId)); // query parameter
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EcommerceAttributionMetricsGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2006>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InlineResponse2006) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006)));
+        }
+
+        /// <summary>
+        /// Get attribution metrics for one or more Brevo campaigns or workflows 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="periodFrom">When getting metrics for a specific period, define the starting datetime in RFC3339 format (optional)</param>
+        /// <param name="periodTo">When getting metrics for a specific period, define the end datetime in RFC3339 format (optional)</param>
+        /// <param name="emailCampaignId">The email campaign ID(s) to get metrics for (optional)</param>
+        /// <param name="smsCampaignId">The SMS campaign ID(s) to get metrics for (optional)</param>
+        /// <param name="automationWorkflowEmailId">The automation workflow ID(s) to get email attribution metrics for (optional)</param>
+        /// <param name="automationWorkflowSmsId">The automation workflow ID(s) to get SMS attribution metrics for (optional)</param>
+        /// <returns>Task of InlineResponse2006</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2006> EcommerceAttributionMetricsGetAsync (DateTime? periodFrom = null, DateTime? periodTo = null, List<string> emailCampaignId = null, List<string> smsCampaignId = null, List<string> automationWorkflowEmailId = null, List<string> automationWorkflowSmsId = null)
+        {
+             ApiResponse<InlineResponse2006> localVarResponse = await EcommerceAttributionMetricsGetAsyncWithHttpInfo(periodFrom, periodTo, emailCampaignId, smsCampaignId, automationWorkflowEmailId, automationWorkflowSmsId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get attribution metrics for one or more Brevo campaigns or workflows 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="periodFrom">When getting metrics for a specific period, define the starting datetime in RFC3339 format (optional)</param>
+        /// <param name="periodTo">When getting metrics for a specific period, define the end datetime in RFC3339 format (optional)</param>
+        /// <param name="emailCampaignId">The email campaign ID(s) to get metrics for (optional)</param>
+        /// <param name="smsCampaignId">The SMS campaign ID(s) to get metrics for (optional)</param>
+        /// <param name="automationWorkflowEmailId">The automation workflow ID(s) to get email attribution metrics for (optional)</param>
+        /// <param name="automationWorkflowSmsId">The automation workflow ID(s) to get SMS attribution metrics for (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> EcommerceAttributionMetricsGetAsyncWithHttpInfo (DateTime? periodFrom = null, DateTime? periodTo = null, List<string> emailCampaignId = null, List<string> smsCampaignId = null, List<string> automationWorkflowEmailId = null, List<string> automationWorkflowSmsId = null)
+        {
+
+            var localVarPath = "./ecommerce/attribution/metrics";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (periodFrom != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "periodFrom", periodFrom)); // query parameter
+            if (periodTo != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "periodTo", periodTo)); // query parameter
+            if (emailCampaignId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "emailCampaignId[]", emailCampaignId)); // query parameter
+            if (smsCampaignId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "smsCampaignId[]", smsCampaignId)); // query parameter
+            if (automationWorkflowEmailId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "automationWorkflowEmailId[]", automationWorkflowEmailId)); // query parameter
+            if (automationWorkflowSmsId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "automationWorkflowSmsId[]", automationWorkflowSmsId)); // query parameter
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EcommerceAttributionMetricsGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2006>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InlineResponse2006) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006)));
+        }
+
+        /// <summary>
+        /// Get attributed product sales for a single Brevo campaign or workflow 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversionSource">The Brevo campaign or automation workflow type for which data will be retrieved</param>
+        /// <param name="conversionSourceId">The Brevo campaign or automation workflow id for which data will be retrieved</param>
+        /// <returns>InlineResponse2008</returns>
+        public InlineResponse2008 EcommerceAttributionProductsConversionSourceConversionSourceIdGet (string conversionSource, string conversionSourceId)
+        {
+             ApiResponse<InlineResponse2008> localVarResponse = EcommerceAttributionProductsConversionSourceConversionSourceIdGetWithHttpInfo(conversionSource, conversionSourceId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get attributed product sales for a single Brevo campaign or workflow 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversionSource">The Brevo campaign or automation workflow type for which data will be retrieved</param>
+        /// <param name="conversionSourceId">The Brevo campaign or automation workflow id for which data will be retrieved</param>
+        /// <returns>ApiResponse of InlineResponse2008</returns>
+        public ApiResponse< InlineResponse2008 > EcommerceAttributionProductsConversionSourceConversionSourceIdGetWithHttpInfo (string conversionSource, string conversionSourceId)
+        {
+            // verify the required parameter 'conversionSource' is set
+            if (conversionSource == null)
+                throw new ApiException(400, "Missing required parameter 'conversionSource' when calling EcommerceApi->EcommerceAttributionProductsConversionSourceConversionSourceIdGet");
+            // verify the required parameter 'conversionSourceId' is set
+            if (conversionSourceId == null)
+                throw new ApiException(400, "Missing required parameter 'conversionSourceId' when calling EcommerceApi->EcommerceAttributionProductsConversionSourceConversionSourceIdGet");
+
+            var localVarPath = "./ecommerce/attribution/products/{conversionSource}/{conversionSourceId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversionSource != null) localVarPathParams.Add("conversionSource", this.Configuration.ApiClient.ParameterToString(conversionSource)); // path parameter
+            if (conversionSourceId != null) localVarPathParams.Add("conversionSourceId", this.Configuration.ApiClient.ParameterToString(conversionSourceId)); // path parameter
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EcommerceAttributionProductsConversionSourceConversionSourceIdGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2008>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InlineResponse2008) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2008)));
+        }
+
+        /// <summary>
+        /// Get attributed product sales for a single Brevo campaign or workflow 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversionSource">The Brevo campaign or automation workflow type for which data will be retrieved</param>
+        /// <param name="conversionSourceId">The Brevo campaign or automation workflow id for which data will be retrieved</param>
+        /// <returns>Task of InlineResponse2008</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2008> EcommerceAttributionProductsConversionSourceConversionSourceIdGetAsync (string conversionSource, string conversionSourceId)
+        {
+             ApiResponse<InlineResponse2008> localVarResponse = await EcommerceAttributionProductsConversionSourceConversionSourceIdGetAsyncWithHttpInfo(conversionSource, conversionSourceId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get attributed product sales for a single Brevo campaign or workflow 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversionSource">The Brevo campaign or automation workflow type for which data will be retrieved</param>
+        /// <param name="conversionSourceId">The Brevo campaign or automation workflow id for which data will be retrieved</param>
+        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> EcommerceAttributionProductsConversionSourceConversionSourceIdGetAsyncWithHttpInfo (string conversionSource, string conversionSourceId)
+        {
+            // verify the required parameter 'conversionSource' is set
+            if (conversionSource == null)
+                throw new ApiException(400, "Missing required parameter 'conversionSource' when calling EcommerceApi->EcommerceAttributionProductsConversionSourceConversionSourceIdGet");
+            // verify the required parameter 'conversionSourceId' is set
+            if (conversionSourceId == null)
+                throw new ApiException(400, "Missing required parameter 'conversionSourceId' when calling EcommerceApi->EcommerceAttributionProductsConversionSourceConversionSourceIdGet");
+
+            var localVarPath = "./ecommerce/attribution/products/{conversionSource}/{conversionSourceId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversionSource != null) localVarPathParams.Add("conversionSource", this.Configuration.ApiClient.ParameterToString(conversionSource)); // path parameter
+            if (conversionSourceId != null) localVarPathParams.Add("conversionSourceId", this.Configuration.ApiClient.ParameterToString(conversionSourceId)); // path parameter
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EcommerceAttributionProductsConversionSourceConversionSourceIdGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2008>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InlineResponse2008) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2008)));
+        }
+
+        /// <summary>
+        /// Get the ISO 4217 compliant display currency code for your Brevo account 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>InlineResponse2005</returns>
+        public InlineResponse2005 EcommerceConfigDisplayCurrencyGet ()
+        {
+             ApiResponse<InlineResponse2005> localVarResponse = EcommerceConfigDisplayCurrencyGetWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the ISO 4217 compliant display currency code for your Brevo account 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        public ApiResponse< InlineResponse2005 > EcommerceConfigDisplayCurrencyGetWithHttpInfo ()
+        {
+
+            var localVarPath = "./ecommerce/config/displayCurrency";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EcommerceConfigDisplayCurrencyGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InlineResponse2005) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005)));
+        }
+
+        /// <summary>
+        /// Get the ISO 4217 compliant display currency code for your Brevo account 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of InlineResponse2005</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2005> EcommerceConfigDisplayCurrencyGetAsync ()
+        {
+             ApiResponse<InlineResponse2005> localVarResponse = await EcommerceConfigDisplayCurrencyGetAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the ISO 4217 compliant display currency code for your Brevo account 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> EcommerceConfigDisplayCurrencyGetAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "./ecommerce/config/displayCurrency";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EcommerceConfigDisplayCurrencyGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InlineResponse2005) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005)));
+        }
+
+        /// <summary>
         /// Return all your categories 
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1870,10 +2768,12 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="ids">Filter by category ids (optional)</param>
         /// <param name="name">Filter by category name (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>GetCategories</returns>
-        public GetCategories GetCategories (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null)
+        public GetCategories GetCategories (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null)
         {
-             ApiResponse<GetCategories> localVarResponse = GetCategoriesWithHttpInfo(limit, offset, sort, ids, name);
+             ApiResponse<GetCategories> localVarResponse = GetCategoriesWithHttpInfo(limit, offset, sort, ids, name, modifiedSince, createdSince);
              return localVarResponse.Data;
         }
 
@@ -1886,8 +2786,10 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="ids">Filter by category ids (optional)</param>
         /// <param name="name">Filter by category name (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>ApiResponse of GetCategories</returns>
-        public ApiResponse< GetCategories > GetCategoriesWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null)
+        public ApiResponse< GetCategories > GetCategoriesWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null)
         {
 
             var localVarPath = "./categories";
@@ -1917,6 +2819,8 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
             if (ids != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "ids", ids)); // query parameter
             if (name != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "name", name)); // query parameter
+            if (modifiedSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "modifiedSince", modifiedSince)); // query parameter
+            if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
 
             // authentication (api-key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
@@ -1956,10 +2860,12 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="ids">Filter by category ids (optional)</param>
         /// <param name="name">Filter by category name (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>Task of GetCategories</returns>
-        public async System.Threading.Tasks.Task<GetCategories> GetCategoriesAsync (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null)
+        public async System.Threading.Tasks.Task<GetCategories> GetCategoriesAsync (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null)
         {
-             ApiResponse<GetCategories> localVarResponse = await GetCategoriesAsyncWithHttpInfo(limit, offset, sort, ids, name);
+             ApiResponse<GetCategories> localVarResponse = await GetCategoriesAsyncWithHttpInfo(limit, offset, sort, ids, name, modifiedSince, createdSince);
              return localVarResponse.Data;
 
         }
@@ -1973,8 +2879,10 @@ namespace brevo_csharp.Api
         /// <param name="sort">Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)</param>
         /// <param name="ids">Filter by category ids (optional)</param>
         /// <param name="name">Filter by category name (optional)</param>
+        /// <param name="modifiedSince">Filter (urlencoded) the categories modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
+        /// <param name="createdSince">Filter (urlencoded) the categories created after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). **Prefer to pass your timezone in date-time format for accurate result.**  (optional)</param>
         /// <returns>Task of ApiResponse (GetCategories)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetCategories>> GetCategoriesAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetCategories>> GetCategoriesAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null, List<string> ids = null, string name = null, string modifiedSince = null, string createdSince = null)
         {
 
             var localVarPath = "./categories";
@@ -2004,6 +2912,8 @@ namespace brevo_csharp.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
             if (ids != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "ids", ids)); // query parameter
             if (name != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "name", name)); // query parameter
+            if (modifiedSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "modifiedSince", modifiedSince)); // query parameter
+            if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
 
             // authentication (api-key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
@@ -2742,6 +3652,175 @@ namespace brevo_csharp.Api
             return new ApiResponse<GetProducts>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (GetProducts) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetProducts)));
+        }
+
+        /// <summary>
+        /// Set the ISO 4217 compliant display currency code for your Brevo account 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setConfigDisplayCurrency">set ISO 4217 compliant display currency code payload</param>
+        /// <returns>SetConfigDisplayCurrency</returns>
+        public SetConfigDisplayCurrency SetConfigDisplayCurrency (SetConfigDisplayCurrency setConfigDisplayCurrency)
+        {
+             ApiResponse<SetConfigDisplayCurrency> localVarResponse = SetConfigDisplayCurrencyWithHttpInfo(setConfigDisplayCurrency);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set the ISO 4217 compliant display currency code for your Brevo account 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setConfigDisplayCurrency">set ISO 4217 compliant display currency code payload</param>
+        /// <returns>ApiResponse of SetConfigDisplayCurrency</returns>
+        public ApiResponse< SetConfigDisplayCurrency > SetConfigDisplayCurrencyWithHttpInfo (SetConfigDisplayCurrency setConfigDisplayCurrency)
+        {
+            // verify the required parameter 'setConfigDisplayCurrency' is set
+            if (setConfigDisplayCurrency == null)
+                throw new ApiException(400, "Missing required parameter 'setConfigDisplayCurrency' when calling EcommerceApi->SetConfigDisplayCurrency");
+
+            var localVarPath = "./ecommerce/config/displayCurrency";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (setConfigDisplayCurrency != null && setConfigDisplayCurrency.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(setConfigDisplayCurrency); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = setConfigDisplayCurrency; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SetConfigDisplayCurrency", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SetConfigDisplayCurrency>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (SetConfigDisplayCurrency) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SetConfigDisplayCurrency)));
+        }
+
+        /// <summary>
+        /// Set the ISO 4217 compliant display currency code for your Brevo account 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setConfigDisplayCurrency">set ISO 4217 compliant display currency code payload</param>
+        /// <returns>Task of SetConfigDisplayCurrency</returns>
+        public async System.Threading.Tasks.Task<SetConfigDisplayCurrency> SetConfigDisplayCurrencyAsync (SetConfigDisplayCurrency setConfigDisplayCurrency)
+        {
+             ApiResponse<SetConfigDisplayCurrency> localVarResponse = await SetConfigDisplayCurrencyAsyncWithHttpInfo(setConfigDisplayCurrency);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Set the ISO 4217 compliant display currency code for your Brevo account 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setConfigDisplayCurrency">set ISO 4217 compliant display currency code payload</param>
+        /// <returns>Task of ApiResponse (SetConfigDisplayCurrency)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SetConfigDisplayCurrency>> SetConfigDisplayCurrencyAsyncWithHttpInfo (SetConfigDisplayCurrency setConfigDisplayCurrency)
+        {
+            // verify the required parameter 'setConfigDisplayCurrency' is set
+            if (setConfigDisplayCurrency == null)
+                throw new ApiException(400, "Missing required parameter 'setConfigDisplayCurrency' when calling EcommerceApi->SetConfigDisplayCurrency");
+
+            var localVarPath = "./ecommerce/config/displayCurrency";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (setConfigDisplayCurrency != null && setConfigDisplayCurrency.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(setConfigDisplayCurrency); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = setConfigDisplayCurrency; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SetConfigDisplayCurrency", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<SetConfigDisplayCurrency>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (SetConfigDisplayCurrency) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SetConfigDisplayCurrency)));
         }
 
     }

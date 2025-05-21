@@ -1,7 +1,7 @@
 /* 
  * Brevo API
  *
- * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
+ * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  |   | 422  | Error. Unprocessable Entity | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@brevo.com
@@ -33,10 +33,14 @@ namespace brevo_csharp.Model
         /// </summary>
         /// <param name="extId">ext_id associated with the order.</param>
         /// <param name="loyaltySubscriptionId">loyalty_subscription_id associated with the order.</param>
-        public OrderIdentifiers(string extId = default(string), string loyaltySubscriptionId = default(string))
+        /// <param name="phoneId">Phone number of the contact associated with the order.</param>
+        /// <param name="emailId">Email of the contact associated with the order.</param>
+        public OrderIdentifiers(string extId = default(string), string loyaltySubscriptionId = default(string), string phoneId = default(string), string emailId = default(string))
         {
             this.ExtId = extId;
             this.LoyaltySubscriptionId = loyaltySubscriptionId;
+            this.PhoneId = phoneId;
+            this.EmailId = emailId;
         }
         
         /// <summary>
@@ -54,6 +58,20 @@ namespace brevo_csharp.Model
         public string LoyaltySubscriptionId { get; set; }
 
         /// <summary>
+        /// Phone number of the contact associated with the order
+        /// </summary>
+        /// <value>Phone number of the contact associated with the order</value>
+        [DataMember(Name="phone_id", EmitDefaultValue=false)]
+        public string PhoneId { get; set; }
+
+        /// <summary>
+        /// Email of the contact associated with the order
+        /// </summary>
+        /// <value>Email of the contact associated with the order</value>
+        [DataMember(Name="email_id", EmitDefaultValue=false)]
+        public string EmailId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +81,8 @@ namespace brevo_csharp.Model
             sb.Append("class OrderIdentifiers {\n");
             sb.Append("  ExtId: ").Append(ExtId).Append("\n");
             sb.Append("  LoyaltySubscriptionId: ").Append(LoyaltySubscriptionId).Append("\n");
+            sb.Append("  PhoneId: ").Append(PhoneId).Append("\n");
+            sb.Append("  EmailId: ").Append(EmailId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,6 +126,16 @@ namespace brevo_csharp.Model
                     this.LoyaltySubscriptionId == input.LoyaltySubscriptionId ||
                     (this.LoyaltySubscriptionId != null &&
                     this.LoyaltySubscriptionId.Equals(input.LoyaltySubscriptionId))
+                ) && 
+                (
+                    this.PhoneId == input.PhoneId ||
+                    (this.PhoneId != null &&
+                    this.PhoneId.Equals(input.PhoneId))
+                ) && 
+                (
+                    this.EmailId == input.EmailId ||
+                    (this.EmailId != null &&
+                    this.EmailId.Equals(input.EmailId))
                 );
         }
 
@@ -122,6 +152,10 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.ExtId.GetHashCode();
                 if (this.LoyaltySubscriptionId != null)
                     hashCode = hashCode * 59 + this.LoyaltySubscriptionId.GetHashCode();
+                if (this.PhoneId != null)
+                    hashCode = hashCode * 59 + this.PhoneId.GetHashCode();
+                if (this.EmailId != null)
+                    hashCode = hashCode * 59 + this.EmailId.GetHashCode();
                 return hashCode;
             }
         }

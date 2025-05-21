@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**GetTransacBlockedContacts**](TransactionalEmailsApi.md#gettransacblockedcontacts) | **GET** /smtp/blockedContacts | Get the list of blocked or unsubscribed transactional contacts
 [**GetTransacEmailContent**](TransactionalEmailsApi.md#gettransacemailcontent) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
 [**GetTransacEmailsList**](TransactionalEmailsApi.md#gettransacemailslist) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
+[**PostPreviewSmtpEmailTemplates**](TransactionalEmailsApi.md#postpreviewsmtpemailtemplates) | **POST** /smtp/template/preview | Generate the rendered preview of transactional template
 [**SendTestTemplate**](TransactionalEmailsApi.md#sendtesttemplate) | **POST** /smtp/templates/{templateId}/sendTest | Send a template to your test list
 [**SendTransacEmail**](TransactionalEmailsApi.md#sendtransacemail) | **POST** /smtp/email | Send a transactional email
 [**SmtpBlockedContactsEmailDelete**](TransactionalEmailsApi.md#smtpblockedcontactsemaildelete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
@@ -1267,6 +1268,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetTransacEmailsList**](GetTransacEmailsList.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="postpreviewsmtpemailtemplates"></a>
+# **PostPreviewSmtpEmailTemplates**
+> TemplatePreview PostPreviewSmtpEmailTemplates (FetchTemplatePreview fetchTemplatePreview)
+
+Generate the rendered preview of transactional template
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using brevo_csharp.Api;
+using brevo_csharp.Client;
+using brevo_csharp.Model;
+
+namespace Example
+{
+    public class PostPreviewSmtpEmailTemplatesExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: api-key
+            Configuration.Default.AddApiKey("api-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("api-key", "Bearer");
+            // Configure API key authorization: partner-key
+            Configuration.Default.AddApiKey("partner-key", "YOUR_PARTNER_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("partner-key", "Bearer");
+
+            var apiInstance = new TransactionalEmailsApi();
+            var fetchTemplatePreview = new FetchTemplatePreview(); // FetchTemplatePreview | Values to fetch Template preview
+
+            try
+            {
+                // Generate the rendered preview of transactional template
+                TemplatePreview result = apiInstance.PostPreviewSmtpEmailTemplates(fetchTemplatePreview);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling TransactionalEmailsApi.PostPreviewSmtpEmailTemplates: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fetchTemplatePreview** | [**FetchTemplatePreview**](FetchTemplatePreview.md)| Values to fetch Template preview | 
+
+### Return type
+
+[**TemplatePreview**](TemplatePreview.md)
 
 ### Authorization
 

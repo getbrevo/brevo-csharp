@@ -1,7 +1,7 @@
 /* 
  * Brevo API
  *
- * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
+ * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  |   | 422  | Error. Unprocessable Entity | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@brevo.com
@@ -44,11 +44,10 @@ namespace brevo_csharp.Model
         /// <param name="storeId">ID of store where the order is placed.</param>
         /// <param name="identifiers">identifiers.</param>
         /// <param name="products">products (required).</param>
-        /// <param name="email">Email of the contact, Mandatory if \&quot;phone\&quot; field is not passed in \&quot;billing\&quot; parameter..</param>
         /// <param name="billing">billing.</param>
         /// <param name="coupons">Coupons applied to the order. Stored case insensitive..</param>
         /// <param name="metaInfo">Meta data of order to store additional detal such as custom message, customer type, source..</param>
-        public Order(string id = default(string), string createdAt = default(string), string updatedAt = default(string), string status = default(string), decimal? amount = default(decimal?), string storeId = default(string), OrderIdentifiers identifiers = default(OrderIdentifiers), List<OrderProducts> products = default(List<OrderProducts>), string email = default(string), OrderBilling billing = default(OrderBilling), List<string> coupons = default(List<string>), Dictionary<string, Object> metaInfo = default(Dictionary<string, Object>))
+        public Order(string id = default(string), string createdAt = default(string), string updatedAt = default(string), string status = default(string), decimal? amount = default(decimal?), string storeId = default(string), OrderIdentifiers identifiers = default(OrderIdentifiers), List<OrderProducts> products = default(List<OrderProducts>), OrderBilling billing = default(OrderBilling), List<string> coupons = default(List<string>), Dictionary<string, Object> metaInfo = default(Dictionary<string, Object>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -106,7 +105,6 @@ namespace brevo_csharp.Model
             }
             this.StoreId = storeId;
             this.Identifiers = identifiers;
-            this.Email = email;
             this.Billing = billing;
             this.Coupons = coupons;
             this.MetaInfo = metaInfo;
@@ -167,13 +165,6 @@ namespace brevo_csharp.Model
         public List<OrderProducts> Products { get; set; }
 
         /// <summary>
-        /// Email of the contact, Mandatory if \&quot;phone\&quot; field is not passed in \&quot;billing\&quot; parameter.
-        /// </summary>
-        /// <value>Email of the contact, Mandatory if \&quot;phone\&quot; field is not passed in \&quot;billing\&quot; parameter.</value>
-        [DataMember(Name="email", EmitDefaultValue=false)]
-        public string Email { get; set; }
-
-        /// <summary>
         /// Gets or Sets Billing
         /// </summary>
         [DataMember(Name="billing", EmitDefaultValue=false)]
@@ -209,7 +200,6 @@ namespace brevo_csharp.Model
             sb.Append("  StoreId: ").Append(StoreId).Append("\n");
             sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  Products: ").Append(Products).Append("\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Billing: ").Append(Billing).Append("\n");
             sb.Append("  Coupons: ").Append(Coupons).Append("\n");
             sb.Append("  MetaInfo: ").Append(MetaInfo).Append("\n");
@@ -288,11 +278,6 @@ namespace brevo_csharp.Model
                     this.Products.SequenceEqual(input.Products)
                 ) && 
                 (
-                    this.Email == input.Email ||
-                    (this.Email != null &&
-                    this.Email.Equals(input.Email))
-                ) && 
-                (
                     this.Billing == input.Billing ||
                     (this.Billing != null &&
                     this.Billing.Equals(input.Billing))
@@ -334,8 +319,6 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.Identifiers.GetHashCode();
                 if (this.Products != null)
                     hashCode = hashCode * 59 + this.Products.GetHashCode();
-                if (this.Email != null)
-                    hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.Billing != null)
                     hashCode = hashCode * 59 + this.Billing.GetHashCode();
                 if (this.Coupons != null)

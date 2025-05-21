@@ -1,7 +1,7 @@
 /* 
  * Brevo API
  *
- * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
+ * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  |   | 422  | Error. Unprocessable Entity | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@brevo.com
@@ -300,7 +300,7 @@ namespace brevo_csharp.Api
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>GetExtendedContactDetails</returns>
-        GetExtendedContactDetails GetContactInfo (string identifier, Object identifierType = null, string startDate = null, string endDate = null);
+        GetExtendedContactDetails GetContactInfo (string identifier, string identifierType = null, string startDate = null, string endDate = null);
 
         /// <summary>
         /// Get a contact&#39;s details
@@ -314,7 +314,7 @@ namespace brevo_csharp.Api
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>ApiResponse of GetExtendedContactDetails</returns>
-        ApiResponse<GetExtendedContactDetails> GetContactInfoWithHttpInfo (string identifier, Object identifierType = null, string startDate = null, string endDate = null);
+        ApiResponse<GetExtendedContactDetails> GetContactInfoWithHttpInfo (string identifier, string identifierType = null, string startDate = null, string endDate = null);
         /// <summary>
         /// Get email campaigns&#39; statistics for a contact
         /// </summary>
@@ -356,7 +356,7 @@ namespace brevo_csharp.Api
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="filter">Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,\&quot;Antoine\&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, \&quot;1989-11-23\&quot;), filter&#x3D;equals(GENDER, \&quot;1\&quot;), filter&#x3D;equals(GENDER, \&quot;MALE\&quot;), filter&#x3D;equals(COUNTRY,\&quot;USA, INDIA\&quot;)**  (optional)</param>
         /// <returns>GetContacts</returns>
-        GetContacts GetContacts (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, Object filter = null);
+        GetContacts GetContacts (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, string filter = null);
 
         /// <summary>
         /// Get all the contacts
@@ -374,7 +374,7 @@ namespace brevo_csharp.Api
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="filter">Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,\&quot;Antoine\&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, \&quot;1989-11-23\&quot;), filter&#x3D;equals(GENDER, \&quot;1\&quot;), filter&#x3D;equals(GENDER, \&quot;MALE\&quot;), filter&#x3D;equals(COUNTRY,\&quot;USA, INDIA\&quot;)**  (optional)</param>
         /// <returns>ApiResponse of GetContacts</returns>
-        ApiResponse<GetContacts> GetContactsWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, Object filter = null);
+        ApiResponse<GetContacts> GetContactsWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, string filter = null);
         /// <summary>
         /// Get contacts in a list
         /// </summary>
@@ -674,7 +674,7 @@ namespace brevo_csharp.Api
         /// <param name="updateContact">Values to update a contact</param>
         /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional)</param>
         /// <returns></returns>
-        void UpdateContact (string identifier, UpdateContact updateContact, Object identifierType = null);
+        void UpdateContact (string identifier, UpdateContact updateContact, string identifierType = null);
 
         /// <summary>
         /// Update a contact
@@ -687,7 +687,7 @@ namespace brevo_csharp.Api
         /// <param name="updateContact">Values to update a contact</param>
         /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateContactWithHttpInfo (string identifier, UpdateContact updateContact, Object identifierType = null);
+        ApiResponse<Object> UpdateContactWithHttpInfo (string identifier, UpdateContact updateContact, string identifierType = null);
         /// <summary>
         /// Update a folder
         /// </summary>
@@ -1012,7 +1012,7 @@ namespace brevo_csharp.Api
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>Task of GetExtendedContactDetails</returns>
-        System.Threading.Tasks.Task<GetExtendedContactDetails> GetContactInfoAsync (string identifier, Object identifierType = null, string startDate = null, string endDate = null);
+        System.Threading.Tasks.Task<GetExtendedContactDetails> GetContactInfoAsync (string identifier, string identifierType = null, string startDate = null, string endDate = null);
 
         /// <summary>
         /// Get a contact&#39;s details
@@ -1026,7 +1026,7 @@ namespace brevo_csharp.Api
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>Task of ApiResponse (GetExtendedContactDetails)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetExtendedContactDetails>> GetContactInfoAsyncWithHttpInfo (string identifier, Object identifierType = null, string startDate = null, string endDate = null);
+        System.Threading.Tasks.Task<ApiResponse<GetExtendedContactDetails>> GetContactInfoAsyncWithHttpInfo (string identifier, string identifierType = null, string startDate = null, string endDate = null);
         /// <summary>
         /// Get email campaigns&#39; statistics for a contact
         /// </summary>
@@ -1068,7 +1068,7 @@ namespace brevo_csharp.Api
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="filter">Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,\&quot;Antoine\&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, \&quot;1989-11-23\&quot;), filter&#x3D;equals(GENDER, \&quot;1\&quot;), filter&#x3D;equals(GENDER, \&quot;MALE\&quot;), filter&#x3D;equals(COUNTRY,\&quot;USA, INDIA\&quot;)**  (optional)</param>
         /// <returns>Task of GetContacts</returns>
-        System.Threading.Tasks.Task<GetContacts> GetContactsAsync (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, Object filter = null);
+        System.Threading.Tasks.Task<GetContacts> GetContactsAsync (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, string filter = null);
 
         /// <summary>
         /// Get all the contacts
@@ -1086,7 +1086,7 @@ namespace brevo_csharp.Api
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="filter">Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,\&quot;Antoine\&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, \&quot;1989-11-23\&quot;), filter&#x3D;equals(GENDER, \&quot;1\&quot;), filter&#x3D;equals(GENDER, \&quot;MALE\&quot;), filter&#x3D;equals(COUNTRY,\&quot;USA, INDIA\&quot;)**  (optional)</param>
         /// <returns>Task of ApiResponse (GetContacts)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetContacts>> GetContactsAsyncWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, Object filter = null);
+        System.Threading.Tasks.Task<ApiResponse<GetContacts>> GetContactsAsyncWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, string filter = null);
         /// <summary>
         /// Get contacts in a list
         /// </summary>
@@ -1386,7 +1386,7 @@ namespace brevo_csharp.Api
         /// <param name="updateContact">Values to update a contact</param>
         /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateContactAsync (string identifier, UpdateContact updateContact, Object identifierType = null);
+        System.Threading.Tasks.Task UpdateContactAsync (string identifier, UpdateContact updateContact, string identifierType = null);
 
         /// <summary>
         /// Update a contact
@@ -1399,7 +1399,7 @@ namespace brevo_csharp.Api
         /// <param name="updateContact">Values to update a contact</param>
         /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateContactAsyncWithHttpInfo (string identifier, UpdateContact updateContact, Object identifierType = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateContactAsyncWithHttpInfo (string identifier, UpdateContact updateContact, string identifierType = null);
         /// <summary>
         /// Update a folder
         /// </summary>
@@ -3551,7 +3551,7 @@ namespace brevo_csharp.Api
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>GetExtendedContactDetails</returns>
-        public GetExtendedContactDetails GetContactInfo (string identifier, Object identifierType = null, string startDate = null, string endDate = null)
+        public GetExtendedContactDetails GetContactInfo (string identifier, string identifierType = null, string startDate = null, string endDate = null)
         {
              ApiResponse<GetExtendedContactDetails> localVarResponse = GetContactInfoWithHttpInfo(identifier, identifierType, startDate, endDate);
              return localVarResponse.Data;
@@ -3566,7 +3566,7 @@ namespace brevo_csharp.Api
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>ApiResponse of GetExtendedContactDetails</returns>
-        public ApiResponse< GetExtendedContactDetails > GetContactInfoWithHttpInfo (string identifier, Object identifierType = null, string startDate = null, string endDate = null)
+        public ApiResponse< GetExtendedContactDetails > GetContactInfoWithHttpInfo (string identifier, string identifierType = null, string startDate = null, string endDate = null)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -3637,7 +3637,7 @@ namespace brevo_csharp.Api
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>Task of GetExtendedContactDetails</returns>
-        public async System.Threading.Tasks.Task<GetExtendedContactDetails> GetContactInfoAsync (string identifier, Object identifierType = null, string startDate = null, string endDate = null)
+        public async System.Threading.Tasks.Task<GetExtendedContactDetails> GetContactInfoAsync (string identifier, string identifierType = null, string startDate = null, string endDate = null)
         {
              ApiResponse<GetExtendedContactDetails> localVarResponse = await GetContactInfoAsyncWithHttpInfo(identifier, identifierType, startDate, endDate);
              return localVarResponse.Data;
@@ -3653,7 +3653,7 @@ namespace brevo_csharp.Api
         /// <param name="startDate">**Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)</param>
         /// <param name="endDate">**Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)</param>
         /// <returns>Task of ApiResponse (GetExtendedContactDetails)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetExtendedContactDetails>> GetContactInfoAsyncWithHttpInfo (string identifier, Object identifierType = null, string startDate = null, string endDate = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetExtendedContactDetails>> GetContactInfoAsyncWithHttpInfo (string identifier, string identifierType = null, string startDate = null, string endDate = null)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -3895,7 +3895,7 @@ namespace brevo_csharp.Api
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="filter">Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,\&quot;Antoine\&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, \&quot;1989-11-23\&quot;), filter&#x3D;equals(GENDER, \&quot;1\&quot;), filter&#x3D;equals(GENDER, \&quot;MALE\&quot;), filter&#x3D;equals(COUNTRY,\&quot;USA, INDIA\&quot;)**  (optional)</param>
         /// <returns>GetContacts</returns>
-        public GetContacts GetContacts (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, Object filter = null)
+        public GetContacts GetContacts (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, string filter = null)
         {
              ApiResponse<GetContacts> localVarResponse = GetContactsWithHttpInfo(limit, offset, modifiedSince, createdSince, sort, segmentId, listIds, filter);
              return localVarResponse.Data;
@@ -3914,7 +3914,7 @@ namespace brevo_csharp.Api
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="filter">Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,\&quot;Antoine\&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, \&quot;1989-11-23\&quot;), filter&#x3D;equals(GENDER, \&quot;1\&quot;), filter&#x3D;equals(GENDER, \&quot;MALE\&quot;), filter&#x3D;equals(COUNTRY,\&quot;USA, INDIA\&quot;)**  (optional)</param>
         /// <returns>ApiResponse of GetContacts</returns>
-        public ApiResponse< GetContacts > GetContactsWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, Object filter = null)
+        public ApiResponse< GetContacts > GetContactsWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, string filter = null)
         {
 
             var localVarPath = "./contacts";
@@ -3990,7 +3990,7 @@ namespace brevo_csharp.Api
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="filter">Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,\&quot;Antoine\&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, \&quot;1989-11-23\&quot;), filter&#x3D;equals(GENDER, \&quot;1\&quot;), filter&#x3D;equals(GENDER, \&quot;MALE\&quot;), filter&#x3D;equals(COUNTRY,\&quot;USA, INDIA\&quot;)**  (optional)</param>
         /// <returns>Task of GetContacts</returns>
-        public async System.Threading.Tasks.Task<GetContacts> GetContactsAsync (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, Object filter = null)
+        public async System.Threading.Tasks.Task<GetContacts> GetContactsAsync (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, string filter = null)
         {
              ApiResponse<GetContacts> localVarResponse = await GetContactsAsyncWithHttpInfo(limit, offset, modifiedSince, createdSince, sort, segmentId, listIds, filter);
              return localVarResponse.Data;
@@ -4010,7 +4010,7 @@ namespace brevo_csharp.Api
         /// <param name="listIds">Ids of the list. **Either listIds or segmentId can be passed.** (optional)</param>
         /// <param name="filter">Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,\&quot;Antoine\&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, \&quot;1989-11-23\&quot;), filter&#x3D;equals(GENDER, \&quot;1\&quot;), filter&#x3D;equals(GENDER, \&quot;MALE\&quot;), filter&#x3D;equals(COUNTRY,\&quot;USA, INDIA\&quot;)**  (optional)</param>
         /// <returns>Task of ApiResponse (GetContacts)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetContacts>> GetContactsAsyncWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, Object filter = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetContacts>> GetContactsAsyncWithHttpInfo (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, string filter = null)
         {
 
             var localVarPath = "./contacts";
@@ -6127,7 +6127,7 @@ namespace brevo_csharp.Api
         /// <param name="updateContact">Values to update a contact</param>
         /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional)</param>
         /// <returns></returns>
-        public void UpdateContact (string identifier, UpdateContact updateContact, Object identifierType = null)
+        public void UpdateContact (string identifier, UpdateContact updateContact, string identifierType = null)
         {
              UpdateContactWithHttpInfo(identifier, updateContact, identifierType);
         }
@@ -6140,7 +6140,7 @@ namespace brevo_csharp.Api
         /// <param name="updateContact">Values to update a contact</param>
         /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateContactWithHttpInfo (string identifier, UpdateContact updateContact, Object identifierType = null)
+        public ApiResponse<Object> UpdateContactWithHttpInfo (string identifier, UpdateContact updateContact, string identifierType = null)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
@@ -6219,7 +6219,7 @@ namespace brevo_csharp.Api
         /// <param name="updateContact">Values to update a contact</param>
         /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateContactAsync (string identifier, UpdateContact updateContact, Object identifierType = null)
+        public async System.Threading.Tasks.Task UpdateContactAsync (string identifier, UpdateContact updateContact, string identifierType = null)
         {
              await UpdateContactAsyncWithHttpInfo(identifier, updateContact, identifierType);
 
@@ -6233,7 +6233,7 @@ namespace brevo_csharp.Api
         /// <param name="updateContact">Values to update a contact</param>
         /// <param name="identifierType">email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateContactAsyncWithHttpInfo (string identifier, UpdateContact updateContact, Object identifierType = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateContactAsyncWithHttpInfo (string identifier, UpdateContact updateContact, string identifierType = null)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)

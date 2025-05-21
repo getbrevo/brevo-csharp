@@ -1,7 +1,7 @@
 /* 
  * Brevo API
  *
- * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
+ * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  |   | 422  | Error. Unprocessable Entity | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@brevo.com
@@ -39,8 +39,9 @@ namespace brevo_csharp.Model
         /// <param name="templateId">ID of the template to send.</param>
         /// <param name="text">Text to be sent as message body (will be overridden if templateId is passed in the same request).</param>
         /// <param name="senderNumber">WhatsApp Number with country code. Example, 85264318721 (required).</param>
+        /// <param name="_params">Pass the set of attributes to customize the template. For example, {\&quot;FNAME\&quot;:\&quot;Joe\&quot;, \&quot;LNAME\&quot;:\&quot;Doe\&quot;}..</param>
         /// <param name="contactNumbers">List of phone numbers of the contacts (required).</param>
-        public SendWhatsappMessage(int? templateId = default(int?), string text = default(string), string senderNumber = default(string), List<string> contactNumbers = default(List<string>))
+        public SendWhatsappMessage(int? templateId = default(int?), string text = default(string), string senderNumber = default(string), Object _params = default(Object), List<string> contactNumbers = default(List<string>))
         {
             // to ensure "senderNumber" is required (not null)
             if (senderNumber == null)
@@ -62,6 +63,7 @@ namespace brevo_csharp.Model
             }
             this.TemplateId = templateId;
             this.Text = text;
+            this.Params = _params;
         }
         
         /// <summary>
@@ -86,6 +88,13 @@ namespace brevo_csharp.Model
         public string SenderNumber { get; set; }
 
         /// <summary>
+        /// Pass the set of attributes to customize the template. For example, {\&quot;FNAME\&quot;:\&quot;Joe\&quot;, \&quot;LNAME\&quot;:\&quot;Doe\&quot;}.
+        /// </summary>
+        /// <value>Pass the set of attributes to customize the template. For example, {\&quot;FNAME\&quot;:\&quot;Joe\&quot;, \&quot;LNAME\&quot;:\&quot;Doe\&quot;}.</value>
+        [DataMember(Name="params", EmitDefaultValue=false)]
+        public Object Params { get; set; }
+
+        /// <summary>
         /// List of phone numbers of the contacts
         /// </summary>
         /// <value>List of phone numbers of the contacts</value>
@@ -103,6 +112,7 @@ namespace brevo_csharp.Model
             sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  SenderNumber: ").Append(SenderNumber).Append("\n");
+            sb.Append("  Params: ").Append(Params).Append("\n");
             sb.Append("  ContactNumbers: ").Append(ContactNumbers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -154,6 +164,11 @@ namespace brevo_csharp.Model
                     this.SenderNumber.Equals(input.SenderNumber))
                 ) && 
                 (
+                    this.Params == input.Params ||
+                    (this.Params != null &&
+                    this.Params.Equals(input.Params))
+                ) && 
+                (
                     this.ContactNumbers == input.ContactNumbers ||
                     this.ContactNumbers != null &&
                     this.ContactNumbers.SequenceEqual(input.ContactNumbers)
@@ -175,6 +190,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.Text.GetHashCode();
                 if (this.SenderNumber != null)
                     hashCode = hashCode * 59 + this.SenderNumber.GetHashCode();
+                if (this.Params != null)
+                    hashCode = hashCode * 59 + this.Params.GetHashCode();
                 if (this.ContactNumbers != null)
                     hashCode = hashCode * 59 + this.ContactNumbers.GetHashCode();
                 return hashCode;

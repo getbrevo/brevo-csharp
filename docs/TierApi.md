@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 Create a tier
 
-Creates a new tier in a loyalty program tier group.
+Creates a new tier in a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
 
 ### Example
 ```csharp
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 Create a tier group
 
-Creates a new tier group in a loyalty program.
+Creates a new tier group in a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
 
 ### Example
 ```csharp
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 Delete tier
 
-Deletes a tier from a loyalty program tier group.
+Deletes a tier from a loyalty program tier group. *(The changes will take effect with the next publication of the loyalty program)*
 
 ### Example
 ```csharp
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 
 Delete tier group
 
-Deletes a tier group from a loyalty program.
+Deletes a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
 
 ### Example
 ```csharp
@@ -604,7 +604,7 @@ Name | Type | Description  | Notes
 
 Update tier
 
-Modifies an existing tier for the specified tier group.
+Modifies an existing tier for the specified tier group *(The changes will take effect with the next publication of the loyalty program)*
 
 ### Example
 ```csharp
@@ -678,7 +678,7 @@ Name | Type | Description  | Notes
 
 Update tier group
 
-Updates a tier group from a loyalty program.
+Updates a tier group from a loyalty program. *(The changes will take effect with the next publication of the loyalty program)*
 
 ### Example
 ```csharp
