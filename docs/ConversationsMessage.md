@@ -7,8 +7,6 @@ Name | Type | Description | Notes
 **Type** | **string** | &#x60;&quot;agent&quot;&#x60; for agents’ messages, &#x60;&quot;visitor&quot;&#x60; for visitors’ messages. | [optional] 
 **Text** | **string** | Message text or name of the attached file | [optional] 
 **Subject** | **string** | The subject line of the email message (only for messages sent to email threads). | [optional] 
-**Html** | **string** | The HTML content of the message. | [optional] 
-**RawUnsafeHtml** | **string** | Unescaped HTML content of the message (may include unsafe HTML). | [optional] 
 **VisitorId** | **string** | visitor’s ID | [optional] 
 **AgentId** | **string** | ID of the agent on whose behalf the message was sent (only in messages sent by an agent). | [optional] 
 **AgentName** | **string** | Agent’s name as displayed to the visitor. Only in the messages sent by an agent. | [optional] 

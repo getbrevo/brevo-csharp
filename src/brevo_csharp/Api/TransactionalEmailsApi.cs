@@ -1,7 +1,7 @@
 /* 
  * Brevo API
  *
- * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
+ * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  |   | 422  | Error. Unprocessable Entity | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@brevo.com
@@ -463,6 +463,27 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <returns>ApiResponse of GetTransacEmailsList</returns>
         ApiResponse<GetTransacEmailsList> GetTransacEmailsListWithHttpInfo (string email = null, long? templateId = null, string messageId = null, string startDate = null, string endDate = null, string sort = null, long? limit = null, long? offset = null);
+        /// <summary>
+        /// Generate the rendered preview of transactional template
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fetchTemplatePreview">Values to fetch Template preview</param>
+        /// <returns>TemplatePreview</returns>
+        TemplatePreview PostPreviewSmtpEmailTemplates (FetchTemplatePreview fetchTemplatePreview);
+
+        /// <summary>
+        /// Generate the rendered preview of transactional template
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fetchTemplatePreview">Values to fetch Template preview</param>
+        /// <returns>ApiResponse of TemplatePreview</returns>
+        ApiResponse<TemplatePreview> PostPreviewSmtpEmailTemplatesWithHttpInfo (FetchTemplatePreview fetchTemplatePreview);
         /// <summary>
         /// Send a template to your test list
         /// </summary>
@@ -1013,6 +1034,27 @@ namespace brevo_csharp.Api
         /// <param name="offset">Index of the first document in the page (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (GetTransacEmailsList)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetTransacEmailsList>> GetTransacEmailsListAsyncWithHttpInfo (string email = null, long? templateId = null, string messageId = null, string startDate = null, string endDate = null, string sort = null, long? limit = null, long? offset = null);
+        /// <summary>
+        /// Generate the rendered preview of transactional template
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fetchTemplatePreview">Values to fetch Template preview</param>
+        /// <returns>Task of TemplatePreview</returns>
+        System.Threading.Tasks.Task<TemplatePreview> PostPreviewSmtpEmailTemplatesAsync (FetchTemplatePreview fetchTemplatePreview);
+
+        /// <summary>
+        /// Generate the rendered preview of transactional template
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fetchTemplatePreview">Values to fetch Template preview</param>
+        /// <returns>Task of ApiResponse (TemplatePreview)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TemplatePreview>> PostPreviewSmtpEmailTemplatesAsyncWithHttpInfo (FetchTemplatePreview fetchTemplatePreview);
         /// <summary>
         /// Send a template to your test list
         /// </summary>
@@ -4085,6 +4127,175 @@ namespace brevo_csharp.Api
             return new ApiResponse<GetTransacEmailsList>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (GetTransacEmailsList) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetTransacEmailsList)));
+        }
+
+        /// <summary>
+        /// Generate the rendered preview of transactional template 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fetchTemplatePreview">Values to fetch Template preview</param>
+        /// <returns>TemplatePreview</returns>
+        public TemplatePreview PostPreviewSmtpEmailTemplates (FetchTemplatePreview fetchTemplatePreview)
+        {
+             ApiResponse<TemplatePreview> localVarResponse = PostPreviewSmtpEmailTemplatesWithHttpInfo(fetchTemplatePreview);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate the rendered preview of transactional template 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fetchTemplatePreview">Values to fetch Template preview</param>
+        /// <returns>ApiResponse of TemplatePreview</returns>
+        public ApiResponse< TemplatePreview > PostPreviewSmtpEmailTemplatesWithHttpInfo (FetchTemplatePreview fetchTemplatePreview)
+        {
+            // verify the required parameter 'fetchTemplatePreview' is set
+            if (fetchTemplatePreview == null)
+                throw new ApiException(400, "Missing required parameter 'fetchTemplatePreview' when calling TransactionalEmailsApi->PostPreviewSmtpEmailTemplates");
+
+            var localVarPath = "./smtp/template/preview";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fetchTemplatePreview != null && fetchTemplatePreview.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(fetchTemplatePreview); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = fetchTemplatePreview; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PostPreviewSmtpEmailTemplates", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TemplatePreview>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (TemplatePreview) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TemplatePreview)));
+        }
+
+        /// <summary>
+        /// Generate the rendered preview of transactional template 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fetchTemplatePreview">Values to fetch Template preview</param>
+        /// <returns>Task of TemplatePreview</returns>
+        public async System.Threading.Tasks.Task<TemplatePreview> PostPreviewSmtpEmailTemplatesAsync (FetchTemplatePreview fetchTemplatePreview)
+        {
+             ApiResponse<TemplatePreview> localVarResponse = await PostPreviewSmtpEmailTemplatesAsyncWithHttpInfo(fetchTemplatePreview);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Generate the rendered preview of transactional template 
+        /// </summary>
+        /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fetchTemplatePreview">Values to fetch Template preview</param>
+        /// <returns>Task of ApiResponse (TemplatePreview)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TemplatePreview>> PostPreviewSmtpEmailTemplatesAsyncWithHttpInfo (FetchTemplatePreview fetchTemplatePreview)
+        {
+            // verify the required parameter 'fetchTemplatePreview' is set
+            if (fetchTemplatePreview == null)
+                throw new ApiException(400, "Missing required parameter 'fetchTemplatePreview' when calling TransactionalEmailsApi->PostPreviewSmtpEmailTemplates");
+
+            var localVarPath = "./smtp/template/preview";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (fetchTemplatePreview != null && fetchTemplatePreview.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(fetchTemplatePreview); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = fetchTemplatePreview; // byte array
+            }
+
+            // authentication (api-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
+            {
+                localVarHeaderParams["api-key"] = this.Configuration.GetApiKeyWithPrefix("api-key");
+            }
+            // authentication (partner-key) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("partner-key")))
+            {
+                localVarHeaderParams["partner-key"] = this.Configuration.GetApiKeyWithPrefix("partner-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PostPreviewSmtpEmailTemplates", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TemplatePreview>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (TemplatePreview) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TemplatePreview)));
         }
 
         /// <summary>

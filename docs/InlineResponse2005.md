@@ -3,9 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | The id of the collection | 
-**Name** | **string** | The name of the collection | 
-**DefaultCoupon** | **string** | The default coupon of the collection | 
+**Code** | **string** | ISO 4217 compliant display currency code | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

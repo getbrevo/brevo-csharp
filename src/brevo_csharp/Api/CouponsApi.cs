@@ -1,7 +1,7 @@
 /* 
  * Brevo API
  *
- * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
+ * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  |   | 422  | Error. Unprocessable Entity | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@brevo.com
@@ -97,8 +97,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results by creation time in ascending/descending order (optional, default to desc)</param>
+        /// <param name="sortBy">The field used to sort coupon collections (optional, default to createdAt)</param>
         /// <returns>GetCouponCollection</returns>
-        GetCouponCollection GetCouponCollections (long? limit = null, long? offset = null, string sort = null);
+        GetCouponCollection GetCouponCollections (long? limit = null, long? offset = null, string sort = null, string sortBy = null);
 
         /// <summary>
         /// Get all your coupon collections
@@ -110,8 +111,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results by creation time in ascending/descending order (optional, default to desc)</param>
+        /// <param name="sortBy">The field used to sort coupon collections (optional, default to createdAt)</param>
         /// <returns>ApiResponse of GetCouponCollection</returns>
-        ApiResponse<GetCouponCollection> GetCouponCollectionsWithHttpInfo (long? limit = null, long? offset = null, string sort = null);
+        ApiResponse<GetCouponCollection> GetCouponCollectionsWithHttpInfo (long? limit = null, long? offset = null, string sort = null, string sortBy = null);
         /// <summary>
         /// Update a coupon collection by id
         /// </summary>
@@ -120,9 +122,9 @@ namespace brevo_csharp.Api
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to update</param>
-        /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>InlineResponse2005</returns>
-        InlineResponse2005 UpdateCouponCollection (string id, UpdateCouponCollection updateCouponCollection);
+        /// <param name="updateCouponCollection">Values to update the coupon collection (optional)</param>
+        /// <returns>InlineResponse2009</returns>
+        InlineResponse2009 UpdateCouponCollection (string id, UpdateCouponCollection updateCouponCollection = null);
 
         /// <summary>
         /// Update a coupon collection by id
@@ -132,9 +134,9 @@ namespace brevo_csharp.Api
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to update</param>
-        /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        ApiResponse<InlineResponse2005> UpdateCouponCollectionWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection);
+        /// <param name="updateCouponCollection">Values to update the coupon collection (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2009</returns>
+        ApiResponse<InlineResponse2009> UpdateCouponCollectionWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -210,8 +212,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results by creation time in ascending/descending order (optional, default to desc)</param>
+        /// <param name="sortBy">The field used to sort coupon collections (optional, default to createdAt)</param>
         /// <returns>Task of GetCouponCollection</returns>
-        System.Threading.Tasks.Task<GetCouponCollection> GetCouponCollectionsAsync (long? limit = null, long? offset = null, string sort = null);
+        System.Threading.Tasks.Task<GetCouponCollection> GetCouponCollectionsAsync (long? limit = null, long? offset = null, string sort = null, string sortBy = null);
 
         /// <summary>
         /// Get all your coupon collections
@@ -223,8 +226,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results by creation time in ascending/descending order (optional, default to desc)</param>
+        /// <param name="sortBy">The field used to sort coupon collections (optional, default to createdAt)</param>
         /// <returns>Task of ApiResponse (GetCouponCollection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetCouponCollection>> GetCouponCollectionsAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null);
+        System.Threading.Tasks.Task<ApiResponse<GetCouponCollection>> GetCouponCollectionsAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null, string sortBy = null);
         /// <summary>
         /// Update a coupon collection by id
         /// </summary>
@@ -233,9 +237,9 @@ namespace brevo_csharp.Api
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to update</param>
-        /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        System.Threading.Tasks.Task<InlineResponse2005> UpdateCouponCollectionAsync (string id, UpdateCouponCollection updateCouponCollection);
+        /// <param name="updateCouponCollection">Values to update the coupon collection (optional)</param>
+        /// <returns>Task of InlineResponse2009</returns>
+        System.Threading.Tasks.Task<InlineResponse2009> UpdateCouponCollectionAsync (string id, UpdateCouponCollection updateCouponCollection = null);
 
         /// <summary>
         /// Update a coupon collection by id
@@ -245,9 +249,9 @@ namespace brevo_csharp.Api
         /// </remarks>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to update</param>
-        /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> UpdateCouponCollectionAsyncWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection);
+        /// <param name="updateCouponCollection">Values to update the coupon collection (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> UpdateCouponCollectionAsyncWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection = null);
         #endregion Asynchronous Operations
     }
 
@@ -846,10 +850,11 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results by creation time in ascending/descending order (optional, default to desc)</param>
+        /// <param name="sortBy">The field used to sort coupon collections (optional, default to createdAt)</param>
         /// <returns>GetCouponCollection</returns>
-        public GetCouponCollection GetCouponCollections (long? limit = null, long? offset = null, string sort = null)
+        public GetCouponCollection GetCouponCollections (long? limit = null, long? offset = null, string sort = null, string sortBy = null)
         {
-             ApiResponse<GetCouponCollection> localVarResponse = GetCouponCollectionsWithHttpInfo(limit, offset, sort);
+             ApiResponse<GetCouponCollection> localVarResponse = GetCouponCollectionsWithHttpInfo(limit, offset, sort, sortBy);
              return localVarResponse.Data;
         }
 
@@ -860,8 +865,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results by creation time in ascending/descending order (optional, default to desc)</param>
+        /// <param name="sortBy">The field used to sort coupon collections (optional, default to createdAt)</param>
         /// <returns>ApiResponse of GetCouponCollection</returns>
-        public ApiResponse< GetCouponCollection > GetCouponCollectionsWithHttpInfo (long? limit = null, long? offset = null, string sort = null)
+        public ApiResponse< GetCouponCollection > GetCouponCollectionsWithHttpInfo (long? limit = null, long? offset = null, string sort = null, string sortBy = null)
         {
 
             var localVarPath = "./couponCollections";
@@ -889,6 +895,7 @@ namespace brevo_csharp.Api
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sortBy", sortBy)); // query parameter
 
             // authentication (api-key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
@@ -926,10 +933,11 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results by creation time in ascending/descending order (optional, default to desc)</param>
+        /// <param name="sortBy">The field used to sort coupon collections (optional, default to createdAt)</param>
         /// <returns>Task of GetCouponCollection</returns>
-        public async System.Threading.Tasks.Task<GetCouponCollection> GetCouponCollectionsAsync (long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<GetCouponCollection> GetCouponCollectionsAsync (long? limit = null, long? offset = null, string sort = null, string sortBy = null)
         {
-             ApiResponse<GetCouponCollection> localVarResponse = await GetCouponCollectionsAsyncWithHttpInfo(limit, offset, sort);
+             ApiResponse<GetCouponCollection> localVarResponse = await GetCouponCollectionsAsyncWithHttpInfo(limit, offset, sort, sortBy);
              return localVarResponse.Data;
 
         }
@@ -941,8 +949,9 @@ namespace brevo_csharp.Api
         /// <param name="limit">Number of documents returned per page (optional, default to 50)</param>
         /// <param name="offset">Index of the first document on the page (optional, default to 0)</param>
         /// <param name="sort">Sort the results by creation time in ascending/descending order (optional, default to desc)</param>
+        /// <param name="sortBy">The field used to sort coupon collections (optional, default to createdAt)</param>
         /// <returns>Task of ApiResponse (GetCouponCollection)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetCouponCollection>> GetCouponCollectionsAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetCouponCollection>> GetCouponCollectionsAsyncWithHttpInfo (long? limit = null, long? offset = null, string sort = null, string sortBy = null)
         {
 
             var localVarPath = "./couponCollections";
@@ -970,6 +979,7 @@ namespace brevo_csharp.Api
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sortBy", sortBy)); // query parameter
 
             // authentication (api-key) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("api-key")))
@@ -1005,11 +1015,11 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to update</param>
-        /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>InlineResponse2005</returns>
-        public InlineResponse2005 UpdateCouponCollection (string id, UpdateCouponCollection updateCouponCollection)
+        /// <param name="updateCouponCollection">Values to update the coupon collection (optional)</param>
+        /// <returns>InlineResponse2009</returns>
+        public InlineResponse2009 UpdateCouponCollection (string id, UpdateCouponCollection updateCouponCollection = null)
         {
-             ApiResponse<InlineResponse2005> localVarResponse = UpdateCouponCollectionWithHttpInfo(id, updateCouponCollection);
+             ApiResponse<InlineResponse2009> localVarResponse = UpdateCouponCollectionWithHttpInfo(id, updateCouponCollection);
              return localVarResponse.Data;
         }
 
@@ -1018,16 +1028,13 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to update</param>
-        /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        public ApiResponse< InlineResponse2005 > UpdateCouponCollectionWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection)
+        /// <param name="updateCouponCollection">Values to update the coupon collection (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2009</returns>
+        public ApiResponse< InlineResponse2009 > UpdateCouponCollectionWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling CouponsApi->UpdateCouponCollection");
-            // verify the required parameter 'updateCouponCollection' is set
-            if (updateCouponCollection == null)
-                throw new ApiException(400, "Missing required parameter 'updateCouponCollection' when calling CouponsApi->UpdateCouponCollection");
 
             var localVarPath = "./couponCollections/{id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1085,9 +1092,9 @@ namespace brevo_csharp.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2009>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
-                (InlineResponse2005) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005)));
+                (InlineResponse2009) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2009)));
         }
 
         /// <summary>
@@ -1095,11 +1102,11 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to update</param>
-        /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> UpdateCouponCollectionAsync (string id, UpdateCouponCollection updateCouponCollection)
+        /// <param name="updateCouponCollection">Values to update the coupon collection (optional)</param>
+        /// <returns>Task of InlineResponse2009</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2009> UpdateCouponCollectionAsync (string id, UpdateCouponCollection updateCouponCollection = null)
         {
-             ApiResponse<InlineResponse2005> localVarResponse = await UpdateCouponCollectionAsyncWithHttpInfo(id, updateCouponCollection);
+             ApiResponse<InlineResponse2009> localVarResponse = await UpdateCouponCollectionAsyncWithHttpInfo(id, updateCouponCollection);
              return localVarResponse.Data;
 
         }
@@ -1109,16 +1116,13 @@ namespace brevo_csharp.Api
         /// </summary>
         /// <exception cref="brevo_csharp.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the collection to update</param>
-        /// <param name="updateCouponCollection">Values to update the coupon collection</param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> UpdateCouponCollectionAsyncWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection)
+        /// <param name="updateCouponCollection">Values to update the coupon collection (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> UpdateCouponCollectionAsyncWithHttpInfo (string id, UpdateCouponCollection updateCouponCollection = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling CouponsApi->UpdateCouponCollection");
-            // verify the required parameter 'updateCouponCollection' is set
-            if (updateCouponCollection == null)
-                throw new ApiException(400, "Missing required parameter 'updateCouponCollection' when calling CouponsApi->UpdateCouponCollection");
 
             var localVarPath = "./couponCollections/{id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1176,9 +1180,9 @@ namespace brevo_csharp.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2009>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
-                (InlineResponse2005) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005)));
+                (InlineResponse2009) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2009)));
         }
 
     }

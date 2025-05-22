@@ -861,7 +861,7 @@ This endpoint does not need any parameter.
 
 <a name="getcontactinfo"></a>
 # **GetContactInfo**
-> GetExtendedContactDetails GetContactInfo (string identifier, Object identifierType = null, string startDate = null, string endDate = null)
+> GetExtendedContactDetails GetContactInfo (string identifier, string identifierType = null, string startDate = null, string endDate = null)
 
 Get a contact's details
 
@@ -892,7 +892,7 @@ namespace Example
 
             var apiInstance = new ContactsApi();
             var identifier = identifier_example;  // string | Email (urlencoded) OR ID of the contact OR its SMS attribute value OR EXT_ID attribute (urlencoded)
-            var identifierType = new Object(); // Object | email_id for Email, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional) 
+            var identifierType = identifierType_example;  // string | email_id for Email, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute (optional) 
             var startDate = startDate_example;  // string | **Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional) 
             var endDate = endDate_example;  // string | **Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional) 
 
@@ -916,7 +916,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifier** | **string**| Email (urlencoded) OR ID of the contact OR its SMS attribute value OR EXT_ID attribute (urlencoded) | 
- **identifierType** | [**Object**](Object.md)| email_id for Email, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute | [optional] 
+ **identifierType** | **string**| email_id for Email, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute | [optional] 
  **startDate** | **string**| **Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  | [optional] 
  **endDate** | **string**| **Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  | [optional] 
 
@@ -1009,7 +1009,7 @@ Name | Type | Description  | Notes
 
 <a name="getcontacts"></a>
 # **GetContacts**
-> GetContacts GetContacts (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, Object filter = null)
+> GetContacts GetContacts (long? limit = null, long? offset = null, string modifiedSince = null, string createdSince = null, string sort = null, long? segmentId = null, List<long?> listIds = null, string filter = null)
 
 Get all the contacts
 
@@ -1044,7 +1044,7 @@ namespace Example
             var sort = sort_example;  // string | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed (optional)  (default to desc)
             var segmentId = 789;  // long? | Id of the segment. **Either listIds or segmentId can be passed.** (optional) 
             var listIds = new List<long?>(); // List<long?> | Ids of the list. **Either listIds or segmentId can be passed.** (optional) 
-            var filter = new Object(); // Object | Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter=equals(FIRSTNAME,\"Antoine\"), filter=equals(B1, true), filter=equals(DOB, \"1989-11-23\"), filter=equals(GENDER, \"1\"), filter=equals(GENDER, \"MALE\"), filter=equals(COUNTRY,\"USA, INDIA\")**  (optional) 
+            var filter = filter_example;  // string | Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter=equals(FIRSTNAME,\"Antoine\"), filter=equals(B1, true), filter=equals(DOB, \"1989-11-23\"), filter=equals(GENDER, \"1\"), filter=equals(GENDER, \"MALE\"), filter=equals(COUNTRY,\"USA, INDIA\")**  (optional) 
 
             try
             {
@@ -1072,7 +1072,7 @@ Name | Type | Description  | Notes
  **sort** | **string**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc]
  **segmentId** | **long?**| Id of the segment. **Either listIds or segmentId can be passed.** | [optional] 
  **listIds** | [**List&lt;long?&gt;**](long?.md)| Ids of the list. **Either listIds or segmentId can be passed.** | [optional] 
- **filter** | [**Object**](Object.md)| Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,&quot;Antoine&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, &quot;1989-11-23&quot;), filter&#x3D;equals(GENDER, &quot;1&quot;), filter&#x3D;equals(GENDER, &quot;MALE&quot;), filter&#x3D;equals(COUNTRY,&quot;USA, INDIA&quot;)**  | [optional] 
+ **filter** | **string**| Filter the contacts on the basis of attributes. **Allowed operator: equals. For multiple-choice options, the filter will apply an AND condition between the options. For category attributes, the filter will work with both id and value. (e.g. filter&#x3D;equals(FIRSTNAME,&quot;Antoine&quot;), filter&#x3D;equals(B1, true), filter&#x3D;equals(DOB, &quot;1989-11-23&quot;), filter&#x3D;equals(GENDER, &quot;1&quot;), filter&#x3D;equals(GENDER, &quot;MALE&quot;), filter&#x3D;equals(COUNTRY,&quot;USA, INDIA&quot;)**  | [optional] 
 
 ### Return type
 
@@ -1945,7 +1945,7 @@ void (empty response body)
 
 <a name="updatecontact"></a>
 # **UpdateContact**
-> void UpdateContact (string identifier, UpdateContact updateContact, Object identifierType = null)
+> void UpdateContact (string identifier, UpdateContact updateContact, string identifierType = null)
 
 Update a contact
 
@@ -1977,7 +1977,7 @@ namespace Example
             var apiInstance = new ContactsApi();
             var identifier = identifier_example;  // string | Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded) OR its SMS attribute value OR its WHATSAPP attribute value OR its LANDLINE attribute value
             var updateContact = new UpdateContact(); // UpdateContact | Values to update a contact
-            var identifierType = new Object(); // Object | email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional) 
+            var identifierType = identifierType_example;  // string | email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute (optional) 
 
             try
             {
@@ -1999,7 +1999,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifier** | **string**| Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded) OR its SMS attribute value OR its WHATSAPP attribute value OR its LANDLINE attribute value | 
  **updateContact** | [**UpdateContact**](UpdateContact.md)| Values to update a contact | 
- **identifierType** | [**Object**](Object.md)| email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute | [optional] 
+ **identifierType** | **string**| email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute | [optional] 
 
 ### Return type
 

@@ -1,7 +1,7 @@
 /* 
  * Brevo API
  *
- * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
+ * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  |   | 422  | Error. Unprocessable Entity | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@brevo.com
@@ -67,11 +67,11 @@ namespace brevo_csharp.Model
         /// <param name="recipient">Mobile number to send SMS with the country code (required).</param>
         /// <param name="content">Content of the message. If more than 160 characters long, will be sent as multiple text messages (required).</param>
         /// <param name="type">Type of the SMS. Marketing SMS messages are those sent typically with marketing content. Transactional SMS messages are sent to individuals and are triggered in response to some action, such as a sign-up, purchase, etc. (default to TypeEnum.Transactional).</param>
-        /// <param name="tag">Tag of the message.</param>
+        /// <param name="tag">tag.</param>
         /// <param name="webUrl">Webhook to call for each event triggered by the message (delivered etc.).</param>
         /// <param name="unicodeEnabled">Format of the message. It indicates whether the content should be treated as unicode or not. (default to false).</param>
         /// <param name="organisationPrefix">A recognizable prefix will ensure your audience knows who you are. Recommended by U.S. carriers. This will be added as your Brand Name before the message content. **Prefer verifying maximum length of 160 characters including this prefix in message content to avoid multiple sending of same sms.**.</param>
-        public SendTransacSms(string sender = default(string), string recipient = default(string), string content = default(string), TypeEnum? type = TypeEnum.Transactional, string tag = default(string), string webUrl = default(string), bool? unicodeEnabled = false, string organisationPrefix = default(string))
+        public SendTransacSms(string sender = default(string), string recipient = default(string), string content = default(string), TypeEnum? type = TypeEnum.Transactional, SendTransacSmsTag tag = default(SendTransacSmsTag), string webUrl = default(string), bool? unicodeEnabled = false, string organisationPrefix = default(string))
         {
             // to ensure "sender" is required (not null)
             if (sender == null)
@@ -146,11 +146,10 @@ namespace brevo_csharp.Model
 
 
         /// <summary>
-        /// Tag of the message
+        /// Gets or Sets Tag
         /// </summary>
-        /// <value>Tag of the message</value>
         [DataMember(Name="tag", EmitDefaultValue=false)]
-        public string Tag { get; set; }
+        public SendTransacSmsTag Tag { get; set; }
 
         /// <summary>
         /// Webhook to call for each event triggered by the message (delivered etc.)

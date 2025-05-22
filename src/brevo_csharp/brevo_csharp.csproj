@@ -14,7 +14,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <RootNamespace>brevo_csharp</RootNamespace>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <PackageLicenseUrl>https://github.com/getbrevo/brevo-csharp/blob/master/LICENSE.txt</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/getbrevo/brevo-csharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/getbrevo/brevo-csharp</RepositoryUrl>

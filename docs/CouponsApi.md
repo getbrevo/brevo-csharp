@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 <a name="getcouponcollections"></a>
 # **GetCouponCollections**
-> GetCouponCollection GetCouponCollections (long? limit = null, long? offset = null, string sort = null)
+> GetCouponCollection GetCouponCollections (long? limit = null, long? offset = null, string sort = null, string sortBy = null)
 
 Get all your coupon collections
 
@@ -247,11 +247,12 @@ namespace Example
             var limit = 789;  // long? | Number of documents returned per page (optional)  (default to 50)
             var offset = 789;  // long? | Index of the first document on the page (optional)  (default to 0)
             var sort = sort_example;  // string | Sort the results by creation time in ascending/descending order (optional)  (default to desc)
+            var sortBy = sortBy_example;  // string | The field used to sort coupon collections (optional)  (default to createdAt)
 
             try
             {
                 // Get all your coupon collections
-                GetCouponCollection result = apiInstance.GetCouponCollections(limit, offset, sort);
+                GetCouponCollection result = apiInstance.GetCouponCollections(limit, offset, sort, sortBy);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -270,6 +271,7 @@ Name | Type | Description  | Notes
  **limit** | **long?**| Number of documents returned per page | [optional] [default to 50]
  **offset** | **long?**| Index of the first document on the page | [optional] [default to 0]
  **sort** | **string**| Sort the results by creation time in ascending/descending order | [optional] [default to desc]
+ **sortBy** | **string**| The field used to sort coupon collections | [optional] [default to createdAt]
 
 ### Return type
 
@@ -288,7 +290,7 @@ Name | Type | Description  | Notes
 
 <a name="updatecouponcollection"></a>
 # **UpdateCouponCollection**
-> InlineResponse2005 UpdateCouponCollection (string id, UpdateCouponCollection updateCouponCollection)
+> InlineResponse2009 UpdateCouponCollection (string id, UpdateCouponCollection updateCouponCollection = null)
 
 Update a coupon collection by id
 
@@ -317,12 +319,12 @@ namespace Example
 
             var apiInstance = new CouponsApi();
             var id = id_example;  // string | Id of the collection to update
-            var updateCouponCollection = new UpdateCouponCollection(); // UpdateCouponCollection | Values to update the coupon collection
+            var updateCouponCollection = new UpdateCouponCollection(); // UpdateCouponCollection | Values to update the coupon collection (optional) 
 
             try
             {
                 // Update a coupon collection by id
-                InlineResponse2005 result = apiInstance.UpdateCouponCollection(id, updateCouponCollection);
+                InlineResponse2009 result = apiInstance.UpdateCouponCollection(id, updateCouponCollection);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -339,11 +341,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Id of the collection to update | 
- **updateCouponCollection** | [**UpdateCouponCollection**](UpdateCouponCollection.md)| Values to update the coupon collection | 
+ **updateCouponCollection** | [**UpdateCouponCollection**](UpdateCouponCollection.md)| Values to update the coupon collection | [optional] 
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 

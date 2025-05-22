@@ -1,7 +1,7 @@
 /* 
  * Brevo API
  *
- * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
+ * Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo  **Possible responses**   | Code | Message |   | :- -- -- -- -- -- --: | - -- -- -- -- -- -- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  |   | 422  | Error. Unprocessable Entity | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@brevo.com
@@ -34,11 +34,13 @@ namespace brevo_csharp.Model
         /// <param name="exclusionListIds">List ids to exclude from the campaign.</param>
         /// <param name="listIds">Mandatory if scheduledAt is not empty. List Ids to send the campaign to.</param>
         /// <param name="segmentIds">Mandatory if listIds are not used. Segment ids to send the campaign to..</param>
-        public CreateEmailCampaignRecipients(List<long?> exclusionListIds = default(List<long?>), List<long?> listIds = default(List<long?>), List<long?> segmentIds = default(List<long?>))
+        /// <param name="exclusionSegmentIds">Segment ids which have to be excluded from a campaign. .</param>
+        public CreateEmailCampaignRecipients(List<long?> exclusionListIds = default(List<long?>), List<long?> listIds = default(List<long?>), List<long?> segmentIds = default(List<long?>), List<long?> exclusionSegmentIds = default(List<long?>))
         {
             this.ExclusionListIds = exclusionListIds;
             this.ListIds = listIds;
             this.SegmentIds = segmentIds;
+            this.ExclusionSegmentIds = exclusionSegmentIds;
         }
         
         /// <summary>
@@ -63,6 +65,13 @@ namespace brevo_csharp.Model
         public List<long?> SegmentIds { get; set; }
 
         /// <summary>
+        /// Segment ids which have to be excluded from a campaign. 
+        /// </summary>
+        /// <value>Segment ids which have to be excluded from a campaign. </value>
+        [DataMember(Name="exclusionSegmentIds", EmitDefaultValue=false)]
+        public List<long?> ExclusionSegmentIds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +82,7 @@ namespace brevo_csharp.Model
             sb.Append("  ExclusionListIds: ").Append(ExclusionListIds).Append("\n");
             sb.Append("  ListIds: ").Append(ListIds).Append("\n");
             sb.Append("  SegmentIds: ").Append(SegmentIds).Append("\n");
+            sb.Append("  ExclusionSegmentIds: ").Append(ExclusionSegmentIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,6 +131,11 @@ namespace brevo_csharp.Model
                     this.SegmentIds == input.SegmentIds ||
                     this.SegmentIds != null &&
                     this.SegmentIds.SequenceEqual(input.SegmentIds)
+                ) && 
+                (
+                    this.ExclusionSegmentIds == input.ExclusionSegmentIds ||
+                    this.ExclusionSegmentIds != null &&
+                    this.ExclusionSegmentIds.SequenceEqual(input.ExclusionSegmentIds)
                 );
         }
 
@@ -139,6 +154,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.ListIds.GetHashCode();
                 if (this.SegmentIds != null)
                     hashCode = hashCode * 59 + this.SegmentIds.GetHashCode();
+                if (this.ExclusionSegmentIds != null)
+                    hashCode = hashCode * 59 + this.ExclusionSegmentIds.GetHashCode();
                 return hashCode;
             }
         }

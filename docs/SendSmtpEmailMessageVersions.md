@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **Cc** | [**List&lt;SendSmtpEmailCc&gt;**](SendSmtpEmailCc.md) | List of email addresses and names (optional) of the recipients in cc | [optional] 
 **ReplyTo** | [**SendSmtpEmailReplyTo1**](SendSmtpEmailReplyTo1.md) |  | [optional] 
 **Subject** | **string** | Custom subject specific to message version  | [optional] 
+**HtmlContent** | **string** | HTML body of the message. **Mandatory if &#39;templateId&#39; is not passed, ignored if &#39;templateId&#39; is passed**  | [optional] 
+**TextContent** | **string** | Plain Text body of the message. **Ignored if &#39;templateId&#39; is passed**  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
