@@ -109,7 +109,19 @@ namespace brevo_csharp.Model
             /// Enum Boolean for value: boolean
             /// </summary>
             [EnumMember(Value = "boolean")]
-            Boolean = 5
+            Boolean = 5,
+            
+            /// <summary>
+            /// Enum MultipleChoice for value: multiple-choice
+            /// </summary>
+            [EnumMember(Value = "multiple-choice")]
+            MultipleChoice = 6,
+            
+            /// <summary>
+            /// Enum User for value: user
+            /// </summary>
+            [EnumMember(Value = "user")]
+            User = 7
         }
 
         /// <summary>
@@ -131,7 +143,8 @@ namespace brevo_csharp.Model
         /// <param name="type">Type of the attribute.</param>
         /// <param name="enumeration">Parameter only available for \&quot;category\&quot; type attributes..</param>
         /// <param name="calculatedValue">Calculated value formula.</param>
-        public GetAttributesAttributes(string name = default(string), CategoryEnum category = default(CategoryEnum), TypeEnum? type = default(TypeEnum?), List<GetAttributesEnumeration> enumeration = default(List<GetAttributesEnumeration>), string calculatedValue = default(string))
+        /// <param name="multiCategoryOptions">Parameter only available for \&quot;multiple-choice\&quot; type attributes..</param>
+        public GetAttributesAttributes(string name = default(string), CategoryEnum category = default(CategoryEnum), TypeEnum? type = default(TypeEnum?), List<GetAttributesEnumeration> enumeration = default(List<GetAttributesEnumeration>), string calculatedValue = default(string), List<string> multiCategoryOptions = default(List<string>))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -154,6 +167,7 @@ namespace brevo_csharp.Model
             this.Type = type;
             this.Enumeration = enumeration;
             this.CalculatedValue = calculatedValue;
+            this.MultiCategoryOptions = multiCategoryOptions;
         }
         
         /// <summary>
@@ -180,6 +194,13 @@ namespace brevo_csharp.Model
         public string CalculatedValue { get; set; }
 
         /// <summary>
+        /// Parameter only available for \&quot;multiple-choice\&quot; type attributes.
+        /// </summary>
+        /// <value>Parameter only available for \&quot;multiple-choice\&quot; type attributes.</value>
+        [DataMember(Name="multiCategoryOptions", EmitDefaultValue=false)]
+        public List<string> MultiCategoryOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -192,6 +213,7 @@ namespace brevo_csharp.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Enumeration: ").Append(Enumeration).Append("\n");
             sb.Append("  CalculatedValue: ").Append(CalculatedValue).Append("\n");
+            sb.Append("  MultiCategoryOptions: ").Append(MultiCategoryOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -250,6 +272,11 @@ namespace brevo_csharp.Model
                     this.CalculatedValue == input.CalculatedValue ||
                     (this.CalculatedValue != null &&
                     this.CalculatedValue.Equals(input.CalculatedValue))
+                ) && 
+                (
+                    this.MultiCategoryOptions == input.MultiCategoryOptions ||
+                    this.MultiCategoryOptions != null &&
+                    this.MultiCategoryOptions.SequenceEqual(input.MultiCategoryOptions)
                 );
         }
 
@@ -272,6 +299,8 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.Enumeration.GetHashCode();
                 if (this.CalculatedValue != null)
                     hashCode = hashCode * 59 + this.CalculatedValue.GetHashCode();
+                if (this.MultiCategoryOptions != null)
+                    hashCode = hashCode * 59 + this.MultiCategoryOptions.GetHashCode();
                 return hashCode;
             }
         }
