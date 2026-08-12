@@ -38,8 +38,7 @@ namespace brevo_csharp.Model
         /// </summary>
         /// <param name="email">Email address of the recipient (required).</param>
         /// <param name="name">Name of the recipient. **Maximum allowed characters are 70**..</param>
-        /// <param name="contactPixelTrackingConsent">Consent of the recipient for open (pixel) and click tracking, resolved by the sender at send time. Considered only if the per-contact pixel tracking consent feature is enabled for your account. Pass `true` if this recipient has consented to open and click tracking, in which case the open pixel and tracked links identify the recipient. Pass `false` to anonymise the open and click events (counted in aggregate statistics only). If it is not passed, the recipient is treated as unknown consent status and the email is still sent (the open and click are anonymised unless your account tracks unknown-consent contacts). A value other than `true`/`false` is rejected. Ignored when the feature is not enabled for your account..</param>
-        public SendSmtpEmailTo1(string email = default(string), string name = default(string), bool? contactPixelTrackingConsent = default(bool?))
+        public SendSmtpEmailTo1(string email = default(string), string name = default(string))
         {
             // to ensure "email" is required (not null)
             if (email == null)
@@ -51,7 +50,6 @@ namespace brevo_csharp.Model
                 this.Email = email;
             }
             this.Name = name;
-            this.ContactPixelTrackingConsent = contactPixelTrackingConsent;
         }
         
         /// <summary>
@@ -69,13 +67,6 @@ namespace brevo_csharp.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Consent of the recipient for open (pixel) and click tracking, resolved by the sender at send time. Considered only if the per-contact pixel tracking consent feature is enabled for your account. Pass `true` if this recipient has consented to open and click tracking, in which case the open pixel and tracked links identify the recipient. Pass `false` to anonymise the open and click events (counted in aggregate statistics only). If it is not passed, the recipient is treated as unknown consent status and the email is still sent (the open and click are anonymised unless your account tracks unknown-consent contacts). A value other than `true`/`false` is rejected. Ignored when the feature is not enabled for your account.
-        /// </summary>
-        /// <value>Consent of the recipient for open (pixel) and click tracking, resolved by the sender at send time. Considered only if the per-contact pixel tracking consent feature is enabled for your account. Pass `true` if this recipient has consented to open and click tracking, in which case the open pixel and tracked links identify the recipient. Pass `false` to anonymise the open and click events (counted in aggregate statistics only). If it is not passed, the recipient is treated as unknown consent status and the email is still sent (the open and click are anonymised unless your account tracks unknown-consent contacts). A value other than `true`/`false` is rejected. Ignored when the feature is not enabled for your account.</value>
-        [DataMember(Name="contactPixelTrackingConsent", EmitDefaultValue=false)]
-        public bool? ContactPixelTrackingConsent { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,7 +76,6 @@ namespace brevo_csharp.Model
             sb.Append("class SendSmtpEmailTo1 {\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  ContactPixelTrackingConsent: ").Append(ContactPixelTrackingConsent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -129,11 +119,6 @@ namespace brevo_csharp.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) &&
-                (
-                    this.ContactPixelTrackingConsent == input.ContactPixelTrackingConsent ||
-                    (this.ContactPixelTrackingConsent != null &&
-                    this.ContactPixelTrackingConsent.Equals(input.ContactPixelTrackingConsent))
                 );
         }
 
@@ -150,8 +135,6 @@ namespace brevo_csharp.Model
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.ContactPixelTrackingConsent != null)
-                    hashCode = hashCode * 59 + this.ContactPixelTrackingConsent.GetHashCode();
                 return hashCode;
             }
         }
